@@ -1,0 +1,22 @@
+---
+	import data from '../data/meta.json'
+
+	import Layout from '../layouts/Layout.astro';
+
+	import Home from '../components/Home/index.astro'
+	import About from '../components/About/index.astro'
+	import Skills from '../components/Skills/index.astro'
+	import Work from '../components/Work/index.astro'
+	import Contact from '../components/Contact/index.astro'
+
+---
+
+<Layout lang="en" title={data.title} description={data.description}>
+	<main class="main">
+		<Home />
+		<About />
+		<Skills />
+		<Work />
+		<Contact />
+	</main>
+</Layout>

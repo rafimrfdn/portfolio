@@ -1,0 +1,38 @@
+---
+import data from '../../data/meta.json'
+
+import Layout from '../../layouts/blog.astro';
+
+import PostPreview from '../../components/PostPreview/index.astro';
+import authorData from '../../data/authors.json';
+
+export async function getStaticPaths() {
+  const allPosts = await Astro.glob('../post/*.md');
+  let allAuthorsUnique = [...new Set(allPosts.map((p) => p.frontmatter.author))];
+  return allAuthorsUnique.map((tag) => ({ params: { tag }, props: { allPosts } }));
+}
+
+const { allPosts } = Astro.props;
+
+/** filter posts by author, sort by date */
+const posts = allPosts.filter((post) => post.frontmatter.author === Astro.params.tag).sort((a, b) => new Date(b.frontmatter.date).valueOf() - new Date(a.frontmatter.date).valueOf());
+const author = authorData[posts[0].frontmatter.author];
+---
+
+<Layout lang="en" title={data.title} description={data.description}>
+  <main class="main wrapper container author__container">
+    <div class="author__box">
+      <div class="author__imgbox">
+        <img loading="lazy" class="author__img" src={author.image} alt="" />
+      </div>
+      <h2 class="author__name">{author.name}</h2>
+    </div>
+    <section class="author__posts">
+      {posts.map((post: any) =>(
+      <>
+        <PostPreview post={post} author={author} />
+      </>
+      ))}
+    </section>
+  </main>
+</Layout>

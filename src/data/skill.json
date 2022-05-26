@@ -1,0 +1,122 @@
+[
+  {
+    "category": "Frontend Developer",
+    "categoryIcon": "bxs-layout",
+    "skillGroup": [
+      [
+        {
+          "skillName": "HTML5",
+          "skillLevel": "Advanced",
+          "skillIcon": "html5-plain"
+        },
+        {
+          "skillName": "CSS",
+          "skillLevel": "Advanced",
+          "skillIcon": "css3-plain"
+        },
+        {
+          "skillName": "JavaScript",
+          "skillLevel": "Intermediate",
+          "skillIcon": "javascript-plain"
+        }
+      ],
+      [
+        {
+          "skillName": "ReactJS",
+          "skillLevel": "Intermediate",
+          "skillIcon": "react-original"
+        },
+        {
+          "skillName": "NextJS",
+          "skillLevel": "Intermediate",
+          "skillIcon": "nextjs-original"
+        }
+      ]
+    ]
+  },
+  {
+    "category": "Backend Developer",
+    "categoryIcon": "bxs-server",
+    "skillGroup": [
+      [
+        {
+          "skillName": "Spring Framework",
+          "skillLevel": "Intermediate",
+          "skillIcon": "spring-plain"
+        },
+        {
+          "skillName": "NodeJS",
+          "skillLevel": "Intermediate",
+          "skillIcon": "nodejs-plain"
+        }
+      ],
+      [
+        {
+          "skillName": "AWS",
+          "skillLevel": "Intermediate",
+          "skillIcon": "amazonwebservices-original"
+        },
+        {
+          "skillName": "PHP",
+          "skillLevel": "Basic",
+          "skillIcon": "php-plain"
+        }
+      ]
+    ]
+  },
+  {
+    "category": "DataBase",
+    "categoryIcon": "bxs-data",
+    "skillGroup": [
+      [
+        {
+          "skillName": "PostgreSQL",
+          "skillLevel": "Intermediate",
+          "skillIcon": "postgresql-plain"
+        },
+        {
+          "skillName": "MongoDB",
+          "skillLevel": "Intermediate",
+          "skillIcon": "mongodb-plain"
+        }
+      ],
+      [
+        {
+          "skillName": "MySQL",
+          "skillLevel": "Basic",
+          "skillIcon": "mysql-plain"
+        }
+      ]
+    ]
+  },
+  {
+    "category": "Tools",
+    "categoryIcon": "bx-slider",
+    "skillGroup": [
+      [
+        {
+          "skillName": "Linux",
+          "skillLevel": "I use Arch BTW",
+          "skillIcon": "linux-plain"
+        },
+        {
+          "skillName": "Git",
+          "skillLevel": "Advanced",
+          "skillIcon": "git-plain"
+        }
+      ],
+      [
+        {
+          "skillName": "Intellij",
+          "skillLevel": "Intermediate",
+          "skillIcon": "intellij-plain"
+        },
+        {
+          "skillName": "VS Code",
+          "skillLevel": "Intermediate",
+          "skillIcon": "vscode-plain"
+        }
+      ]
+    ]
+  }
+]

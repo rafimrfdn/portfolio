@@ -1,0 +1,53 @@
+---
+import PortfolioData from '../../data/portfolio.json'
+---
+
+<!--=============== WORK ===============-->
+<section class="work section" id="work">
+  <span class="section__subtitle">Recent Works</span>
+  <h2 class="section__title">My Portfolio</h2>
+
+  <div class="work__filters">
+    <span class="work__item active-work" data-filter="all">All</span>
+    <span class="work__item" data-filter=".frontend">Frontend</span>
+    <span class="work__item" data-filter=".backend">Backend</span>
+    <span class="work__item" data-filter=".android">Android</span>
+    <span class="work__item" data-filter=".desktop">Desktop</span>
+  </div>
+
+  <div class="work__container container">
+
+    {PortfolioData.map((result, index) => (
+    <>
+      <div class={`work__card mix ${result.type}`} {index}>
+
+        <img loading="lazy" class="work__img" src={result.src} alt={`${result.headline}\r\n${result.direction}`} />
+        <h3 class="work__title">{result.headline}</h3>
+        <p class="work__direction"><span>Direction:</span> {result.direction}</p>
+
+        <div class="work__tags">
+          <span>Tages:</span>
+          {result.tags.map((tag, idx) => (
+          <>
+            <div {idx} class="work__tag">
+              <i class={`devicon-${tag.icon}`}></i>
+              {tag.name}
+            </div>
+          </>
+          ))}
+        </div>
+
+        <div class="work__buttons">
+          {result.links.map((link, idx) => (
+          <>
+            <a href={link.url} class="work__button" target="__blank" {idx}>
+              {link.name} <i class="bx bx-right-arrow-alt work__icon"></i>
+            </a>
+          </>
+          ))}
+        </div>
+      </div>
+    </>
+    ))}
+  </div>
+</section>

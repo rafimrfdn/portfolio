@@ -1,0 +1,49 @@
+---
+import data from '../../data/meta.json'
+
+import Layout from '../../layouts/blog.astro';
+
+import PostPreview from '../../components/PostPreview/index.astro';
+import Pagination from '../../components/Pagination/index.astro';
+import authorData from '../../data/authors.json';
+
+export async function getStaticPaths({ paginate, rss }) {
+	const allPosts = await Astro.glob('../post/*.md');
+	const sortedPosts = allPosts.sort((a, b) => new Date(b.frontmatter.date).valueOf() - new Date(a.frontmatter.date).valueOf());
+
+	// Generate an RSS feed from this collection of posts.
+	// NOTE: This is disabled by default, since it requires `site` to be set in your "astro.config.mjs" file.
+	rss({
+		title: "Don's Blog",
+		description: 'A blog about stuff I do',
+		feed_url: 'https://donsblog.com/rss.xml',
+	});
+
+	// Return a paginated collection of paths for all posts
+	return paginate(sortedPosts, { pageSize: 3 });
+}
+
+// page
+const { page } = Astro.props;
+---
+
+<Layout lang="en" title={data.title} description={data.description}>
+	<main class="main wrapper container posts__container">
+		<div class="posts__header">
+			<h2 class="posts__header-title">All Blogs</h2>
+			<small class="posts__header-count">{page.start + 1}-{page.end + 1} of {page.total}</small>
+		</div>
+
+
+		<section class="posts__posts">
+			{page.data.map((post: { frontmatter: { author: string | number; }; }) => (
+			<>
+				<PostPreview post={post} author={authorData[post.frontmatter.author]} />
+			</>
+			))}
+		</section>
+		<div>
+			<Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
+		</div>
+	</main>
+</Layout>

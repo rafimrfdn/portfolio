@@ -1,0 +1,187 @@
+---
+import '../styles/normalize.css';
+import '../styles/global.css';
+import '../styles/markdown.css'
+import '../styles/github-theme.css'
+
+import { Capitalize } from '../util/capitalize/index.js'
+import { RemoveSpace } from '../util/removespace/index.js'
+
+import authorData from '../data/authors.json';
+
+import MainHead from '../components/MainHead/index.astro';
+
+import Nav from '../components/Nav/index.astro'
+
+import Footer from '../components/Footer/index.astro'
+
+const { content } = Astro.props;
+let canonicalURL = Astro.canonicalURL;
+
+function formatDate(date) {
+  return new Date(date).toUTCString().replace(/(\d\d\d\d) .*/, '$1'); // remove everything after YYYY
+}
+
+const author = authorData[content.author].name;
+
+---
+
+<!DOCTYPE html>
+<html lang={content.lang || 'en' }>
+
+<head>
+  <title>{content.title}</title>
+  <!--=============== BOXICONS ===============-->
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+  <!--=============== DEVICON ===============-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <meta name="viewport" content="width=device-width">
+  <MainHead title={content.title} description={content.description} image={content.image} {canonicalURL} />
+</head>
+
+<body>
+  <Nav isBlog={true} />
+  <main class="main wrapper container">
+    <article class="container markdown-body">
+
+      <section class="hero">
+        <div class="heroImgBox">
+          <img loading="lazy" class="heroImg" src={content.image} alt={content.description} />
+        </div>
+        <div class="heroOverlay"></div>
+        <div class="heroTextBox">
+          <h1 class="heroTitle">{content.title}</h1>
+          <!-- <p class="heroDescription">{content.description}</p> -->
+        </div>
+      </section>
+
+      <div class="blog__Info">
+        <div class="blog__author">
+          <img loading="lazy" class="blog__author-img" src={content.authorImg} />
+          <a class="blog__author-info" href={`/authors/${content.author}`}>{author}</a>
+        </div>
+        <div class="blog__createdAt">
+          <i class='bx bxs-calendar blog__createdAt-icon'></i>
+          <time class="date" datetime={content.date}>{formatDate(content.date)}</time>
+        </div>
+      </div>
+
+      <!-- <h1>{content.title}</h1> -->
+      <slot />
+      <div class="blog__categories">
+        <h3>Categories:</h3>
+        <div class="blog__categories-container">
+          {content.tags.split(',').map((tag:string, index:number) => (
+          <>
+            <span class="" {index}>
+              {Capitalize(RemoveSpace(tag))}
+            </span>
+          </>
+          ))}
+        </div>
+      </div>
+    </article>
+  </main>
+  <Footer />
+
+  <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script is:inline src="../assets/script/highlightjs-line-numbers.min.js"></script>
+  <script is:inline>
+    hljs.initHighlightingOnLoad();
+    hljs.initLineNumbersOnLoad({
+      singleLine: true
+    });
+  </script>
+</body>
+
+</html>
+
+<style lang="scss">
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 30rem;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    align-content: center;
+    justify-content: center;
+    margin-top: 6rem;
+    margin-bottom: 3rem;
+  }
+
+  .hero .heroImgBox {
+    grid-area: 1/1/2/2;
+  }
+
+  .hero .heroOverlay {
+    grid-area: 1/1/2/2;
+
+  }
+
+  .hero .heroTextBox {
+    grid-area: 1/1/2/2;
+  }
+
+  .heroImg {
+    display: grid;
+    display: block;
+    min-width: 21.875ream;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1rem;
+  }
+
+  .heroOverlay {
+    display: grid;
+    max-width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 1rem;
+  }
+
+  .heroTextBox {
+    display: grid;
+    align-items: center;
+    justify-self: center;
+    margin-left: 15px;
+    margin-right: 15px;
+    text-align: center;
+  }
+
+  .heroTitle {
+    // font-size: var(--font-size-text-banner);
+    // font-family: var(--title-font);
+    // color: var(--white-color);
+    margin: 145px 0px 0px 0px;
+    border: 0;
+    color: hsl(var(--second-hue), 15%, 95%);
+  }
+
+  .heroDescription {
+    // font-size: var(--font-size-text-banner);
+    // font-family: var(--title-font);
+    // color: var(--white-color);
+    margin: 0px 0px 0px 0px;
+    border: 0;
+    color: hsl(var(--second-hue), 15%, 95%);
+  }
+
+  body.light-theme .heroTitle {
+    margin: 145px 0px 0px 0px;
+    border: 0;
+    color: hsl(var(--second-hue), 15%, 95%);
+  }
+
+  .blog__categories {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    &-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+  }
+</style>

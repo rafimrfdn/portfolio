@@ -1,0 +1,47 @@
+---
+import data from '../data/meta.json'
+import authorData from '../data/authors.json';
+
+import Layout from '../layouts/blog.astro';
+
+import FeaturedPost from '../components/FeaturedPost/index.astro';
+import PostPreview from '../components/PostPreview/index.astro';
+import Pagination from '../components/Pagination/index.astro';
+
+// Data Fetching: List all Markdown posts in the repo.
+let allPosts = await Astro.glob('./post/*.md');
+allPosts.sort((a, b) => new Date(b.frontmatter.date).valueOf() - new Date(a.frontmatter.date).valueOf());
+
+const posts = allPosts.slice(0, 3)
+
+const featuredPost = allPosts.filter(post => post.frontmatter.featured);
+
+---
+
+<Layout lang="en" title={data.title} description={data.description}>
+  <main class="main wrapper container blog__container">
+
+    <section class="featuredpost__container">
+      {featuredPost.map((post) =>
+      <>
+        <FeaturedPost post={post} author={authorData[post.frontmatter.author]} />
+      </>
+      )}
+    </section>
+
+    <section class="blog__posts">
+      {posts.map((post) =>
+      <>
+        <PostPreview post={post} author={authorData[post.frontmatter.author]} />
+      </>
+      )}
+    </section>
+
+    {allPosts && allPosts.length > 3 &&
+    <div>
+      <Pagination nextUrl="/posts/2" />
+    </div>
+    }
+
+  </main>
+</Layout>

@@ -1,0 +1,40 @@
+---
+  import SkillData from '../../data/skill.json'
+---
+
+<!--=============== SKILLS ===============-->
+<section class="skills section" id="skills">
+  <span class="section__subtitle">My abilities</span>
+  <h2 class="section__title">My Skills</h2>
+
+  <div class="skills__container container grid">
+
+    {SkillData.map((result, index) => (
+    <>
+      <div class="skills__content" {index}>
+        <h3 class="skills__title">
+          <i class={`bx ${result.categoryIcon}`}></i>
+          {result.category}
+        </h3>
+        <div class="skills__box">
+          {result.skillGroup.map((skills, idx) => (
+          <>
+            <div class="skills__group" {idx}>
+              {skills.map((skill, i) => (<>
+                <div class="skills__data" {i}>
+                  <i class={`devicon-${skill.skillIcon}`}></i>
+                  <div class="">
+                    <h3 class="skills__name">{skill.skillName}</h3>
+                    <span class="skills__level">{skill.skillLevel}</span>
+                  </div>
+                </div>
+              </>))}
+            </div>
+          </>
+          ))}
+        </div>
+      </div>
+    </>
+    ))}
+  </div>
+</section>
