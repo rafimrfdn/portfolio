@@ -1,13 +1,13 @@
 ---
-	import data from '../data/meta.json'
+import data from '../data/meta.json'
 
-	import Layout from '../layouts/Layout.astro';
+import Layout from '../layouts/Layout.astro';
 
-	import Home from '../components/Home/index.astro'
-	import About from '../components/About/index.astro'
-	import Skills from '../components/Skills/index.astro'
-	import Work from '../components/Work/index.astro'
-	import Contact from '../components/Contact/index.astro'
+import Home from '../components/Home/index.astro'
+import About from '../components/About/index.astro'
+import Skills from '../components/Skills/index.astro'
+import Work from '../components/Work/index.astro'
+import Contact from '../components/Contact/index.astro'
 
 ---
 
@@ -20,3 +20,21 @@
 		<Contact />
 	</main>
 </Layout>
+
+<script is:inline>
+	if (`serviceWorker` in navigator) {
+		window.addEventListener(`load`, () => {
+			navigator.serviceWorker.register(`./sw.js`).then(
+				(registration) => {
+					console.log(
+						`ServiceWorker registration successful with scope: `,
+						registration.scope,
+					)
+				},
+				(err) => {
+					console.log(`ServiceWorker registration failed: `, err)
+				},
+			)
+		})
+	}
+</script>
