@@ -230,7 +230,7 @@ xclip -sel clip < ~/.ssh/id_rsa.pub
 
 ### GitHub
 
-Sign in to your GitHub account using a browser by going to <https://github.com> and entering your username and password. Click your profile photo in the upper-right corner of the page, then Settings:
+Sign in to your GitHub account using a browser by going to github.com and entering your username and password. Click your profile photo in the upper-right corner of the page, then Settings:
 
 ![GitHub Settings](/assets/img/blog/git-ssh-keys-for-github-gitlab-and-bitbucket-on-linux/github1.png)
 
