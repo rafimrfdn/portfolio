@@ -37,6 +37,23 @@ const author = authorData[content.author].name;
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
   <meta name="viewport" content="width=device-width">
   <MainHead title={content.title} description={content.description} image={content.image} {canonicalURL} />
+
+  <script is:inline>
+    partytown = {
+      forward: ['dataLayer.push'],
+    }
+  </script>
+  <script type='text/partytown' src='https://www.googletagmanager.com/gtag/js?id=G-RT1QXJGPDC'>
+  
+  </script>
+  <script type='text/partytown'>
+    window.dataLayer = window.dataLayer || []
+    function gtag() {
+      dataLayer.push(arguments)
+    }
+    gtag('js', new Date())
+    gtag('config', 'G-RT1QXJGPDC')
+  </script>
 </head>
 
 <body>

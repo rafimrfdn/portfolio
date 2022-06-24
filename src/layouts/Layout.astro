@@ -32,6 +32,23 @@ const { lang, title, description } = Astro.props as Props;
   <!--=============== DEVICON ===============-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
+  <script is:inline>
+    partytown = {
+      forward: ['dataLayer.push'],
+    }
+  </script>
+  <script type='text/partytown' src='https://www.googletagmanager.com/gtag/js?id=G-RT1QXJGPDC'>
+  
+  </script>
+  <script type='text/partytown'>
+    window.dataLayer = window.dataLayer || []
+    function gtag() {
+      dataLayer.push(arguments)
+    }
+    gtag('js', new Date())
+    gtag('config', 'G-RT1QXJGPDC')
+  </script>
+
 </head>
 
 <body>
