@@ -1,4 +1,4 @@
-const cacheName = `portfolio-v2`
+const cacheName = `portfolio-v2-${Date.now()}`
 const staticAssets = [
   `./`,
   `./index.html`,
