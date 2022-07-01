@@ -7,7 +7,7 @@ image: /assets/img/blog/linux-dotfiles/linux-dotfiles.png
 author: MKAbuMattar
 authorImg: /assets/img/profile.jpeg
 description: 'The easiest approach to keep your dotfiles safe is to keep them on your computer: A bare Git repository is a good place to start.'
-featured: true
+featured: false
 ---
 
 The easiest approach to keep your dotfiles safe is to keep them on your computer: A bare Git repository is a good place to start.
