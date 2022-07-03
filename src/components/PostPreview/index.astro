@@ -22,7 +22,9 @@ function formatDate(date) {
       <img loading="lazy" class="blog__img" src={frontmatter.image} />
     </div>
     <div class="blog__info-container">
-      <h2 class="blog__title">{frontmatter.title}</h2>
+      <a href={post.url} aria-label={`Read ${frontmatter.title}`}>
+        <h2 class="blog__title">{frontmatter.title}</h2>
+      </a>
       <div class="blog__Info">
         <div class="blog__author">
           <img loading="lazy" class="blog__author-img" src={frontmatter.authorImg} />
@@ -33,6 +35,7 @@ function formatDate(date) {
           <time class="date" datetime={frontmatter.date}>{formatDate(frontmatter.date)}</time>
         </div>
       </div>
+
       <!-- <div class="blog__tags">
         {frontmatter.tags.split(',').map((tag:string, index:number) => (
         <>
@@ -45,6 +48,14 @@ function formatDate(date) {
       <p class="blog__excerpt">
         {frontmatter.description}
       </p>
+      <div class="blog__tags">
+        Tags:{' '}
+        {frontmatter.tags.split(',').map((tag:string, index:number) => (
+        <>
+          <span class="blog__tag">{Capitalize(RemoveSpace(tag))}</span>
+        </>
+        ))}
+      </div>
       <div class="blog__btn-container">
         <a class="button button--flex button--small blog__btn" href={post.url} aria-label={`Read ${frontmatter.title}`}>
           Continue Reading
