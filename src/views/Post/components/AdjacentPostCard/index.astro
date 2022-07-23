@@ -1,0 +1,46 @@
+---
+import GetIcon from '@/components/GetIcon'
+import Link from '@/ui/Link'
+import formatDate from '@/utils/formatDate.util'
+import './style.scss'
+
+export type Props = {
+  post: any
+  position: string | 'LEFT' | 'RIGHT'
+}
+
+const { post, position } = Astro.props as Props
+---
+
+<div
+  class={'adjacent__post'}
+  style={`background-image: url('${post.frontmatter.image}')`}
+>
+  <div class={'adjacent__post-opacity'}></div>
+  <div class={'adjacent__post-info'}>
+    <time
+      class={'adjacent__post-info--createdAt'}
+      datetime={post.frontmatter.date}
+      >{formatDate(post.frontmatter.date)}
+    </time>
+    <p class={'adjacent__post-info--title'}>{post.frontmatter.title}</p>
+  </div>
+  <Link
+    href={`/blog/post/${post.frontmatter.slug}`}
+    title={post.frontmatter.title}
+  >
+    <span class={'adjacent__post-link'}></span>
+  </Link>
+
+  {position === 'LEFT' && (
+    <div class={'adjacent__post-left--arrow'}>
+      <GetIcon icon={'ChevronLeftIcon'} size={'30'} />
+    </div>
+  )}
+
+  {position === 'RIGHT' && (
+    <div class={'adjacent__post-right--arrow'}>
+      <GetIcon icon={'ChevronRightIcon'} size={'30'} />
+    </div>
+  )}
+</div>

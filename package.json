@@ -1,16 +1,59 @@
 {
   "name": "portfolio",
-  "version": "0.0.1",
+  "version": "0.0.0",
+  "description": "Personal website, to show my software engineering skills at web development.",
   "private": true,
+  "keywords": [],
+  "license": "MIT",
+  "author": {
+    "name": "Mohammad Abu Mattar",
+    "email": "mohammad.khaled@outlook.com",
+    "url": "https://mkabumattar.github.io/"
+  },
+  "homepage": "https://github.com/MKAbuMattar/portfolio#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MKAbuMattar/portfolio.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MKAbuMattar/portfolio/issues"
+  },
+  "engines": {
+    "yarn": ">=1.20.0",
+    "npm": "please-use-yarn"
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "prettier": "prettier -w ./src --plugin=./node_modules/prettier-plugin-astro",
+    "prettier:check": "prettier --check ./src --plugin=./node_modules/prettier-plugin-astro",
+    "prepare": "husky install"
   },
   "devDependencies": {
-    "@astrojs/partytown": "^0.1.5",
-    "astro": "1.0.0-beta.56",
-    "sass": "^1.53.0"
+    "@astrojs/partytown": "0.1.8",
+    "@astrojs/react": "0.4.2",
+    "@astrojs/rss": "0.2.2",
+    "@astrojs/sitemap": "0.2.6",
+    "@commitlint/cli": "17.0.3",
+    "@commitlint/config-conventional": "17.0.3",
+    "@types/react": "18.0.15",
+    "@types/react-dom": "18.0.6",
+    "astro": "1.0.0-beta.73",
+    "astro-robots-txt": "0.3.7",
+    "dotenv": "16.0.1",
+    "prettier": "2.7.1",
+    "prettier-plugin-astro": "0.1.2",
+    "sass": "1.54.0",
+    "vite-plugin-pwa": "0.12.3",
+    "workbox-window": "6.5.3"
+  },
+  "dependencies": {
+    "@emailjs/browser": "3.6.2",
+    "husky": "8.0.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-toastify": "9.0.7"
   }
 }

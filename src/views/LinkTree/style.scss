@@ -1,0 +1,103 @@
+.linktree {
+  &__container {
+    padding: 12vh 0;
+    text-align: center;
+
+    &-img {
+      --scale: 220px;
+      width: var(--scale);
+      height: var(--scale);
+      border-radius: 1.5rem;
+
+      & + span {
+        margin: 16px 0 0px;
+      }
+    }
+
+    &-nav {
+      margin: 40px auto 0;
+      width: 95%;
+      max-width: 700px;
+    }
+
+    &-box {
+      display: grid;
+      gap: 1rem;
+
+      &--link {
+        display: flex;
+        align-items: center;
+        text-align: start;
+        padding: 0.75rem;
+        border-radius: 0.75rem;
+        background: var(--container-color);
+        color: var(--first-color);
+
+        &-icon {
+          &--box {
+            --scale: 56px;
+            width: var(--scale);
+            height: var(--scale);
+            font-size: 1.25rem;
+            background: hsl(var(--color), 30%);
+            color: hsl(var(--color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            margin-right: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*========== 
+    Color changes in some parts of 
+    the website, in light theme
+==========*/
+.light-theme {
+  .linktree {
+    &__container {
+      &-box {
+        &--link {
+          box-shadow: 0 2px 8px hsla(var(--second-hue), 48%, 8%, 0.1);
+        }
+      }
+    }
+  }
+}
+
+/* For small devices */
+@media screen and (max-width: 320px) {
+}
+
+@media screen and (min-width: 375px) {
+}
+
+/* For medium devices */
+
+@media screen and (min-width: 576px) {
+  .linktree {
+    &__container {
+      &-box {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 767px) {
+}
+
+/* For large devices */
+
+@media screen and (min-width: 992) {
+}
+
+@media screen and (min-width: 1024px) {
+}
+
+@media screen and (min-width: 1440px) {
+}

@@ -1,0 +1,19 @@
+---
+import Image from '@/ui/Image'
+import './style.scss'
+
+export type Props = {
+  author: any
+}
+
+const { author } = Astro.props as Props
+---
+
+<div class={'author'}>
+  <div class={'author--box'}>
+    <Image src={author.image} />
+  </div>
+
+  <h3 class={'author--name'}>{author.name}</h3>
+  <p>{author.bio}</p>
+</div>

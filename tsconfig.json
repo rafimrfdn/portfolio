@@ -2,7 +2,10 @@
   "compilerOptions": {
     // Enable top-level await, and other modern ESM features.
     "target": "ESNext",
-    "module": "ESNext",
+    "module": "ES2022",
+    "lib": [
+      "esnext"
+    ],
     // Enable node-style module resolution, for things like npm package imports.
     "moduleResolution": "node",
     // Enable JSON imports.
@@ -11,7 +14,63 @@
     "isolatedModules": true,
     // Add type definitions for our Vite runtime.
     "types": [
-      "vite/client"
-    ]
+      "vite/client",
+      "astro/env"
+    ],
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@/icons/*": [
+        "assets/icons/*"
+      ],
+      "@/styles/*": [
+        "assets/styles/*"
+      ],
+      "@/components/*": [
+        "components/*"
+      ],
+      "@/form/*": [
+        "components/form/*"
+      ],
+      "@/ui/*": [
+        "components/ui/*"
+      ],
+      "@/constants/*": [
+        "constants/*"
+      ],
+      "@/data/*": [
+        "data/*"
+      ],
+      "@/features/*": [
+        "features/*"
+      ],
+      "@/hooks/*": [
+        "hooks/*"
+      ],
+      "@/layouts/*": [
+        "layouts/*"
+      ],
+      "@/libs/*": [
+        "libs/*"
+      ],
+      "@/script/*": [
+        "script/*"
+      ],
+      "@/services/*": [
+        "services/*"
+      ],
+      "@/types/*": [
+        "types/*"
+      ],
+      "@/utils/*": [
+        "utils/*"
+      ],
+      "@/validations/*": [
+        "validations/*"
+      ],
+      "@/views/*": [
+        "views/*"
+      ],
+    },
   }
 }

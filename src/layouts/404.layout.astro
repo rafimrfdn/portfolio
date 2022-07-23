@@ -1,0 +1,30 @@
+---
+// styles
+import '@/styles/normalize.scss'
+
+// components
+import Metadata from '@/components/Metadata/index.astro'
+
+// script
+import Script from '@/script/index.script.astro'
+
+export type Props = {
+  lang?: string
+  title: string
+  description: string
+}
+
+const { lang, title, description } = Astro.props as Props
+---
+
+<html lang={lang || 'en'}>
+  <head>
+    <Metadata title={title} description={description} />
+  </head>
+  <body>
+    <main>
+      <slot></slot>
+    </main>
+    <Script/>
+  </body>
+</html>

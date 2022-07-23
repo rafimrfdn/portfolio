@@ -1,0 +1,51 @@
+---
+import GetIcon from '@/components/GetIcon'
+import Container from '@/ui/Container'
+import Link from '@/ui/Link'
+import Picture from '@/ui/Picture'
+import Section from '@/ui/Section'
+import Subtitle from '@/ui/Subtitle'
+import Title from '@/ui/Title'
+import linkData from '@/views/LinkTree/data/link.json'
+import './style.scss'
+---
+
+<Section class={'linktree'} id={'linktree'}>
+  <Container className={'linktree__container'}>
+    <Picture
+      avif={'assets/img/profile/profile.avif'}
+      webp={'assets/img/profile/profile.webp'}
+      png={'assets/img/profile/profile.png'}
+      jpeg={'assets/img/profile/profile.jpeg'}
+      src={'assets/img/profile/profile.jpg'}
+      className={'linktree__container-img'}
+      alt={'Profile'}
+    />
+    <Subtitle>Software Engineering</Subtitle>
+    <Title>Mohammad Abu Mattar</Title>
+    <nav class={'linktree__container-nav'}>
+      <div class={'linktree__container-box'}>
+        {linkData.map((link) => (
+          <Link
+            href={link?.href}
+            className={'linktree__container-box--link'}
+            title={link?.title}
+            target={'__blank'}
+          >
+            <span
+              class={'linktree__container-box--link-icon--box'}
+              style={`--color: ${link?.background}`}
+            >
+              <GetIcon icon={link.icon} fill={link?.fill} />
+            </span>
+
+            <div>
+              <h4>{link?.title}</h4>
+              <span>{link?.description}</span>
+            </div>
+          </Link>
+        ))}
+      </div>
+    </nav>
+  </Container>
+</Section>

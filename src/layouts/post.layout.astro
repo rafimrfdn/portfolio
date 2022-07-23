@@ -1,0 +1,73 @@
+---
+// styles
+import '@/styles/normalize.scss'
+import '@/styles/global.scss'
+import '@/styles/markdown.scss'
+import '@/styles/github-theme.scss'
+
+// components
+import Metadata from '@/components/Metadata/index.astro'
+import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
+
+export interface Props {
+  lang?: string
+  title?: string
+  description?: string
+  keywords?: string
+  canonical?: string
+  imageSecureUrl?: string
+  imageUrl?: string
+  imageAlt?: string
+  imageWidth?: string | URL
+  imageHeight?: string | URL
+  imageType?: string
+  next?: string
+  prev: string
+  canonicalURL?: string | URL
+}
+
+const {
+  lang,
+  title,
+  description,
+  keywords,
+  canonical,
+  imageSecureUrl,
+  imageUrl,
+  imageAlt,
+  imageWidth,
+  imageHeight,
+  imageType,
+  next,
+  prev,
+  canonicalURL,
+} = Astro.props as Props
+---
+
+<html lang={lang || 'en'}>
+  <head>
+    <Metadata
+      title={title}
+      description={description}
+      keywords={keywords}
+      canonical={canonical}
+      imageSecureUrl={imageSecureUrl}
+      imageUrl={imageUrl}
+      imageAlt={imageAlt}
+      imageWidth={imageWidth}
+      imageHeight={imageHeight}
+      imageType={imageType}
+      next={next}
+      prev={prev}
+      canonicalURL={canonicalURL}
+    />
+  </head>
+  <body>
+    <main>
+      <Navbar isBlog={true} client:idle/>
+      <slot></slot>
+      <Footer/>
+    </main>
+  </body>
+</html>

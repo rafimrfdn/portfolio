@@ -27,26 +27,98 @@
   "scope": "/",
   "shortcuts": [
     {
-      "name": "Mohammad Abu Mattar | Portfolio",
-      "short_name": "Mohammad Abu Mattar | Portfolio",
+      "name": "Portfolio | Mohammad Abu Mattar",
+      "short_name": "Portfolio | Mohammad Abu Mattar",
       "description": "Personal website, to show my software engineering skills at web development.",
       "url": ".",
       "icons": [
         {
+          "src": "assets/icon/favicon.ico",
+          "sizes": "64x64 32x32 24x24 16x16",
+          "type": "image/x-icon",
+          "purpose": "any maskable"
+        },
+        {
           "src": "assets/icon/logo192.png",
+          "type": "image/png",
           "sizes": "192x192"
+        },
+        {
+          "src": "assets/icon/logo512.png",
+          "type": "image/png",
+          "sizes": "512x512"
         }
       ]
     },
     {
-      "name": "Mohammad Abu Mattar | Blog",
-      "short_name": "Mohammad Abu Mattar | Blog",
+      "name": "Blog | Mohammad Abu Mattar",
+      "short_name": "Blog | Mohammad Abu Mattar",
       "description": "Personal website, to show my software engineering skills at web development.",
       "url": "./blog",
       "icons": [
         {
+          "src": "assets/icon/favicon.ico",
+          "sizes": "64x64 32x32 24x24 16x16",
+          "type": "image/x-icon",
+          "purpose": "any maskable"
+        },
+        {
           "src": "assets/icon/logo192.png",
+          "type": "image/png",
           "sizes": "192x192"
+        },
+        {
+          "src": "assets/icon/logo512.png",
+          "type": "image/png",
+          "sizes": "512x512"
+        }
+      ]
+    },
+    {
+      "name": "Links | Mohammad Abu Mattar",
+      "short_name": "Links | Mohammad Abu Mattar",
+      "description": "Personal website, to show my software engineering skills at web development.",
+      "url": "./links",
+      "icons": [
+        {
+          "src": "assets/icon/favicon.ico",
+          "sizes": "64x64 32x32 24x24 16x16",
+          "type": "image/x-icon",
+          "purpose": "any maskable"
+        },
+        {
+          "src": "assets/icon/logo192.png",
+          "type": "image/png",
+          "sizes": "192x192"
+        },
+        {
+          "src": "assets/icon/logo512.png",
+          "type": "image/png",
+          "sizes": "512x512"
+        }
+      ]
+    },
+    {
+      "name": "RSS | Mohammad Abu Mattar",
+      "short_name": "RSS | Mohammad Abu Mattar",
+      "description": "Personal website, to show my software engineering skills at web development.",
+      "url": "./rss.xml",
+      "icons": [
+        {
+          "src": "assets/icon/favicon.ico",
+          "sizes": "64x64 32x32 24x24 16x16",
+          "type": "image/x-icon",
+          "purpose": "any maskable"
+        },
+        {
+          "src": "assets/icon/logo192.png",
+          "type": "image/png",
+          "sizes": "192x192"
+        },
+        {
+          "src": "assets/icon/logo512.png",
+          "type": "image/png",
+          "sizes": "512x512"
         }
       ]
     }

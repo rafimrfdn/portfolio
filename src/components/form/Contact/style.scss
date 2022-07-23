@@ -1,0 +1,87 @@
+.form {
+  &__input_group {
+    position: relative;
+    margin-bottom: 2rem;
+    height: 4rem;
+
+    &-lable {
+      position: absolute;
+      top: -0.75rem;
+      left: 1.25rem;
+      font-size: var(--smaller-font-size);
+      padding: 0.25rem;
+      background-color: var(--body-color);
+      user-select: none;
+      z-index: 10;
+    }
+
+    &-input {
+      /* position: absolute; */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 2px solid var(--text-color-light);
+      background: none;
+      color: var(--text-color);
+      outline: none;
+      padding: 1.5rem;
+      border-radius: 0.75rem;
+      z-index: 1;
+    }
+
+    &-area {
+      height: 11rem;
+
+      textarea {
+        resize: none;
+      }
+    }
+
+    &-button {
+      display: flex !important;
+      align-items: center;
+      gap: 0.5rem;
+
+      &--icon {
+        width: 1.5rem;
+        height: 1.5rem;
+
+        svg {
+          width: 1.5rem;
+          height: 1.5rem;
+        }
+      }
+    }
+  }
+}
+
+/* For small devices */
+@media screen and (max-width: 320px) {
+}
+
+@media screen and (min-width: 375px) {
+}
+
+/* For medium devices */
+
+@media screen and (min-width: 576px) {
+  .form {
+    width: 360px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 767px) {
+}
+
+/* For large devices */
+
+@media screen and (min-width: 992) {
+}
+
+@media screen and (min-width: 1024px) {
+}
+
+@media screen and (min-width: 1440px) {
+}

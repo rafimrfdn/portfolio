@@ -1,0 +1,8 @@
+.section {
+  &__subtitle {
+    display: block;
+    font-size: var(--smaller-font-size);
+    text-align: center;
+    color: var(--text-color-light);
+  }
+}
