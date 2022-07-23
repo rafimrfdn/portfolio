@@ -31,7 +31,12 @@ const index: FC = () => {
 
             <div className="home__buttons">
               {ButtonsData.map((button, index) => (
-                <ButtonLink key={index} href={button.href} type={button?.type}>
+                <ButtonLink
+                  key={index}
+                  href={button.href}
+                  type={button?.type}
+                  download={button?.download}
+                >
                   {button.title}
                 </ButtonLink>
               ))}
