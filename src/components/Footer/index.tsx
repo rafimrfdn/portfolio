@@ -31,23 +31,23 @@ const index: FC = () => {
 
           <div className="footer__list">
             <div className="">
-              <Link href="#about" className="footer__link" title={'About'}>
+              <Link href="/#about" className="footer__link" title={'About'}>
                 About
               </Link>
             </div>
             <div className="">
-              <Link href="#skills" className="footer__link" title={'Skills'}>
+              <Link href="/#skills" className="footer__link" title={'Skills'}>
                 Skills
               </Link>
             </div>
             <div className="">
-              <Link href="#work" className="footer__link" title={'Portfolio'}>
+              <Link href="/#work" className="footer__link" title={'Portfolio'}>
                 Portfolio
               </Link>
             </div>
             <div className="">
               <Link
-                href="#contact"
+                href="/#contact"
                 className="footer__link"
                 title={'Contact Me'}
               >
