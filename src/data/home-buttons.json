@@ -2,7 +2,8 @@
   {
     "href": "/assets/pdf/resume.pdf",
     "type": "outline",
-    "title": "Download CV"
+    "title": "Download CV",
+    "download": ""
   },
   {
     "href": "#about",
