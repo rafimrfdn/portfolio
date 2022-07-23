@@ -1,0 +1,66 @@
+[
+  {
+    "href": "/",
+    "title": "Portfolio",
+    "description": "Find me on the web",
+    "background": "358, 73%, 48%",
+    "icon": "MKAbuMattarIcon",
+    "fill": "#d52128"
+  },
+  {
+    "href": "https://www.linkedin.com/in/mkabumattar/",
+    "title": "LinkedIn",
+    "description": "Find me on LinkedIn",
+    "background": "200, 100%, 35%",
+    "icon": "LinkedinIcon",
+    "fill": "#0076b2"
+  },
+  {
+    "href": "https://github.com/mkabumattar",
+    "title": "GitHub",
+    "description": "Find me on GitHub",
+    "background": "219, 8%, 75%",
+    "icon": "GithubIcon",
+    "fill": "#181616"
+  },
+  {
+    "href": "https://www.codepen.io/mkabumattar/",
+    "title": "CodePen",
+    "description": "Find me on CodePen",
+    "background": "219, 8%, 75%",
+    "icon": "CodepenIcon",
+    "fill": "#231F20"
+  },
+  {
+    "href": "https://dev.to/mkabumattar",
+    "title": "Dev.to",
+    "description": "Find me on Dev.to",
+    "background": "219, 8%, 75%",
+    "icon": "DevtoIcon",
+    "fill": "#000000"
+  },
+  {
+    "href": "https://www.instagram.com/mkabumattar/",
+    "title": "Instagram",
+    "description": "Find me on Instagram",
+    "background": "349, 75%, 57%",
+    "icon": "InstagramIcon",
+    "fill": "#E4405F"
+  },
+  {
+    "href": "https://www.facebook.com/mkabumattar",
+    "title": "Facebook",
+    "description": "Find me on Facebook",
+    "background": "221, 43%, 42%",
+    "icon": "FacebookIcon",
+    "fill": "#3d5a98"
+  },
+  {
+    "href": "https://twitter.com/mkabumattar",
+    "title": "Twitter",
+    "description": "Find me on Twitter",
+    "background": "203, 89%, 53%",
+    "icon": "TwitterIcon",
+    "fill": "#1da1f2"
+  }
+]

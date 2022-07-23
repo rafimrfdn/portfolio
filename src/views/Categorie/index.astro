@@ -1,0 +1,62 @@
+---
+import Categories from '@/components/Categories'
+import FeaturedPost from '@/components/FeaturedPost'
+import PostPreview from '@/components/PostPreview'
+import RecentPosts from '@/components/RecentPosts'
+import authorsData from '@/data/authors.json'
+import Pagination from '@/features/Pagination'
+import Container from '@/ui/Container'
+import Grid from '@/ui/Grid'
+import Section from '@/ui/Section'
+import Subtitle from '@/ui/Subtitle'
+import Title from '@/ui/Title'
+import './style.scss'
+
+export type Props = {
+  title: string
+  slug: string
+  allPosts: any
+  page: any
+  featuredPost: any
+  categories: any
+  recentPosts: any
+}
+
+const { title, slug, allPosts, page, featuredPost, categories, recentPosts } =
+  Astro.props as Props
+---
+
+<main class={'blog__container'}>
+  <FeaturedPost posts={featuredPost} authors={authorsData} />
+  <Section>
+    <Container>
+      <Grid className={'blog__content'}>
+        <section class='blog__posts'>
+          <Subtitle>Categorie</Subtitle>
+          <Title>{title}</Title>
+
+          {page.data.map((post) => (
+            <>
+              <PostPreview
+                post={post}
+                author={authorsData[post.frontmatter.author]}
+              />
+            </>
+          ))}
+
+          <section>
+            <Pagination page={page} url={`categorie/${slug}/`} />
+          </section>
+        </section>
+        <section class='blog__rightsection'>
+          <section class='sticky'>
+            <section class='blog__rightsection-container'>
+              <Categories categories={categories} allPosts={allPosts} />
+              <RecentPosts recentPosts={recentPosts} />
+            </section>
+          </section>
+        </section>
+      </Grid>
+    </Container>
+  </Section>
+</main>

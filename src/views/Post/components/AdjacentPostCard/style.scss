@@ -1,0 +1,100 @@
+.adjacent {
+  &__post {
+    position: absolute;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: cover;
+    border-radius: 0.5rem;
+    width: 100%;
+    height: 18rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    transition: 0.3s;
+
+    &:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    &-opacity {
+      position: absolute;
+      width: 100%;
+      height: 18rem;
+      border-radius: 0.5rem;
+      opacity: 0.5;
+      background-position: 50%;
+      --gradient-stops: #9ca3af, #000, rgba(156, 163, 175, 0);
+      background-image: linear-gradient(to bottom, var(--gradient-stops));
+    }
+
+    &-info {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      border-radius: 0.5rem;
+      padding: 1rem;
+
+      &--createdAt {
+        text-shadow: 0 2px 0 rgb(0 0 0 / 30%);
+        color: rgba(255, 255, 255, 1);
+        font-weight: 600;
+        font-size: 0.75rem;
+        line-height: 1rem;
+      }
+
+      &--title {
+        text-shadow: 0 2px 0 rgb(0 0 0 / 30%);
+        color: rgba(255, 255, 255, 1);
+        font-weight: 600;
+        font-size: 1.5rem;
+        line-height: 2rem;
+        text-align: center;
+      }
+    }
+
+    &-link {
+      position: absolute;
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+    }
+
+    &-right,
+    &-left {
+      &--arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+        background-color: rgba(219, 39, 119, 1);
+        border-radius: 9999px;
+        cursor: pointer;
+        right: 1rem;
+        bottom: 1rem;
+        position: absolute;
+        transition: width 0.3s ease;
+
+        svg {
+          color: #fff;
+        }
+
+        .adjacentPost__container-left:hover &,
+        .adjacentPost__container-right:hover & {
+          width: 60px;
+        }
+      }
+    }
+
+    &-left {
+      &--arrow {
+        left: 1rem;
+      }
+    }
+  }
+}

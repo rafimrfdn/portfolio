@@ -1,0 +1,447 @@
+[
+  {
+    "headline": "foodure",
+    "direction": "foodure is an application that deals with waste food management donation. Food waste has increased dramatically.",
+    "tags": [
+      {
+        "name": "Android",
+        "icon": "AndroidIcon"
+      },
+      {
+        "name": "Java",
+        "icon": "JavaIcon"
+      },
+      {
+        "name": "AWS",
+        "icon": "AWSIcon"
+      },
+      {
+        "name": "GraphQL",
+        "icon": "GraphQLIcon"
+      },
+      {
+        "name": "Gradle",
+        "icon": "GradleIcon"
+      }
+    ],
+    "links": [
+      {
+        "url": "https://github.com/foodure/foodure",
+        "name": "Source Code"
+      }
+    ],
+    "src": "https://picsum.photos/id/1/500/500",
+    "type": "android"
+  },
+  {
+    "headline": "SourceCode",
+    "direction": "A web app that allows users to publish problems or programming challenges in order to build a community IT.",
+    "tags": [
+      {
+        "name": "Java",
+        "icon": "JavaIcon"
+      },
+      {
+        "name": "Spring Framework",
+        "icon": "SpringFrameworkIcon"
+      },
+      {
+        "name": "PostgreSQL",
+        "icon": "PostgreSQLIcon"
+      },
+      {
+        "name": "Gradle",
+        "icon": "GradleIcon"
+      },
+      {
+        "name": "JavaScript",
+        "icon": "JavaScriptIcon"
+      },
+      {
+        "name": "CSS3",
+        "icon": "CSS3Icon"
+      },
+      {
+        "name": "HTML5",
+        "icon": "HTML5Icon"
+      }
+    ],
+    "links": [
+      {
+        "url": "https://github.com/sourcecode-group-d/backend",
+        "name": "Source Code"
+      }
+    ],
+    "src": "https://picsum.photos/id/1/500/500",
+    "type": "frontend backend"
+  },
+  {
+    "headline": "Hello World API",
+    "direction": "This is the initial draft. It's likely to have some flaws, but it'll be improved to be more stable in the future.",
+    "tags": [
+      {
+        "name": "NodeJS",
+        "icon": "NodeJSIcon"
+      },
+      {
+        "name": "Express",
+        "icon": "ExpressIcon"
+      },
+      {
+        "name": "MongoDB",
+        "icon": "MongoDBIcon"
+      }
+    ],
+    "links": [
+      {
+        "url": "https://mk-hello-world-api.herokuapp.com/api",
+        "name": "View"
+      },
+      {
+        "url": "https://github.com/MKAbuMattar/hello-world-api",
+        "name": "Source Code"
+      }
+    ],
+    "src": "https://picsum.photos/id/1/500/500",
+    "type": "backend"
+  },
+  {
+    "headline": "Hello World",
+    "direction": "This app for shows Hello, World! in all programming languages, build in my API using vanilla javascript",
+    "tags": [
+      {
+        "name": "Progressive Web App",
+        "icon": "PWAIcon"
+      },
+      {
+        "name": "JavaScript",
+        "icon": "JavaScriptIcon"
+      },
+      {
+        "name": "CSS3",
+        "icon": "CSS3Icon"
+      },
+      {
+        "name": "HTML5",
+        "icon": "HTML5Icon"
+      }
+    ],
+    "links": [
+      {
+        "url": "https://mkabumattar.github.io/Hello-World/",
+        "name": "View"
+      },
+      {
+        "url": "https://github.com/MKAbuMattar/Hello-World",
+        "name": "Source Code"
+      }
+    ],
+    "src": "https://picsum.photos/id/1/500/500",
+    "type": "frontend"
+  },
+  {
+    "headline": "glimpsers",
+    "direction": "Social media is a relatively new phenomenon. A new ad-free open-source application. We're working on a networking and communication platform that's completely functioning.",
+    "tags": [
+      {
+        "name": "ReactJS",
+        "icon": "ReactIcon"
+      },
+      {
+        "name": "Styled Components",
+        "icon": "StyledComponentsIcon"
+      },
+      {
+        "name": "NodeJS",
+        "icon": "NodeJSIcon"
+      },
+      {
+        "name": "MongoDB",
+        "icon": "MongoDBIcon"
+      },
+      {
+        "name": "Express",
+        "icon": "ExpressIcon"
+      }
+    ],
+    "links": [
+      {
+        "url": "https://glimpsers.netlify.app/",
+        "name": "View"
+      },
+      {
+        "url": "https://github.com/glimpsers",
+        "name": "Source Code"
+      }
+    ],
+    "src": "https://picsum.photos/id/1/500/500",
+    "type": "frontend backend"
+  },
+  {
+    "headline": "Devicons React",
+    "direction": "Devicons React is a collection of icons that symbolize programming languages, design tools, and development software.",
+    "tags": [
+      {
+        "name": "NextJS",
+        "icon": "NextJSIcon"
+      },
+      {
+        "name": "Styled Components",
+        "icon": "StyledComponentsIcon"
+      },
+      {
+        "name": "NodeJS",
+        "icon": "NodeJSIcon"
+      },
+      {
+        "name": "Express",
+        "icon": "ExpressIcon"
+      },
+      {
+        "name": "Progressive Web App",
+        "icon": "PWAIcon"
+      }
+    ],
+    "links": [
+      {
+        "url": "https://devicons-react.netlify.app/",
+        "name": "View"
+      },
+      {
+        "url": "https://www.npmjs.com/package/devicons-react",
+        "name": "NPM Package"
+      },
+      {
+        "url": "https://github.com/MKAbuMattar/devicons-react",
+        "name": "Source Code"
+      }
+    ],
+    "src": "https://picsum.photos/id/1/500/500",
+    "type": "frontend"
+  },
+
+  {
+    "headline": "Encryption Translator",
+    "direction": "Encryption and decryption your text, images. This program is an idea of saving data differently (text, images), This project was presented in competition at 1St Technology Day at Isra University.",
+    "tags": [
+      {
+        "name": "C# (CSharp)",
+        "icon": "CSharpIcon"
+      }
+    ],
+    "links": [
+      {
+        "url": "https://mkabumattar.github.io/Encryption-Translator-Demo/",
+        "name": "Documentation"
+      }
+    ],
+    "src": "https://picsum.photos/id/1/500/500",
+    "type": "desktop"
+  },
+
+  {
+    "headline": "Jordanian Law",
+    "direction": "Web App to display the Jordanian constitution in the simplest way possible",
+    "tags": [
+      {
+        "name": "Progressive Web App",
+        "icon": "PWAIcon"
+      },
+      {
+        "name": "JavaScript",
+        "icon": "JavaScriptIcon"
+      },
+      {
+        "name": "CSS3",
+        "icon": "CSS3Icon"
+      },
+      {
+        "name": "HTML5",
+        "icon": "HTML5Icon"
+      }
+    ],
+    "links": [
+      {
+        "url": "https://mkabumattar.github.io/Jordanian-Law/",
+        "name": "View"
+      },
+      {
+        "url": "https://github.com/MKAbuMattar/Jordanian-Law",
+        "name": "Source Code"
+      }
+    ],
+    "src": "https://picsum.photos/id/1/500/500",
+    "type": "frontend"
+  },
+  {
+    "headline": "Pracryptmate",
+    "direction": "Web App Password Generator. as well as the ability to check the password. \"Password crackers inspired zxcvbn,...",
+    "tags": [
+      {
+        "name": "Progressive Web App",
+        "icon": "PWAIcon"
+      },
+      {
+        "name": "JavaScript",
+        "icon": "JavaScriptIcon"
+      },
+      {
+        "name": "CSS3",
+        "icon": "CSS3Icon"
+      },
+      {
+        "name": "HTML5",
+        "icon": "HTML5Icon"
+      }
+    ],
+    "links": [
+      {
+        "url": "https://mkabumattar.github.io/Password-Generator/",
+        "name": "View"
+      },
+      {
+        "url": "https://github.com/MKAbuMattar/Password-Generator",
+        "name": "Source Code"
+      }
+    ],
+    "src": "https://picsum.photos/id/1/500/500",
+    "type": "frontend"
+  },
+  {
+    "headline": "Live Editor",
+    "direction": "Live Editor is a WebApp to run you HTML5, CSS3, and JavaScript.",
+    "tags": [
+      {
+        "name": "Progressive Web App",
+        "icon": "PWAIcon"
+      },
+      {
+        "name": "AngularJS",
+        "icon": "AngularJSIcon"
+      },
+      {
+        "name": "JavaScript",
+        "icon": "JavaScriptIcon"
+      },
+      {
+        "name": "CSS3",
+        "icon": "CSS3Icon"
+      },
+      {
+        "name": "HTML5",
+        "icon": "HTML5Icon"
+      }
+    ],
+    "links": [
+      {
+        "url": "https://mkabumattar.github.io/Live-Editor/",
+        "name": "View"
+      },
+      {
+        "url": "https://github.com/MKAbuMattar/Live-Editor",
+        "name": "Source Code"
+      }
+    ],
+    "src": "https://picsum.photos/id/1/500/500",
+    "type": "frontend"
+  },
+
+  {
+    "headline": "Warframe",
+    "direction": "The most recent upgrade included a transition to Next JS, which provided a more flexible design and quicker rendering, as well as a search bar for each category and a method. App for the Progressive Web",
+    "tags": [
+      {
+        "name": "NextJS",
+        "icon": "NextJSIcon"
+      },
+      {
+        "name": "Styled Components",
+        "icon": "StyledComponentsIcon"
+      },
+      {
+        "name": "Progressive Web App",
+        "icon": "PWAIcon"
+      }
+    ],
+    "links": [
+      {
+        "url": "https://warframe-info.netlify.app/",
+        "name": "View"
+      },
+      {
+        "url": "https://warframe-info.netlify.app/api/",
+        "name": "API View"
+      },
+      {
+        "url": "https://github.com/MKAbuMattar/warframe",
+        "name": "Source Code"
+      }
+    ],
+    "src": "https://picsum.photos/id/1/500/500",
+    "type": "frontend backend"
+  },
+  {
+    "headline": "Grammind API",
+    "direction": "Grammind API is devoted entirely to ASCII art pattern programs, and its purpose is to learn how to write ASCII pattern programs in various programming languages such as C, C++, Java, C#, and Python.",
+    "tags": [
+      {
+        "name": "NodeJS",
+        "icon": "NodeJSIcon"
+      },
+      {
+        "name": "Express",
+        "icon": "ExpressIcon"
+      },
+      {
+        "name": "Babel",
+        "icon": "BabelIcon"
+      },
+      {
+        "name": "MongoDB",
+        "icon": "MongoDBIcon"
+      }
+    ],
+    "links": [
+      {
+        "url": "grammind.herokuapp.com/api/v1",
+        "name": "View"
+      },
+      {
+        "url": "https://github.com/MKAbuMattar/grammind-api",
+        "name": "Source Code"
+      }
+    ],
+    "src": "https://picsum.photos/id/1/500/500",
+    "type": "backend"
+  },
+  {
+    "headline": "Quotats",
+    "direction": "A quotats API is a programming interface for retrieving quotations from films, literature, or notable individuals. in progress work",
+    "tags": [
+      {
+        "name": "NodeJS",
+        "icon": "NodeJSIcon"
+      },
+      {
+        "name": "Express",
+        "icon": "ExpressIcon"
+      },
+      {
+        "name": "Babel",
+        "icon": "BabelIcon"
+      },
+      {
+        "name": "MongoDB",
+        "icon": "MongoDBIcon"
+      }
+    ],
+    "links": [
+      {
+        "url": "https://github.com/MKAbuMattar/quotats",
+        "name": "Source Code"
+      }
+    ],
+    "src": "https://picsum.photos/id/1/500/500",
+    "type": "backend"
+  }
+]

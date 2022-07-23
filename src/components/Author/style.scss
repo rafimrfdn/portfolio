@@ -1,0 +1,29 @@
+.author {
+  position: relative;
+  text-align: center;
+  background-color: var(--container-color);
+  padding: 3rem;
+  border-radius: 0.5rem;
+  box-shadow: rgb(0 0 0 / 15%) 0 2px 4px;
+  margin-top: 3rem;
+
+  &--box {
+    position: absolute;
+    top: -3.5rem;
+    left: 0;
+    right: 0;
+
+    & img {
+      border-radius: 50%;
+      width: 100px;
+      vertical-align: middle;
+    }
+  }
+
+  &--name {
+    font-size: var(--h2-font-size);
+    color: var(--first-color);
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+}

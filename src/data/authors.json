@@ -1,6 +1,7 @@
 {
   "MKAbuMattar": {
     "name": "Mohammad Abu Mattar",
-    "image": "/assets/img/profile.jpeg"
+    "image": "/assets/img/profile/profile.jpeg",
+    "bio": "This blog aims to help to aspire and established developers take their development skills to the next level and build awesome apps."
   }
 }

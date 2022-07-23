@@ -1,0 +1,40 @@
+[
+  {
+    "href": "/#home",
+    "title": "Home",
+    "blog": "notblog",
+    "icon": "HomeIcon"
+  },
+  {
+    "href": "/#about",
+    "title": "About",
+    "icon": "UserIcon"
+  },
+  {
+    "href": "/#skills",
+    "title": "Skills",
+    "icon": "BookIcon"
+  },
+  {
+    "href": "/#work",
+    "title": "Work",
+    "icon": "BriefcaseIcon"
+  },
+  {
+    "href": "/#contact",
+    "title": "Contact me",
+    "icon": "MessageIcon"
+  },
+  {
+    "href": "/blog",
+    "title": "Blog",
+    "blog": "blog",
+    "icon": "CodeIcon"
+  },
+  {
+    "href": "/linktr.ee",
+    "title": "Link tree",
+    "tree": "linktr.ee",
+    "icon": "HashIcon"
+  }
+]

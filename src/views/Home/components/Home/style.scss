@@ -1,0 +1,195 @@
+.home {
+  &__container {
+    position: relative;
+    row-gap: 4.5rem;
+    padding-top: 2rem;
+  }
+
+  &__data {
+    text-align: center;
+  }
+
+  &__greeting {
+    display: block;
+    color: var(--title-color);
+    margin-bottom: 0.25rem;
+  }
+
+  &__education {
+    color: var(--text-color);
+    margin-bottom: 2.5rem;
+  }
+
+  &__greeting,
+  &__education {
+    font-size: var(--small-font-size);
+    font-weight: var(--font-medium);
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  &__handle {
+    justify-self: center;
+    width: 11.875rem;
+    height: 18.3125rem;
+    background: linear-gradient(
+      180deg,
+      hsla(var(--first-hue), var(--sat), var(--lig), 1),
+      hsla(var(--first-hue), var(--sat), var(--lig), 0.2)
+    );
+    border-radius: 10rem 10rem 1rem 1rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  &__img {
+    max-width: 18.3125rem;
+  }
+
+  &__social {
+    bottom: 5rem;
+    left: 0;
+    display: grid;
+    row-gap: 0.5rem;
+
+    &-link {
+      width: max-content;
+      background-color: var(--container-color);
+      color: var(--first-color);
+      padding: 0.25rem;
+      border-radius: 0.25rem;
+      display: flex;
+      font-size: 1rem;
+      transition: 0.4s;
+
+      &:hover {
+        background-color: var(--first-color);
+        color: #fff;
+      }
+    }
+
+    &::after {
+      content: '';
+      width: 2rem;
+      height: 0.125rem;
+      background-color: var(--first-color);
+      transform: rotate(90deg) translate(1rem, 0.1875rem);
+    }
+  }
+
+  &__scroll {
+    color: var(--first-color);
+    right: -1.5rem;
+    bottom: 4rem;
+    display: grid;
+    row-gap: 2.25rem;
+    justify-items: center;
+    transition: 0.4s;
+
+    &:hover {
+      color: #fff;
+    }
+
+    &-icon {
+      font-size: 1.24rem;
+    }
+
+    &-name {
+      font-size: var(--smaller-font-size);
+      transform: rotate(-90deg);
+    }
+  }
+
+  &__social,
+  &__scroll {
+    position: absolute;
+  }
+}
+
+/*========== 
+    Color changes in some parts of 
+    the website, in light theme
+==========*/
+.light-theme {
+  .home {
+    &__social {
+      &-link {
+        box-shadow: 0 0.125rem 0.5rem hsla(var(--second-hue), 48%, 8%, 0.1);
+      }
+    }
+
+    &__scroll {
+      &:hover {
+        color: var(--first-color);
+      }
+    }
+
+    &__social,
+    &__scroll {
+      color: var(--title-color);
+    }
+  }
+}
+
+/* For small devices */
+@media screen and (max-width: 320px) {
+  .home {
+    &__buttons {
+      flex-direction: column;
+    }
+
+    &__handle {
+      width: 9.375rem;
+      height: 15.8125rem;
+    }
+
+    &__img {
+      max-width: 15.8125rem;
+    }
+  }
+}
+
+@media screen and (min-width: 375px) {
+  .home {
+  }
+}
+
+/* For medium devices */
+
+@media screen and (min-width: 576px) {
+  .home {
+  }
+}
+
+@media screen and (min-width: 767px) {
+  .home {
+  }
+}
+
+/* For large devices */
+
+@media screen and (min-width: 992) {
+  .home {
+    &__handle {
+      width: 18.125rem;
+      height: 25rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .home {
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .home {
+  }
+}

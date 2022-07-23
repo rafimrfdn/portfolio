@@ -1,0 +1,147 @@
+---
+import Auther from '@/components/Author/index.astro'
+import Categories from '@/components/Categories'
+// import FeaturedPost from '@/components/FeaturedPost'
+import GetIcon from '@/components/GetIcon'
+import RecentPosts from '@/components/RecentPosts'
+// import authorsData from '@/data/authors.json'
+import Container from '@/ui/Container'
+import Grid from '@/ui/Grid'
+import Image from '@/ui/Image'
+import Link from '@/ui/Link'
+import Section from '@/ui/Section'
+import formatDate from '@/utils/formatDate.util'
+import AdjacentPostCard from '@/views/Post/components/AdjacentPostCard/index.astro'
+import './style.scss'
+
+export type Props = {
+  allPosts: any
+  post: any
+  author: any
+  prevPost: any
+  nextPost: any
+  featuredPost: any
+  categories: any
+  recentPosts: any
+}
+
+const {
+  allPosts,
+  post,
+  author,
+  prevPost,
+  nextPost,
+  featuredPost,
+  categories,
+  recentPosts,
+} = Astro.props as Props
+---
+
+<main class={'blog__container'}>
+  <!-- <FeaturedPost posts={featuredPost} authors={authorsData} /> -->
+  <Section>
+    <Container>
+      <Grid className={'blog__content'}>
+        <section class='blog__posts'>
+          <section class={'article'}>
+            <section class='hero'>
+              <div class='heroImgBox'>
+                <Image
+                  className='heroImg'
+                  src={post.frontmatter.image}
+                  alt={post.frontmatter.description}
+                />
+              </div>
+              <div class='heroOverlay'></div>
+              <div class='heroTextBox'>
+                <h1 class='heroTitle'>{post.frontmatter.title}</h1>
+              </div>
+            </section>
+            <article class='markdown-body'>
+              <div class={'article__info-container'}>
+                <div class={'article__info-container--author'}>
+                  <Image
+                    className={'article__info-container--author-img'}
+                    src={author.image}
+                  />
+                  <Link
+                    class={'article__info-container--author-name'}
+                    href={`/author/${post.frontmatter.author}`}
+                  >
+                    {author.name}
+                  </Link>
+                </div>
+
+                <div class={'article__info-container--createdAt'}>
+                  <span class={'article__info-container--createdAt-icon'}>
+                    <GetIcon icon={'CalendarIcon'} />
+                  </span>
+                  <time
+                    class={'article__info-container--createdAt-date'}
+                    datetime={post.frontmatter.date}
+                  >
+                    {formatDate(post.frontmatter.date)}
+                  </time>
+                </div>
+              </div>
+
+              <h1 class=''>{post.frontmatter.title}</h1>
+
+              <post.Content />
+
+              <div class={'article__info-tags'}>
+                <p>Categorie:</p>
+                {post.frontmatter.categories.map((category, index) => (
+                  <Link
+                    key={index}
+                    className={'article__info-tag'}
+                    href={`/categorie/${category}`}
+                  >
+                    {category}
+                  </Link>
+                ))}
+              </div>
+
+              <div class={'article__info-tags'}>
+                <p>Tags:</p>
+                {post.frontmatter.tags.map((tag, index) => (
+                  <Link
+                    key={index}
+                    href={`/tag/${tag}`}
+                    className={'article__info-tag'}
+                  >
+                    {tag}
+                  </Link>
+                ))}
+              </div>
+            </article>
+          </section>
+
+          <Auther author={author} />
+
+          <div class={'adjacentPost__container'}>
+            {nextPost[0] && (
+              <div class={'adjacentPost__container-right'}>
+                <AdjacentPostCard post={nextPost[0]} position={'LEFT'} />
+              </div>
+            )}
+            {prevPost[0] && (
+              <div class={'adjacentPost__container-left'}>
+                <AdjacentPostCard post={prevPost[0]} position={'RIGHT'} />
+              </div>
+            )}
+          </div>
+        </section>
+
+        <section class='blog__rightsection'>
+          <section class='sticky'>
+            <section class='blog__rightsection-container'>
+              <Categories categories={categories} allPosts={allPosts} />
+              <RecentPosts recentPosts={recentPosts} />
+            </section>
+          </section>
+        </section>
+      </Grid>
+    </Container>
+  </Section>
+</main>

@@ -1,0 +1,22 @@
+[
+  {
+    "iconName": "LinkedinIcon",
+    "title": "@MKAbuMattar | LinkedIn",
+    "url": "https://www.linkedin.com/in/mkabumattar/"
+  },
+  {
+    "iconName": "GithubIcon",
+    "title": "@MKAbuMattar | Github",
+    "url": "https://github.com/mkabumattar"
+  },
+  {
+    "iconName": "CodepenIcon",
+    "title": "@MKAbuMattar | Codepen",
+    "url": "https://codepen.io/mkabumattar"
+  },
+  {
+    "iconName": "DevtoIcon",
+    "title": "@MKAbuMattar | Dev.to",
+    "url": "https://dev.to/mkabumattar"
+  }
+]
