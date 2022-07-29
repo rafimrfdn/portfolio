@@ -31,29 +31,29 @@
     "prettier:check": "prettier --check ./src --plugin=./node_modules/prettier-plugin-astro",
     "prepare": "husky install"
   },
-  "devDependencies": {
-    "@astrojs/partytown": "0.1.8",
-    "@astrojs/react": "0.4.2",
-    "@astrojs/rss": "0.2.2",
-    "@astrojs/sitemap": "0.2.6",
-    "@commitlint/cli": "17.0.3",
-    "@commitlint/config-conventional": "17.0.3",
-    "@types/react": "18.0.15",
-    "@types/react-dom": "18.0.6",
-    "astro": "1.0.0-beta.73",
-    "astro-robots-txt": "0.3.7",
-    "dotenv": "16.0.1",
-    "prettier": "2.7.1",
-    "prettier-plugin-astro": "0.1.2",
-    "sass": "1.54.0",
-    "vite-plugin-pwa": "0.12.3",
-    "workbox-window": "6.5.3"
-  },
   "dependencies": {
     "@emailjs/browser": "3.6.2",
     "husky": "8.0.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-toastify": "9.0.7"
+  },
+  "devDependencies": {
+    "@astrojs/partytown": "0.1.9",
+    "@astrojs/react": "0.4.2",
+    "@astrojs/rss": "0.2.2",
+    "@astrojs/sitemap": "0.3.0",
+    "@commitlint/cli": "17.0.3",
+    "@commitlint/config-conventional": "17.0.3",
+    "@types/react": "18.0.15",
+    "@types/react-dom": "18.0.6",
+    "astro": "1.0.0-rc.2",
+    "astro-robots-txt": "0.3.7",
+    "dotenv": "16.0.1",
+    "prettier": "2.7.1",
+    "prettier-plugin-astro": "0.2.0",
+    "sass": "1.54.0",
+    "vite-plugin-pwa": "0.12.3",
+    "workbox-window": "6.5.4"
   }
 }
