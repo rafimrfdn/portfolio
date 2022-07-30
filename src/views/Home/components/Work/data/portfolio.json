@@ -204,7 +204,7 @@
     ],
     "links": [
       {
-        "url": "https://devicons-react.netlify.app/",
+        "url": "https://devicons-react.vercel.app/",
         "name": "View"
       },
       {
@@ -365,11 +365,11 @@
     ],
     "links": [
       {
-        "url": "https://warframe-info.netlify.app/",
+        "url": "https://warframe-info.vercel.app/",
         "name": "View"
       },
       {
-        "url": "https://warframe-info.netlify.app/api/",
+        "url": "https://warframe-info.vercel.app/api/",
         "name": "API View"
       },
       {
