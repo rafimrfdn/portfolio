@@ -33,26 +33,26 @@
   },
   "dependencies": {
     "@emailjs/browser": "3.6.2",
-    "husky": "8.0.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-toastify": "9.0.7"
+    "react-toastify": "9.0.8"
   },
   "devDependencies": {
-    "@astrojs/partytown": "0.1.9",
-    "@astrojs/react": "0.4.2",
-    "@astrojs/rss": "0.2.2",
-    "@astrojs/sitemap": "0.3.0",
+    "@astrojs/partytown": "1.0.0",
+    "@astrojs/react": "1.0.0",
+    "@astrojs/rss": "1.0.0",
+    "@astrojs/sitemap": "1.0.0",
     "@commitlint/cli": "17.0.3",
     "@commitlint/config-conventional": "17.0.3",
-    "@types/react": "18.0.15",
+    "@types/react": "18.0.17",
     "@types/react-dom": "18.0.6",
-    "astro": "1.0.0-rc.2",
+    "astro": "1.0.6",
     "astro-robots-txt": "0.3.7",
     "dotenv": "16.0.1",
+    "husky": "8.0.1",
     "prettier": "2.7.1",
-    "prettier-plugin-astro": "0.2.0",
-    "sass": "1.54.0",
+    "prettier-plugin-astro": "0.5.0",
+    "sass": "1.54.4",
     "vite-plugin-pwa": "0.12.3",
     "workbox-window": "6.5.4"
   }
