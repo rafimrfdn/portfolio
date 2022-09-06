@@ -40,6 +40,9 @@ const index: FC = () => {
           <span className="work__item" data-filter=".backend">
             Backend
           </span>
+          <span className="work__item" data-filter=".package">
+            Package
+          </span>
           <span className="work__item" data-filter=".android">
             Android
           </span>
