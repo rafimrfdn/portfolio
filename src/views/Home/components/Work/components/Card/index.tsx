@@ -29,7 +29,7 @@ const index: FC<Props> = (props) => {
         />
         <h3 className="work__title">{portfolio?.headline}</h3>
         <p className="work__direction">
-          <span>Direction:</span> {portfolio?.direction}
+          <span>Description:</span> {portfolio?.direction}
         </p>
         <div className="work__tags">
           {portfolio?.tags?.map((tag: TagType, index: number) => (
