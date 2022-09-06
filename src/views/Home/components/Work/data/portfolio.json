@@ -182,30 +182,18 @@
     "direction": "Devicons React is a collection of icons that symbolize programming languages, design tools, and development software.",
     "tags": [
       {
-        "name": "NextJS",
-        "icon": "NextJSIcon"
-      },
-      {
-        "name": "Styled Components",
-        "icon": "StyledComponentsIcon"
-      },
-      {
         "name": "NodeJS",
         "icon": "NodeJSIcon"
       },
       {
-        "name": "Express",
-        "icon": "ExpressIcon"
-      },
-      {
-        "name": "Progressive Web App",
-        "icon": "PWAIcon"
+        "name": "TypeScript",
+        "icon": "TypeScriptIcon"
       }
     ],
     "links": [
       {
         "url": "https://devicons-react.vercel.app/",
-        "name": "View"
+        "name": "DOCS"
       },
       {
         "url": "https://www.npmjs.com/package/devicons-react",
@@ -217,9 +205,154 @@
       }
     ],
     "src": "https://picsum.photos/id/1/500/500",
-    "type": "frontend"
+    "type": "package"
   },
-
+  {
+    "headline": "Recursive Directory",
+    "direction": "Recursive Directory is an npm package that allows you to directory and returns a list of files.",
+    "tags": [
+      {
+        "name": "NodeJS",
+        "icon": "NodeJSIcon"
+      },
+      {
+        "name": "TypeScript",
+        "icon": "TypeScriptIcon"
+      }
+    ],
+    "links": [
+      {
+        "url": "https://www.npmjs.com/package/recursive-directory",
+        "name": "NPM Package"
+      },
+      {
+        "url": "https://github.com/MKAbuMattar/recursive-directory",
+        "name": "Source Code"
+      }
+    ],
+    "src": "https://picsum.photos/id/1/500/500",
+    "type": "package"
+  },
+  {
+    "headline": "React Fluentui Emoji",
+    "direction": "React Fluentui Emoji an npm package contains a number of well-known, cordial, and contemporary emoji, build into @microsoft/fluentui-emoji.",
+    "tags": [
+      {
+        "name": "NodeJS",
+        "icon": "NodeJSIcon"
+      },
+      {
+        "name": "TypeScript",
+        "icon": "TypeScriptIcon"
+      }
+    ],
+    "links": [
+      {
+        "url": "https://react-fluentui-emoji.vercel.app/",
+        "name": "DOCS"
+      },
+      {
+        "url": "https://www.npmjs.com/package/react-fluentui-emoji",
+        "name": "NPM Package"
+      },
+      {
+        "url": "https://github.com/MKAbuMattar/react-fluentui-emoji",
+        "name": "Source Code"
+      }
+    ],
+    "src": "https://picsum.photos/id/1/500/500",
+    "type": "package"
+  },
+  {
+    "headline": "Fluentui Emoji",
+    "direction": "Fluentui Emoji an npm package contains a number of well-known, cordial, and contemporary emoji, build into @microsoft/fluentui-emoji.",
+    "tags": [
+      {
+        "name": "NodeJS",
+        "icon": "NodeJSIcon"
+      },
+      {
+        "name": "TypeScript",
+        "icon": "TypeScriptIcon"
+      }
+    ],
+    "links": [
+      {
+        "url": "https://fluentui-emoji.vercel.app/",
+        "name": "DOCS"
+      },
+      {
+        "url": "https://www.npmjs.com/package/fluentui-emoji",
+        "name": "NPM Package"
+      },
+      {
+        "url": "https://github.com/MKAbuMattar/fluentui-emoji",
+        "name": "Source Code"
+      }
+    ],
+    "src": "https://picsum.photos/id/1/500/500",
+    "type": "package"
+  },
+  {
+    "headline": "Sptruz",
+    "direction": "Sptruz is an npm package for allows you to combine two colors in a variety of combinations and obtain CSS color tints and shades. In addition to processing a CSS color string and converting colors, computations also take into account opacity.",
+    "tags": [
+      {
+        "name": "NodeJS",
+        "icon": "NodeJSIcon"
+      },
+      {
+        "name": "TypeScript",
+        "icon": "TypeScriptIcon"
+      }
+    ],
+    "links": [
+      {
+        "url": "https://sptruz.vercel.app/",
+        "name": "DOCS"
+      },
+      {
+        "url": "https://www.npmjs.com/package/sptruz",
+        "name": "NPM Package"
+      },
+      {
+        "url": "https://github.com/MKAbuMattar/sptruz",
+        "name": "Source Code"
+      }
+    ],
+    "src": "https://picsum.photos/id/1/500/500",
+    "type": "package"
+  },
+  {
+    "headline": "React Highlight Syntax",
+    "direction": "React Highlight Syntax is a React component that highlights syntax in a code block.",
+    "tags": [
+      {
+        "name": "NodeJS",
+        "icon": "NodeJSIcon"
+      },
+      {
+        "name": "TypeScript",
+        "icon": "TypeScriptIcon"
+      }
+    ],
+    "links": [
+      {
+        "url": "https://react-highlight-syntax.vercel.app/",
+        "name": "DOCS"
+      },
+      {
+        "url": "https://www.npmjs.com/package/react-highlight-syntax",
+        "name": "NPM Package"
+      },
+      {
+        "url": "https://github.com/MKAbuMattar/react-highlight-syntax",
+        "name": "Source Code"
+      }
+    ],
+    "src": "https://picsum.photos/id/1/500/500",
+    "type": "package"
+  },
   {
     "headline": "Encryption Translator",
     "direction": "Encryption and decryption your text, images. This program is an idea of saving data differently (text, images), This project was presented in competition at 1St Technology Day at Isra University.",
