@@ -263,3 +263,4 @@ aws ec2 delete-vpc \
 - [AWS CLI - Associate Route Table](https://docs.aws.amazon.com/cli/latest/reference/ec2/associate-route-table.html)
 - [AWS CLI - Describe Security Groups](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-security-groups.html)
 - [AWS CLI - Create Tags](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-tags.html)
+- [AWS CLI - Delete Security Group](https://docs.aws.amazon.com/cli/latest/reference/ec2/delete-security-group.html)
