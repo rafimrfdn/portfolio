@@ -8,7 +8,7 @@ image: /assets/img/blog/introduction-to-linux-cli/introduction-to-linux-cli.jpeg
 author: MKAbuMattar
 description: 'Introduction to Linux command-line interface CLI, Linux is a Unix-like computer operating system assembled under the model of free and open-source software development and distribution.'
 prev: how-to-create-a-custom-vpc-using-aws-cli
-next: undefined
+next: vim-cheat-sheet
 featured: true
 ---
 
