@@ -105,8 +105,7 @@ featured: true
   - [iostat](#iostat)
   - [vmstat](#vmstat)
   - [sar](#sar)
-- [Manage logging](#manage-logging)
-  - [journalctl](#journalctl)
+- [Summary](#summary)
 
 </details>
 
@@ -3234,17 +3233,15 @@ sar -y <time>
 
 </details>
 
-## Manage logging
+## Summary
 
-The majority of Linux commands for controlling various aspects of a Linux server are already familiar to you, but you also need to understand how Linux handles logging. Based on various distributions, this could change. Older distributions utilized syslog-ng for logging, but practically all major distributions now use an rsyslog alternative.
+You learnt about Linux CLI commands in this tutorial, along with the fundamental commands for:
 
-> **Note:** still in progress
-
-### `journalctl`
-
-The `journalctl` command is used to manage logging. It takes no arguments. The output of the `journalctl` command is the logging.
-
-```bash
-# Manage logging
-journalctl
-```
+- File Management
+- Finding files and directories
+- Check User Information
+- Managing Users and Groups
+- Managing Permissions
+- Check System Information
+- Configure and Troubleshoot Network
+- Manage System Processes
