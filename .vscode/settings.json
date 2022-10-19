@@ -3,7 +3,6 @@
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll": true,
-    "source.organizeImports": true
   },
   "[xml]": {
     "editor.defaultFormatter": "fabianlauer.vs-code-xml-format"

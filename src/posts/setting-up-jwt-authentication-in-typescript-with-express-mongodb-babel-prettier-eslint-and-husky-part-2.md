@@ -20,7 +20,7 @@ author: MKAbuMattar
 description: 'Setting up JWT Authentication in Typescript with Express, MongoDB, Babel, Prettier, ESLint, and Husky: Part 2.'
 prev: setting-up-node-js-express-prettier-eslint-and-husky-application-with-babel-and-typescript-part-1
 next: how-to-create-a-custom-vpc-using-aws-cli
-featured: true
+featured: false
 ---
 
 ## Table of Contents

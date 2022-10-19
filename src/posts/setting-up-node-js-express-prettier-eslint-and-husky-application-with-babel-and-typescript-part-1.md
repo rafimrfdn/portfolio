@@ -10,7 +10,7 @@ author: MKAbuMattar
 description: 'Setting up Node JS, Express,  Prettier, ESLint and Husky Application with Babel and Typescript: Part 1.'
 prev: setting-up-node-js-express-mongodb-prettier-eslint-and-husky-application-with-babel-and-authentication-as-an-example
 next: setting-up-jwt-authentication-in-typescript-with-express-mongodb-babel-prettier-eslint-and-husky-part-2
-featured: true
+featured: false
 ---
 
 ## Table of Contents
