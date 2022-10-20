@@ -43,22 +43,22 @@ const {
   <Section>
     <Container>
       <Grid className={'blog__content'}>
-        <section class='blog__posts'>
+        <section class={'blog__posts'}>
           <section class={'article'}>
-            <section class='hero'>
-              <div class='heroImgBox'>
+            <section class="hero">
+              <div class="heroImgBox">
                 <Image
-                  className='heroImg'
+                  className="heroImg"
                   src={post.frontmatter.image}
                   alt={post.frontmatter.description}
                 />
               </div>
-              <div class='heroOverlay'></div>
-              <div class='heroTextBox'>
-                <h1 class='heroTitle'>{post.frontmatter.title}</h1>
+              <div class="heroOverlay"></div>
+              <div class="heroTextBox">
+                <h1 class="heroTitle">{post.frontmatter.title}</h1>
               </div>
             </section>
-            <article class='markdown-body'>
+            <article class="markdown-body">
               <div class={'article__info-container'}>
                 <div class={'article__info-container--author'}>
                   <Image
@@ -86,60 +86,67 @@ const {
                 </div>
               </div>
 
-              <h1 class=''>{post.frontmatter.title}</h1>
+              <h1 class="">{post.frontmatter.title}</h1>
 
               <post.Content />
 
               <div class={'article__info-tags'}>
                 <p>Categorie:</p>
-                {post.frontmatter.categories.map((category, index) => (
-                  <Link
-                    key={index}
-                    className={'article__info-tag'}
-                    href={`/categorie/${category}`}
-                  >
-                    {category}
-                  </Link>
-                ))}
+                {
+                  post.frontmatter.categories.map((category, index) => (
+                    <Link
+                      key={index}
+                      className={'article__info-tag'}
+                      href={`/categorie/${category}`}
+                    >
+                      {category}
+                    </Link>
+                  ))
+                }
               </div>
 
               <div class={'article__info-tags'}>
                 <p>Tags:</p>
-                {post.frontmatter.tags.map((tag, index) => (
-                  <Link
-                    key={index}
-                    href={`/tag/${tag}`}
-                    className={'article__info-tag'}
-                  >
-                    {tag}
-                  </Link>
-                ))}
+                {
+                  post.frontmatter.tags.map((tag, index) => (
+                    <Link
+                      key={index}
+                      href={`/tag/${tag}`}
+                      className={'article__info-tag'}
+                    >
+                      {tag}
+                    </Link>
+                  ))
+                }
               </div>
             </article>
-            
           </section>
 
-          <Comments client:visible/>
+          <Comments client:visible />
 
           <Auther author={author} />
 
           <div class={'adjacentPost__container'}>
-            {nextPost[0] && (
-              <div class={'adjacentPost__container-right'}>
-                <AdjacentPostCard post={nextPost[0]} position={'LEFT'} />
-              </div>
-            )}
-            {prevPost[0] && (
-              <div class={'adjacentPost__container-left'}>
-                <AdjacentPostCard post={prevPost[0]} position={'RIGHT'} />
-              </div>
-            )}
+            {
+              nextPost[0] && (
+                <div class={'adjacentPost__container-right'}>
+                  <AdjacentPostCard post={nextPost[0]} position={'LEFT'} />
+                </div>
+              )
+            }
+            {
+              prevPost[0] && (
+                <div class={'adjacentPost__container-left'}>
+                  <AdjacentPostCard post={prevPost[0]} position={'RIGHT'} />
+                </div>
+              )
+            }
           </div>
         </section>
 
-        <section class='blog__rightsection'>
-          <section class='sticky'>
-            <section class='blog__rightsection-container'>
+        <section class="blog__rightsection">
+          <section class="sticky">
+            <section class="blog__rightsection-container">
               <Categories categories={categories} allPosts={allPosts} />
               <RecentPosts recentPosts={recentPosts} />
             </section>

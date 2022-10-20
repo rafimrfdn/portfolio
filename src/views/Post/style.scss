@@ -138,7 +138,51 @@ body.light-theme .heroTitle {
   border-radius: 0.5rem;
   box-shadow: rgb(0 0 0 / 15%) 0 2px 4px;
   transition: all 0.3s ease 0s;
-  padding: 1.5rem;
+  border-radius: 1rem;
+  // padding: 1rem;
+  margin-top: 1rem;
+
+  .hero {
+    padding: 0;
+
+    .heroImgBox {
+      img {
+        border-radius: 0;
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+      }
+    }
+
+    .heroOverlay {
+      border-radius: 0;
+      border-top-left-radius: 1rem;
+      border-top-right-radius: 1rem;
+    }
+  }
+
+  .markdown-body {
+    padding: 1rem;
+  }
+
+  @media screen and (min-width: 767px) {
+    .hero {
+      padding: 1.5rem;
+
+      .heroImgBox {
+        img {
+          border-radius: 1rem;
+        }
+      }
+
+      .heroOverlay {
+        border-radius: 1rem;
+      }
+    }
+
+    .markdown-body {
+      padding: 1.5rem;
+    }
+  }
 
   &__info {
     &-container {
