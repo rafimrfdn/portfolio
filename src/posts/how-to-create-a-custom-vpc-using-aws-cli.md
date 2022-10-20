@@ -3,7 +3,7 @@ title: How To Create A Custom VPC Using AWS CLI
 slug: how-to-create-a-custom-vpc-using-aws-cli
 tags: ['AWS', 'VPC', 'CLI']
 categories: ['AWS']
-date: 2022-10-15
+date: 2022-10-15T00:00:00.000Z
 image: /assets/img/blog/how-to-create-a-custom-vpc-using-aws-cli/how-to-create-a-custom-vpc-using-aws-cli.png
 author: MKAbuMattar
 description: 'In the sample that follows, an IPv4 CIDR block, a public subnet, and a private subnet are all created using AWS CLI instructions. You can run an instance in the public subnet and connect to it once the VPC and subnets have been configured. Additionally, you may start an instance on the private subnet and link to it from the instance on the public network.'
