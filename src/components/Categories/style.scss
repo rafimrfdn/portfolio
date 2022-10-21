@@ -18,7 +18,7 @@
       padding-bottom: 1rem;
       border: 0 solid var(--first-color);
       border-bottom-width: 1px;
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
     }
 
     &-item {
@@ -26,8 +26,7 @@
         display: flex;
         gap: 1rem;
         color: var(--first-color-alt);
-        padding-bottom: 0.75rem;
-        margin-bottom: 0.75rem;
+        margin-bottom: 0.5rem;
 
         &-title {
           font-size: var(--normal-font-size);

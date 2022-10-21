@@ -3,7 +3,7 @@ title: Introduction to Linux CLI
 slug: introduction-to-linux-cli
 tags: ['Linux', 'CLI']
 categories: ['Linux']
-date: 2022-10-19
+date: 2022-10-19T00:00:00.000Z
 image: /assets/img/blog/introduction-to-linux-cli/introduction-to-linux-cli.jpeg
 author: MKAbuMattar
 description: 'Introduction to Linux command-line interface CLI, Linux is a Unix-like computer operating system assembled under the model of free and open-source software development and distribution.'

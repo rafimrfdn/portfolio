@@ -3,7 +3,7 @@ title: Git SSH Keys for GitHub, GitLab, and Bitbucket on Linux
 slug: git-ssh-keys-for-github-gitlab-and-bitbucket-on-linux
 tags: ['Linux', 'Git', 'SSH', 'GitHub', 'GitLab', 'Bitbucket']
 categories: ['Linux']
-date: 2021-12-18
+date: 2021-12-18T00:00:00.000Z
 image: /assets/img/blog/git-ssh-keys-for-github-gitlab-and-bitbucket-on-linux/git-ssh-keys-for-github-gitlab-and-bitbucket-on-linux.jpg
 author: MKAbuMattar
 description: Git connects to remotes by default via HTTPS, which requires you to enter your login and password every time you run a command like Git pull or git push, using the SSH protocol. You may connect to servers and authenticate to access their services. The three services listed allow Git to connect through SSH rather than HTTPS. Using public-key encryption eliminates the need to type a login and password for each Git command.

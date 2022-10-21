@@ -13,7 +13,7 @@ tags:
     'Authentication',
   ]
 categories: ['Backend']
-date: 2022-06-25
+date: 2022-06-25T00:00:00.000Z
 image: /assets/img/blog/setting-up-node-js-express-mongodb-prettier-eslint-and-husky-application-with-babel-and-authentication-as-an-example/setting-up-node-js-express-mongodb-prettier-eslint-and-husky-application-with-babel-and-authentication-as-an-example.png
 author: MKAbuMattar
 description: Setting up Node JS, Express, MongoDB, Prettier, ESLint and Husky Application with Babel and authentication as an example.

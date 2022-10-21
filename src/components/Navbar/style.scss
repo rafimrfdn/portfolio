@@ -1,8 +1,13 @@
+.header {
+  z-index: 9999;
+}
+
 .nav {
   height: var(--header-height);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 9999;
 
   &__logo {
     color: var(--first-color-alt);
