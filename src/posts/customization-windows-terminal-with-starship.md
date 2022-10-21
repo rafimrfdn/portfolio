@@ -8,7 +8,7 @@ image: /assets/img/blog/customization-windows-terminal-with-starship/customizati
 author: MKAbuMattar
 description: 'Customization Windows Terminal With Starship, Windows Terminal is a new, modern, fast, efficient, powerful, and productive terminal application for users of command-line tools and shells like Command Prompt, PowerShell, and WSL.'
 prev: vim-cheat-sheet
-next: undefined
+next: git-ssh-keys-for-github-gitlab-and-bitbucket-on-windows
 featured: true
 ---
 
@@ -23,9 +23,11 @@ featured: true
   - [Install Starship](#install-starship)
   - [Install Nerd Font](#install-nerd-font)
 - [Configuration](#configuration)
+  - [Configure Starship](#configure-starship)
   - [Configure Starship on PowerShell](#configure-starship-on-powershell)
   - [Configure PowerShell on Windows Terminal](#configure-powershell-on-windows-terminal)
   - [Extra Configuration](#extra-configuration)
+- [References](#references)
 
 ## Introduction
 
@@ -185,6 +187,200 @@ winget install --id=Starship.Starship  -e
 Quick install a nerd font from the [Nerd Fonts website](https://www.nerdfonts.com/). You can choose any font you like. I will use the `Caskaydia Cove Nerd Font` font.
 
 ## Configuration
+
+### Configure Starship
+
+To configure Starship, you can follow the steps below:
+
+1. Open the powershell.
+2. Run the command below to create the configuration file.
+
+```powershell
+mkdir -p ~/.config && touch ~/.config/starship.toml
+```
+
+3. Open the configuration file with your favorite text editor.
+
+```powershell
+notepad ~/.config/starship.toml
+```
+
+4. Copy the configuration below and paste it in the configuration file. [GitHub | starship.toml](https://raw.githubusercontent.com/MKAbuMattar/.dotfiles/main/.config/starship.toml)
+
+<details>
+
+```toml
+# ~/.config/starship.toml
+#
+#                             .
+#         ..                .''
+#         .,'..,.         ..,;,'
+#          ,;;;;,,       .,,;;;
+#           ,;;;;;'    .',;;;
+#            ,;;;;,'...,;;;,
+#             ,;;;;;,,;;;;.
+#              ,;;;;;;;;;
+#              .,;;;;;;;
+#              .,;;;;;;;'
+#              .,;;;;;;;,'
+#            .',;;;;;;;;;;,.
+#          ..,;;;;;;;;;;;;;,.
+#         .';;;;;.   ';;;;;;,'
+#        .,;;;;.      ,; .;; .,
+#        ',;;;.        .
+#        .,;;.
+#        ,;
+#
+## FIRST LINE/ROW: Info & Status
+# First param ─┌
+[username]
+format = " [╭─$user]($style)@"
+show_always = true
+style_root = "bold red"
+style_user = "bold red"
+
+# Second param
+[hostname]
+disabled = false
+format = "[$hostname]($style) in "
+ssh_only = false
+style = "bold dimmed red"
+trim_at = "-"
+
+# Third param
+[directory]
+style = "purple"
+truncate_to_repo = true
+truncation_length = 0
+truncation_symbol = "repo: "
+
+# Fourth param
+[sudo]
+disabled = false
+
+# Before all the version info (python, nodejs, php, etc.)
+[git_status]
+ahead = "⇡${count}"
+behind = "⇣${count}"
+deleted = "x"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+style = "white"
+
+# Last param in the first line/row
+[cmd_duration]
+disabled = false
+format = "took [$duration]($style)"
+min_time = 1
+
+
+## SECOND LINE/ROW: Prompt
+# Somethere at the beginning
+[battery]
+charging_symbol = ""
+disabled = true
+discharging_symbol = ""
+full_symbol = ""
+
+[[battery.display]]  # "bold red" style when capacity is between 0% and 10%
+disabled = false
+style = "bold red"
+threshold = 15
+
+[[battery.display]]  # "bold yellow" style when capacity is between 10% and 30%
+disabled = true
+style = "bold yellow"
+threshold = 50
+
+[[battery.display]]  # "bold green" style when capacity is between 10% and 30%
+disabled = true
+style = "bold green"
+threshold = 80
+
+# Prompt: optional param 1
+[time]
+disabled = true
+format = " 🕙 $time($style)\n"
+style = "bright-white"
+time_format = "%T"
+
+# Prompt: param 2
+[character]
+error_symbol = " [×](bold red)"
+success_symbol = " [╰─λ](bold red)"
+
+# SYMBOLS
+[status]
+disabled = false
+format = '[\[$symbol$status_common_meaning$status_signal_name$status_maybe_int\]]($style)'
+map_symbol = true
+pipestatus = true
+symbol = "🔴"
+
+[aws]
+symbol = " "
+
+[conda]
+symbol = " "
+
+[dart]
+symbol = " "
+
+[docker_context]
+symbol = " "
+
+[elixir]
+symbol = " "
+
+[elm]
+symbol = " "
+
+[git_branch]
+symbol = " "
+
+[golang]
+symbol = " "
+
+[hg_branch]
+symbol = " "
+
+[java]
+symbol = " "
+
+[julia]
+symbol = " "
+
+[nim]
+symbol = " "
+
+[nix_shell]
+symbol = " "
+
+[nodejs]
+symbol = " "
+
+[package]
+symbol = " "
+
+[perl]
+symbol = " "
+
+[php]
+symbol = " "
+
+[python]
+symbol = " "
+
+[ruby]
+symbol = " "
+
+[rust]
+symbol = " "
+
+[swift]
+symbol = "ﯣ "
+```
+
+</details>
 
 ### Configure Starship on PowerShell
 
