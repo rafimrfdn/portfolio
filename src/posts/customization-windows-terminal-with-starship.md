@@ -8,7 +8,7 @@ image: /assets/img/blog/customization-windows-terminal-with-starship/customizati
 author: MKAbuMattar
 description: 'Customization Windows Terminal With Starship, Windows Terminal is a new, modern, fast, efficient, powerful, and productive terminal application for users of command-line tools and shells like Command Prompt, PowerShell, and WSL.'
 prev: vim-cheat-sheet
-next: undefined
+next: git-ssh-keys-for-github-gitlab-and-bitbucket-on-windows
 featured: true
 ---
 
