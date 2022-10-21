@@ -177,7 +177,7 @@ To install Starship with Winget, you can follow the steps below:
 4. Run the command in CMD.
 
 ```powershell
-winget install --id=Starship  -e
+winget install --id=Starship.Starship  -e
 ```
 
 ### Install Nerd Font
