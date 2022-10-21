@@ -17,6 +17,7 @@ import Section from '@/ui/Section'
 
 // component
 import GetIcon from '@/components/GetIcon'
+import Slider from '@/components/Slider'
 
 // util
 import formatDate from '@/utils/formatDate.util'
@@ -26,9 +27,10 @@ const index: React.FC<Props> = (props) => {
 
   return (
     <Section className={'featuredpost'} id={'featuredpost'}>
+      <Slider dataSlider={posts} authors={authors} />
       <Container>
         <Grid className={'featuredpost__container'}>
-          {posts.map((post: any, index: number) => {
+          {/* {posts.map((post: any, index: number) => {
             return (
               <div className={'featuredpost__card'} key={index}>
                 <div className={''}>
@@ -77,7 +79,7 @@ const index: React.FC<Props> = (props) => {
                 </div>
               </div>
             )
-          })}
+          })} */}
         </Grid>
       </Container>
     </Section>
