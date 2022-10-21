@@ -35,29 +35,31 @@ const {
 ---
 
 <main class={'blog__container'}>
-  <FeaturedPost posts={featuredPost} authors={authorsData} />
+  <FeaturedPost posts={featuredPost} authors={authorsData} client:idle />
   <Section>
     <Container>
       <Grid className={'blog__content'}>
-        <section class='blog__posts'>
+        <section class="blog__posts">
           <Auther author={author} />
 
-          {page.data.map((post) => (
-            <>
-              <PostPreview
-                post={post}
-                author={authorsData[post.frontmatter.author]}
-              />
-            </>
-          ))}
+          {
+            page.data.map((post) => (
+              <>
+                <PostPreview
+                  post={post}
+                  author={authorsData[post.frontmatter.author]}
+                />
+              </>
+            ))
+          }
 
           <section>
             <Pagination page={page} url={`author/${slug}/`} />
           </section>
         </section>
-        <section class='blog__rightsection'>
-          <section class='sticky'>
-            <section class='blog__rightsection-container'>
+        <section class="blog__rightsection">
+          <section class="sticky">
+            <section class="blog__rightsection-container">
               <Categories categories={categories} allPosts={allPosts} />
               <RecentPosts recentPosts={recentPosts} />
             </section>

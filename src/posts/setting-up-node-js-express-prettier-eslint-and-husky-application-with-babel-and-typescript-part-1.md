@@ -4,7 +4,7 @@ slug: setting-up-node-js-express-prettier-eslint-and-husky-application-with-babe
 tags:
   ['NodeJS', 'Express', 'Prettier', 'ESLint', 'Husky', 'Babel', 'TypeScript']
 categories: ['Backend']
-date: 2022-07-01
+date: 2022-07-01T00:00:00.000Z
 image: /assets/img/blog/setting-up-node-js-express-prettier-eslint-and-husky-application-with-babel-and-typescript-part-1/setting-up-node-js-express-prettier-eslint-and-husky-application-with-babel-and-typescript-part-1.png
 author: MKAbuMattar
 description: 'Setting up Node JS, Express,  Prettier, ESLint and Husky Application with Babel and Typescript: Part 1.'

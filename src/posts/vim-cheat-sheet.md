@@ -3,12 +3,12 @@ title: VIM Cheat Sheet
 slug: vim-cheat-sheet
 tags: ['Linux', 'Text Editor']
 categories: ['Linux']
-date: 2022-10-20
+date: 2022-10-20T00:00:00.000Z
 image: /assets/img/blog/vim-cheat-sheet/vim-cheat-sheet.jpeg
 author: MKAbuMattar
 description: 'VIM is a text editor that is available on most Linux distributions. It is a powerful text editor that can be used to edit files from the command line. It is a modal text editor, which means that it has different modes for different tasks. This post is a cheat sheet for VIM.'
 prev: introduction-to-linux-cli
-next: undefined
+next: customization-windows-terminal-with-starship
 featured: true
 ---
 

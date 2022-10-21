@@ -3,7 +3,7 @@ title: .dotfiles
 slug: dotfiles
 tags: ['Linux']
 categories: ['Linux']
-date: 2022-05-27
+date: 2022-05-27T00:00:00.000Z
 image: /assets/img/blog/linux-dotfiles/linux-dotfiles.png
 author: MKAbuMattar
 description: 'The easiest approach to keep your dotfiles safe is to keep them on your computer: A bare Git repository is a good place to start.'

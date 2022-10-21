@@ -14,7 +14,7 @@ tags:
     'Authentication',
   ]
 categories: ['Backend']
-date: 2022-07-03
+date: 2022-07-03T00:00:00.000Z
 image: /assets/img/blog/setting-up-node-js-express-prettier-eslint-and-husky-application-with-babel-and-typescript-part-1/setting-up-node-js-express-prettier-eslint-and-husky-application-with-babel-and-typescript-part-1.png
 author: MKAbuMattar
 description: 'Setting up JWT Authentication in Typescript with Express, MongoDB, Babel, Prettier, ESLint, and Husky: Part 2.'
