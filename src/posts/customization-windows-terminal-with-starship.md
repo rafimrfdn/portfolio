@@ -25,6 +25,7 @@ featured: true
 - [Configuration](#configuration)
   - [Configure Starship on PowerShell](#configure-starship-on-powershell)
   - [Configure PowerShell on Windows Terminal](#configure-powershell-on-windows-terminal)
+  - [Extra Configuration](#extra-configuration)
 
 ## Introduction
 
@@ -201,14 +202,13 @@ New-Item -Path $PROFILE -ItemType File -Force
 3. Run the following command to `Set-Content` cmdlet to add the line to the profile.
 
 ```powershell
-Set-Content -Path $PROFILE -Value
-"function Invoke-Starship-TransientFunction {
+$CONFIG_PROFILE = {function Invoke-Starship-TransientFunction {
   &starship module character
 }
 
-Invoke-Expression (&starship init powershell)
+Invoke-Expression (&starship init powershell)}
 
-Enable-TransientPrompt -Command Invoke-Starship-TransientFunction"
+Set-Content -Path $PROFILE -Value $CONFIG_PROFILE
 ```
 
 > **Note**: You can check the location of this file by querying the `$PROFILE` variable in PowerShell. The path is often `~\Documents\PowerShell\Microsoft.PowerShell_profile.ps1`.
@@ -218,4 +218,132 @@ Enable-TransientPrompt -Command Invoke-Starship-TransientFunction"
 To configure PowerShell on Windows Terminal, you can follow the steps below:
 
 1. Open Windows Terminal.
-2. Click on the Settings button.
+2. Click on `Ctrl + ,` to open the settings.
+3. Click on `settings.json` to open the settings file.
+4. Add the following lines to the `profiles` section.
+
+```json
+{
+  "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+  "hidden": false,
+  "name": "PowerShell",
+  "source": "Windows.Terminal.PowershellCore"
+}
+```
+
+5. Change the `hidden` property to `true` for the `Windows PowerShell` profile.
+
+```json
+{
+  "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+  "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+  "hidden": true,
+  "name": "Windows PowerShell"
+}
+```
+
+6. Add `Dracula schemes` to the `schemes` section.
+
+```json
+{
+  "background": "#282A36",
+  "black": "#21222C",
+  "blue": "#BD93F9",
+  "brightBlack": "#6272A4",
+  "brightBlue": "#D6ACFF",
+  "brightCyan": "#A4FFFF",
+  "brightGreen": "#69FF94",
+  "brightPurple": "#FF92DF",
+  "brightRed": "#FF6E6E",
+  "brightWhite": "#FFFFFF",
+  "brightYellow": "#FFFFA5",
+  "cursorColor": "#F8F8F2",
+  "cyan": "#8BE9FD",
+  "foreground": "#F8F8F2",
+  "green": "#50FA7B",
+  "name": "Dracula",
+  "purple": "#FF79C6",
+  "red": "#FF5555",
+  "selectionBackground": "#44475A",
+  "white": "#F8F8F2",
+  "yellow": "#F1FA8C"
+}
+```
+
+7. Save the file and close it.
+8. Back to Windows Terminal, click on `Ctrl + ,` to open the settings.
+9. Go to Profiles >> Defaults >> Appearance >> Color scheme choose `Dracula`.
+10. Go to Profiles >> Defaults >> Appearance >> Font face choose `Caskaydia Cove Nerd Font`.
+
+![Settings](/assets/img/blog/customization-windows-terminal-with-starship/2022-10-21-183905.png)
+
+#### Extra Configuration
+
+1. Open Windows Terminal.
+2. Run the command
+
+```powershell
+# Allow scripts to run
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+# Install PSReadLine
+Install-Module PSReadLine -AllowPrerelease -Force
+
+# Install Terminal-Icons
+Install-Module Terminal-Icons -AllowPrerelease -Force
+```
+
+3. Run the following command to `Set-Content` cmdlet to add the line to the profile.
+
+```powershell
+$CONFIG_PROFILE = {function Invoke-Starship-TransientFunction {
+  &starship module character
+}
+
+Invoke-Expression (&starship init powershell)
+
+# set PowerShell to UTF-8
+[console]::InputEncoding = [console]::OutputEncoding = New-Object System.Text.UTF8Encoding
+
+Import-Module -Name Terminal-Icons
+
+Set-PSReadLineOption -PredictionViewStyle ListView
+Set-PSReadLineOption -PredictionViewStyle InlineView
+
+Set-PSReadLineOption -EditMode WindowS
+
+Set-PSReadLineKeyHandler -Chord Ctrl+B -ScriptBlock {
+    [Microsoft.PowerShell.PSConsoleReadLine]::RevertLine()
+    [Microsoft.PowerShell.PSConsoleReadLine]::Insert('build')
+    [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
+}
+
+
+# This is an example of a macro that you might use to execute a command.
+# This will add the command to history.
+Set-PSReadLineKeyHandler -Key Ctrl+Shift+b `
+                         -BriefDescription BuildCurrentDirectory `
+                         -LongDescription "Build the current directory" `
+                         -ScriptBlock {
+    [Microsoft.PowerShell.PSConsoleReadLine]::RevertLine()
+    [Microsoft.PowerShell.PSConsoleReadLine]::Insert("dotnet build")
+    [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
+}}
+
+Set-Content -Path $PROFILE -Value $CONFIG_PROFILE
+```
+
+![Settings](/assets/img/blog/customization-windows-terminal-with-starship/2022-10-21-184138.png)
+
+## References
+
+- [Starship](https://starship.rs/)
+- [Nerd Fonts](https://www.nerdfonts.com/)
+- [Dracula Theme](https://draculatheme.com/)
+- [Windows Terminal](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab)
+- [PowerShell](https://docs.microsoft.com/en-us/powershell/)
+- [PSReadLine](https://docs.microsoft.com/en-us/powershell/module/psreadline/?view=powershell-7.2)
+- [Terminal-Icons](https://www.powershellgallery.com/packages/Terminal-Icons/0.1.0)
+- [Windows Terminal - Customization](https://docs.microsoft.com/en-us/windows/terminal/customize-settings/profile-general)
+- [Windows Terminal - Themes](https://docs.microsoft.com/en-us/windows/terminal/customize-settings/color-schemes)
+- [Windows Terminal - Fonts](https://docs.microsoft.com/en-us/windows/terminal/customize-settings/font-settings)
