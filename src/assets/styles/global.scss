@@ -123,13 +123,14 @@ img {
 /*=============== SCROLL BAR ===============*/
 ::-webkit-scrollbar {
   width: 0.6rem;
-  border-radius: 0.5rem;
+  height: 0.6rem;
+  // border-radius: 0.5rem;
   background-color: hsl(var(--second-hue), 8%, 38%);
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: hsl(var(--second-hue), 8%, 26%);
-  border-radius: 0.5rem;
+  // border-radius: 0.5rem;
 
   &:hover {
     background-color: hsl(var(--second-hue), 8%, 20%);

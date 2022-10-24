@@ -33,7 +33,7 @@ export async function getStaticPaths({ paginate }) {
     )
     return paginate(filteredPosts, {
       params: { categorie },
-      pageSize: 3,
+      pageSize: 4,
     })
   })
 }
@@ -55,13 +55,13 @@ const categories = allPosts.reduce((acc, post) => {
   return acc
 }, [])
 
-const recentPosts = allPosts.slice(0, 3)
+const recentPosts = allPosts.slice(0, 4)
 ---
 
 <Layout
-  lang='en'
+  lang="en"
   title={`Blog | Category: ${title} | Mohammad Abu Mattar`}
-  description='Personal website, to show my software engineering skills at web development.'
+  description="Personal website, to show my software engineering skills at web development."
 >
   <Categorie
     title={title}
