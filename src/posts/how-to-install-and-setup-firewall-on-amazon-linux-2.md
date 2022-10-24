@@ -12,6 +12,19 @@ next: how-to-install-apache-web-server-on-amazon-linux-2
 featured: true
 ---
 
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Prerequisites](#prerequisites)
+- [Install and Setup Firewalld on Amazon Linux 2](#install-and-setup-firewalld-on-amazon-linux-2)
+  - [Step 1: Install Firewalld](#step-1-install-firewalld)
+  - [Step 2: Configure Firewalld](#step-2-configure-firewalld)
+  - [Step 3: Set Up Default Firewalld Zone](#step-3-set-up-default-firewalld-zone)
+  - [Step 4: Check FireWall Status](#step-4-check-firewall-status)
+  - [Step 5: Assigning Services to Firewalld Zones](#step-5-assigning-services-to-firewalld-zones)
+  - [Step 6: Adding Services to Firewalld Zones](#step-6-adding-services-to-firewalld-zones)
+- [Conclusion](#conclusion)
+
 ## Introduction
 
 We will learn how to install and setup FireWall on Amazon Linux 2 in this tutorial. We will also discover how to set up FireWall so that it functions with the Amazon Linux 2.
@@ -23,9 +36,9 @@ To follow along with this tutorial, you will need:
 - An Amazon Linux 2 EC2 instance with a public IP address.
 - A user with sudo privileges.
 
-## Install and Setup FireWall on Amazon Linux 2
+## Install and Setup Firewalld on Amazon Linux 2
 
-### Step 1: Install FireWall
+### Step 1: Install Firewalld
 
 Before we can install FireWall, we must first update the system.
 
@@ -76,7 +89,7 @@ Newly installed FireWall services are not enabled by default. To enable the Fire
 sudo systemctl enable firewalld
 ```
 
-### Step 2: Configure FireWall
+### Step 2: Configure Firewalld
 
 Now that the FireWall service is running, we can configure it. To configure the FireWall service, we can use the following command.
 
