@@ -24,6 +24,11 @@
     color: var(--body-color);
   }
 
+  &__divider {
+    color: var(--body-color);
+    user-select: none;
+  }
+
   &__list {
     display: flex;
     justify-content: center;
