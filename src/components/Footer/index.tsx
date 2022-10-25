@@ -1,26 +1,26 @@
-import { FC } from 'react'
+import { FC } from 'react';
 
 type Social = {
-  icon: string
-  title: string
-  url: string
-}
+  icon: string;
+  title: string;
+  url: string;
+};
 
 // style
-import './style.scss'
+import './style.scss';
 
 // component
-import GetIcon from '@/components/GetIcon'
+import GetIcon from '@/components/GetIcon';
 
 // ui
-import Container from '@/ui/Container'
-import Link from '@/ui/Link'
+import Container from '@/ui/Container';
+import Link from '@/ui/Link';
 
 // util
-import getYear from '@/utils/getYear.util'
+import getYear from '@/utils/getYear.util';
 
 // data
-import footerData from '@/data/footer-social.json'
+import footerData from '@/data/footer-social.json';
 
 const index: FC = () => {
   return (
@@ -35,16 +35,19 @@ const index: FC = () => {
                 About
               </Link>
             </div>
+            <span className={'footer__divider'}>|</span>
             <div className="">
               <Link href="/#skills" className="footer__link" title={'Skills'}>
                 Skills
               </Link>
             </div>
+            <span className={'footer__divider'}>|</span>
             <div className="">
               <Link href="/#work" className="footer__link" title={'Portfolio'}>
                 Portfolio
               </Link>
             </div>
+            <span className={'footer__divider'}>|</span>
             <div className="">
               <Link
                 href="/#contact"
@@ -54,12 +57,33 @@ const index: FC = () => {
                 Contact Me
               </Link>
             </div>
+            <span className={'footer__divider'}>|</span>
             <div className="">
               <Link href="/blog" className="footer__link" title={'Blog'}>
                 Blog
               </Link>
             </div>
-
+            <span className={'footer__divider'}>|</span>
+            <div className="">
+              <Link
+                href="/cheat-sheets"
+                className="footer__link"
+                title={'Cheat Sheets'}
+              >
+                Cheat Sheets
+              </Link>
+            </div>
+            <span className={'footer__divider'}>|</span>
+            <div className="">
+              <Link
+                href="/daily-quote"
+                className="footer__link"
+                title={'Daily Quote'}
+              >
+                Daily Quote
+              </Link>
+            </div>
+            <span className={'footer__divider'}>|</span>
             <div className="">
               <Link
                 href="/linktr.ee"
@@ -84,7 +108,7 @@ const index: FC = () => {
               >
                 <GetIcon icon={result.icon} />
               </Link>
-            )
+            );
           })}
         </div>
 
@@ -122,7 +146,7 @@ const index: FC = () => {
         </span>
       </footer>
     </>
-  )
-}
+  );
+};
 
-export default index
+export default index;

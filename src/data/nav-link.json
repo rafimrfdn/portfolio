@@ -30,11 +30,5 @@
     "title": "Blog",
     "blog": "blog",
     "icon": "CodeIcon"
-  },
-  {
-    "href": "/linktr.ee",
-    "title": "Link tree",
-    "tree": "linktr.ee",
-    "icon": "HashIcon"
   }
 ]
