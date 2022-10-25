@@ -3,9 +3,10 @@ import Layout from '@/layouts/blog.layout.astro'
 import Tag from '@/views/Tag/index.astro'
 
 let allPosts = await Astro.glob('../../../posts/*.md')
-allPosts = allPosts.sort(
+allPosts.sort(
   (a, b) =>
-    Number(a.frontmatter.date).valueOf() - Number(b.frontmatter.date).valueOf(),
+    new Date(b.frontmatter.date).valueOf() -
+    new Date(a.frontmatter.date).valueOf(),
 )
 
 export async function getStaticPaths({ paginate }) {
@@ -28,7 +29,7 @@ export async function getStaticPaths({ paginate }) {
     )
     return paginate(filteredPosts, {
       params: { tag },
-      pageSize: 3,
+      pageSize: 4,
     })
   })
 }
@@ -54,9 +55,9 @@ const recentPosts = allPosts.slice(0, 3)
 ---
 
 <Layout
-  lang='en'
+  lang="en"
   title={`Blog | Tag: ${title} | Mohammad Abu Mattar`}
-  description='Personal website, to show my software engineering skills at web development.'
+  description="Personal website, to show my software engineering skills at web development."
 >
   <Tag
     title={title}

@@ -31,7 +31,7 @@ export async function getStaticPaths({ paginate }) {
     )
     return paginate(filteredPosts, {
       params: { author },
-      pageSize: 3,
+      pageSize: 4,
     })
   })
 }
@@ -57,9 +57,9 @@ const recentPosts = allPosts.slice(0, 3)
 ---
 
 <Layout
-  lang='en'
+  lang="en"
   title={` Author: ${title} | Blog | Mohammad Abu Mattar`}
-  description='Personal website, to show my software engineering skills at web development.'
+  description="Personal website, to show my software engineering skills at web development."
 >
   <Author
     title={title}

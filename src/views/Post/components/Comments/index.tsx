@@ -12,7 +12,12 @@ const Comments = () => {
 
   useUtterances(commentNodeId, getTheme())
 
-  return <div id={commentNodeId} className={'comments'} />
+  return (
+    <div className={'comments'}>
+      <h2 className="section__title recentposts__container-title">Comments</h2>
+      <div id={commentNodeId} />
+    </div>
+  )
 }
 
 export default Comments

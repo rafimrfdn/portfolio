@@ -18,7 +18,7 @@ export async function getStaticPaths({ paginate }) {
   )
 
   return paginate(allPosts, {
-    pageSize: 3,
+    pageSize: 4,
   })
 }
 
@@ -41,9 +41,9 @@ const recentPosts = allPosts.slice(0, 3)
 ---
 
 <Layout
-  lang='en'
-  title='Blog | Mohammad Abu Mattar'
-  description='Personal website, to show my software engineering skills at web development.'
+  lang="en"
+  title="Blog | Mohammad Abu Mattar"
+  description="Personal website, to show my software engineering skills at web development."
 >
   <Blog
     allPosts={allPosts}

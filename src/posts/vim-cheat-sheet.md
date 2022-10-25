@@ -9,7 +9,7 @@ author: MKAbuMattar
 description: 'VIM is a text editor that is available on most Linux distributions. It is a powerful text editor that can be used to edit files from the command line. It is a modal text editor, which means that it has different modes for different tasks. This post is a cheat sheet for VIM.'
 prev: introduction-to-linux-cli
 next: customization-windows-terminal-with-starship
-featured: true
+featured: false
 ---
 
 ## Table of Contents
