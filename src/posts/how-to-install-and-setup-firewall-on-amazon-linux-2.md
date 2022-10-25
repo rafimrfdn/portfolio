@@ -24,6 +24,7 @@ featured: true
   - [Step 5: Assigning Services to Firewalld Zones](#step-5-assigning-services-to-firewalld-zones)
   - [Step 6: Adding Services to Firewalld Zones](#step-6-adding-services-to-firewalld-zones)
 - [Conclusion](#conclusion)
+- [References](#references)
 
 ## Introduction
 
@@ -178,3 +179,8 @@ firewall-cmd --zone=public --remove-port=80/tcp --permanent
 ## Conclusion
 
 In this tutorial, we learned how to install and setup FireWall on Amazon Linux 2. We also learned how to set up FireWall so that it functions with the Amazon Linux 2.
+
+## References
+
+- [AWS - Amazon Linux 2](https://aws.amazon.com/amazon-linux-2/)
+- [Firewalld](https://firewalld.org/)

@@ -118,3 +118,4 @@ In this tutorial, we learned how to install Apache web server on Amazon Linux 2.
 
 - [How to Install and Setup FireWall on Amazon Linux 2](/blog/post/how-to-install-and-setup-firewall-on-amazon-linux-2)
 - [Install a web server on your EC2 instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Tutorials.WebServerDB.CreateWebServer.html)
+- [AWS - Amazon Linux 2 AMI](https://aws.amazon.com/amazon-linux-2/)

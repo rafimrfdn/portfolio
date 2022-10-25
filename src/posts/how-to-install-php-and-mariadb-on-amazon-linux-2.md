@@ -22,6 +22,7 @@ featured: true
   - [Step 3 — Configuring PHP to Work with Apache](#step-3--configuring-php-to-work-with-apache)
   - [Step 4 — Configuring MariaDB to Work with PHP](#step-4--configuring-mariadb-to-work-with-php)
 - [Conclusion](#conclusion)
+- [Resources](#resources)
 
 ## Introduction
 
@@ -233,3 +234,4 @@ In this tutorial, we learned how to set up PHP and MariaDB on Amazon Linux 2. We
 ## Resources
 
 - [How to Install Apache Web Server on Amazon Linux 2](/blog/post/how-to-install-apache-web-server-on-amazon-linux-2)
+- [AWS - Amazon Linux 2](https://aws.amazon.com/amazon-linux-2/)

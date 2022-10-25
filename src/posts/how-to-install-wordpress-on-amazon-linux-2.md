@@ -164,4 +164,5 @@ In this tutorial, we learned how to install WordPress on Amazon Linux 2. We also
 
 - [How to Install Apache Web Server on Amazon Linux 2](/blog/post/how-to-install-apache-web-server-on-amazon-linux-2)
 - [How to Install PHP and MariaDB on Amazon Linux 2](/blog/post/how-to-install-php-and-mariadb-on-amazon-linux-2)
-- [Tutorial: Host a WordPress blog on Amazon Linux 2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hosting-wordpress.html)
+- [AWS - Tutorial: Host a WordPress blog on Amazon Linux 2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hosting-wordpress.html)
+- [AWS - Amazon Linux 2](https://aws.amazon.com/amazon-linux-2/)
