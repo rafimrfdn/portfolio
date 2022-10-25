@@ -122,8 +122,6 @@ const {
             </article>
           </section>
 
-          <Comments client:visible />
-
           <Auther author={author} />
 
           <div class={'adjacentPost__container'}>
@@ -142,6 +140,8 @@ const {
               )
             }
           </div>
+
+          <Comments client:load />
         </section>
 
         <section class="blog__rightsection">

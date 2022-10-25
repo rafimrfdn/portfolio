@@ -22,7 +22,7 @@
       border-radius: 0.5rem;
       opacity: 0.5;
       background-position: 50%;
-      --gradient-stops: #9ca3af, #000, rgba(156, 163, 175, 0);
+      --gradient-stops: var(--first-color-alt), #000, rgba(156, 163, 175, 0);
       background-image: linear-gradient(to bottom, var(--gradient-stops));
     }
 
