@@ -11,7 +11,7 @@ import Button from '@/ui/Button';
 // components
 import GetIcon from '@/components/GetIcon';
 
-const index = () => {
+const index = ({ domain }: any) => {
   const [quote, setQuote] = useState({});
   const [loading, setLoading] = useState(true);
   const [copy, setCopy] = useState(false);
@@ -43,7 +43,7 @@ const index = () => {
   };
 
   const hundelCopy = () => {
-    const copyText = `"${quote.quote}"\r\n-by ${quote.author}`;
+    const copyText = `"${quote.quote}"\r\n-by ${quote.author}\r\n\r\n${domain}daily-quote`;
 
     copyTextToClipboard(copyText)
       .then(() => {
@@ -59,7 +59,7 @@ const index = () => {
   };
 
   const hundelShareToTwitter = () => {
-    const text = `"${quote.quote}"\r\n-by ${quote.author}`;
+    const text = `"${quote.quote}" -by ${quote.author} ${domain}daily-quote`;
     const url = `https://twitter.com/intent/tweet?text=${text}`;
     window.open(url, '__blank');
   };
