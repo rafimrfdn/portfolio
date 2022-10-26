@@ -1,8 +1,10 @@
 ---
 import DailyQuote from '@/components/DailyQuote';
 import './style.scss';
+
+const { DOMAIN_NAME } = import.meta.env;
 ---
 
 <section class={'wrapper'}>
-  <DailyQuote client:load />
+  <DailyQuote domain={DOMAIN_NAME} client:load />
 </section>
