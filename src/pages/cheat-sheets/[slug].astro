@@ -1,0 +1,30 @@
+---
+import Layout from '@/layouts/cheat-sheets.layout.astro';
+
+import CheatSheetsPost from '@/views/CheatSheetsPost/index.astro';
+
+export async function getStaticPaths({ paginate, rss }) {
+  const postImportResult = import.meta.globEager('../../cheat-sheets/*.md');
+  const allPosts = Object.values(postImportResult);
+
+  const paths = allPosts.map((post) => {
+    const slug = post.frontmatter.slug;
+    return {
+      params: {
+        slug,
+      },
+      props: { post },
+    };
+  });
+  return paths;
+}
+const { post } = Astro.props;
+---
+
+<Layout
+  lang="en"
+  title="Cheat Sheets | Mohammad Abu Mattar"
+  description="Personal website, to show my software engineering skills at web development."
+>
+  <CheatSheetsPost post={post} client:load />
+</Layout>

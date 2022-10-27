@@ -1,0 +1,31 @@
+.card__link {
+  color: #ffffff;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.7rem;
+
+  background-color: var(--color-card);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  width: 10rem;
+  height: 4rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  opacity: 0.8;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    opacity: 1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  &__title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 700;
+  }
+}

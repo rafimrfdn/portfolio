@@ -1,0 +1,69 @@
+---
+import authorsData from '@/data/authors.json';
+import Auther from '@/components/Author/index.astro';
+import Comments from '@/views/CheatSheetsPost/components/Comments/index';
+
+// components
+import GetIcon from '@/components/GetIcon';
+
+// ui
+import Link from '@/ui/Link';
+import Container from '@/ui/Container';
+import Grid from '@/ui/Grid';
+
+import './style.scss';
+
+export type Props = {
+  post: any;
+};
+
+const { post } = Astro.props as Props;
+---
+
+<section class={'cheat'}>
+  <section class={'cheat__banner'}>
+    <Container className={''}>
+      <div class={'cheat__banner-content'}>
+        <h1 class={'cheat__banner-content_title'}>
+          <GetIcon
+            icon={post.frontmatter.icon}
+            size={40}
+            fill={post.frontmatter.color}
+          />
+          {post.frontmatter.title}
+        </h1>
+        <p class={'cheat__banner-content_subtitle'}>
+          {post.frontmatter.description}
+        </p>
+        <div class={'cheat__banner-content_link'}>
+          <Link
+            href={`/cheat-sheets/`}
+            rel={`${post.frontmatter.title}`}
+            className={'cheat__banner-content_link'}
+          >
+            Cheat Sheets
+          </Link>
+          /
+          <Link
+            href={`/cheat-sheets/${post.frontmatter.slug}`}
+            rel={`${post.frontmatter.title}`}
+            className={'cheat__banner-content_link'}
+          >
+            {post.frontmatter.title}
+          </Link>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <Container className={''}>
+    <section class={'cheat__container'}>
+      <article class={'markdown-body cheat__container-article'}>
+        <post.Content />
+      </article>
+      <Auther author={authorsData[post.frontmatter.author]} />
+
+      <Comments client:load />
+    </section>
+  </Container>
+</section>

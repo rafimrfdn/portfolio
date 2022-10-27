@@ -1,0 +1,69 @@
+---
+import Card from '@/views/CheatSheets/components/Card/index.astro';
+
+// ui
+import Container from '@/ui/Container';
+import Grid from '@/ui/Grid';
+
+// components
+import GetIcon from '@/components/GetIcon';
+
+import './style.scss';
+
+export type Props = {
+  programmingPosts: any;
+  databasePosts: any;
+  linuxCommandPosts: any;
+  toolkitPosts: any;
+};
+
+const { programmingPosts, databasePosts, linuxCommandPosts, toolkitPosts } =
+  Astro.props as Props;
+---
+
+<section class={'cheat'}>
+  <section class={'cheat__banner'}>
+    <Container className={''}>
+      <div class={'cheat__banner-content'}>
+        <h1 class={'cheat__banner-content_title'}>
+          <GetIcon icon={'TerminalIcon'} size={40} />
+          Cheat Sheets
+        </h1>
+        <p class={'cheat__banner-content_subtitle'}>
+          A collection of cheat sheets for various programming languages,
+          databases, and tools.
+        </p>
+      </div>
+    </Container>
+  </section>
+
+  <Container className={'cheat__container'}>
+    <section class={'cheat__container-content'}>
+      <h2 class={'cheat__container-content_title'}>Programming</h2>
+      <div class={'cheat__container-content_cards'}>
+        {programmingPosts.map((post: any) => <Card post={post} />)}
+      </div>
+    </section>
+
+    <section class={'cheat__container-content'}>
+      <h2 class={'cheat__container-content_title'}>Databases</h2>
+      <div class={'cheat__container-content_cards'}>
+        {databasePosts.map((post: any) => <Card post={post} />)}
+      </div>
+    </section>
+
+    <section class={'cheat__container-content'}>
+      <h2 class={'cheat__container-content_title'}>Linux Commands</h2>
+      <div class={'cheat__container-content_cards'}>
+        {linuxCommandPosts.map((post: any) => <Card post={post} />)}
+      </div>
+    </section>
+
+    <section class={'cheat__container-content'}>
+      <h2 class={'cheat__container-content_title'}>Toolkits</h2>
+      <div class={'cheat__container-content_cards'}>
+        {toolkitPosts.map((post: any) => <Card post={post} />)}
+      </div>
+    </section>
+  </Container>
+</section>
