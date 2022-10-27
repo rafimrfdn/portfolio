@@ -100,8 +100,6 @@ icon: 'BashIcon'
 
 ## Introduction
 
-</div>
-
 <div class="cheat__container-content">
 
 ### What is Bash?

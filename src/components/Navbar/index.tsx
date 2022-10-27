@@ -20,10 +20,17 @@ import ScrollToTop from '@/features/ScrollToTop';
 type Props = {
   isBlog?: boolean;
   isTree?: boolean;
+  isCheatSheets?: boolean;
+  isDailyQuote?: boolean;
 };
 
 const index: FC<Props> = (props) => {
-  const { isBlog = false, isTree = false } = props;
+  const {
+    isBlog = false,
+    isTree = false,
+    isCheatSheets = false,
+    isDailyQuote = false,
+  } = props;
 
   let sections: any[] | NodeListOf<Element>;
 
@@ -115,13 +122,19 @@ const index: FC<Props> = (props) => {
                   title={link.title}
                   className={`nav__link ${
                     link?.blog === 'notblog'
-                      ? `${!isBlog && !isTree ? 'active-link' : ''}`
+                      ? `${
+                          !isBlog && !isTree && !isCheatSheets && !isDailyQuote
+                            ? 'active-link'
+                            : ''
+                        }`
                       : link?.blog === 'blog'
                       ? `${isBlog ? 'active-link' : ''}`
                       : link?.tree === 'linktr.ee'
                       ? `${isTree ? 'active-link' : ''}`
                       : link?.cheatsheets === 'cheatsheets'
-                      ? `${isTree ? 'active-link' : ''}`
+                      ? `${isCheatSheets ? 'active-link' : ''}`
+                      : link?.dailyquote === 'dailyquote'
+                      ? `${isDailyQuote ? 'active-link' : ''}`
                       : ''
                   }`}
                 >
