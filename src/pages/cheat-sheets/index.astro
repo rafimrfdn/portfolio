@@ -8,6 +8,10 @@ const programmingPosts = allPosts.filter(
   (post) => post.frontmatter.category === 'Programming',
 );
 
+const markupPosts = allPosts.filter(
+  (post) => post.frontmatter.category === 'Markup',
+);
+
 const databasePosts = allPosts.filter(
   (post) => post.frontmatter.category === 'Database',
 );
@@ -28,6 +32,7 @@ const linuxCommandPosts = allPosts.filter(
 >
   <CheatSheets
     programmingPosts={programmingPosts}
+    markupPosts={markupPosts}
     databasePosts={databasePosts}
     toolkitPosts={toolkitPosts}
     linuxCommandPosts={linuxCommandPosts}

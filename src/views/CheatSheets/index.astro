@@ -12,13 +12,19 @@ import './style.scss';
 
 export type Props = {
   programmingPosts: any;
+  markupPosts: any;
   databasePosts: any;
   linuxCommandPosts: any;
   toolkitPosts: any;
 };
 
-const { programmingPosts, databasePosts, linuxCommandPosts, toolkitPosts } =
-  Astro.props as Props;
+const {
+  programmingPosts,
+  markupPosts,
+  databasePosts,
+  linuxCommandPosts,
+  toolkitPosts,
+} = Astro.props as Props;
 ---
 
 <section class={'cheat'}>
@@ -42,6 +48,13 @@ const { programmingPosts, databasePosts, linuxCommandPosts, toolkitPosts } =
       <h2 class={'cheat__container-content_title'}>Programming</h2>
       <div class={'cheat__container-content_cards'}>
         {programmingPosts.map((post: any) => <Card post={post} />)}
+      </div>
+    </section>
+
+    <section class={'cheat__container-content'}>
+      <h2 class={'cheat__container-content_title'}>Markup</h2>
+      <div class={'cheat__container-content_cards'}>
+        {markupPosts.map((post: any) => <Card post={post} />)}
       </div>
     </section>
 
