@@ -23,7 +23,7 @@ const { post } = Astro.props;
 
 <Layout
   lang="en"
-  title="Cheat Sheets | Mohammad Abu Mattar"
+  title={`${post.frontmatter.title} Cheat Sheets | Mohammad Abu Mattar`}
   description="Personal website, to show my software engineering skills at web development."
 >
   <CheatSheetsPost post={post} />
