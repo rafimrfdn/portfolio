@@ -1,6 +1,5 @@
 ---
 import Layout from '@/layouts/cheat-sheets.layout.astro';
-
 import CheatSheetsPost from '@/views/CheatSheetsPost/index.astro';
 
 export async function getStaticPaths({ paginate, rss }) {
@@ -19,12 +18,19 @@ export async function getStaticPaths({ paginate, rss }) {
   return paths;
 }
 const { post } = Astro.props;
+
+const { SITE } = import.meta.env;
 ---
 
 <Layout
   lang="en"
   title={`${post.frontmatter.title} Cheat Sheets | Mohammad Abu Mattar`}
-  description="Personal website, to show my software engineering skills at web development."
+  description={post.frontmatter.description}
+  keywords={post.frontmatter.tags}
+  canonical={`${SITE}cheat-sheets/${post.frontmatter.slug}`}
+  canonicalURL={`${SITE}cheat-sheets/${post.frontmatter.slug}`}
+  next={post.frontmatter.next}
+  prev={post.frontmatter.prev}
 >
   <CheatSheetsPost post={post} />
 </Layout>

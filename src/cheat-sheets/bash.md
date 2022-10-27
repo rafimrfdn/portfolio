@@ -1649,8 +1649,5 @@ IFS=$'\n\t'
 - [Bash Reference Manual](https://www.gnu.org/software/bash/manual/bash.html)
 - [Bash Guide for Beginners](https://www.tldp.org/LDP/Bash-Beginners-Guide/html/index.html)
 - [Bash Scripting Tutorial](https://ryanstutorials.net/bash-scripting-tutorial/)
-- [Bash Scripting Cheatsheet](https://devhints.io/bash)
-- [Bash Scripting Guide](https://www.tutorialspoint.com/unix/bash-scripting.htm)
-- [Bash Scripting](https://www.tutorialspoint.com/unix/unix-shell-scripting.htm)
 
 </div>
