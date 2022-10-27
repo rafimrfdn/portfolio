@@ -1,0 +1,26 @@
+---
+// components
+import GetIcon from '@/components/GetIcon';
+
+// ui
+import Link from '@/ui/Link';
+
+import './style.scss';
+
+export type Props = {
+  post: any;
+};
+
+const { post } = Astro.props as Props;
+---
+
+<Link
+  href={`/cheat-sheets/${post.frontmatter.slug}`}
+  aria-label={`Read ${post.frontmatter.title}`}
+  className={'card__link'}
+>
+  <div style={`--color-card: ${post.frontmatter.color}`} class={'card'}>
+    <GetIcon icon={post.frontmatter.icon} />
+    <p class={'card__title'}>{post.frontmatter.title}</p>
+  </div>
+</Link>

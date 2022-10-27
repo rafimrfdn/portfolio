@@ -1,0 +1,35 @@
+---
+import Layout from '@/layouts/cheat-sheets.layout.astro';
+import CheatSheets from '@/views/CheatSheets/index.astro';
+
+const allPosts = await Astro.glob('../../cheat-sheets/*.md');
+
+const programmingPosts = allPosts.filter(
+  (post) => post.frontmatter.category === 'Programming',
+);
+
+const databasePosts = allPosts.filter(
+  (post) => post.frontmatter.category === 'Database',
+);
+
+const toolkitPosts = allPosts.filter(
+  (post) => post.frontmatter.category === 'Toolkit',
+);
+
+const linuxCommandPosts = allPosts.filter(
+  (post) => post.frontmatter.category === 'Linux Command',
+);
+---
+
+<Layout
+  lang="en"
+  title="Cheat Sheets | Mohammad Abu Mattar"
+  description="Personal website, to show my software engineering skills at web development."
+>
+  <CheatSheets
+    programmingPosts={programmingPosts}
+    databasePosts={databasePosts}
+    toolkitPosts={toolkitPosts}
+    linuxCommandPosts={linuxCommandPosts}
+  />
+</Layout>

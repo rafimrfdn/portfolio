@@ -30,5 +30,11 @@
     "title": "Blog",
     "blog": "blog",
     "icon": "CodeIcon"
+  },
+  {
+    "href": "/cheat-sheets",
+    "title": "Cheat Sheets",
+    "cheatsheets": "cheatsheets",
+    "icon": "TerminalIcon"
   }
 ]
