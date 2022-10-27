@@ -16,18 +16,58 @@ import Footer from '@/components/Footer';
 // script
 import Script from '@/script/index.script.astro';
 
-export type Props = {
-  lang: string;
-  title: string;
-  description: string;
-};
+export interface Props {
+  lang?: string;
+  title?: string;
+  description?: string;
+  keywords?: string;
+  canonical?: string;
+  imageSecureUrl?: string;
+  imageUrl?: string;
+  imageAlt?: string;
+  imageWidth?: string | URL;
+  imageHeight?: string | URL;
+  imageType?: string;
+  next?: string;
+  prev: string;
+  canonicalURL?: string | URL;
+}
 
-const { lang, title, description } = Astro.props as Props;
+const {
+  lang,
+  title,
+  description,
+  keywords,
+  canonical,
+  imageSecureUrl,
+  imageUrl,
+  imageAlt,
+  imageWidth,
+  imageHeight,
+  imageType,
+  next,
+  prev,
+  canonicalURL,
+} = Astro.props as Props;
 ---
 
 <html lang={lang || 'en'}>
   <head>
-    <Metadata title={title} description={description} />
+    <Metadata
+      title={title}
+      description={description}
+      keywords={keywords}
+      canonical={canonical}
+      imageSecureUrl={imageSecureUrl}
+      imageUrl={imageUrl}
+      imageAlt={imageAlt}
+      imageWidth={imageWidth}
+      imageHeight={imageHeight}
+      imageType={imageType}
+      next={next}
+      prev={prev}
+      canonicalURL={canonicalURL}
+    />
   </head>
   <body>
     <Main>
