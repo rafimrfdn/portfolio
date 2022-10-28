@@ -13,6 +13,8 @@ icon: 'BashIcon'
 
 <details>
 
+<summary>Click to expand contents</summary>
+
 - [Introduction](#introduction)
   - [What is Bash?](#what-is-bash)
   - [Why Bash?](#why-bash)

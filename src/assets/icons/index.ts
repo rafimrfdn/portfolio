@@ -22,6 +22,7 @@ export { default as CSS3Icon } from '@/icons/CSS3';
 export { default as DailyQuoteIcon } from '@/icons/DailyQuote';
 export { default as DataIcon } from '@/icons/Data';
 export { default as DevtoIcon } from '@/icons/Dev-to';
+export { default as DockerIcon } from '@/icons/Docker';
 export { default as ExpressIcon } from '@/icons/Express';
 export { default as FacebookIcon } from '@/icons/Facebook';
 export { default as GitIcon } from '@/icons/Git';
