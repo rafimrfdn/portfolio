@@ -16,12 +16,12 @@ const databasePosts = allPosts.filter(
   (post) => post.frontmatter.category === 'Database',
 );
 
-const toolkitPosts = allPosts.filter(
-  (post) => post.frontmatter.category === 'Toolkit',
+const devOpsPosts = allPosts.filter(
+  (post) => post.frontmatter.category === 'DevOps',
 );
 
-const linuxCommandPosts = allPosts.filter(
-  (post) => post.frontmatter.category === 'Linux Command',
+const toolkitPosts = allPosts.filter(
+  (post) => post.frontmatter.category === 'Toolkit',
 );
 ---
 
@@ -34,7 +34,7 @@ const linuxCommandPosts = allPosts.filter(
     programmingPosts={programmingPosts}
     markupPosts={markupPosts}
     databasePosts={databasePosts}
+    devOpsPosts={devOpsPosts}
     toolkitPosts={toolkitPosts}
-    linuxCommandPosts={linuxCommandPosts}
   />
 </Layout>
