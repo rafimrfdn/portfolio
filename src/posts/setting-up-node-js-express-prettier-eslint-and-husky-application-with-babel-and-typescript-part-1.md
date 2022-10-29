@@ -100,7 +100,7 @@ touch .nvmrc
 
 `.nvmrc`
 
-```txt
+```yaml
 lts/fermium
 ```
 
@@ -112,7 +112,7 @@ touch .npmrc
 
 `.npmrc`
 
-```txt
+```yaml
 engine-strict=true
 save-exact = true
 tag-version-prefix=""
@@ -254,7 +254,7 @@ touch .gitignore
 
 `.gitignore`
 
-```txt
+```yaml
 # Logs
 logs
 *.log
@@ -411,7 +411,7 @@ We’ll create two files in the root:
 
 `.prettierignore`
 
-```txt
+```yaml
 node_modules
 build
 ```
@@ -476,7 +476,7 @@ We’ll create two files in the root:
 
 `.eslintignore`
 
-```txt
+```yaml
 node_modules
 build
 ```
@@ -616,7 +616,7 @@ module.exports = {
       ],
     ],
   },
-}
+};
 ```
 
 Afterward, use Husky to enable commitlint by using:
@@ -710,7 +710,7 @@ branch 'main' set up to track 'origin/main'.
 
 Create a file structure like this:
 
-```txt
+```text
 ├── src
 │   ├── index.ts
 │   └── bin
@@ -804,331 +804,333 @@ now we'll start with create constants and we'll add new things after that:
 
 ```ts
 class Api {
-  public static readonly ROOT: string = '/'
+  public static readonly ROOT: string = '/';
 
-  public static readonly API: string = '/api'
+  public static readonly API: string = '/api';
 }
-export default Api
+export default Api;
 ```
 
 `http.code.constant.ts`
 
 ```ts
 class HttpCode {
-  public static readonly CONTINUE: number = 100
+  public static readonly CONTINUE: number = 100;
 
-  public static readonly SWITCHING_PROTOCOLS: number = 101
+  public static readonly SWITCHING_PROTOCOLS: number = 101;
 
-  public static readonly PROCESSING: number = 102
+  public static readonly PROCESSING: number = 102;
 
-  public static readonly OK: number = 200
+  public static readonly OK: number = 200;
 
-  public static readonly CREATED: number = 201
+  public static readonly CREATED: number = 201;
 
-  public static readonly ACCEPTED: number = 202
+  public static readonly ACCEPTED: number = 202;
 
-  public static readonly NON_AUTHORITATIVE_INFORMATION: number = 203
+  public static readonly NON_AUTHORITATIVE_INFORMATION: number = 203;
 
-  public static readonly NO_CONTENT: number = 204
+  public static readonly NO_CONTENT: number = 204;
 
-  public static readonly RESET_CONTENT: number = 205
+  public static readonly RESET_CONTENT: number = 205;
 
-  public static readonly PARTIAL_CONTENT: number = 206
+  public static readonly PARTIAL_CONTENT: number = 206;
 
-  public static readonly MULTI_STATUS: number = 207
+  public static readonly MULTI_STATUS: number = 207;
 
-  public static readonly ALREADY_REPORTED: number = 208
+  public static readonly ALREADY_REPORTED: number = 208;
 
-  public static readonly IM_USED: number = 226
+  public static readonly IM_USED: number = 226;
 
-  public static readonly MULTIPLE_CHOICES: number = 300
+  public static readonly MULTIPLE_CHOICES: number = 300;
 
-  public static readonly MOVED_PERMANENTLY: number = 301
+  public static readonly MOVED_PERMANENTLY: number = 301;
 
-  public static readonly MOVED_TEMPORARILY: number = 302
+  public static readonly MOVED_TEMPORARILY: number = 302;
 
-  public static readonly SEE_OTHER: number = 303
+  public static readonly SEE_OTHER: number = 303;
 
-  public static readonly NOT_MODIFIED: number = 304
+  public static readonly NOT_MODIFIED: number = 304;
 
-  public static readonly USE_PROXY: number = 305
+  public static readonly USE_PROXY: number = 305;
 
-  public static readonly SWITCH_PROXY: number = 306
+  public static readonly SWITCH_PROXY: number = 306;
 
-  public static readonly TEMPORARY_REDIRECT: number = 307
+  public static readonly TEMPORARY_REDIRECT: number = 307;
 
-  public static readonly BAD_REQUEST: number = 400
+  public static readonly BAD_REQUEST: number = 400;
 
-  public static readonly UNAUTHORIZED: number = 401
+  public static readonly UNAUTHORIZED: number = 401;
 
-  public static readonly PAYMENT_REQUIRED: number = 402
+  public static readonly PAYMENT_REQUIRED: number = 402;
 
-  public static readonly FORBIDDEN: number = 403
+  public static readonly FORBIDDEN: number = 403;
 
-  public static readonly NOT_FOUND: number = 404
+  public static readonly NOT_FOUND: number = 404;
 
-  public static readonly METHOD_NOT_ALLOWED: number = 405
+  public static readonly METHOD_NOT_ALLOWED: number = 405;
 
-  public static readonly NOT_ACCEPTABLE: number = 406
+  public static readonly NOT_ACCEPTABLE: number = 406;
 
-  public static readonly PROXY_AUTHENTICATION_REQUIRED: number = 407
+  public static readonly PROXY_AUTHENTICATION_REQUIRED: number = 407;
 
-  public static readonly REQUEST_TIMEOUT: number = 408
+  public static readonly REQUEST_TIMEOUT: number = 408;
 
-  public static readonly CONFLICT: number = 409
+  public static readonly CONFLICT: number = 409;
 
-  public static readonly GONE: number = 410
+  public static readonly GONE: number = 410;
 
-  public static readonly LENGTH_REQUIRED: number = 411
+  public static readonly LENGTH_REQUIRED: number = 411;
 
-  public static readonly PRECONDITION_FAILED: number = 412
+  public static readonly PRECONDITION_FAILED: number = 412;
 
-  public static readonly PAYLOAD_TOO_LARGE: number = 413
+  public static readonly PAYLOAD_TOO_LARGE: number = 413;
 
-  public static readonly REQUEST_URI_TOO_LONG: number = 414
+  public static readonly REQUEST_URI_TOO_LONG: number = 414;
 
-  public static readonly UNSUPPORTED_MEDIA_TYPE: number = 415
+  public static readonly UNSUPPORTED_MEDIA_TYPE: number = 415;
 
-  public static readonly REQUESTED_RANGE_NOT_SATISFIABLE: number = 416
+  public static readonly REQUESTED_RANGE_NOT_SATISFIABLE: number = 416;
 
-  public static readonly EXPECTATION_FAILED: number = 417
+  public static readonly EXPECTATION_FAILED: number = 417;
 
-  public static readonly IM_A_TEAPOT: number = 418
+  public static readonly IM_A_TEAPOT: number = 418;
 
-  public static readonly METHOD_FAILURE: number = 420
+  public static readonly METHOD_FAILURE: number = 420;
 
-  public static readonly MISDIRECTED_REQUEST: number = 421
+  public static readonly MISDIRECTED_REQUEST: number = 421;
 
-  public static readonly UNPROCESSABLE_ENTITY: number = 422
+  public static readonly UNPROCESSABLE_ENTITY: number = 422;
 
-  public static readonly LOCKED: number = 423
+  public static readonly LOCKED: number = 423;
 
-  public static readonly FAILED_DEPENDENCY: number = 424
+  public static readonly FAILED_DEPENDENCY: number = 424;
 
-  public static readonly UPGRADE_REQUIRED: number = 426
+  public static readonly UPGRADE_REQUIRED: number = 426;
 
-  public static readonly PRECONDITION_REQUIRED: number = 428
+  public static readonly PRECONDITION_REQUIRED: number = 428;
 
-  public static readonly TOO_MANY_REQUESTS: number = 429
+  public static readonly TOO_MANY_REQUESTS: number = 429;
 
-  public static readonly REQUEST_HEADER_FIELDS_TOO_LARGE: number = 431
+  public static readonly REQUEST_HEADER_FIELDS_TOO_LARGE: number = 431;
 
-  public static readonly UNAVAILABLE_FOR_LEGAL_REASONS: number = 451
+  public static readonly UNAVAILABLE_FOR_LEGAL_REASONS: number = 451;
 
-  public static readonly INTERNAL_SERVER_ERROR: number = 500
+  public static readonly INTERNAL_SERVER_ERROR: number = 500;
 
-  public static readonly NOT_IMPLEMENTED: number = 501
+  public static readonly NOT_IMPLEMENTED: number = 501;
 
-  public static readonly BAD_GATEWAY: number = 502
+  public static readonly BAD_GATEWAY: number = 502;
 
-  public static readonly SERVICE_UNAVAILABLE: number = 503
+  public static readonly SERVICE_UNAVAILABLE: number = 503;
 
-  public static readonly GATEWAY_TIMEOUT: number = 504
+  public static readonly GATEWAY_TIMEOUT: number = 504;
 
-  public static readonly HTTP_VERSION_NOT_SUPPORTED: number = 505
+  public static readonly HTTP_VERSION_NOT_SUPPORTED: number = 505;
 
-  public static readonly VARIANT_ALSO_NEGOTIATES: number = 506
+  public static readonly VARIANT_ALSO_NEGOTIATES: number = 506;
 
-  public static readonly INSUFFICIENT_STORAGE: number = 507
+  public static readonly INSUFFICIENT_STORAGE: number = 507;
 
-  public static readonly LOOP_DETECTED: number = 508
+  public static readonly LOOP_DETECTED: number = 508;
 
-  public static readonly NOT_EXTENDED: number = 510
+  public static readonly NOT_EXTENDED: number = 510;
 
-  public static readonly NETWORK_AUTHENTICATION_REQUIRED: number = 511
+  public static readonly NETWORK_AUTHENTICATION_REQUIRED: number = 511;
 
-  public static readonly NETWORK_CONNECT_TIMEOUT_ERROR: number = 599
+  public static readonly NETWORK_CONNECT_TIMEOUT_ERROR: number = 599;
 }
 
-export default HttpCode
+export default HttpCode;
 ```
 
 `http.reason.constant.ts`
 
 ```ts
 class HttpReason {
-  public static readonly CONTINUE: string = 'Continue'
+  public static readonly CONTINUE: string = 'Continue';
 
-  public static readonly SWITCHING_PROTOCOLS: string = 'Switching Protocols'
+  public static readonly SWITCHING_PROTOCOLS: string = 'Switching Protocols';
 
-  public static readonly PROCESSING: string = 'Processing'
+  public static readonly PROCESSING: string = 'Processing';
 
-  public static readonly OK: string = 'OK'
+  public static readonly OK: string = 'OK';
 
-  public static readonly CREATED: string = 'Created'
+  public static readonly CREATED: string = 'Created';
 
-  public static readonly ACCEPTED: string = 'Accepted'
+  public static readonly ACCEPTED: string = 'Accepted';
 
   public static readonly NON_AUTHORITATIVE_INFORMATION: string =
-    'Non-Authoritative Information'
+    'Non-Authoritative Information';
 
-  public static readonly NO_CONTENT: string = 'No Content'
+  public static readonly NO_CONTENT: string = 'No Content';
 
-  public static readonly RESET_CONTENT: string = 'Reset Content'
+  public static readonly RESET_CONTENT: string = 'Reset Content';
 
-  public static readonly PARTIAL_CONTENT: string = 'Partial Content'
+  public static readonly PARTIAL_CONTENT: string = 'Partial Content';
 
-  public static readonly MULTI_STATUS: string = 'Multi-Status'
+  public static readonly MULTI_STATUS: string = 'Multi-Status';
 
-  public static readonly ALREADY_REPORTED: string = 'Already Reported'
+  public static readonly ALREADY_REPORTED: string = 'Already Reported';
 
-  public static readonly IM_USED: string = 'IM Used'
+  public static readonly IM_USED: string = 'IM Used';
 
-  public static readonly MULTIPLE_CHOICES: string = 'Multiple Choices'
+  public static readonly MULTIPLE_CHOICES: string = 'Multiple Choices';
 
-  public static readonly MOVED_PERMANENTLY: string = 'Moved Permanently'
+  public static readonly MOVED_PERMANENTLY: string = 'Moved Permanently';
 
-  public static readonly MOVED_TEMPORARILY: string = 'Moved Temporarily'
+  public static readonly MOVED_TEMPORARILY: string = 'Moved Temporarily';
 
-  public static readonly SEE_OTHER: string = 'See Other'
+  public static readonly SEE_OTHER: string = 'See Other';
 
-  public static readonly NOT_MODIFIED: string = 'Not Modified'
+  public static readonly NOT_MODIFIED: string = 'Not Modified';
 
-  public static readonly USE_PROXY: string = 'Use Proxy'
+  public static readonly USE_PROXY: string = 'Use Proxy';
 
-  public static readonly SWITCH_PROXY: string = 'Switch Proxy'
+  public static readonly SWITCH_PROXY: string = 'Switch Proxy';
 
-  public static readonly TEMPORARY_REDIRECT: string = 'Temporary Redirect'
+  public static readonly TEMPORARY_REDIRECT: string = 'Temporary Redirect';
 
-  public static readonly BAD_REQUEST: string = 'Bad Request'
+  public static readonly BAD_REQUEST: string = 'Bad Request';
 
-  public static readonly UNAUTHORIZED: string = 'Unauthorized'
+  public static readonly UNAUTHORIZED: string = 'Unauthorized';
 
-  public static readonly PAYMENT_REQUIRED: string = 'Payment Required'
+  public static readonly PAYMENT_REQUIRED: string = 'Payment Required';
 
-  public static readonly FORBIDDEN: string = 'Forbidden'
+  public static readonly FORBIDDEN: string = 'Forbidden';
 
-  public static readonly NOT_FOUND: string = 'Not Found'
+  public static readonly NOT_FOUND: string = 'Not Found';
 
-  public static readonly METHOD_NOT_ALLOWED: string = 'Method Not Allowed'
+  public static readonly METHOD_NOT_ALLOWED: string = 'Method Not Allowed';
 
-  public static readonly NOT_ACCEPTABLE: string = 'Not Acceptable'
+  public static readonly NOT_ACCEPTABLE: string = 'Not Acceptable';
 
   public static readonly PROXY_AUTHENTICATION_REQUIRED: string =
-    'Proxy Authentication Required'
+    'Proxy Authentication Required';
 
-  public static readonly REQUEST_TIMEOUT: string = 'Request Timeout'
+  public static readonly REQUEST_TIMEOUT: string = 'Request Timeout';
 
-  public static readonly CONFLICT: string = 'Conflict'
+  public static readonly CONFLICT: string = 'Conflict';
 
-  public static readonly GONE: string = 'Gone'
+  public static readonly GONE: string = 'Gone';
 
-  public static readonly LENGTH_REQUIRED: string = 'Length Required'
+  public static readonly LENGTH_REQUIRED: string = 'Length Required';
 
-  public static readonly PRECONDITION_FAILED: string = 'Precondition Failed'
+  public static readonly PRECONDITION_FAILED: string = 'Precondition Failed';
 
-  public static readonly PAYLOAD_TOO_LARGE: string = 'Payload Too Large'
+  public static readonly PAYLOAD_TOO_LARGE: string = 'Payload Too Large';
 
-  public static readonly REQUEST_URI_TOO_LONG: string = 'Request URI Too Long'
+  public static readonly REQUEST_URI_TOO_LONG: string = 'Request URI Too Long';
 
   public static readonly UNSUPPORTED_MEDIA_TYPE: string =
-    'Unsupported Media Type'
+    'Unsupported Media Type';
 
   public static readonly REQUESTED_RANGE_NOT_SATISFIABLE: string =
-    'Requested Range Not Satisfiable'
+    'Requested Range Not Satisfiable';
 
-  public static readonly EXPECTATION_FAILED: string = 'Expectation Failed'
+  public static readonly EXPECTATION_FAILED: string = 'Expectation Failed';
 
-  public static readonly IM_A_TEAPOT: string = "I'm a teapot"
+  public static readonly IM_A_TEAPOT: string = "I'm a teapot";
 
-  public static readonly METHOD_FAILURE: string = 'Method Failure'
+  public static readonly METHOD_FAILURE: string = 'Method Failure';
 
-  public static readonly MISDIRECTED_REQUEST: string = 'Misdirected Request'
+  public static readonly MISDIRECTED_REQUEST: string = 'Misdirected Request';
 
-  public static readonly UNPROCESSABLE_ENTITY: string = 'Unprocessable Entity'
+  public static readonly UNPROCESSABLE_ENTITY: string = 'Unprocessable Entity';
 
-  public static readonly LOCKED: string = 'Locked'
+  public static readonly LOCKED: string = 'Locked';
 
-  public static readonly FAILED_DEPENDENCY: string = 'Failed Dependency'
+  public static readonly FAILED_DEPENDENCY: string = 'Failed Dependency';
 
-  public static readonly UPGRADE_REQUIRED: string = 'Upgrade Required'
+  public static readonly UPGRADE_REQUIRED: string = 'Upgrade Required';
 
-  public static readonly PRECONDITION_REQUIRED: string = 'Precondition Required'
+  public static readonly PRECONDITION_REQUIRED: string =
+    'Precondition Required';
 
-  public static readonly TOO_MANY_REQUESTS: string = 'Too Many Requests'
+  public static readonly TOO_MANY_REQUESTS: string = 'Too Many Requests';
 
   public static readonly REQUEST_HEADER_FIELDS_TOO_LARGE: string =
-    'Request Header Fields Too Large'
+    'Request Header Fields Too Large';
 
   public static readonly UNAVAILABLE_FOR_LEGAL_REASONS: string =
-    'Unavailable For Legal Reasons'
+    'Unavailable For Legal Reasons';
 
-  public static readonly INTERNAL_SERVER_ERROR: string = 'Internal Server Error'
+  public static readonly INTERNAL_SERVER_ERROR: string =
+    'Internal Server Error';
 
-  public static readonly NOT_IMPLEMENTED: string = 'Not Implemented'
+  public static readonly NOT_IMPLEMENTED: string = 'Not Implemented';
 
-  public static readonly BAD_GATEWAY: string = 'Bad Gateway'
+  public static readonly BAD_GATEWAY: string = 'Bad Gateway';
 
-  public static readonly SERVICE_UNAVAILABLE: string = 'Service Unavailable'
+  public static readonly SERVICE_UNAVAILABLE: string = 'Service Unavailable';
 
-  public static readonly GATEWAY_TIMEOUT: string = 'Gateway Timeout'
+  public static readonly GATEWAY_TIMEOUT: string = 'Gateway Timeout';
 
   public static readonly HTTP_VERSION_NOT_SUPPORTED: string =
-    'HTTP Version Not Supported'
+    'HTTP Version Not Supported';
 
   public static readonly VARIANT_ALSO_NEGOTIATES: string =
-    'Variant Also Negotiates'
+    'Variant Also Negotiates';
 
-  public static readonly INSUFFICIENT_STORAGE: string = 'Insufficient Storage'
+  public static readonly INSUFFICIENT_STORAGE: string = 'Insufficient Storage';
 
-  public static readonly LOOP_DETECTED: string = 'Loop Detected'
+  public static readonly LOOP_DETECTED: string = 'Loop Detected';
 
-  public static readonly NOT_EXTENDED: string = 'Not Extended'
+  public static readonly NOT_EXTENDED: string = 'Not Extended';
 
   public static readonly NETWORK_AUTHENTICATION_REQUIRED: string =
-    'Network Authentication Required'
+    'Network Authentication Required';
 
   public static readonly NETWORK_CONNECT_TIMEOUT_ERROR: string =
-    'Network Connect Timeout Error'
+    'Network Connect Timeout Error';
 }
 
-export default HttpReason
+export default HttpReason;
 ```
 
 `message.constant.ts`
 
 ```ts
 class Message {
-  public static readonly API_WORKING: string = 'API is working'
+  public static readonly API_WORKING: string = 'API is working';
 
-  public static readonly SOMETHING_WENT_WRONG: string = 'Something went wrong'
+  public static readonly SOMETHING_WENT_WRONG: string = 'Something went wrong';
 }
-export default Message
+export default Message;
 ```
 
 `utils/exception/http.exception.ts`
 
 ```ts
 class HttpException extends Error {
-  public statusCode: number
+  public statusCode: number;
 
-  public statusMsg: string
+  public statusMsg: string;
 
-  public msg: string
+  public msg: string;
 
   constructor(statusCode: number, statusMsg: string, msg: any) {
-    super(msg)
-    this.statusCode = statusCode
-    this.statusMsg = statusMsg
-    this.msg = msg
+    super(msg);
+    this.statusCode = statusCode;
+    this.statusMsg = statusMsg;
+    this.msg = msg;
   }
 }
 
-export default HttpException
+export default HttpException;
 ```
 
 `error.middleware.ts`
 
 ```ts
-import { Request, Response, NextFunction } from 'express'
-import HttpException from '@/utils/exceptions/http.exception'
+import { Request, Response, NextFunction } from 'express';
+import HttpException from '@/utils/exceptions/http.exception';
 
 // http constant
-import ConstantHttpCode from '@/constants/http.code.constant'
-import ConstantHttpReason from '@/constants/http.reason.constant'
+import ConstantHttpCode from '@/constants/http.code.constant';
+import ConstantHttpReason from '@/constants/http.reason.constant';
 
 // message constant
-import ConstantMessage from '@/constants/message.constant'
+import ConstantMessage from '@/constants/message.constant';
 
 const errorMiddleware = (
   error: HttpException,
@@ -1138,10 +1140,10 @@ const errorMiddleware = (
 ): Response | void => {
   try {
     const statusCode =
-      error.statusCode || ConstantHttpCode.INTERNAL_SERVER_ERROR
+      error.statusCode || ConstantHttpCode.INTERNAL_SERVER_ERROR;
     const statusMsg =
-      error.statusMsg || ConstantHttpReason.INTERNAL_SERVER_ERROR
-    const msg = error.msg || ConstantMessage.SOMETHING_WENT_WRONG
+      error.statusMsg || ConstantHttpReason.INTERNAL_SERVER_ERROR;
+    const msg = error.msg || ConstantMessage.SOMETHING_WENT_WRONG;
 
     return res.status(statusCode).send({
       status: {
@@ -1149,71 +1151,71 @@ const errorMiddleware = (
         msg: statusMsg,
       },
       msg: msg,
-    })
+    });
   } catch (err) {
-    return next(err)
+    return next(err);
   }
-}
+};
 
-export default errorMiddleware
+export default errorMiddleware;
 ```
 
 `controller.interface.ts`
 
 ```ts
-import { Router } from 'express'
+import { Router } from 'express';
 
 interface Controller {
-  path: string
-  router: Router
+  path: string;
+  router: Router;
 }
 
-export default Controller
+export default Controller;
 ```
 
 `index.ts`
 
 ```ts
-import express, { Application, Request, Response, NextFunction } from 'express'
+import express, { Application, Request, Response, NextFunction } from 'express';
 
-import compression from 'compression'
-import cookieParser from 'cookie-parser'
-import cors from 'cors'
-import helmet from 'helmet'
+import compression from 'compression';
+import cookieParser from 'cookie-parser';
+import cors from 'cors';
+import helmet from 'helmet';
 
-import ErrorMiddleware from './middlewares/error.middleware'
-import HttpException from './utils/exceptions/http.exception'
-import Controller from './interfaces/controller.interface'
+import ErrorMiddleware from './middlewares/error.middleware';
+import HttpException from './utils/exceptions/http.exception';
+import Controller from './interfaces/controller.interface';
 
 // api constant
-import ConstantAPI from './constants/api.constant'
+import ConstantAPI from './constants/api.constant';
 
 // message constant
-import ConstantMessage from './constants/message.constant'
+import ConstantMessage from './constants/message.constant';
 
 // http constant
-import ConstantHttpCode from './constants/http.code.constant'
-import ConstantHttpReason from './constants/http.reason.constant'
+import ConstantHttpCode from './constants/http.code.constant';
+import ConstantHttpReason from './constants/http.reason.constant';
 
 class App {
-  public app: Application
+  public app: Application;
 
   constructor(controllers: Controller[]) {
-    this.app = express()
+    this.app = express();
 
-    this.initialiseConfig()
-    this.initialiseRoutes()
-    this.initialiseControllers(controllers)
-    this.initialiseErrorHandling()
+    this.initialiseConfig();
+    this.initialiseRoutes();
+    this.initialiseControllers(controllers);
+    this.initialiseErrorHandling();
   }
 
   private initialiseConfig(): void {
-    this.app.use(express.json())
-    this.app.use(express.urlencoded({ extended: true }))
-    this.app.use(cookieParser())
-    this.app.use(compression())
-    this.app.use(cors())
-    this.app.use(helmet())
+    this.app.use(express.json());
+    this.app.use(express.urlencoded({ extended: true }));
+    this.app.use(cookieParser());
+    this.app.use(compression());
+    this.app.use(cors());
+    this.app.use(helmet());
   }
 
   private initialiseRoutes(): void {
@@ -1227,7 +1229,7 @@ class App {
               msg: ConstantHttpReason.OK,
             },
             msg: ConstantMessage.API_WORKING,
-          })
+          });
         } catch (err: any) {
           return next(
             new HttpException(
@@ -1235,24 +1237,24 @@ class App {
               ConstantHttpReason.INTERNAL_SERVER_ERROR,
               err.message,
             ),
-          )
+          );
         }
       },
-    )
+    );
   }
 
   private initialiseControllers(controllers: Controller[]): void {
     controllers.forEach((controller: Controller) => {
-      this.app.use(ConstantAPI.API, controller.router)
-    })
+      this.app.use(ConstantAPI.API, controller.router);
+    });
   }
 
   private initialiseErrorHandling(): void {
-    this.app.use(ErrorMiddleware)
+    this.app.use(ErrorMiddleware);
   }
 }
 
-export default App
+export default App;
 ```
 
 `www.ts`
@@ -1260,80 +1262,80 @@ export default App
 ```ts
 #!/usr/bin/env ts-node
 
-import 'core-js/stable'
-import 'regenerator-runtime/runtime'
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
 
-import http from 'http'
-import App from '..'
+import http from 'http';
+import App from '..';
 
 // controllers
 
-const { app } = new App([])
+const { app } = new App([]);
 
 /**
  * Normalize a port into a number, string, or false.
  */
 const normalizePort = (val: any) => {
-  const port = parseInt(val, 10)
+  const port = parseInt(val, 10);
 
   if (Number.isNaN(port)) {
     // named pipe
-    return val
+    return val;
   }
 
   if (port >= 0) {
     // port number
-    return port
+    return port;
   }
 
-  return false
-}
+  return false;
+};
 
-const port = normalizePort('3030')
-app.set('port', port)
+const port = normalizePort('3030');
+app.set('port', port);
 
 /**
  * Create HTTP server.
  */
-const server = http.createServer(app)
+const server = http.createServer(app);
 
 /**
  * Event listener for HTTP server "error" event.
  */
 const onError = (error: any) => {
   if (error.syscall !== 'listen') {
-    throw error
+    throw error;
   }
 
-  const bind = typeof port === 'string' ? `Pipe ${port}` : `Port ${port}`
+  const bind = typeof port === 'string' ? `Pipe ${port}` : `Port ${port}`;
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
     case 'EACCES':
-      console.error(`${bind} requires elevated privileges`)
-      process.exit(1)
-      break
+      console.error(`${bind} requires elevated privileges`);
+      process.exit(1);
+      break;
     case 'EADDRINUSE':
-      console.error(`${bind} is already in use`)
-      process.exit(1)
-      break
+      console.error(`${bind} is already in use`);
+      process.exit(1);
+      break;
     default:
-      throw error
+      throw error;
   }
-}
+};
 
 /**
  * Event listener for HTTP server "listening" event.
  */
 const onListening = () => {
-  const addr = server.address()
-  const bind = typeof addr === 'string' ? `pipe ${addr}` : `port ${addr?.port}`
-  console.info(`Listening on ${bind}`)
-}
+  const addr = server.address();
+  const bind = typeof addr === 'string' ? `pipe ${addr}` : `port ${addr?.port}`;
+  console.info(`Listening on ${bind}`);
+};
 
-server.listen(port)
-server.on('error', onError)
-server.on('listening', onListening)
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
 ```
 
 To run the app, and start tarcking the server, with the changes, we need to add new dependency.

@@ -824,7 +824,7 @@ int main() {
 
 ### Ternary Operator
 
-```txt
+```text
            ┌── True ──┐
 Result = Condition ? Exp1 : Exp2;
            └───── False ─────┘
@@ -1032,7 +1032,7 @@ int main() {
 
 Output:
 
-```txt
+```text
 1 2 3 4 5
 ```
 
