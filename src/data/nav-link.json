@@ -32,8 +32,8 @@
     "icon": "CodeIcon"
   },
   {
-    "href": "/cheat-sheets",
-    "title": "Cheat Sheets",
+    "href": "/cheatsheets",
+    "title": "CheatSheets",
     "cheatsheets": "cheatsheets",
     "icon": "TerminalIcon"
   }

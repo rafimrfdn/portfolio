@@ -30,22 +30,22 @@ const { post } = Astro.props as Props;
             size={40}
             fill={post.frontmatter.color}
           />
-          {post.frontmatter.title}
+          {post.frontmatter.title} CheatSheets
         </h1>
         <p class={'cheat__banner-content_subtitle'}>
           {post.frontmatter.description}
         </p>
         <div class={'cheat__banner-content_link'}>
           <Link
-            href={`/cheat-sheets/`}
+            href={`/cheatsheets/`}
             rel={`${post.frontmatter.title}`}
             className={'cheat__banner-content_link'}
           >
-            Cheat Sheets
+            CheatSheets
           </Link>
           /
           <Link
-            href={`/cheat-sheets/${post.frontmatter.slug}`}
+            href={`/cheatsheets/${post.frontmatter.slug}`}
             rel={`${post.frontmatter.title}`}
             className={'cheat__banner-content_link'}
           >
