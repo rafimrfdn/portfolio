@@ -53,7 +53,7 @@
     {
       "name": "Blog | Mohammad Abu Mattar",
       "short_name": "Blog | Mohammad Abu Mattar",
-      "description": "Personal website, to show my software engineering skills at web development.",
+      "description": "Blog, to share my knowledge and experience with the world.",
       "url": "./blog",
       "icons": [
         {
@@ -75,10 +75,58 @@
       ]
     },
     {
-      "name": "Links | Mohammad Abu Mattar",
-      "short_name": "Links | Mohammad Abu Mattar",
-      "description": "Personal website, to show my software engineering skills at web development.",
-      "url": "./links",
+      "name": "CheatSheets | Mohammad Abu Mattar",
+      "short_name": "CheatSheets | Mohammad Abu Mattar",
+      "description": "CheatSheets, A collection of cheatsheets for various programming languages, markup languages, databases, devops tools, and more.",
+      "url": "./cheatsheets",
+      "icons": [
+        {
+          "src": "assets/icon/favicon.ico",
+          "sizes": "64x64 32x32 24x24 16x16",
+          "type": "image/x-icon",
+          "purpose": "any maskable"
+        },
+        {
+          "src": "assets/icon/logo192.png",
+          "type": "image/png",
+          "sizes": "192x192"
+        },
+        {
+          "src": "assets/icon/logo512.png",
+          "type": "image/png",
+          "sizes": "512x512"
+        }
+      ]
+    },
+    {
+      "name": "Daily Quote | Mohammad Abu Mattar",
+      "short_name": "Daily Quote | Mohammad Abu Mattar",
+      "description": "Daily Quote, A collection of quotes from famous people, to inspire you and motivate you to do your best.",
+      "url": "./daily-quote",
+      "icons": [
+        {
+          "src": "assets/icon/favicon.ico",
+          "sizes": "64x64 32x32 24x24 16x16",
+          "type": "image/x-icon",
+          "purpose": "any maskable"
+        },
+        {
+          "src": "assets/icon/logo192.png",
+          "type": "image/png",
+          "sizes": "192x192"
+        },
+        {
+          "src": "assets/icon/logo512.png",
+          "type": "image/png",
+          "sizes": "512x512"
+        }
+      ]
+    },
+    {
+      "name": "Link tree | Mohammad Abu Mattar",
+      "short_name": "Link tree | Mohammad Abu Mattar",
+      "description": "Link tree, A collection of links to my social media accounts, and other useful links.",
+      "url": "./linktr.ee",
       "icons": [
         {
           "src": "assets/icon/favicon.ico",
@@ -101,7 +149,7 @@
     {
       "name": "RSS | Mohammad Abu Mattar",
       "short_name": "RSS | Mohammad Abu Mattar",
-      "description": "Personal website, to show my software engineering skills at web development.",
+      "description": "RSS, A collection of RSS feeds for my blog posts, and other useful RSS feeds.",
       "url": "./rss.xml",
       "icons": [
         {
