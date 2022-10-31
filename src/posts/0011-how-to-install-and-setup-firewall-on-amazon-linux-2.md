@@ -4,7 +4,7 @@ slug: how-to-install-and-setup-firewall-on-amazon-linux-2
 tags: ['Firewall', 'Amazon Linux 2']
 categories: ['AWS']
 date: 2022-10-24T00:00:00.000Z
-image: /assets/img/blog/how-to-install-and-setup-firewall-on-amazon-linux-2/how-to-install-and-setup-firewall-on-amazon-linux-2.jpg
+image: /assets/img/blog/0011-how-to-install-and-setup-firewall-on-amazon-linux-2/how-to-install-and-setup-firewall-on-amazon-linux-2.jpg
 author: MKAbuMattar
 description: 'We will learn how to install and setup FireWall on Amazon Linux 2 in this tutorial. We will also discover how to set up FireWall so that it functions with the Amazon Linux 2.'
 prev: git-ssh-keys-for-github-gitlab-and-bitbucket-on-windows

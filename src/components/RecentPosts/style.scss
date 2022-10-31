@@ -38,13 +38,14 @@
           border: 2px solid #ec4899;
 
           img {
+            position: absolute;
             min-width: 100%;
             min-height: 100%;
             width: auto;
             height: auto;
-            position: absolute;
             left: 50%;
             top: 50%;
+            object-fit: cover;
             -webkit-transform: translate(-50%, -50%);
             -moz-transform: translate(-50%, -50%);
             -ms-transform: translate(-50%, -50%);

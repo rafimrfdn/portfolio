@@ -1,9 +1,9 @@
 ---
-import Layout from '@/layouts/cheat-sheets.layout.astro';
+import Layout from '@/layouts/cheatsheets.layout.astro';
 import CheatSheetsPost from '@/views/CheatSheetsPost/index.astro';
 
 export async function getStaticPaths({ paginate, rss }) {
-  const postImportResult = import.meta.globEager('../../cheat-sheets/*.md');
+  const postImportResult = import.meta.globEager('../../cheatsheets/*.md');
   const allPosts = Object.values(postImportResult);
 
   const paths = allPosts.map((post) => {
@@ -27,8 +27,8 @@ const { SITE } = import.meta.env;
   title={`${post.frontmatter.title} Cheat Sheets | Mohammad Abu Mattar`}
   description={post.frontmatter.description}
   keywords={post.frontmatter.tags}
-  canonical={`${SITE}cheat-sheets/${post.frontmatter.slug}`}
-  canonicalURL={`${SITE}cheat-sheets/${post.frontmatter.slug}`}
+  canonical={`${SITE}cheatsheets/${post.frontmatter.slug}`}
+  canonicalURL={`${SITE}cheatsheets/${post.frontmatter.slug}`}
   next={post.frontmatter.next}
   prev={post.frontmatter.prev}
 >

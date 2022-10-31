@@ -4,7 +4,7 @@ slug: git-ssh-keys-for-github-gitlab-and-bitbucket-on-linux
 tags: ['Linux', 'Git', 'SSH', 'GitHub', 'GitLab', 'Bitbucket']
 categories: ['Linux']
 date: 2021-12-18T00:00:00.000Z
-image: /assets/img/blog/git-ssh-keys-for-github-gitlab-and-bitbucket-on-linux/git-ssh-keys-for-github-gitlab-and-bitbucket-on-linux.jpg
+image: /assets/img/blog/0001-git-ssh-keys-for-github-gitlab-and-bitbucket-on-linux/git-ssh-keys-for-github-gitlab-and-bitbucket-on-linux.jpg
 author: MKAbuMattar
 description: Git connects to remotes by default via HTTPS, which requires you to enter your login and password every time you run a command like Git pull or git push, using the SSH protocol. You may connect to servers and authenticate to access their services. The three services listed allow Git to connect through SSH rather than HTTPS. Using public-key encryption eliminates the need to type a login and password for each Git command.
 prev: undefined
@@ -234,43 +234,43 @@ xclip -sel clip < ~/.ssh/id_rsa.pub
 
 Sign in to your GitHub account using a browser by going to github.com and entering your username and password. Click your profile photo in the upper-right corner of the page, then Settings:
 
-![GitHub Settings](/assets/img/blog/git-ssh-keys-for-github-gitlab-and-bitbucket-on-linux/github1.png)
+![GitHub Settings](/assets/img/blog/0001-git-ssh-keys-for-github-gitlab-and-bitbucket-on-linux/github1.png)
 
 Select SSH and GPG keys from the user settings sidebar. Then select New SSH key from the drop-down menu. Put a descriptive label for the new key in the Title area (for example, your computer's name) and paste your public key into the Key field. Last but not least, click Add SSH key:
 
-![GitHub Settings](/assets/img/blog/git-ssh-keys-for-github-gitlab-and-bitbucket-on-linux/github2.png)
+![GitHub Settings](/assets/img/blog/0001-git-ssh-keys-for-github-gitlab-and-bitbucket-on-linux/github2.png)
 
 The key is now visible in the list of SSH keys linked to your account:
 
-![GitHub Settings](/assets/img/blog/git-ssh-keys-for-github-gitlab-and-bitbucket-on-linux/github3.png)
+![GitHub Settings](/assets/img/blog/0001-git-ssh-keys-for-github-gitlab-and-bitbucket-on-linux/github3.png)
 
 ### GitLab
 
 Sign in to your GitLab account using a browser by going to gitlab.com and entering your username and password. Click your profile photo in the upper-right corner of the page, then Settings:
 
-![GitLab Settings](/assets/img/blog/git-ssh-keys-for-github-gitlab-and-bitbucket-on-linux/gitlab1.png)
+![GitLab Settings](/assets/img/blog/0001-git-ssh-keys-for-github-gitlab-and-bitbucket-on-linux/gitlab1.png)
 
 Click SSH Keys in the User Settings sidebar. In the Key area, paste your public key. Fill in the Title area for the new key with a descriptive term (for example, the name of your computer). Finally, click the Add key:
 
-![GitLab Settings](/assets/img/blog/git-ssh-keys-for-github-gitlab-and-bitbucket-on-linux/gitlab2.png)
+![GitLab Settings](/assets/img/blog/0001-git-ssh-keys-for-github-gitlab-and-bitbucket-on-linux/gitlab2.png)
 
 The key is now visible in the list of SSH keys linked to your account:
 
-![GitLab Settings](/assets/img/blog/git-ssh-keys-for-github-gitlab-and-bitbucket-on-linux/gitlab3.png)
+![GitLab Settings](/assets/img/blog/0001-git-ssh-keys-for-github-gitlab-and-bitbucket-on-linux/gitlab3.png)
 
 ### Bitbucket
 
 Log in to your Bitbucket account using a browser by going to bitbucket.org and entering your username and password. Click your profile photo in the lower-left corner of the website, then Bitbucket settings:
 
-![Bitbucket Settings](/assets/img/blog/git-ssh-keys-for-github-gitlab-and-bitbucket-on-linux/bitbucket1.png)
+![Bitbucket Settings](/assets/img/blog/0001-git-ssh-keys-for-github-gitlab-and-bitbucket-on-linux/bitbucket1.png)
 
 SSH keys may be found in the Settings sidebar's Security section. After that, select Add key from the drop-down menu. Fill up the Description box with a descriptive label for the new key (such as your computer's name), and then paste your public key into the Key field. Last but not least, choose to Add key:
 
-![Bitbucket Settings](/assets/img/blog/git-ssh-keys-for-github-gitlab-and-bitbucket-on-linux/bitbucket2.png)
+![Bitbucket Settings](/assets/img/blog/0001-git-ssh-keys-for-github-gitlab-and-bitbucket-on-linux/bitbucket2.png)
 
 The key has now been added to your account's list of SSH keys:
 
-![Bitbucket Settings](/assets/img/blog/git-ssh-keys-for-github-gitlab-and-bitbucket-on-linux/bitbucket3.png)
+![Bitbucket Settings](/assets/img/blog/0001-git-ssh-keys-for-github-gitlab-and-bitbucket-on-linux/bitbucket3.png)
 
 ## Test connecting via SSH
 
