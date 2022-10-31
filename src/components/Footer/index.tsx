@@ -66,11 +66,11 @@ const index: FC = () => {
             <span className={'footer__divider'}>|</span>
             <div className="">
               <Link
-                href="/cheat-sheets"
+                href="/cheatsheets"
                 className="footer__link"
-                title={'Cheat Sheets'}
+                title={'CheatSheets'}
               >
-                Cheat Sheets
+                CheatSheets
               </Link>
             </div>
             <span className={'footer__divider'}>|</span>

@@ -8,7 +8,7 @@ image: /assets/img/blog/how-to-create-an-aws-ec2-instance-using-aws-cli/how-to-c
 author: MKAbuMattar
 description: 'We will learn how to create an AWS EC2 instance using AWS CLI in this tutorial. We will also discover how to set up an AWS EC2 instance so that it functions with the Apache web server. We will also discover how to set up an AWS EC2 instance so that it functions with WordPress.'
 prev: how-to-install-wordpress-on-amazon-linux-2
-next: undefined
+next: how-to-run-an-apache-web-server-using-docker-on-an-aws-ec2-instance
 featured: true
 ---
 
