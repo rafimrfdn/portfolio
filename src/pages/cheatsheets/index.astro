@@ -1,8 +1,8 @@
 ---
-import Layout from '@/layouts/cheat-sheets.layout.astro';
+import Layout from '@/layouts/cheatsheets.layout.astro';
 import CheatSheets from '@/views/CheatSheets/index.astro';
 
-const allPosts = await Astro.glob('../../cheat-sheets/*.md');
+const allPosts = await Astro.glob('../../cheatsheets/*.md');
 
 const programmingPosts = allPosts.filter(
   (post) => post.frontmatter.category === 'Programming',

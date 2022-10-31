@@ -4,7 +4,7 @@ slug: how-to-install-apache-web-server-on-amazon-linux-2
 tags: ['Apache', 'Amazon Linux 2']
 categories: ['AWS']
 date: 2022-10-24T00:01:00.000Z
-image: /assets/img/blog/how-to-install-apache-web-server-on-amazon-linux-2/how-to-install-apache-web-server-on-amazon-linux-2.jpg
+image: /assets/img/blog/0012-how-to-install-apache-web-server-on-amazon-linux-2/how-to-install-apache-web-server-on-amazon-linux-2.jpg
 author: MKAbuMattar
 description: 'In this tutorial, we will learn how to install Apache web server on Amazon Linux 2. We will also learn how to configure Apache web server to run simple HTML web page.'
 prev: how-to-install-and-setup-firewall-on-amazon-linux-2
@@ -108,7 +108,7 @@ sudo vi /var/www/html/index.html
 
 Now, we can test Apache web server by opening the public IP address of our Amazon Linux 2 EC2 instance in a web browser:
 
-![Apache Web Server](/assets/img/blog/how-to-install-apache-web-server-on-amazon-linux-2/apache-web-server.png)
+![Apache Web Server](/assets/img/blog/0012-how-to-install-apache-web-server-on-amazon-linux-2/apache-web-server.png)
 
 ## Conclusion
 

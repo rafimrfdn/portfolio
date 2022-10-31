@@ -15,7 +15,7 @@ tags:
   ]
 categories: ['Backend']
 date: 2022-07-03T00:00:00.000Z
-image: /assets/img/blog/setting-up-node-js-express-prettier-eslint-and-husky-application-with-babel-and-typescript-part-1/setting-up-node-js-express-prettier-eslint-and-husky-application-with-babel-and-typescript-part-1.png
+image: /assets/img/blog/0004-setting-up-node-js-express-prettier-eslint-and-husky-application-with-babel-and-typescript/setting-up-node-js-express-prettier-eslint-and-husky-application-with-babel-and-typescript.png
 author: MKAbuMattar
 description: 'Setting up JWT Authentication in Typescript with Express, MongoDB, Babel, Prettier, ESLint, and Husky: Part 2.'
 prev: setting-up-node-js-express-prettier-eslint-and-husky-application-with-babel-and-typescript-part-1
@@ -270,7 +270,7 @@ yarn add dotenv envalid
 `variable.validation.ts`
 
 ```typescript
-import { cleanEnv, str, port } from 'envalid'
+import { cleanEnv, str, port } from 'envalid';
 
 const validate = (): void => {
   cleanEnv(process.env, {
@@ -281,40 +281,40 @@ const validate = (): void => {
     DATABASE_URL: str(),
     JWT_SECRET: str(),
     PASS_SECRET: str(),
-  })
-}
+  });
+};
 
-export default validate
+export default validate;
 ```
 
 `variable.env.ts`
 
 ```typescript
-import 'dotenv/config'
+import 'dotenv/config';
 
-import VariableValidate from '@/validations/variable.validation'
+import VariableValidate from '@/validations/variable.validation';
 
 class Variable {
-  public static readonly NODE_ENV: string = process.env.NODE_ENV!
+  public static readonly NODE_ENV: string = process.env.NODE_ENV!;
 
-  public static readonly PORT: number = Number(process.env.PORT)!
+  public static readonly PORT: number = Number(process.env.PORT)!;
 
-  public static readonly DATABASE_URL: string = process.env.DATABASE_URL!
+  public static readonly DATABASE_URL: string = process.env.DATABASE_URL!;
 
-  public static readonly JWT_SECRET: string = process.env.JWT_SECRET!
+  public static readonly JWT_SECRET: string = process.env.JWT_SECRET!;
 
-  public static readonly PASS_SECRET: string = process.env.PASS_SECRET!
+  public static readonly PASS_SECRET: string = process.env.PASS_SECRET!;
 
   constructor() {
-    this.initialise()
+    this.initialise();
   }
 
   private initialise(): void {
-    VariableValidate()
+    VariableValidate();
   }
 }
 
-export default Variable
+export default Variable;
 ```
 
 ## Setup logger for development
@@ -344,21 +344,21 @@ We'll begin by introducing the constants, which will be applied as follows:
 ```typescript
 class Dateformat {
   public static readonly YYYY_MM_DD_HH_MM_SS_MS: string =
-    'YYYY-MM-DD HH:mm:ss:ms'
+    'YYYY-MM-DD HH:mm:ss:ms';
 }
 
-export default Dateformat
+export default Dateformat;
 ```
 
 `path.constant.ts`
 
 ```typescript
 class Path {
-  public static readonly LOGS_ALL: string = 'logs/all.log'
+  public static readonly LOGS_ALL: string = 'logs/all.log';
 
-  public static readonly LOGS_ERROR: string = 'logs/error.log'
+  public static readonly LOGS_ERROR: string = 'logs/error.log';
 }
-export default Path
+export default Path;
 ```
 
 We'll now create the `winston` as a function to make it simpler to use:
@@ -366,11 +366,11 @@ We'll now create the `winston` as a function to make it simpler to use:
 `logger.util.ts`
 
 ```typescript
-import winston from 'winston'
-import Variable from '@/env/variable.env'
+import winston from 'winston';
+import Variable from '@/env/variable.env';
 
-import ConstantDateFormat from '@/constants/dateformat.constant'
-import ConstantPath from '@/constants/path.constant'
+import ConstantDateFormat from '@/constants/dateformat.constant';
+import ConstantPath from '@/constants/path.constant';
 
 const levels = {
   error: 0,
@@ -378,13 +378,13 @@ const levels = {
   info: 2,
   http: 3,
   debug: 4,
-}
+};
 
 const level = () => {
-  const env = Variable.NODE_ENV || 'development'
-  const isDevelopment = env === 'development'
-  return isDevelopment ? 'debug' : 'warn'
-}
+  const env = Variable.NODE_ENV || 'development';
+  const isDevelopment = env === 'development';
+  return isDevelopment ? 'debug' : 'warn';
+};
 
 const colors = {
   error: 'red',
@@ -392,9 +392,9 @@ const colors = {
   info: 'green',
   http: 'magenta',
   debug: 'white',
-}
+};
 
-winston.addColors(colors)
+winston.addColors(colors);
 
 const format = winston.format.combine(
   winston.format.timestamp({
@@ -404,7 +404,7 @@ const format = winston.format.combine(
   winston.format.printf(
     (info) => `${info.timestamp} ${info.level}: ${info.message}`,
   ),
-)
+);
 
 const transports = [
   new winston.transports.Console(),
@@ -413,16 +413,16 @@ const transports = [
     level: 'error',
   }),
   new winston.transports.File({ filename: ConstantPath.LOGS_ALL }),
-]
+];
 
 const logger = winston.createLogger({
   level: level(),
   levels,
   format,
   transports,
-})
+});
 
-export default logger
+export default logger;
 ```
 
 ## Setup MongoDB using Mongoose
@@ -446,19 +446,19 @@ We'll begin setting up the `mongoose` to connect to the database right away:
 `db.config.ts`
 
 ```typescript
-import { connect } from 'mongoose'
-import logger from '@/utils/logger.util'
+import { connect } from 'mongoose';
+import logger from '@/utils/logger.util';
 
 const connectDb = async (URL: string) => {
   try {
-    const connection: any = await connect(URL)
-    logger.info(`Mongo DB is connected to: ${connection.connection.host}`)
+    const connection: any = await connect(URL);
+    logger.info(`Mongo DB is connected to: ${connection.connection.host}`);
   } catch (err) {
-    logger.error(`An error ocurred\n\r\n\r${err}`)
+    logger.error(`An error ocurred\n\r\n\r${err}`);
   }
-}
+};
 
-export default connectDb
+export default connectDb;
 ```
 
 after that, we'll do some changes to `index.ts`, which is the entry point of the application:
@@ -466,54 +466,54 @@ after that, we'll do some changes to `index.ts`, which is the entry point of the
 `index.ts`
 
 ```typescript
-import express, { Application, Request, Response, NextFunction } from 'express'
+import express, { Application, Request, Response, NextFunction } from 'express';
 
-import compression from 'compression'
-import cookieParser from 'cookie-parser'
-import cors from 'cors'
-import helmet from 'helmet'
+import compression from 'compression';
+import cookieParser from 'cookie-parser';
+import cors from 'cors';
+import helmet from 'helmet';
 
-import ErrorMiddleware from '@/middlewares/error.middleware'
-import HttpException from '@/utils/exceptions/http.exception'
-import Controller from '@/interfaces/controller.interface'
+import ErrorMiddleware from '@/middlewares/error.middleware';
+import HttpException from '@/utils/exceptions/http.exception';
+import Controller from '@/interfaces/controller.interface';
 
-import connectDb from '@/config/db.config'
+import connectDb from '@/config/db.config';
 
 // variable
-import Variable from '@/env/variable.env'
+import Variable from '@/env/variable.env';
 
 // api constant
-import ConstantAPI from '@/constants/api.constant'
+import ConstantAPI from '@/constants/api.constant';
 
 // message constant
-import ConstantMessage from '@/constants/message.constant'
+import ConstantMessage from '@/constants/message.constant';
 
 // http constant
-import ConstantHttpCode from '@/constants/http.code.constant'
-import ConstantHttpReason from '@/constants/http.reason.constant'
+import ConstantHttpCode from '@/constants/http.code.constant';
+import ConstantHttpReason from '@/constants/http.reason.constant';
 
 class App {
-  public app: Application
-  private DATABASE_URL: string
+  public app: Application;
+  private DATABASE_URL: string;
 
   constructor(controllers: Controller[]) {
-    this.app = express()
-    this.DATABASE_URL = Variable.DATABASE_URL
+    this.app = express();
+    this.DATABASE_URL = Variable.DATABASE_URL;
 
-    this.initialiseDatabaseConnection(this.DATABASE_URL)
-    this.initialiseConfig()
-    this.initialiseRoutes()
-    this.initialiseControllers(controllers)
-    this.initialiseErrorHandling()
+    this.initialiseDatabaseConnection(this.DATABASE_URL);
+    this.initialiseConfig();
+    this.initialiseRoutes();
+    this.initialiseControllers(controllers);
+    this.initialiseErrorHandling();
   }
 
   private initialiseConfig(): void {
-    this.app.use(express.json())
-    this.app.use(express.urlencoded({ extended: true }))
-    this.app.use(cookieParser())
-    this.app.use(compression())
-    this.app.use(cors())
-    this.app.use(helmet())
+    this.app.use(express.json());
+    this.app.use(express.urlencoded({ extended: true }));
+    this.app.use(cookieParser());
+    this.app.use(compression());
+    this.app.use(cors());
+    this.app.use(helmet());
   }
 
   private initialiseRoutes(): void {
@@ -527,7 +527,7 @@ class App {
               msg: ConstantHttpReason.OK,
             },
             msg: ConstantMessage.API_WORKING,
-          })
+          });
         } catch (err: any) {
           return next(
             new HttpException(
@@ -535,28 +535,28 @@ class App {
               ConstantHttpReason.INTERNAL_SERVER_ERROR,
               err.message,
             ),
-          )
+          );
         }
       },
-    )
+    );
   }
 
   private initialiseControllers(controllers: Controller[]): void {
     controllers.forEach((controller: Controller) => {
-      this.app.use(ConstantAPI.API, controller.router)
-    })
+      this.app.use(ConstantAPI.API, controller.router);
+    });
   }
 
   private initialiseErrorHandling(): void {
-    this.app.use(ErrorMiddleware)
+    this.app.use(ErrorMiddleware);
   }
 
   private initialiseDatabaseConnection(url: string): void {
-    connectDb(url)
+    connectDb(url);
   }
 }
 
-export default App
+export default App;
 ```
 
 We will now begin to construct the user schema, but before we do, we must include constants for numbers:
@@ -566,26 +566,26 @@ We will now begin to construct the user schema, but before we do, we must includ
 ```typescript
 class Number {
   // user
-  public static readonly USERNAME_MIN_LENGTH: number = 3
-  public static readonly USERNAME_MAX_LENGTH: number = 20
-  public static readonly NAME_MIN_LENGTH: number = 3
-  public static readonly NAME_MAX_LENGTH: number = 80
-  public static readonly EMAIL_MAX_LENGTH: number = 50
-  public static readonly PASSWORD_MIN_LENGTH: number = 8
-  public static readonly PHONE_MIN_LENGTH: number = 10
-  public static readonly PHONE_MAX_LENGTH: number = 20
-  public static readonly ADDRESS_MIN_LENGTH: number = 10
-  public static readonly ADDRESS_MAX_LENGTH: number = 200
+  public static readonly USERNAME_MIN_LENGTH: number = 3;
+  public static readonly USERNAME_MAX_LENGTH: number = 20;
+  public static readonly NAME_MIN_LENGTH: number = 3;
+  public static readonly NAME_MAX_LENGTH: number = 80;
+  public static readonly EMAIL_MAX_LENGTH: number = 50;
+  public static readonly PASSWORD_MIN_LENGTH: number = 8;
+  public static readonly PHONE_MIN_LENGTH: number = 10;
+  public static readonly PHONE_MAX_LENGTH: number = 20;
+  public static readonly ADDRESS_MIN_LENGTH: number = 10;
+  public static readonly ADDRESS_MAX_LENGTH: number = 200;
 }
 
-export default Number
+export default Number;
 ```
 
 `user.schema.ts`
 
 ```typescript
-import mongoose from 'mongoose'
-import ConstantNumber from '@/constants/number.constant'
+import mongoose from 'mongoose';
+import ConstantNumber from '@/constants/number.constant';
 
 const UserSchema = new mongoose.Schema(
   {
@@ -635,9 +635,9 @@ const UserSchema = new mongoose.Schema(
     versionKey: false,
     timestamps: true,
   },
-)
+);
 
-export default UserSchema
+export default UserSchema;
 ```
 
 Now, we must create a model in order to interact with this schema:
@@ -646,44 +646,44 @@ Now, we must create a model in order to interact with this schema:
 
 ```typescript
 class Model {
-  public static readonly USER_MODEL: string = 'UserModel'
+  public static readonly USER_MODEL: string = 'UserModel';
 }
 
-export default Model
+export default Model;
 ```
 
 `user.interface.ts`
 
 ```typescript
-import { Document } from 'mongoose'
+import { Document } from 'mongoose';
 
 export default interface User extends Document {
-  username: string
-  name: string
-  email: string
-  password: string
-  phone: string
-  address: string
-  isAdmin: boolean
+  username: string;
+  name: string;
+  email: string;
+  password: string;
+  phone: string;
+  address: string;
+  isAdmin: boolean;
 }
 ```
 
 `user.model.ts`
 
 ```typescript
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
 
-import UserSchema from '@/schemas/user.schema'
-import UserInterface from '@/interfaces/user.interface'
+import UserSchema from '@/schemas/user.schema';
+import UserInterface from '@/interfaces/user.interface';
 
-import ConstantModel from '@/constants/model.constant'
+import ConstantModel from '@/constants/model.constant';
 
 const UserModel = mongoose.model<UserInterface>(
   ConstantModel.USER_MODEL,
   UserSchema,
-)
+);
 
-export default UserModel
+export default UserModel;
 ```
 
 In my opinion, I build a file to handle all queries in the database through a specific cluster.
@@ -691,59 +691,59 @@ In my opinion, I build a file to handle all queries in the database through a sp
 `user.repository.ts`
 
 ```typescript
-import User from '@/models/user.model'
-import UserInterface from '@/interfaces/user.interface'
+import User from '@/models/user.model';
+import UserInterface from '@/interfaces/user.interface';
 
 class UserRepository {
   public async findAll(): Promise<UserInterface[]> {
-    const users = await User.find({}).select('-password')
-    return users
+    const users = await User.find({}).select('-password');
+    return users;
   }
 
   public async findById(id: string): Promise<UserInterface | null> {
-    const user = await User.findById(id).select('-password')
-    return user
+    const user = await User.findById(id).select('-password');
+    return user;
   }
 
   public async findByUsername(username: string): Promise<UserInterface | null> {
-    const user = await User.findOne({ username }).select('-password')
-    return user
+    const user = await User.findOne({ username }).select('-password');
+    return user;
   }
 
   public async findByEmail(email: string): Promise<UserInterface | null> {
-    const user = await User.findOne({ email }).select('-password')
-    return user
+    const user = await User.findOne({ email }).select('-password');
+    return user;
   }
 
   public async findByPhone(phone: string): Promise<UserInterface | null> {
-    const user = await User.findOne({ phone }).select('-password')
-    return user
+    const user = await User.findOne({ phone }).select('-password');
+    return user;
   }
 
   public async findByIdWithPassword(id: string): Promise<UserInterface | null> {
-    const user = await User.findById(id)
-    return user
+    const user = await User.findById(id);
+    return user;
   }
 
   public async findByUsernameWithPassword(
     username: string,
   ): Promise<UserInterface | null> {
-    const user = await User.findOne({ username })
-    return user
+    const user = await User.findOne({ username });
+    return user;
   }
 
   public async findByEmailWithPassword(
     email: string,
   ): Promise<UserInterface | null> {
-    const user = await User.findOne({ email })
-    return user
+    const user = await User.findOne({ email });
+    return user;
   }
 
   public async findByPhoneWithPassword(
     phone: string,
   ): Promise<UserInterface | null> {
-    const user = await User.findOne({ phone })
-    return user
+    const user = await User.findOne({ phone });
+    return user;
   }
 
   public async createUser(user: any): Promise<UserInterface | null> {
@@ -755,9 +755,9 @@ class UserRepository {
       phone: user.phone,
       address: user.address,
       isAdmin: user.isAdmin,
-    })
-    const savedUser = await newUser.save()
-    return savedUser
+    });
+    const savedUser = await newUser.save();
+    return savedUser;
   }
 
   public async updateUsername(
@@ -768,8 +768,8 @@ class UserRepository {
       id,
       { username },
       { new: true },
-    ).select('-password')
-    return user
+    ).select('-password');
+    return user;
   }
 
   public async updateName(
@@ -780,8 +780,8 @@ class UserRepository {
       id,
       { name },
       { new: true },
-    ).select('-password')
-    return user
+    ).select('-password');
+    return user;
   }
 
   public async updateEmail(
@@ -792,8 +792,8 @@ class UserRepository {
       id,
       { email },
       { new: true },
-    ).select('-password')
-    return user
+    ).select('-password');
+    return user;
   }
 
   public async updatePassword(
@@ -804,8 +804,8 @@ class UserRepository {
       id,
       { password },
       { new: true },
-    ).select('-password')
-    return user
+    ).select('-password');
+    return user;
   }
 
   public async updatePhone(
@@ -816,8 +816,8 @@ class UserRepository {
       id,
       { phone },
       { new: true },
-    ).select('-password')
-    return user
+    ).select('-password');
+    return user;
   }
 
   public async updateAddress(
@@ -828,13 +828,13 @@ class UserRepository {
       id,
       { address },
       { new: true },
-    ).select('-password')
-    return user
+    ).select('-password');
+    return user;
   }
 
   public async deleteUser(id: string): Promise<UserInterface | null> {
-    const user = await User.findByIdAndDelete(id)
-    return user
+    const user = await User.findByIdAndDelete(id);
+    return user;
   }
 
   public async getUsersStats(lastYear: Date): Promise<UserInterface[] | null> {
@@ -851,12 +851,12 @@ class UserRepository {
           total: { $sum: 1 },
         },
       },
-    ])
-    return users
+    ]);
+    return users;
   }
 }
 
-export default UserRepository
+export default UserRepository;
 ```
 
 ## Setup Validation using Joi
@@ -875,25 +875,25 @@ yarn add joi
 
 ```typescript
 class Regex {
-  public static readonly USERNAME = /^(?!.*\.\.)(?!.*\.$)[^\W][\w.]{3,32}$/
+  public static readonly USERNAME = /^(?!.*\.\.)(?!.*\.$)[^\W][\w.]{3,32}$/;
   public static readonly EMAIL =
-    /^(([^<>()\\[\]\\.,;:\s@"]+(\.[^<>()\\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    /^(([^<>()\\[\]\\.,;:\s@"]+(\.[^<>()\\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   public static readonly PASSWORD =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
-  public static readonly NAME = /^[a-zA-Z ]{2,35}$/
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+  public static readonly NAME = /^[a-zA-Z ]{2,35}$/;
   public static readonly PHONE =
-    /^\s*(?:\+?(\d{1,3}))?([-. (]*(\d{3})[-. )]*)?((\d{3})[-. ]*(\d{2,4})(?:[-.x ]*(\d+))?)\s*$/
-  public static readonly ADDRESS = /^[a-zA-Z0-9\s,'-]{10,200}$/
+    /^\s*(?:\+?(\d{1,3}))?([-. (]*(\d{3})[-. )]*)?((\d{3})[-. ]*(\d{2,4})(?:[-.x ]*(\d+))?)\s*$/;
+  public static readonly ADDRESS = /^[a-zA-Z0-9\s,'-]{10,200}$/;
 }
 
-export default Regex
+export default Regex;
 ```
 
 `user.validation.ts`
 
 ```typescript
-import Joi from 'joi'
-import ConstantRegex from '@/constants/regex.constant'
+import Joi from 'joi';
+import ConstantRegex from '@/constants/regex.constant';
 
 class UserValidation {
   public register = Joi.object({
@@ -903,74 +903,74 @@ class UserValidation {
     password: Joi.string().min(6).max(30).required(),
     phone: Joi.string().min(10).max(15).required(),
     address: Joi.string().max(100).required(),
-  })
+  });
 
   public login = Joi.object({
     email: Joi.string().email().required(),
     password: Joi.string().min(6).max(30).required(),
-  })
+  });
 
   public updateUsername = Joi.object({
     username: Joi.string().max(30).required(),
     password: Joi.string().min(6).max(30).required(),
-  })
+  });
 
   public updateName = Joi.object({
     name: Joi.string().max(30).required(),
     password: Joi.string().min(6).max(30).required(),
-  })
+  });
 
   public updateEmail = Joi.object({
     email: Joi.string().email().required(),
     password: Joi.string().min(6).max(30).required(),
-  })
+  });
 
   public updatePassword = Joi.object({
     oldPassword: Joi.string().min(6).max(30).required(),
     newPassword: Joi.string().min(6).max(30).required(),
     confirmPassword: Joi.string().min(6).max(30).required(),
-  })
+  });
 
   public updatePhone = Joi.object({
     phone: Joi.string().min(10).max(15).required(),
     password: Joi.string().min(6).max(30).required(),
-  })
+  });
 
   public updateAddress = Joi.object({
     address: Joi.string().max(100).required(),
     password: Joi.string().min(6).max(30).required(),
-  })
+  });
 
   public deleteUser = Joi.object({
     password: Joi.string().min(6).max(30).required(),
-  })
+  });
 
   public validateUsername(username: string): boolean {
-    return ConstantRegex.USERNAME.test(username)
+    return ConstantRegex.USERNAME.test(username);
   }
 
   public validateName(name: string): boolean {
-    return ConstantRegex.NAME.test(name)
+    return ConstantRegex.NAME.test(name);
   }
 
   public validateEmail(email: string): boolean {
-    return ConstantRegex.EMAIL.test(email)
+    return ConstantRegex.EMAIL.test(email);
   }
 
   public validatePassword(password: string): boolean {
-    return ConstantRegex.PASSWORD.test(password)
+    return ConstantRegex.PASSWORD.test(password);
   }
 
   public validatePhone(phone: string): boolean {
-    return ConstantRegex.PHONE.test(phone)
+    return ConstantRegex.PHONE.test(phone);
   }
 
   public validateAddress(address: string): boolean {
-    return ConstantRegex.ADDRESS.test(address)
+    return ConstantRegex.ADDRESS.test(address);
   }
 }
 
-export default UserValidation
+export default UserValidation;
 ```
 
 ## Setup JWT Authentication
@@ -1003,36 +1003,36 @@ to encrypt, decode, and produce an access token, create a file:
 `user.security.ts`
 
 ```typescript
-import CryptoJS from 'crypto-js'
-import jwt from 'jsonwebtoken'
+import CryptoJS from 'crypto-js';
+import jwt from 'jsonwebtoken';
 
-import Variable from '@/env/variable.env'
+import Variable from '@/env/variable.env';
 
 class UserSecurity {
   public encrypt(password: string): string {
-    return CryptoJS.AES.encrypt(password, Variable.PASS_SECRET).toString()
+    return CryptoJS.AES.encrypt(password, Variable.PASS_SECRET).toString();
   }
 
   public decrypt(password: string): string {
     return CryptoJS.AES.decrypt(password, Variable.PASS_SECRET).toString(
       CryptoJS.enc.Utf8,
-    )
+    );
   }
 
   public comparePassword(password: string, decryptedPassword: string): boolean {
-    return password === this.decrypt(decryptedPassword)
+    return password === this.decrypt(decryptedPassword);
   }
 
   public generateAccessToken(id: string, isAdmin: boolean): string {
     const token = jwt.sign({ id, isAdmin }, Variable.JWT_SECRET, {
       expiresIn: '3d',
-    })
+    });
 
-    return `Bearer ${token}`
+    return `Bearer ${token}`;
   }
 }
 
-export default UserSecurity
+export default UserSecurity;
 ```
 
 `message.constant.ts`
@@ -1067,12 +1067,12 @@ using the user validation form joi as input, construct middleware:
 `validation.middleware.ts`
 
 ```typescript
-import { Request, Response, NextFunction, RequestHandler } from 'express'
-import Joi from 'joi'
+import { Request, Response, NextFunction, RequestHandler } from 'express';
+import Joi from 'joi';
 
 // http constant
-import ConstantHttpCode from '@/constants/http.code.constant'
-import ConstantHttpReason from '@/constants/http.reason.constant'
+import ConstantHttpCode from '@/constants/http.code.constant';
+import ConstantHttpReason from '@/constants/http.reason.constant';
 
 const validationMiddleware = (schema: Joi.Schema): RequestHandler => {
   return async (
@@ -1084,17 +1084,17 @@ const validationMiddleware = (schema: Joi.Schema): RequestHandler => {
       abortEarly: false,
       allowUnknown: true,
       stripUnknown: true,
-    }
+    };
 
     try {
-      const value = await schema.validateAsync(req.body, validationOptions)
-      req.body = value
-      next()
+      const value = await schema.validateAsync(req.body, validationOptions);
+      req.body = value;
+      next();
     } catch (e: any) {
-      const errors: string[] = []
+      const errors: string[] = [];
       e.details.forEach((error: Joi.ValidationErrorItem) => {
-        errors.push(error.message)
-      })
+        errors.push(error.message);
+      });
 
       res.status(ConstantHttpCode.NOT_FOUND).send({
         status: {
@@ -1102,12 +1102,12 @@ const validationMiddleware = (schema: Joi.Schema): RequestHandler => {
           msg: ConstantHttpReason.NOT_FOUND,
         },
         msg: errors,
-      })
+      });
     }
-  }
-}
+  };
+};
 
-export default validationMiddleware
+export default validationMiddleware;
 ```
 
 We'll now link the repository, security, and a service for authentication:
@@ -1115,44 +1115,44 @@ We'll now link the repository, security, and a service for authentication:
 `auth.service.ts`
 
 ```typescript
-import UserRepository from '@/repositories/user.repository'
-import UserSecurity from '@/security/user.security'
+import UserRepository from '@/repositories/user.repository';
+import UserSecurity from '@/security/user.security';
 
 class AuthService {
-  private userRepository: UserRepository
-  private userSecurity: UserSecurity
+  private userRepository: UserRepository;
+  private userSecurity: UserSecurity;
 
   constructor() {
-    this.userRepository = new UserRepository()
-    this.userSecurity = new UserSecurity()
+    this.userRepository = new UserRepository();
+    this.userSecurity = new UserSecurity();
   }
 
   public async findByUsername(username: string): Promise<any> {
-    const user = await this.userRepository.findByUsername(username)
-    return user
+    const user = await this.userRepository.findByUsername(username);
+    return user;
   }
 
   public async findByEmail(email: string): Promise<any> {
-    const user = await this.userRepository.findByEmail(email)
-    return user
+    const user = await this.userRepository.findByEmail(email);
+    return user;
   }
 
   public async findByPhone(phone: string): Promise<any> {
-    const user = await this.userRepository.findByPhone(phone)
-    return user
+    const user = await this.userRepository.findByPhone(phone);
+    return user;
   }
 
   public async findByEmailWithPassword(email: string): Promise<any> {
-    const user = await this.userRepository.findByEmailWithPassword(email)
-    return user
+    const user = await this.userRepository.findByEmailWithPassword(email);
+    return user;
   }
 
   public comparePassword(password: string, decryptedPassword: string): boolean {
-    return this.userSecurity.comparePassword(password, decryptedPassword)
+    return this.userSecurity.comparePassword(password, decryptedPassword);
   }
 
   public async createUser(user: any): Promise<any> {
-    const encryptedPassword = this.userSecurity.encrypt(user.password)
+    const encryptedPassword = this.userSecurity.encrypt(user.password);
     const newUser = {
       username: user.username,
       name: user.name,
@@ -1161,21 +1161,21 @@ class AuthService {
       phone: user.phone,
       address: user.address,
       isAdmin: user.isAdmin,
-    }
-    const savedUser = await this.userRepository.createUser(newUser)
-    return savedUser
+    };
+    const savedUser = await this.userRepository.createUser(newUser);
+    return savedUser;
   }
 
   public async generateAccessToken(
     id: string,
     isAdmin: boolean,
   ): Promise<string> {
-    const token = this.userSecurity.generateAccessToken(id, isAdmin)
-    return token
+    const token = this.userSecurity.generateAccessToken(id, isAdmin);
+    return token;
   }
 }
 
-export default AuthService
+export default AuthService;
 ```
 
 `api.constant.ts`
@@ -1194,42 +1194,42 @@ export default Api
 `auth.controller.ts`
 
 ```typescript
-import { Router, Request, Response, NextFunction } from 'express'
+import { Router, Request, Response, NextFunction } from 'express';
 
-import AuthService from '@/services/auth.service'
-import Controller from '@/interfaces/controller.interface'
+import AuthService from '@/services/auth.service';
+import Controller from '@/interfaces/controller.interface';
 
-import Validate from '@/validations/user.validation'
-import validationMiddleware from '@/middlewares/validation.middleware'
+import Validate from '@/validations/user.validation';
+import validationMiddleware from '@/middlewares/validation.middleware';
 
-import HttpException from '@/utils/exceptions/http.exception'
+import HttpException from '@/utils/exceptions/http.exception';
 
 // api constant
-import ConstantAPI from '@/constants/api.constant'
+import ConstantAPI from '@/constants/api.constant';
 
 // message constant
-import ConstantMessage from '@/constants/message.constant'
+import ConstantMessage from '@/constants/message.constant';
 
 // http constant
-import ConstantHttpCode from '@/constants/http.code.constant'
-import ConstantHttpReason from '@/constants/http.reason.constant'
+import ConstantHttpCode from '@/constants/http.code.constant';
+import ConstantHttpReason from '@/constants/http.reason.constant';
 
 // logger
-import logger from '@/utils/logger.util'
+import logger from '@/utils/logger.util';
 
 class AuthController implements Controller {
-  public path: string
-  public router: Router
-  private authService: AuthService
-  private validate: Validate
+  public path: string;
+  public router: Router;
+  private authService: AuthService;
+  private validate: Validate;
 
   constructor() {
-    this.path = ConstantAPI.AUTH
-    this.router = Router()
-    this.authService = new AuthService()
-    this.validate = new Validate()
+    this.path = ConstantAPI.AUTH;
+    this.router = Router();
+    this.authService = new AuthService();
+    this.validate = new Validate();
 
-    this.initialiseRoutes()
+    this.initialiseRoutes();
   }
 
   private initialiseRoutes(): void {
@@ -1237,13 +1237,13 @@ class AuthController implements Controller {
       `${this.path}${ConstantAPI.AUTH_REGISTER}`,
       validationMiddleware(this.validate.register),
       this.register,
-    )
+    );
 
     this.router.post(
       `${this.path}${ConstantAPI.AUTH_LOGIN}`,
       validationMiddleware(this.validate.login),
       this.login,
-    )
+    );
   }
 
   private register = async (
@@ -1252,9 +1252,9 @@ class AuthController implements Controller {
     next: NextFunction,
   ): Promise<Response | void> => {
     try {
-      const { username, name, email, password, phone, address } = req.body
+      const { username, name, email, password, phone, address } = req.body;
 
-      const usernameValidated = this.validate.validateUsername(username)
+      const usernameValidated = this.validate.validateUsername(username);
       if (!usernameValidated) {
         return next(
           new HttpException(
@@ -1262,11 +1262,11 @@ class AuthController implements Controller {
             ConstantHttpReason.CONFLICT,
             ConstantMessage.USERNAME_NOT_VALID,
           ),
-        )
+        );
       }
-      logger.info(`username ${username} is valid`)
+      logger.info(`username ${username} is valid`);
 
-      const nameValidated = this.validate.validateName(name)
+      const nameValidated = this.validate.validateName(name);
       if (!nameValidated) {
         return next(
           new HttpException(
@@ -1274,11 +1274,11 @@ class AuthController implements Controller {
             ConstantHttpReason.CONFLICT,
             ConstantMessage.NAME_NOT_VALID,
           ),
-        )
+        );
       }
-      logger.info(`name ${name} is valid`)
+      logger.info(`name ${name} is valid`);
 
-      const emailValidated = this.validate.validateEmail(email)
+      const emailValidated = this.validate.validateEmail(email);
       if (!emailValidated) {
         return next(
           new HttpException(
@@ -1286,11 +1286,11 @@ class AuthController implements Controller {
             ConstantHttpReason.CONFLICT,
             ConstantMessage.EMAIL_NOT_VALID,
           ),
-        )
+        );
       }
-      logger.info(`email ${email} is valid`)
+      logger.info(`email ${email} is valid`);
 
-      const passwordValidated = this.validate.validatePassword(password)
+      const passwordValidated = this.validate.validatePassword(password);
       if (!passwordValidated) {
         return next(
           new HttpException(
@@ -1298,11 +1298,11 @@ class AuthController implements Controller {
             ConstantHttpReason.CONFLICT,
             ConstantMessage.PASSWORD_NOT_VALID,
           ),
-        )
+        );
       }
-      logger.info(`password ${password} is valid`)
+      logger.info(`password ${password} is valid`);
 
-      const phoneValidated = this.validate.validatePhone(phone)
+      const phoneValidated = this.validate.validatePhone(phone);
       if (!phoneValidated) {
         return next(
           new HttpException(
@@ -1310,11 +1310,11 @@ class AuthController implements Controller {
             ConstantHttpReason.CONFLICT,
             ConstantMessage.PHONE_NOT_VALID,
           ),
-        )
+        );
       }
-      logger.info(`phone ${phone} is valid`)
+      logger.info(`phone ${phone} is valid`);
 
-      const addressValidated = this.validate.validateAddress(address)
+      const addressValidated = this.validate.validateAddress(address);
       if (!addressValidated) {
         return next(
           new HttpException(
@@ -1322,11 +1322,11 @@ class AuthController implements Controller {
             ConstantHttpReason.CONFLICT,
             ConstantMessage.ADDRESS_NOT_VALID,
           ),
-        )
+        );
       }
-      logger.info(`address ${address} is valid`)
+      logger.info(`address ${address} is valid`);
 
-      const usernameCheck = await this.authService.findByUsername(username)
+      const usernameCheck = await this.authService.findByUsername(username);
       if (usernameCheck) {
         return next(
           new HttpException(
@@ -1334,10 +1334,10 @@ class AuthController implements Controller {
             ConstantHttpReason.CONFLICT,
             ConstantMessage.USERNAME_EXIST,
           ),
-        )
+        );
       }
 
-      const emailCheck = await this.authService.findByEmail(email)
+      const emailCheck = await this.authService.findByEmail(email);
       if (emailCheck) {
         return next(
           new HttpException(
@@ -1345,10 +1345,10 @@ class AuthController implements Controller {
             ConstantHttpReason.CONFLICT,
             ConstantMessage.EMAIL_EXIST,
           ),
-        )
+        );
       }
 
-      const phoneCheck = await this.authService.findByPhone(phone)
+      const phoneCheck = await this.authService.findByPhone(phone);
       if (phoneCheck) {
         return next(
           new HttpException(
@@ -1356,7 +1356,7 @@ class AuthController implements Controller {
             ConstantHttpReason.CONFLICT,
             ConstantMessage.PHONE_EXIST,
           ),
-        )
+        );
       }
 
       const newUserData = {
@@ -1366,9 +1366,9 @@ class AuthController implements Controller {
         password,
         phone,
         address,
-      }
+      };
 
-      const user = await this.authService.createUser(newUserData)
+      const user = await this.authService.createUser(newUserData);
       if (!user) {
         return next(
           new HttpException(
@@ -1376,16 +1376,16 @@ class AuthController implements Controller {
             ConstantHttpReason.CONFLICT,
             ConstantMessage.USER_NOT_CREATE,
           ),
-        )
+        );
       }
 
-      const newUser = { ...user }._doc
+      const newUser = { ...user }._doc;
 
-      logger.info({ newUserpassword: newUser.password })
+      logger.info({ newUserpassword: newUser.password });
 
-      delete newUser.password
+      delete newUser.password;
 
-      logger.info({ newUserpassword: newUser.password })
+      logger.info({ newUserpassword: newUser.password });
 
       return res.status(ConstantHttpCode.CREATED).json({
         status: {
@@ -1394,7 +1394,7 @@ class AuthController implements Controller {
         },
         msg: ConstantMessage.USER_CREATE_SUCCESS,
         data: newUser,
-      })
+      });
     } catch (err: any) {
       return next(
         new HttpException(
@@ -1402,9 +1402,9 @@ class AuthController implements Controller {
           ConstantHttpReason.INTERNAL_SERVER_ERROR,
           err.message,
         ),
-      )
+      );
     }
-  }
+  };
 
   private login = async (
     req: Request,
@@ -1412,9 +1412,9 @@ class AuthController implements Controller {
     next: NextFunction,
   ): Promise<Response | void> => {
     try {
-      const { email, password } = req.body
+      const { email, password } = req.body;
 
-      const emailValidated = this.validate.validateEmail(email)
+      const emailValidated = this.validate.validateEmail(email);
       if (!emailValidated) {
         return next(
           new HttpException(
@@ -1422,11 +1422,11 @@ class AuthController implements Controller {
             ConstantHttpReason.INTERNAL_SERVER_ERROR,
             ConstantMessage.EMAIL_NOT_VALID,
           ),
-        )
+        );
       }
-      logger.info(`email ${email} is valid`)
+      logger.info(`email ${email} is valid`);
 
-      const passwordValidated = this.validate.validatePassword(password)
+      const passwordValidated = this.validate.validatePassword(password);
       if (!passwordValidated) {
         return next(
           new HttpException(
@@ -1434,11 +1434,11 @@ class AuthController implements Controller {
             ConstantHttpReason.INTERNAL_SERVER_ERROR,
             ConstantMessage.PASSWORD_NOT_VALID,
           ),
-        )
+        );
       }
-      logger.info(`password ${password} is valid`)
+      logger.info(`password ${password} is valid`);
 
-      const user = await this.authService.findByEmailWithPassword(email)
+      const user = await this.authService.findByEmailWithPassword(email);
       if (!user) {
         return next(
           new HttpException(
@@ -1446,10 +1446,10 @@ class AuthController implements Controller {
             ConstantHttpReason.INTERNAL_SERVER_ERROR,
             ConstantMessage.USER_NOT_FOUND,
           ),
-        )
+        );
       }
 
-      const isMatch = this.authService.comparePassword(password, user.password)
+      const isMatch = this.authService.comparePassword(password, user.password);
       if (!isMatch) {
         return next(
           new HttpException(
@@ -1457,22 +1457,22 @@ class AuthController implements Controller {
             ConstantHttpReason.INTERNAL_SERVER_ERROR,
             ConstantMessage.PASSWORD_NOT_MATCH,
           ),
-        )
+        );
       }
 
       const accessToken = await this.authService.generateAccessToken(
         user.id,
         user.isAdmin,
-      )
-      logger.info(`accessToken: ${accessToken}`)
+      );
+      logger.info(`accessToken: ${accessToken}`);
 
-      const newUser = { ...user }._doc
+      const newUser = { ...user }._doc;
 
-      logger.info({ newUserpassword: newUser.password })
+      logger.info({ newUserpassword: newUser.password });
 
-      delete newUser.password
+      delete newUser.password;
 
-      logger.info({ newUserpassword: newUser.password })
+      logger.info({ newUserpassword: newUser.password });
 
       return res.status(ConstantHttpCode.OK).json({
         status: {
@@ -1484,7 +1484,7 @@ class AuthController implements Controller {
           user: newUser,
           accessToken,
         },
-      })
+      });
     } catch (err: any) {
       return next(
         new HttpException(
@@ -1492,12 +1492,12 @@ class AuthController implements Controller {
           ConstantHttpReason.INTERNAL_SERVER_ERROR,
           err.message,
         ),
-      )
+      );
     }
-  }
+  };
 }
 
-export default AuthController
+export default AuthController;
 ```
 
 We will now develop a validation for each JWT that we receive:
@@ -1505,30 +1505,30 @@ We will now develop a validation for each JWT that we receive:
 `token.validation.ts`
 
 ```typescript
-import jwt from 'jsonwebtoken'
-import { Request, Response, NextFunction } from 'express'
-import HttpException from '@/utils/exceptions/http.exception'
+import jwt from 'jsonwebtoken';
+import { Request, Response, NextFunction } from 'express';
+import HttpException from '@/utils/exceptions/http.exception';
 
 // variable
-import Variable from '@/env/variable.env'
+import Variable from '@/env/variable.env';
 
 // message constant
-import ConstantMessage from '@/constants/message.constant'
+import ConstantMessage from '@/constants/message.constant';
 
 // http constant
-import ConstantHttpCode from '@/constants/http.code.constant'
-import ConstantHttpReason from '@/constants/http.reason.constant'
+import ConstantHttpCode from '@/constants/http.code.constant';
+import ConstantHttpReason from '@/constants/http.reason.constant';
 
 // logger
-import logger from '@/utils/logger.util'
+import logger from '@/utils/logger.util';
 
 export const verifyToken = async (
   req: Request,
   res: Response,
   next: NextFunction,
 ) => {
-  const bearer = req.headers.authorization
-  logger.info(`bearer: ${bearer}`)
+  const bearer = req.headers.authorization;
+  logger.info(`bearer: ${bearer}`);
 
   if (!bearer) {
     return next(
@@ -1537,7 +1537,7 @@ export const verifyToken = async (
         ConstantHttpReason.UNAUTHORIZED,
         ConstantMessage.TOKEN_NOT_VALID,
       ),
-    )
+    );
   }
 
   if (!bearer || !bearer.startsWith('Bearer ')) {
@@ -1547,10 +1547,10 @@ export const verifyToken = async (
         ConstantHttpReason.UNAUTHORIZED,
         ConstantMessage.UNAUTHORIZED,
       ),
-    )
+    );
   }
 
-  const accessToken = bearer.split('Bearer ')[1].trim()
+  const accessToken = bearer.split('Bearer ')[1].trim();
 
   return jwt.verify(accessToken, Variable.JWT_SECRET, (err, user: any) => {
     if (err) {
@@ -1560,14 +1560,14 @@ export const verifyToken = async (
           msg: ConstantHttpReason.FORBIDDEN,
         },
         msg: ConstantMessage.TOKEN_NOT_VALID,
-      })
+      });
     }
-    req.user = user
-    return next()
-  })
-}
+    req.user = user;
+    return next();
+  });
+};
 
-export default { verifyToken }
+export default { verifyToken };
 ```
 
 Before moving on, we must make a few adjustments to the configuration file and type in the typescript request:
@@ -1575,12 +1575,12 @@ Before moving on, we must make a few adjustments to the configuration file and t
 `index.d.ts`
 
 ```typescript
-import User from '@/interfaces/user.interface'
+import User from '@/interfaces/user.interface';
 
 declare global {
   namespace Express {
     export interface Request {
-      user: User
+      user: User;
     }
   }
 }
@@ -1619,17 +1619,17 @@ After that, we can develop middleware to check if the request has authorization 
 `authenticated.middleware.ts`
 
 ```typescript
-import { Request, Response, NextFunction } from 'express'
-import HttpException from '@/utils/exceptions/http.exception'
+import { Request, Response, NextFunction } from 'express';
+import HttpException from '@/utils/exceptions/http.exception';
 
-import { verifyToken } from '@/validations/token.validation'
+import { verifyToken } from '@/validations/token.validation';
 
 // message constant
-import ConstantMessage from '@/constants/message.constant'
+import ConstantMessage from '@/constants/message.constant';
 
 // http constant
-import ConstantHttpCode from '@/constants/http.code.constant'
-import ConstantHttpReason from '@/constants/http.reason.constant'
+import ConstantHttpCode from '@/constants/http.code.constant';
+import ConstantHttpReason from '@/constants/http.reason.constant';
 
 class AuthenticatedMiddleware {
   public async verifyTokenAndAuthorization(
@@ -1639,7 +1639,7 @@ class AuthenticatedMiddleware {
   ) {
     verifyToken(req, res, () => {
       if (req?.user?.id === req?.params?.id || req?.user?.isAdmin) {
-        return next()
+        return next();
       }
 
       return next(
@@ -1648,8 +1648,8 @@ class AuthenticatedMiddleware {
           ConstantHttpReason.FORBIDDEN,
           ConstantMessage.NOT_ALLOWED,
         ),
-      )
-    })
+      );
+    });
   }
 
   public async verifyTokenAndAdmin(
@@ -1659,7 +1659,7 @@ class AuthenticatedMiddleware {
   ) {
     verifyToken(req, res, () => {
       if (req?.user?.isAdmin) {
-        return next()
+        return next();
       }
 
       return next(
@@ -1668,12 +1668,12 @@ class AuthenticatedMiddleware {
           ConstantHttpReason.FORBIDDEN,
           ConstantMessage.NOT_ALLOWED,
         ),
-      )
-    })
+      );
+    });
   }
 }
 
-export default AuthenticatedMiddleware
+export default AuthenticatedMiddleware;
 ```
 
 We’ll now link the repository, security, and service for user:
@@ -1681,97 +1681,100 @@ We’ll now link the repository, security, and service for user:
 `user.service.ts`
 
 ```typescript
-import UserRepository from '@/repositories/user.repository'
-import UserSecurity from '@/security/user.security'
+import UserRepository from '@/repositories/user.repository';
+import UserSecurity from '@/security/user.security';
 
 class UserService {
-  private userRepository: UserRepository
-  private userSecurity: UserSecurity
+  private userRepository: UserRepository;
+  private userSecurity: UserSecurity;
 
   constructor() {
-    this.userRepository = new UserRepository()
-    this.userSecurity = new UserSecurity()
+    this.userRepository = new UserRepository();
+    this.userSecurity = new UserSecurity();
   }
 
   public comparePassword(password: string, encryptedPassword: string): boolean {
-    return this.userSecurity.comparePassword(password, encryptedPassword)
+    return this.userSecurity.comparePassword(password, encryptedPassword);
   }
 
   public async findAll(): Promise<any> {
-    const users = await this.userRepository.findAll()
-    return users
+    const users = await this.userRepository.findAll();
+    return users;
   }
 
   public async findById(id: string): Promise<any> {
-    const user = await this.userRepository.findById(id)
-    return user
+    const user = await this.userRepository.findById(id);
+    return user;
   }
 
   public async findByUsername(username: string): Promise<any> {
-    const user = await this.userRepository.findByUsername(username)
-    return user
+    const user = await this.userRepository.findByUsername(username);
+    return user;
   }
 
   public async findByEmail(email: string): Promise<any> {
-    const user = await this.userRepository.findByEmail(email)
-    return user
+    const user = await this.userRepository.findByEmail(email);
+    return user;
   }
 
   public async findByPhone(phone: string): Promise<any> {
-    const user = await this.userRepository.findByPhone(phone)
-    return user
+    const user = await this.userRepository.findByPhone(phone);
+    return user;
   }
 
   public async findByIdWithPassword(id: string): Promise<any> {
-    const user = await this.userRepository.findByIdWithPassword(id)
-    return user
+    const user = await this.userRepository.findByIdWithPassword(id);
+    return user;
   }
 
   public async updateUsername(id: string, username: string): Promise<any> {
-    const user = await this.userRepository.updateUsername(id, username)
-    return user
+    const user = await this.userRepository.updateUsername(id, username);
+    return user;
   }
 
   public async updateName(id: string, name: string): Promise<any> {
-    const user = await this.userRepository.updateName(id, name)
-    return user
+    const user = await this.userRepository.updateName(id, name);
+    return user;
   }
 
   public async updateEmail(id: string, email: string): Promise<any> {
-    const user = await this.userRepository.updateEmail(id, email)
-    return user
+    const user = await this.userRepository.updateEmail(id, email);
+    return user;
   }
 
   public async updatePassword(id: string, password: string): Promise<any> {
-    const encryptedPassword = this.userSecurity.encrypt(password)
-    const user = await this.userRepository.updatePassword(id, encryptedPassword)
-    return user
+    const encryptedPassword = this.userSecurity.encrypt(password);
+    const user = await this.userRepository.updatePassword(
+      id,
+      encryptedPassword,
+    );
+    return user;
   }
 
   public async updatePhone(id: string, phone: string): Promise<any> {
-    const user = await this.userRepository.updatePhone(id, phone)
-    return user
+    const user = await this.userRepository.updatePhone(id, phone);
+    return user;
   }
 
   public async updateAddress(id: string, address: string): Promise<any> {
-    const user = await this.userRepository.updateAddress(id, address)
-    return user
+    const user = await this.userRepository.updateAddress(id, address);
+    return user;
   }
 
   public async deleteUser(id: string): Promise<any> {
-    const user = await this.userRepository.deleteUser(id)
-    return user
+    const user = await this.userRepository.deleteUser(id);
+    return user;
   }
 
   public async getUsersStats(): Promise<any> {
-    const date = new Date()
-    const lastYear = new Date(date.setFullYear(date.getFullYear() - 1))
-    const usersStats = await this.userRepository.getUsersStats(lastYear)
-    return usersStats
+    const date = new Date();
+    const lastYear = new Date(date.setFullYear(date.getFullYear() - 1));
+    const usersStats = await this.userRepository.getUsersStats(lastYear);
+    return usersStats;
   }
 }
 
-export default UserService
+export default UserService;
 ```
 
 `api.constant.ts`
@@ -1832,46 +1835,46 @@ To access the service for what we need to build the methods, we'll make a new co
 `user.controller.ts`
 
 ```typescript
-import { Router, Request, Response, NextFunction } from 'express'
+import { Router, Request, Response, NextFunction } from 'express';
 
-import Controller from '@/interfaces/controller.interface'
+import Controller from '@/interfaces/controller.interface';
 
-import UserService from '@/services/user.service'
-import Validate from '@/validations/user.validation'
+import UserService from '@/services/user.service';
+import Validate from '@/validations/user.validation';
 
-import Authenticated from '@/middlewares/authenticated.middleware'
-import validationMiddleware from '@/middlewares/validation.middleware'
+import Authenticated from '@/middlewares/authenticated.middleware';
+import validationMiddleware from '@/middlewares/validation.middleware';
 
-import HttpException from '@/utils/exceptions/http.exception'
+import HttpException from '@/utils/exceptions/http.exception';
 
 // api constant
-import ConstantAPI from '@/constants/api.constant'
+import ConstantAPI from '@/constants/api.constant';
 
 // message constant
-import ConstantMessage from '@/constants/message.constant'
+import ConstantMessage from '@/constants/message.constant';
 
 // http constant
-import ConstantHttpCode from '@/constants/http.code.constant'
-import ConstantHttpReason from '@/constants/http.reason.constant'
+import ConstantHttpCode from '@/constants/http.code.constant';
+import ConstantHttpReason from '@/constants/http.reason.constant';
 
 // logger
-import logger from '@/utils/logger.util'
+import logger from '@/utils/logger.util';
 
 class UserController implements Controller {
-  public path: string
-  public router: Router
-  private userService: UserService
-  private authenticated: Authenticated
-  private validate: Validate
+  public path: string;
+  public router: Router;
+  private userService: UserService;
+  private authenticated: Authenticated;
+  private validate: Validate;
 
   constructor() {
-    this.path = ConstantAPI.USERS
-    this.router = Router()
-    this.userService = new UserService()
-    this.authenticated = new Authenticated()
-    this.validate = new Validate()
+    this.path = ConstantAPI.USERS;
+    this.router = Router();
+    this.userService = new UserService();
+    this.authenticated = new Authenticated();
+    this.validate = new Validate();
 
-    this.initialiseRoutes()
+    this.initialiseRoutes();
   }
 
   private initialiseRoutes(): void {
@@ -1880,67 +1883,67 @@ class UserController implements Controller {
       this.authenticated.verifyTokenAndAuthorization,
       validationMiddleware(this.validate.updateUsername),
       this.updateUsername,
-    )
+    );
 
     this.router.post(
       `${this.path}${ConstantAPI.USER_UPDATE_NAME}`,
       this.authenticated.verifyTokenAndAuthorization,
       validationMiddleware(this.validate.updateName),
       this.updateName,
-    )
+    );
 
     this.router.post(
       `${this.path}${ConstantAPI.USER_UPDATE_EMAIL}`,
       this.authenticated.verifyTokenAndAuthorization,
       validationMiddleware(this.validate.updateEmail),
       this.updateEmail,
-    )
+    );
 
     this.router.post(
       `${this.path}${ConstantAPI.USER_UPDATE_PASSWORD}`,
       this.authenticated.verifyTokenAndAuthorization,
       validationMiddleware(this.validate.updatePassword),
       this.updatePassword,
-    )
+    );
 
     this.router.post(
       `${this.path}${ConstantAPI.USER_UPDATE_PHONE}`,
       this.authenticated.verifyTokenAndAuthorization,
       validationMiddleware(this.validate.updatePhone),
       this.updatePhone,
-    )
+    );
 
     this.router.post(
       `${this.path}${ConstantAPI.USER_UPDATE_ADDRESS}`,
       this.authenticated.verifyTokenAndAuthorization,
       validationMiddleware(this.validate.updateAddress),
       this.updateAddress,
-    )
+    );
 
     this.router.post(
       `${this.path}${ConstantAPI.USER_DELETE}`,
       this.authenticated.verifyTokenAndAuthorization,
       validationMiddleware(this.validate.deleteUser),
       this.deleteUser,
-    )
+    );
 
     this.router.get(
       `${this.path}${ConstantAPI.USER_GET}`,
       this.authenticated.verifyTokenAndAuthorization,
       this.getUser,
-    )
+    );
 
     this.router.get(
       `${this.path}${ConstantAPI.USER_GET_ALL}`,
       this.authenticated.verifyTokenAndAdmin,
       this.getAllUsers,
-    )
+    );
 
     this.router.get(
       `${this.path}${ConstantAPI.USER_GET_ALL_STATS}`,
       this.authenticated.verifyTokenAndAdmin,
       this.getUsersStats,
-    )
+    );
   }
 
   private updateUsername = async (
@@ -1949,10 +1952,10 @@ class UserController implements Controller {
     next: NextFunction,
   ): Promise<Response | void> => {
     try {
-      const { username, password } = req.body
-      const { id } = req.params
+      const { username, password } = req.body;
+      const { id } = req.params;
 
-      const user = await this.userService.findByIdWithPassword(id)
+      const user = await this.userService.findByIdWithPassword(id);
       if (!user) {
         return next(
           new HttpException(
@@ -1960,11 +1963,11 @@ class UserController implements Controller {
             ConstantHttpReason.NOT_FOUND,
             ConstantMessage.USER_NOT_FOUND,
           ),
-        )
+        );
       }
-      logger.info(`user ${user.username} found`)
+      logger.info(`user ${user.username} found`);
 
-      const isUsernameValid = this.validate.validateUsername(username)
+      const isUsernameValid = this.validate.validateUsername(username);
       if (!isUsernameValid) {
         return next(
           new HttpException(
@@ -1972,11 +1975,11 @@ class UserController implements Controller {
             ConstantHttpReason.BAD_REQUEST,
             ConstantMessage.USERNAME_NOT_VALID,
           ),
-        )
+        );
       }
-      logger.info(`username ${username} is valid`)
+      logger.info(`username ${username} is valid`);
 
-      const isPasswordValid = this.validate.validatePassword(password)
+      const isPasswordValid = this.validate.validatePassword(password);
       if (!isPasswordValid) {
         return next(
           new HttpException(
@@ -1984,11 +1987,11 @@ class UserController implements Controller {
             ConstantHttpReason.BAD_REQUEST,
             ConstantMessage.PASSWORD_NOT_VALID,
           ),
-        )
+        );
       }
-      logger.info(`password ${password} is valid`)
+      logger.info(`password ${password} is valid`);
 
-      const isMatch = this.userService.comparePassword(password, user.password)
+      const isMatch = this.userService.comparePassword(password, user.password);
       if (!isMatch) {
         return next(
           new HttpException(
@@ -1996,11 +1999,11 @@ class UserController implements Controller {
             ConstantHttpReason.UNAUTHORIZED,
             ConstantMessage.PASSWORD_NOT_MATCH,
           ),
-        )
+        );
       }
-      logger.info(`password ${password} match`)
+      logger.info(`password ${password} match`);
 
-      const usernameCheck = await this.userService.findByUsername(username)
+      const usernameCheck = await this.userService.findByUsername(username);
       if (usernameCheck) {
         return next(
           new HttpException(
@@ -2008,7 +2011,7 @@ class UserController implements Controller {
             ConstantHttpReason.BAD_REQUEST,
             ConstantMessage.USERNAME_EXIST,
           ),
-        )
+        );
       }
 
       if (user.username === username) {
@@ -2018,10 +2021,10 @@ class UserController implements Controller {
             ConstantHttpReason.BAD_REQUEST,
             ConstantMessage.USERNAME_NOT_CHANGE,
           ),
-        )
+        );
       }
 
-      const updatedUser = await this.userService.updateUsername(id, username)
+      const updatedUser = await this.userService.updateUsername(id, username);
       if (!updatedUser) {
         return next(
           new HttpException(
@@ -2029,9 +2032,9 @@ class UserController implements Controller {
             ConstantHttpReason.BAD_REQUEST,
             ConstantMessage.USERNAME_NOT_CHANGE,
           ),
-        )
+        );
       }
-      logger.info(`user ${user.username} updated`)
+      logger.info(`user ${user.username} updated`);
 
       return res.status(ConstantHttpCode.OK).json({
         status: {
@@ -2042,7 +2045,7 @@ class UserController implements Controller {
         data: {
           user: updatedUser,
         },
-      })
+      });
     } catch (err: any) {
       next(
         new HttpException(
@@ -2050,9 +2053,9 @@ class UserController implements Controller {
           ConstantHttpReason.INTERNAL_SERVER_ERROR,
           err?.message,
         ),
-      )
+      );
     }
-  }
+  };
 
   private updateName = async (
     req: Request,
@@ -2060,10 +2063,10 @@ class UserController implements Controller {
     next: NextFunction,
   ): Promise<Response | void> => {
     try {
-      const { name, password } = req.body
-      const { id } = req.params
+      const { name, password } = req.body;
+      const { id } = req.params;
 
-      const user = await this.userService.findByIdWithPassword(id)
+      const user = await this.userService.findByIdWithPassword(id);
       if (!user) {
         return next(
           new HttpException(
@@ -2071,11 +2074,11 @@ class UserController implements Controller {
             ConstantHttpReason.NOT_FOUND,
             ConstantMessage.USER_NOT_FOUND,
           ),
-        )
+        );
       }
-      logger.info(`user ${user.username} found`)
+      logger.info(`user ${user.username} found`);
 
-      const isNameValid = this.validate.validateName(name)
+      const isNameValid = this.validate.validateName(name);
       if (!isNameValid) {
         return next(
           new HttpException(
@@ -2083,11 +2086,11 @@ class UserController implements Controller {
             ConstantHttpReason.BAD_REQUEST,
             ConstantMessage.NAME_NOT_VALID,
           ),
-        )
+        );
       }
-      logger.info(`name ${name} is valid`)
+      logger.info(`name ${name} is valid`);
 
-      const isPasswordValid = this.validate.validatePassword(password)
+      const isPasswordValid = this.validate.validatePassword(password);
       if (!isPasswordValid) {
         return next(
           new HttpException(
@@ -2095,11 +2098,11 @@ class UserController implements Controller {
             ConstantHttpReason.BAD_REQUEST,
             ConstantMessage.PASSWORD_NOT_VALID,
           ),
-        )
+        );
       }
-      logger.info(`password ${password} is valid`)
+      logger.info(`password ${password} is valid`);
 
-      const isMatch = this.userService.comparePassword(password, user.password)
+      const isMatch = this.userService.comparePassword(password, user.password);
       if (!isMatch) {
         return next(
           new HttpException(
@@ -2107,9 +2110,9 @@ class UserController implements Controller {
             ConstantHttpReason.UNAUTHORIZED,
             ConstantMessage.PASSWORD_NOT_MATCH,
           ),
-        )
+        );
       }
-      logger.info(`password ${password} match`)
+      logger.info(`password ${password} match`);
 
       if (user.name === name) {
         return next(
@@ -2118,10 +2121,10 @@ class UserController implements Controller {
             ConstantHttpReason.BAD_REQUEST,
             ConstantMessage.NAME_NOT_CHANGE,
           ),
-        )
+        );
       }
 
-      const updatedUser = await this.userService.updateName(id, name)
+      const updatedUser = await this.userService.updateName(id, name);
       if (!updatedUser) {
         return next(
           new HttpException(
@@ -2129,9 +2132,9 @@ class UserController implements Controller {
             ConstantHttpReason.BAD_REQUEST,
             ConstantMessage.NAME_NOT_CHANGE,
           ),
-        )
+        );
       }
-      logger.info(`user ${user.username} updated`)
+      logger.info(`user ${user.username} updated`);
 
       return res.status(ConstantHttpCode.OK).json({
         status: {
@@ -2142,7 +2145,7 @@ class UserController implements Controller {
         data: {
           user: updatedUser,
         },
-      })
+      });
     } catch (err: any) {
       next(
         new HttpException(
@@ -2150,9 +2153,9 @@ class UserController implements Controller {
           ConstantHttpReason.INTERNAL_SERVER_ERROR,
           err?.message,
         ),
-      )
+      );
     }
-  }
+  };
 
   private updateEmail = async (
     req: Request,
@@ -2160,10 +2163,10 @@ class UserController implements Controller {
     next: NextFunction,
   ): Promise<Response | void> => {
     try {
-      const { email, password } = req.body
-      const { id } = req.params
+      const { email, password } = req.body;
+      const { id } = req.params;
 
-      const user = await this.userService.findByIdWithPassword(id)
+      const user = await this.userService.findByIdWithPassword(id);
       if (!user) {
         return next(
           new HttpException(
@@ -2171,10 +2174,10 @@ class UserController implements Controller {
             ConstantHttpReason.NOT_FOUND,
             ConstantMessage.USER_NOT_FOUND,
           ),
-        )
+        );
       }
 
-      const isEmailValid = this.validate.validateEmail(email)
+      const isEmailValid = this.validate.validateEmail(email);
       if (!isEmailValid) {
         return next(
           new HttpException(
@@ -2182,10 +2185,10 @@ class UserController implements Controller {
             ConstantHttpReason.BAD_REQUEST,
             ConstantMessage.EMAIL_NOT_VALID,
           ),
-        )
+        );
       }
 
-      const isPasswordValid = this.validate.validatePassword(password)
+      const isPasswordValid = this.validate.validatePassword(password);
       if (!isPasswordValid) {
         return next(
           new HttpException(
@@ -2193,7 +2196,7 @@ class UserController implements Controller {
             ConstantHttpReason.BAD_REQUEST,
             ConstantMessage.PASSWORD_NOT_VALID,
           ),
-        )
+        );
       }
 
       if (user.email === email) {
@@ -2203,10 +2206,10 @@ class UserController implements Controller {
             ConstantHttpReason.BAD_REQUEST,
             ConstantMessage.EMAIL_NOT_CHANGE,
           ),
-        )
+        );
       }
 
-      const emailCheck = await this.userService.findByEmail(email)
+      const emailCheck = await this.userService.findByEmail(email);
       if (emailCheck) {
         return next(
           new HttpException(
@@ -2214,10 +2217,10 @@ class UserController implements Controller {
             ConstantHttpReason.BAD_REQUEST,
             ConstantMessage.EMAIL_EXIST,
           ),
-        )
+        );
       }
 
-      const isMatch = this.userService.comparePassword(password, user.password)
+      const isMatch = this.userService.comparePassword(password, user.password);
       if (!isMatch) {
         return next(
           new HttpException(
@@ -2225,10 +2228,10 @@ class UserController implements Controller {
             ConstantHttpReason.UNAUTHORIZED,
             ConstantMessage.PASSWORD_NOT_MATCH,
           ),
-        )
+        );
       }
 
-      const updatedUser = await this.userService.updateEmail(id, email)
+      const updatedUser = await this.userService.updateEmail(id, email);
       if (!updatedUser) {
         return next(
           new HttpException(
@@ -2236,7 +2239,7 @@ class UserController implements Controller {
             ConstantHttpReason.BAD_REQUEST,
             ConstantMessage.EMAIL_NOT_CHANGE,
           ),
-        )
+        );
       }
 
       return res.status(ConstantHttpCode.OK).json({
@@ -2248,7 +2251,7 @@ class UserController implements Controller {
         data: {
           user: updatedUser,
         },
-      })
+      });
     } catch (err: any) {
       next(
         new HttpException(
@@ -2256,9 +2259,9 @@ class UserController implements Controller {
           ConstantHttpReason.INTERNAL_SERVER_ERROR,
           err?.message,
         ),
-      )
+      );
     }
-  }
+  };
 
   private updatePassword = async (
     req: Request,
@@ -2266,8 +2269,8 @@ class UserController implements Controller {
     next: NextFunction,
   ): Promise<Response | void> => {
     try {
-      const { oldPassword, newPassword, confirmPassword } = req.body
-      const { id } = req.params
+      const { oldPassword, newPassword, confirmPassword } = req.body;
+      const { id } = req.params;
 
       if (newPassword !== confirmPassword) {
         return next(
@@ -2276,10 +2279,10 @@ class UserController implements Controller {
             ConstantHttpReason.BAD_REQUEST,
             ConstantMessage.PASSWORD_NOT_MATCH,
           ),
-        )
+        );
       }
 
-      const user = await this.userService.findByIdWithPassword(id)
+      const user = await this.userService.findByIdWithPassword(id);
       if (!user) {
         return next(
           new HttpException(
@@ -2287,10 +2290,10 @@ class UserController implements Controller {
             ConstantHttpReason.NOT_FOUND,
             ConstantMessage.USER_NOT_FOUND,
           ),
-        )
+        );
       }
 
-      const isOldPasswordValid = this.validate.validatePassword(oldPassword)
+      const isOldPasswordValid = this.validate.validatePassword(oldPassword);
       if (!isOldPasswordValid) {
         return next(
           new HttpException(
@@ -2298,10 +2301,10 @@ class UserController implements Controller {
             ConstantHttpReason.BAD_REQUEST,
             ConstantMessage.PASSWORD_NOT_VALID,
           ),
-        )
+        );
       }
 
-      const isNewPasswordValid = this.validate.validatePassword(newPassword)
+      const isNewPasswordValid = this.validate.validatePassword(newPassword);
       if (!isNewPasswordValid) {
         return next(
           new HttpException(
@@ -2309,11 +2312,11 @@ class UserController implements Controller {
             ConstantHttpReason.BAD_REQUEST,
             ConstantMessage.PASSWORD_NOT_VALID,
           ),
-        )
+        );
       }
 
       const isConfirmPasswordValid =
-        this.validate.validatePassword(confirmPassword)
+        this.validate.validatePassword(confirmPassword);
       if (!isConfirmPasswordValid) {
         return next(
           new HttpException(
@@ -2321,13 +2324,13 @@ class UserController implements Controller {
             ConstantHttpReason.BAD_REQUEST,
             ConstantMessage.PASSWORD_NOT_VALID,
           ),
-        )
+        );
       }
 
       const isMatch = this.userService.comparePassword(
         oldPassword,
         user.password,
-      )
+      );
       if (!isMatch) {
         return next(
           new HttpException(
@@ -2335,7 +2338,7 @@ class UserController implements Controller {
             ConstantHttpReason.UNAUTHORIZED,
             ConstantMessage.PASSWORD_NOT_MATCH,
           ),
-        )
+        );
       }
 
       if (oldPassword === newPassword) {
@@ -2345,10 +2348,13 @@ class UserController implements Controller {
             ConstantHttpReason.BAD_REQUEST,
             ConstantMessage.PASSWORD_NOT_CHANGE,
           ),
-        )
+        );
       }
 
-      const updatedUser = await this.userService.updatePassword(id, newPassword)
+      const updatedUser = await this.userService.updatePassword(
+        id,
+        newPassword,
+      );
       if (!updatedUser) {
         return next(
           new HttpException(
@@ -2356,7 +2362,7 @@ class UserController implements Controller {
             ConstantHttpReason.BAD_REQUEST,
             ConstantMessage.PASSWORD_NOT_CHANGE,
           ),
-        )
+        );
       }
 
       return res.status(ConstantHttpCode.OK).json({
@@ -2368,7 +2374,7 @@ class UserController implements Controller {
         data: {
           user: updatedUser,
         },
-      })
+      });
     } catch (err: any) {
       next(
         new HttpException(
@@ -2376,9 +2382,9 @@ class UserController implements Controller {
           ConstantHttpReason.INTERNAL_SERVER_ERROR,
           err?.message,
         ),
-      )
+      );
     }
-  }
+  };
 
   private updatePhone = async (
     req: Request,
@@ -2386,10 +2392,10 @@ class UserController implements Controller {
     next: NextFunction,
   ): Promise<Response | void> => {
     try {
-      const { phone, password } = req.body
-      const { id } = req.params
+      const { phone, password } = req.body;
+      const { id } = req.params;
 
-      const user = await this.userService.findByIdWithPassword(id)
+      const user = await this.userService.findByIdWithPassword(id);
       if (!user) {
         return next(
           new HttpException(
@@ -2397,11 +2403,11 @@ class UserController implements Controller {
             ConstantHttpReason.NOT_FOUND,
             ConstantMessage.USER_NOT_FOUND,
           ),
-        )
+        );
       }
 
-      const isPhoneValid = this.validate.validatePhone(phone)
-      logger.info({ isPhoneValid })
+      const isPhoneValid = this.validate.validatePhone(phone);
+      logger.info({ isPhoneValid });
       if (!isPhoneValid) {
         return next(
           new HttpException(
@@ -2409,10 +2415,10 @@ class UserController implements Controller {
             ConstantHttpReason.BAD_REQUEST,
             ConstantMessage.PHONE_NOT_VALID,
           ),
-        )
+        );
       }
 
-      const isPasswordValid = this.validate.validatePassword(password)
+      const isPasswordValid = this.validate.validatePassword(password);
       if (!isPasswordValid) {
         return next(
           new HttpException(
@@ -2420,10 +2426,10 @@ class UserController implements Controller {
             ConstantHttpReason.BAD_REQUEST,
             ConstantMessage.PASSWORD_NOT_VALID,
           ),
-        )
+        );
       }
 
-      const phoneCheck = await this.userService.findByPhone(phone)
+      const phoneCheck = await this.userService.findByPhone(phone);
       if (phoneCheck) {
         return next(
           new HttpException(
@@ -2431,10 +2437,10 @@ class UserController implements Controller {
             ConstantHttpReason.NOT_FOUND,
             ConstantMessage.PHONE_EXIST,
           ),
-        )
+        );
       }
 
-      const isMatch = this.userService.comparePassword(password, user.password)
+      const isMatch = this.userService.comparePassword(password, user.password);
       if (!isMatch) {
         return next(
           new HttpException(
@@ -2442,7 +2448,7 @@ class UserController implements Controller {
             ConstantHttpReason.UNAUTHORIZED,
             ConstantMessage.PASSWORD_NOT_MATCH,
           ),
-        )
+        );
       }
 
       if (user.phone === phone) {
@@ -2452,10 +2458,10 @@ class UserController implements Controller {
             ConstantHttpReason.BAD_REQUEST,
             ConstantMessage.PHONE_NOT_CHANGE,
           ),
-        )
+        );
       }
 
-      const updatedUser = await this.userService.updatePhone(id, phone)
+      const updatedUser = await this.userService.updatePhone(id, phone);
       if (!updatedUser) {
         return next(
           new HttpException(
@@ -2463,7 +2469,7 @@ class UserController implements Controller {
             ConstantHttpReason.BAD_REQUEST,
             ConstantMessage.PHONE_NOT_CHANGE,
           ),
-        )
+        );
       }
 
       return res.status(ConstantHttpCode.OK).json({
@@ -2475,7 +2481,7 @@ class UserController implements Controller {
         data: {
           user: updatedUser,
         },
-      })
+      });
     } catch (err: any) {
       next(
         new HttpException(
@@ -2483,9 +2489,9 @@ class UserController implements Controller {
           ConstantHttpReason.INTERNAL_SERVER_ERROR,
           err?.message,
         ),
-      )
+      );
     }
-  }
+  };
 
   private updateAddress = async (
     req: Request,
@@ -2493,10 +2499,10 @@ class UserController implements Controller {
     next: NextFunction,
   ): Promise<Response | void> => {
     try {
-      const { address, password } = req.body
-      const { id } = req.params
+      const { address, password } = req.body;
+      const { id } = req.params;
 
-      const user = await this.userService.findByIdWithPassword(id)
+      const user = await this.userService.findByIdWithPassword(id);
       if (!user) {
         return next(
           new HttpException(
@@ -2504,10 +2510,10 @@ class UserController implements Controller {
             ConstantHttpReason.NOT_FOUND,
             ConstantMessage.USER_NOT_FOUND,
           ),
-        )
+        );
       }
 
-      const isAddressValid = this.validate.validateAddress(address)
+      const isAddressValid = this.validate.validateAddress(address);
       if (!isAddressValid) {
         return next(
           new HttpException(
@@ -2515,10 +2521,10 @@ class UserController implements Controller {
             ConstantHttpReason.BAD_REQUEST,
             ConstantMessage.ADDRESS_NOT_VALID,
           ),
-        )
+        );
       }
 
-      const isPasswordValid = this.validate.validatePassword(password)
+      const isPasswordValid = this.validate.validatePassword(password);
       if (!isPasswordValid) {
         return next(
           new HttpException(
@@ -2526,10 +2532,10 @@ class UserController implements Controller {
             ConstantHttpReason.BAD_REQUEST,
             ConstantMessage.PASSWORD_NOT_VALID,
           ),
-        )
+        );
       }
 
-      const isMatch = this.userService.comparePassword(password, user.password)
+      const isMatch = this.userService.comparePassword(password, user.password);
       if (!isMatch) {
         return next(
           new HttpException(
@@ -2537,7 +2543,7 @@ class UserController implements Controller {
             ConstantHttpReason.UNAUTHORIZED,
             ConstantMessage.PASSWORD_NOT_MATCH,
           ),
-        )
+        );
       }
 
       if (user.address === address) {
@@ -2547,10 +2553,10 @@ class UserController implements Controller {
             ConstantHttpReason.BAD_REQUEST,
             ConstantMessage.ADDRESS_NOT_CHANGE,
           ),
-        )
+        );
       }
 
-      const updatedUser = await this.userService.updateAddress(id, address)
+      const updatedUser = await this.userService.updateAddress(id, address);
       if (!updatedUser) {
         return next(
           new HttpException(
@@ -2558,7 +2564,7 @@ class UserController implements Controller {
             ConstantHttpReason.BAD_REQUEST,
             ConstantMessage.ADDRESS_NOT_CHANGE,
           ),
-        )
+        );
       }
 
       return res.status(ConstantHttpCode.OK).json({
@@ -2570,7 +2576,7 @@ class UserController implements Controller {
         data: {
           user: updatedUser,
         },
-      })
+      });
     } catch (err: any) {
       next(
         new HttpException(
@@ -2578,9 +2584,9 @@ class UserController implements Controller {
           ConstantHttpReason.INTERNAL_SERVER_ERROR,
           err?.message,
         ),
-      )
+      );
     }
-  }
+  };
 
   private deleteUser = async (
     req: Request,
@@ -2588,10 +2594,10 @@ class UserController implements Controller {
     next: NextFunction,
   ): Promise<Response | void> => {
     try {
-      const { password } = req.body
-      const { id } = req.params
+      const { password } = req.body;
+      const { id } = req.params;
 
-      const user = await this.userService.findByIdWithPassword(id)
+      const user = await this.userService.findByIdWithPassword(id);
       if (!user) {
         return next(
           new HttpException(
@@ -2599,10 +2605,10 @@ class UserController implements Controller {
             ConstantHttpReason.NOT_FOUND,
             ConstantMessage.USER_NOT_FOUND,
           ),
-        )
+        );
       }
 
-      const isPasswordValid = this.validate.validatePassword(password)
+      const isPasswordValid = this.validate.validatePassword(password);
       if (!isPasswordValid) {
         return next(
           new HttpException(
@@ -2610,10 +2616,10 @@ class UserController implements Controller {
             ConstantHttpReason.BAD_REQUEST,
             ConstantMessage.PASSWORD_NOT_VALID,
           ),
-        )
+        );
       }
 
-      const isMatch = this.userService.comparePassword(password, user.password)
+      const isMatch = this.userService.comparePassword(password, user.password);
       if (!isMatch) {
         return next(
           new HttpException(
@@ -2621,10 +2627,10 @@ class UserController implements Controller {
             ConstantHttpReason.UNAUTHORIZED,
             ConstantMessage.PASSWORD_NOT_MATCH,
           ),
-        )
+        );
       }
 
-      const deletedUser = await this.userService.deleteUser(id)
+      const deletedUser = await this.userService.deleteUser(id);
       if (!deletedUser) {
         return next(
           new HttpException(
@@ -2632,7 +2638,7 @@ class UserController implements Controller {
             ConstantHttpReason.BAD_REQUEST,
             ConstantMessage.USER_NOT_DELETE,
           ),
-        )
+        );
       }
 
       return res.status(ConstantHttpCode.OK).json({
@@ -2641,7 +2647,7 @@ class UserController implements Controller {
           msg: ConstantHttpReason.OK,
         },
         msg: ConstantMessage.USER_DELETE_SUCCESS,
-      })
+      });
     } catch (err: any) {
       next(
         new HttpException(
@@ -2649,9 +2655,9 @@ class UserController implements Controller {
           ConstantHttpReason.INTERNAL_SERVER_ERROR,
           err?.message,
         ),
-      )
+      );
     }
-  }
+  };
 
   private getUser = async (
     req: Request,
@@ -2659,9 +2665,9 @@ class UserController implements Controller {
     next: NextFunction,
   ): Promise<Response | void> => {
     try {
-      const { id } = req.params
+      const { id } = req.params;
 
-      const user = await this.userService.findById(id)
+      const user = await this.userService.findById(id);
       if (!user) {
         return next(
           new HttpException(
@@ -2669,7 +2675,7 @@ class UserController implements Controller {
             ConstantHttpReason.NOT_FOUND,
             ConstantMessage.USER_NOT_FOUND,
           ),
-        )
+        );
       }
 
       return res.status(ConstantHttpCode.OK).json({
@@ -2681,7 +2687,7 @@ class UserController implements Controller {
         data: {
           user,
         },
-      })
+      });
     } catch (err: any) {
       next(
         new HttpException(
@@ -2689,9 +2695,9 @@ class UserController implements Controller {
           ConstantHttpReason.INTERNAL_SERVER_ERROR,
           err?.message,
         ),
-      )
+      );
     }
-  }
+  };
 
   private getAllUsers = async (
     _req: Request,
@@ -2699,7 +2705,7 @@ class UserController implements Controller {
     next: NextFunction,
   ): Promise<Response | void> => {
     try {
-      const users = await this.userService.findAll()
+      const users = await this.userService.findAll();
       if (!users) {
         return next(
           new HttpException(
@@ -2707,7 +2713,7 @@ class UserController implements Controller {
             ConstantHttpReason.NOT_FOUND,
             ConstantMessage.USER_NOT_FOUND,
           ),
-        )
+        );
       }
 
       return res.status(ConstantHttpCode.OK).json({
@@ -2719,7 +2725,7 @@ class UserController implements Controller {
         data: {
           users,
         },
-      })
+      });
     } catch (err: any) {
       next(
         new HttpException(
@@ -2727,9 +2733,9 @@ class UserController implements Controller {
           ConstantHttpReason.INTERNAL_SERVER_ERROR,
           err?.message,
         ),
-      )
+      );
     }
-  }
+  };
 
   private getUsersStats = async (
     _req: Request,
@@ -2737,7 +2743,7 @@ class UserController implements Controller {
     next: NextFunction,
   ): Promise<Response | void> => {
     try {
-      const usersStats = await this.userService.getUsersStats()
+      const usersStats = await this.userService.getUsersStats();
       if (!usersStats) {
         return next(
           new HttpException(
@@ -2745,7 +2751,7 @@ class UserController implements Controller {
             ConstantHttpReason.NOT_FOUND,
             ConstantMessage.USER_NOT_FOUND,
           ),
-        )
+        );
       }
 
       return res.status(ConstantHttpCode.OK).json({
@@ -2757,7 +2763,7 @@ class UserController implements Controller {
         data: {
           users: usersStats,
         },
-      })
+      });
     } catch (err: any) {
       next(
         new HttpException(
@@ -2765,12 +2771,12 @@ class UserController implements Controller {
           ConstantHttpReason.INTERNAL_SERVER_ERROR,
           err?.message,
         ),
-      )
+      );
     }
-  }
+  };
 }
 
-export default UserController
+export default UserController;
 ```
 
 `api.constant.ts`
@@ -2792,86 +2798,86 @@ after that, we'll do some changes to the `www.ts` file:
 ```typescript
 #!/usr/bin/env ts-node
 
-import 'module-alias/register'
-import 'core-js/stable'
-import 'regenerator-runtime/runtime'
+import 'module-alias/register';
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
 
-import http from 'http'
-import App from '..'
+import http from 'http';
+import App from '..';
 
-import Variable from '@/env/variable.env'
-import logger from '@/utils/logger.util'
+import Variable from '@/env/variable.env';
+import logger from '@/utils/logger.util';
 
 // controllers
-import AuthController from '@/controllers/auth.controller'
-import UserController from '@/controllers/user.controller'
+import AuthController from '@/controllers/auth.controller';
+import UserController from '@/controllers/user.controller';
 
-const { app } = new App([new AuthController(), new UserController()])
+const { app } = new App([new AuthController(), new UserController()]);
 
 /**
  * Normalize a port into a number, string, or false.
  */
 const normalizePort = (val: any) => {
-  const port = parseInt(val, 10)
+  const port = parseInt(val, 10);
 
   if (Number.isNaN(port)) {
     // named pipe
-    return val
+    return val;
   }
 
   if (port >= 0) {
     // port number
-    return port
+    return port;
   }
 
-  return false
-}
+  return false;
+};
 
-const port = normalizePort(Variable.PORT || '3030')
-app.set('port', port)
+const port = normalizePort(Variable.PORT || '3030');
+app.set('port', port);
 
 /**
  * Create HTTP server.
  */
-const server = http.createServer(app)
+const server = http.createServer(app);
 
 /**
  * Event listener for HTTP server "error" event.
  */
 const onError = (error: any) => {
   if (error.syscall !== 'listen') {
-    throw error
+    throw error;
   }
 
-  const bind = typeof port === 'string' ? `Pipe ${port}` : `Port ${port}`
+  const bind = typeof port === 'string' ? `Pipe ${port}` : `Port ${port}`;
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
     case 'EACCES':
-      logger.error(`${bind} requires elevated privileges`)
-      process.exit(1)
-      break
+      logger.error(`${bind} requires elevated privileges`);
+      process.exit(1);
+      break;
     case 'EADDRINUSE':
-      logger.error(`${bind} is already in use`)
-      process.exit(1)
-      break
+      logger.error(`${bind} is already in use`);
+      process.exit(1);
+      break;
     default:
-      throw error
+      throw error;
   }
-}
+};
 
 /**
  * Event listener for HTTP server "listening" event.
  */
 const onListening = () => {
-  const addr = server.address()
-  const bind = typeof addr === 'string' ? `pipe ${addr}` : `port ${addr?.port}`
-  logger.info(`Listening on ${bind}`)
-}
+  const addr = server.address();
+  const bind = typeof addr === 'string' ? `pipe ${addr}` : `port ${addr?.port}`;
+  logger.info(`Listening on ${bind}`);
+};
 
-server.listen(port)
-server.on('error', onError)
-server.on('listening', onListening)
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
 ```
 
 ## Summary

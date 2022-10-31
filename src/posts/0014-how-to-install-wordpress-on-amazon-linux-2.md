@@ -4,7 +4,7 @@ slug: how-to-install-wordpress-on-amazon-linux-2
 tags: ['WordPress', 'Apache', 'PHP', 'MariaDB', 'Amazon Linux 2']
 categories: ['AWS']
 date: 2022-10-24T03:00:00.000Z
-image: /assets/img/blog/how-to-install-wordpress-on-amazon-linux-2/how-to-install-wordpress-on-amazon-linux-2.png
+image: /assets/img/blog/0014-how-to-install-wordpress-on-amazon-linux-2/how-to-install-wordpress-on-amazon-linux-2.png
 author: MKAbuMattar
 description: 'We will learn how to install WordPress on Amazon Linux 2 in this tutorial. We will also discover how to set up WordPress so that it functions with the Apache web server. We will also discover how to set up WordPress so that it functions with PHP and MariaDB.'
 prev: how-to-install-php-and-mariadb-on-amazon-linux-2
@@ -138,7 +138,7 @@ Next, click on the **Let’s go!** button.
 
 Next, enter the site title, username, password, and email address:
 
-![WordPress Site Title, Username, Password, and Email Address](/assets/img/blog/how-to-install-wordpress-on-amazon-linux-2/wordpress-site-title-username-password-and-email-address.png)
+![WordPress Site Title, Username, Password, and Email Address](/assets/img/blog/0014-how-to-install-wordpress-on-amazon-linux-2/wordpress-site-title-username-password-and-email-address.png)
 
 Next, click on the **Install WordPress** button.
 
@@ -146,13 +146,13 @@ Next, click on the **Log In** button.
 
 Next, enter the username and password:
 
-![WordPress Username and Password](/assets/img/blog/how-to-install-wordpress-on-amazon-linux-2/wordpress-username-and-password.png)
+![WordPress Username and Password](/assets/img/blog/0014-how-to-install-wordpress-on-amazon-linux-2/wordpress-username-and-password.png)
 
 Next, click on the **Log In** button.
 
 Now, you have successfully installed WordPress on Amazon Linux 2.
 
-![WordPress Dashboard](/assets/img/blog/how-to-install-wordpress-on-amazon-linux-2/wordpress-dashboard.png)
+![WordPress Dashboard](/assets/img/blog/0014-how-to-install-wordpress-on-amazon-linux-2/wordpress-dashboard.png)
 
 > **Note:** Remember to protect your WordPress Admin Panel and cover up the URL and WordPress version.
 

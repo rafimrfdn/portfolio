@@ -4,13 +4,31 @@ slug: how-to-run-an-apache-web-server-using-docker-on-an-aws-ec2-instance
 tags: ['Docker', 'AWS', 'EC2', 'Apache']
 categories: ['AWS']
 date: 2022-10-31T09:18:00.000Z
-image: /assets/img/blog/how-to-run-an-apache-web-server-using-docker-on-an-aws-ec2-instance/how-to-run-an-apache-web-server-using-docker-on-an-aws-ec2-instance.png
+image: /assets/img/blog/0016-how-to-run-an-apache-web-server-using-docker-on-an-aws-ec2-instance/how-to-run-an-apache-web-server-using-docker-on-an-aws-ec2-instance.png
 author: MKAbuMattar
 description: 'In this post, we will learn how to run an Apache web server using Docker on an AWS EC2 instance.'
 prev: how-to-create-an-aws-ec2-instance-using-aws-cli
 next: undefined
 featured: true
 ---
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Prerequisites](#prerequisites)
+- [Setup and Configure Docker to Run an Apache Web Server on an AWS EC2 Instance](#setup-and-configure-docker-to-run-an-apache-web-server-on-an-aws-ec2-instance)
+  - [Step 1: Install Docker on the AWS EC2 Instance](#step-1-install-docker-on-the-aws-ec2-instance)
+  - [Step 2: Start the Docker Service](#step-2-start-the-docker-service)
+  - [Step 3: Add the `ec2-user` to the Docker Group](#step-3-add-the-ec2-user-to-the-docker-group)
+  - [Step 4: Run the Apache Web Server Using Docker](#step-4-run-the-apache-web-server-using-docker)
+  - [Step 5: Test the Apache Web Server](#step-5-test-the-apache-web-server)
+  - [Step 6: Edit The Web Page on Docker Container](#step-6-edit-the-web-page-on-docker-container)
+  - [Step 7: Stop the Docker Container](#step-7-stop-the-docker-container)
+  - [Step 8: Restart the Docker Container](#step-8-restart-the-docker-container)
+  - [Step 9: Remove the Docker Container](#step-9-remove-the-docker-container)
+  - [Step 10: Remove the Docker Image](#step-10-remove-the-docker-image)
+- [Conclusion](#conclusion)
+- [References](#references)
 
 ## Introduction
 
@@ -27,7 +45,7 @@ To follow this tutorial, you will need:
 - An AWS account
 - An AWS EC2 instance
 
-> **Note:** You can follow this tutorial to create an [AWS EC2 instance Using AWS CLI](/blog/post/how-to-create-an-aws-ec2-instance-using-aws-cli), or you can create an AWS EC2 instance using the AWS console.
+> **Note:** You can follow this tutorial to create an [AWS EC2 instance Using AWS CLI](/blog/post/how-to-create-an-aws-ec2-instance-using-aws-cli) wthout using user data, or you can create an AWS EC2 instance using the AWS console.
 
 ## Setup and Configure Docker to Run an Apache Web Server on an AWS EC2 Instance
 
@@ -195,7 +213,7 @@ If you get the following output:
 
 Then, the Apache web server is running successfully.
 
-### Step 6: Edit The Web Page
+### Step 6: Edit The Web Page on Docker Container
 
 To edit the web page, we need to open the `index.html` file, in the `/usr/local/apache2/htdocs` directory.
 
@@ -239,6 +257,9 @@ Then, you need to install the `vi` editor.
 ```bash
 # update the package list
 apt-get update -y
+
+# upgrade the packages
+apt-get upgrade -y
 
 # install the vi editor
 apt-get install -y vim
@@ -290,9 +311,9 @@ If you get the following output:
 
 Then, the web page has been updated successfully.
 
-### Step 7: Stop the Apache Web Server
+### Step 7: Stop the Docker Container
 
-To stop the Apache web server, we need to run the following command.
+To stop the Docker container, we need to get the container ID of the Apache container.
 
 ```bash
 # To get the Docker container ID
@@ -315,6 +336,70 @@ Explination:
 
 - `docker ps` - List containers.
 - `docker stop` - Stop one or more running containers.
+
+### Step 8: Restart the Docker Container
+
+To restart the Docker container by using the container name, we need to run the following command.
+
+```bash
+docker start apache
+```
+
+Explination:
+
+- `docker start` - Start one or more stopped containers.
+
+### Step 9: Remove the Docker Container
+
+To remove the Docker container, we need to get the container ID of the Apache container.
+
+```bash
+# To get the Docker container ID
+docker ps -a
+
+# To remove the Apache web server
+docker rm CONTAINER_ID
+
+# Or, you can use the container name
+docker rm apache
+```
+
+Or, you can remove all the Docker containers using the following command.
+
+```bash
+docker rm $(docker ps -a -q)
+```
+
+Explination:
+
+- `docker ps` - List containers.
+- `docker rm` - Remove one or more containers.
+
+### Step 10: Remove the Docker Image
+
+To remove the Docker image, we need to get the image ID of the Apache image.
+
+```bash
+# To get the Docker image ID
+docker images
+
+# To remove the Apache web server
+docker rmi IMAGE_ID
+
+# Or, you can use the image name
+docker rmi httpd
+```
+
+Or, you can remove all the Docker images using the following command.
+
+```bash
+docker rmi $(docker images -q)
+```
+
+Explination:
+
+- `docker images` - List images.
+- `docker rmi` - Remove one or more images.
 
 ## Conclusion
 

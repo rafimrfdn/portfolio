@@ -4,7 +4,7 @@ slug: how-to-install-php-and-mariadb-on-amazon-linux-2
 tags: ['Apache', 'PHP', 'MariaDB', 'Amazon Linux 2']
 categories: ['AWS']
 date: 2022-10-24T02:00:00.000Z
-image: /assets/img/blog/how-to-install-php-and-mariadb-on-amazon-linux-2/how-to-install-php-and-mariadb-on-amazon-linux-2.png
+image: /assets/img/blog/0013-how-to-install-php-and-mariadb-on-amazon-linux-2/how-to-install-php-and-mariadb-on-amazon-linux-2.png
 author: MKAbuMattar
 description: 'We will learn how to set up PHP and MariaDB on Amazon Linux 2 in this tutorial. We will also discover how to set up PHP so that it functions with the Apache web server. We will also discover how to set up MariaDB so that it functions with PHP.'
 prev: how-to-install-apache-web-server-on-amazon-linux-2
@@ -168,7 +168,7 @@ http://your_domain_name/php/index.php
 
 You should see the following output:
 
-![phpinfo](/assets/img/blog/how-to-install-php-and-mariadb-on-amazon-linux-2/phpinfo.png)
+![phpinfo](/assets/img/blog/0013-how-to-install-php-and-mariadb-on-amazon-linux-2/phpinfo.png)
 
 ### Step 4 — Configuring MariaDB to Work with PHP
 
@@ -225,7 +225,7 @@ http://your_domain_name/php/db.php
 
 You should see the following output:
 
-![phpdb](/assets/img/blog/how-to-install-php-and-mariadb-on-amazon-linux-2/phpdb.png)
+![phpdb](/assets/img/blog/0013-how-to-install-php-and-mariadb-on-amazon-linux-2/phpdb.png)
 
 ## Conclusion
 

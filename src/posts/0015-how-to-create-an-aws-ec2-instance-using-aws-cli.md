@@ -4,7 +4,7 @@ slug: how-to-create-an-aws-ec2-instance-using-aws-cli
 tags: ['AWS', 'EC2', 'AWS CLI', 'Amazon Linux 2', 'WordPress']
 categories: ['AWS']
 date: 2022-10-30T03:00:00.000Z
-image: /assets/img/blog/how-to-create-an-aws-ec2-instance-using-aws-cli/how-to-create-an-aws-ec2-instance-using-aws-cli.png
+image: /assets/img/blog/0015-how-to-create-an-aws-ec2-instance-using-aws-cli/how-to-create-an-aws-ec2-instance-using-aws-cli.png
 author: MKAbuMattar
 description: 'We will learn how to create an AWS EC2 instance using AWS CLI in this tutorial. We will also discover how to set up an AWS EC2 instance so that it functions with the Apache web server. We will also discover how to set up an AWS EC2 instance so that it functions with WordPress.'
 prev: how-to-install-wordpress-on-amazon-linux-2
@@ -330,7 +330,7 @@ Before creating an EC2 instance, you need to create a user data script. That scr
 
 - [How to Install Apache Web Server on Amazon Linux 2](/blog/post/how-to-install-apache-web-server-on-amazon-linux-2)
 - [How to Install PHP and MariaDB on Amazon Linux 2](/blog/post/how-to-install-php-and-mariadb-on-amazon-linux-2)
-- [How to Install WordPress on Amazon Linux 2](/blog/post/how-to-create-an-aws-ec2-instance-using-aws-cli/how-to-create-an-aws-ec2-instance-using-aws-cli)
+- [How to Install WordPress on Amazon Linux 2](/blog/post/0015-how-to-create-an-aws-ec2-instance-using-aws-cli/how-to-create-an-aws-ec2-instance-using-aws-cli)
 
 You can find the user data script in the [GitHub repository](https://github.com/MKAbuMattar/install-and-setup-wordpress-on-amazon-linux-2)
 
@@ -412,7 +412,7 @@ ssh -i DevOpsKeyPair.pem ec2-user@$AWS_PUBLIC_IP
 
 ### Show the WordPress website
 
-![WordPress on Amazon Linux 2](/assets/img/blog/how-to-create-an-aws-ec2-instance-using-aws-cli/wordpress-on-amazon-linux-2-1.png)
+![WordPress on Amazon Linux 2](/assets/img/blog/0015-how-to-create-an-aws-ec2-instance-using-aws-cli/wordpress-on-amazon-linux-2-1.png)
 
 ## Conclusion
 

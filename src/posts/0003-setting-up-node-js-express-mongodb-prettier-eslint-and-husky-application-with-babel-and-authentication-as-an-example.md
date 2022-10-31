@@ -14,7 +14,7 @@ tags:
   ]
 categories: ['Backend']
 date: 2022-06-25T00:00:00.000Z
-image: /assets/img/blog/setting-up-node-js-express-mongodb-prettier-eslint-and-husky-application-with-babel-and-authentication-as-an-example/setting-up-node-js-express-mongodb-prettier-eslint-and-husky-application-with-babel-and-authentication-as-an-example.png
+image: /assets/img/blog/0003-setting-up-node-js-express-mongodb-prettier-eslint-and-husky-application-with-babel-and-authentication-as-an-example/setting-up-node-js-express-mongodb-prettier-eslint-and-husky-application-with-babel-and-authentication-as-an-example.png
 author: MKAbuMattar
 description: Setting up Node JS, Express, MongoDB, Prettier, ESLint and Husky Application with Babel and authentication as an example.
 prev: dotfiles
@@ -341,8 +341,8 @@ touch src/utils/logger.util.js
 ```
 
 ```js
-import winston from 'winston'
-import { NODE_ENV } from '../env/variable.env'
+import winston from 'winston';
+import { NODE_ENV } from '../env/variable.env';
 
 const levels = {
   error: 0,
@@ -350,13 +350,13 @@ const levels = {
   info: 2,
   http: 3,
   debug: 4,
-}
+};
 
 const level = () => {
-  const env = NODE_ENV || 'development'
-  const isDevelopment = env === 'development'
-  return isDevelopment ? 'debug' : 'warn'
-}
+  const env = NODE_ENV || 'development';
+  const isDevelopment = env === 'development';
+  return isDevelopment ? 'debug' : 'warn';
+};
 
 const colors = {
   error: 'red',
@@ -364,9 +364,9 @@ const colors = {
   info: 'green',
   http: 'magenta',
   debug: 'white',
-}
+};
 
-winston.addColors(colors)
+winston.addColors(colors);
 
 const format = winston.format.combine(
   winston.format.timestamp({
@@ -376,7 +376,7 @@ const format = winston.format.combine(
   winston.format.printf(
     (info) => `${info.timestamp} ${info.level}: ${info.message}`,
   ),
-)
+);
 
 const transports = [
   new winston.transports.Console(),
@@ -385,16 +385,16 @@ const transports = [
     level: 'error',
   }),
   new winston.transports.File({ filename: 'logs/all.log' }),
-]
+];
 
 const logger = winston.createLogger({
   level: level(),
   levels,
   format,
   transports,
-})
+});
 
-export default logger
+export default logger;
 ```
 
 ### Build file structure and basic express application
@@ -420,78 +420,78 @@ there are some constants that are used in the application, but that are not rela
 `dateformat.constant.js`
 
 ```js
-export const YYYY_MM_DD_HH_MM_SS_MS = 'YYYY-MM-DD HH:mm:ss:ms'
+export const YYYY_MM_DD_HH_MM_SS_MS = 'YYYY-MM-DD HH:mm:ss:ms';
 
 export default {
   YYYY_MM_DD_HH_MM_SS_MS,
-}
+};
 ```
 
 `http.code.constant.js`
 
 ```js
-export const CONTINUE = 100
-export const SWITCHING_PROTOCOLS = 101
-export const PROCESSING = 102
-export const OK = 200
-export const CREATED = 201
-export const ACCEPTED = 202
-export const NON_AUTHORITATIVE_INFORMATION = 203
-export const NO_CONTENT = 204
-export const RESET_CONTENT = 205
-export const PARTIAL_CONTENT = 206
-export const MULTI_STATUS = 207
-export const ALREADY_REPORTED = 208
-export const IM_USED = 226
-export const MULTIPLE_CHOICES = 300
-export const MOVED_PERMANENTLY = 301
-export const MOVED_TEMPORARILY = 302
-export const SEE_OTHER = 303
-export const NOT_MODIFIED = 304
-export const USE_PROXY = 305
-export const SWITCH_PROXY = 306
-export const TEMPORARY_REDIRECT = 307
-export const BAD_REQUEST = 400
-export const UNAUTHORIZED = 401
-export const PAYMENT_REQUIRED = 402
-export const FORBIDDEN = 403
-export const NOT_FOUND = 404
-export const METHOD_NOT_ALLOWED = 405
-export const NOT_ACCEPTABLE = 406
-export const PROXY_AUTHENTICATION_REQUIRED = 407
-export const REQUEST_TIMEOUT = 408
-export const CONFLICT = 409
-export const GONE = 410
-export const LENGTH_REQUIRED = 411
-export const PRECONDITION_FAILED = 412
-export const PAYLOAD_TOO_LARGE = 413
-export const REQUEST_URI_TOO_LONG = 414
-export const UNSUPPORTED_MEDIA_TYPE = 415
-export const REQUESTED_RANGE_NOT_SATISFIABLE = 416
-export const EXPECTATION_FAILED = 417
-export const IM_A_TEAPOT = 418
-export const METHOD_FAILURE = 420
-export const MISDIRECTED_REQUEST = 421
-export const UNPROCESSABLE_ENTITY = 422
-export const LOCKED = 423
-export const FAILED_DEPENDENCY = 424
-export const UPGRADE_REQUIRED = 426
-export const PRECONDITION_REQUIRED = 428
-export const TOO_MANY_REQUESTS = 429
-export const REQUEST_HEADER_FIELDS_TOO_LARGE = 431
-export const UNAVAILABLE_FOR_LEGAL_REASONS = 451
-export const INTERNAL_SERVER_ERROR = 500
-export const NOT_IMPLEMENTED = 501
-export const BAD_GATEWAY = 502
-export const SERVICE_UNAVAILABLE = 503
-export const GATEWAY_TIMEOUT = 504
-export const HTTP_VERSION_NOT_SUPPORTED = 505
-export const VARIANT_ALSO_NEGOTIATES = 506
-export const INSUFFICIENT_STORAGE = 507
-export const LOOP_DETECTED = 508
-export const NOT_EXTENDED = 510
-export const NETWORK_AUTHENTICATION_REQUIRED = 511
-export const NETWORK_CONNECT_TIMEOUT_ERROR = 599
+export const CONTINUE = 100;
+export const SWITCHING_PROTOCOLS = 101;
+export const PROCESSING = 102;
+export const OK = 200;
+export const CREATED = 201;
+export const ACCEPTED = 202;
+export const NON_AUTHORITATIVE_INFORMATION = 203;
+export const NO_CONTENT = 204;
+export const RESET_CONTENT = 205;
+export const PARTIAL_CONTENT = 206;
+export const MULTI_STATUS = 207;
+export const ALREADY_REPORTED = 208;
+export const IM_USED = 226;
+export const MULTIPLE_CHOICES = 300;
+export const MOVED_PERMANENTLY = 301;
+export const MOVED_TEMPORARILY = 302;
+export const SEE_OTHER = 303;
+export const NOT_MODIFIED = 304;
+export const USE_PROXY = 305;
+export const SWITCH_PROXY = 306;
+export const TEMPORARY_REDIRECT = 307;
+export const BAD_REQUEST = 400;
+export const UNAUTHORIZED = 401;
+export const PAYMENT_REQUIRED = 402;
+export const FORBIDDEN = 403;
+export const NOT_FOUND = 404;
+export const METHOD_NOT_ALLOWED = 405;
+export const NOT_ACCEPTABLE = 406;
+export const PROXY_AUTHENTICATION_REQUIRED = 407;
+export const REQUEST_TIMEOUT = 408;
+export const CONFLICT = 409;
+export const GONE = 410;
+export const LENGTH_REQUIRED = 411;
+export const PRECONDITION_FAILED = 412;
+export const PAYLOAD_TOO_LARGE = 413;
+export const REQUEST_URI_TOO_LONG = 414;
+export const UNSUPPORTED_MEDIA_TYPE = 415;
+export const REQUESTED_RANGE_NOT_SATISFIABLE = 416;
+export const EXPECTATION_FAILED = 417;
+export const IM_A_TEAPOT = 418;
+export const METHOD_FAILURE = 420;
+export const MISDIRECTED_REQUEST = 421;
+export const UNPROCESSABLE_ENTITY = 422;
+export const LOCKED = 423;
+export const FAILED_DEPENDENCY = 424;
+export const UPGRADE_REQUIRED = 426;
+export const PRECONDITION_REQUIRED = 428;
+export const TOO_MANY_REQUESTS = 429;
+export const REQUEST_HEADER_FIELDS_TOO_LARGE = 431;
+export const UNAVAILABLE_FOR_LEGAL_REASONS = 451;
+export const INTERNAL_SERVER_ERROR = 500;
+export const NOT_IMPLEMENTED = 501;
+export const BAD_GATEWAY = 502;
+export const SERVICE_UNAVAILABLE = 503;
+export const GATEWAY_TIMEOUT = 504;
+export const HTTP_VERSION_NOT_SUPPORTED = 505;
+export const VARIANT_ALSO_NEGOTIATES = 506;
+export const INSUFFICIENT_STORAGE = 507;
+export const LOOP_DETECTED = 508;
+export const NOT_EXTENDED = 510;
+export const NETWORK_AUTHENTICATION_REQUIRED = 511;
+export const NETWORK_CONNECT_TIMEOUT_ERROR = 599;
 
 export default {
   CONTINUE,
@@ -556,74 +556,77 @@ export default {
   NOT_EXTENDED,
   NETWORK_AUTHENTICATION_REQUIRED,
   NETWORK_CONNECT_TIMEOUT_ERROR,
-}
+};
 ```
 
 `http.reason.constant.js`
 
 ```js
-export const CONTINUE = 'Continue'
-export const SWITCHING_PROTOCOLS = 'Switching Protocols'
-export const PROCESSING = 'Processing'
-export const OK = 'OK'
-export const CREATED = 'Created'
-export const ACCEPTED = 'Accepted'
-export const NON_AUTHORITATIVE_INFORMATION = 'Non-Authoritative Information'
-export const NO_CONTENT = 'No Content'
-export const RESET_CONTENT = 'Reset Content'
-export const PARTIAL_CONTENT = 'Partial Content'
-export const MULTI_STATUS = 'Multi-Status'
-export const ALREADY_REPORTED = 'Already Reported'
-export const IM_USED = 'IM Used'
-export const MULTIPLE_CHOICES = 'Multiple Choices'
-export const MOVED_PERMANENTLY = 'Moved Permanently'
-export const MOVED_TEMPORARILY = 'Moved Temporarily'
-export const SEE_OTHER = 'See Other'
-export const NOT_MODIFIED = 'Not Modified'
-export const USE_PROXY = 'Use Proxy'
-export const SWITCH_PROXY = 'Switch Proxy'
-export const TEMPORARY_REDIRECT = 'Temporary Redirect'
-export const BAD_REQUEST = 'Bad Request'
-export const UNAUTHORIZED = 'Unauthorized'
-export const PAYMENT_REQUIRED = 'Payment Required'
-export const FORBIDDEN = 'Forbidden'
-export const NOT_FOUND = 'Not Found'
-export const METHOD_NOT_ALLOWED = 'Method Not Allowed'
-export const NOT_ACCEPTABLE = 'Not Acceptable'
-export const PROXY_AUTHENTICATION_REQUIRED = 'Proxy Authentication Required'
-export const REQUEST_TIMEOUT = 'Request Timeout'
-export const CONFLICT = 'Conflict'
-export const GONE = 'Gone'
-export const LENGTH_REQUIRED = 'Length Required'
-export const PRECONDITION_FAILED = 'Precondition Failed'
-export const PAYLOAD_TOO_LARGE = 'Payload Too Large'
-export const REQUEST_URI_TOO_LONG = 'Request URI Too Long'
-export const UNSUPPORTED_MEDIA_TYPE = 'Unsupported Media Type'
-export const REQUESTED_RANGE_NOT_SATISFIABLE = 'Requested Range Not Satisfiable'
-export const EXPECTATION_FAILED = 'Expectation Failed'
-export const IM_A_TEAPOT = "I'm a teapot"
-export const METHOD_FAILURE = 'Method Failure'
-export const MISDIRECTED_REQUEST = 'Misdirected Request'
-export const UNPROCESSABLE_ENTITY = 'Unprocessable Entity'
-export const LOCKED = 'Locked'
-export const FAILED_DEPENDENCY = 'Failed Dependency'
-export const UPGRADE_REQUIRED = 'Upgrade Required'
-export const PRECONDITION_REQUIRED = 'Precondition Required'
-export const TOO_MANY_REQUESTS = 'Too Many Requests'
-export const REQUEST_HEADER_FIELDS_TOO_LARGE = 'Request Header Fields Too Large'
-export const UNAVAILABLE_FOR_LEGAL_REASONS = 'Unavailable For Legal Reasons'
-export const INTERNAL_SERVER_ERROR = 'Internal Server Error'
-export const NOT_IMPLEMENTED = 'Not Implemented'
-export const BAD_GATEWAY = 'Bad Gateway'
-export const SERVICE_UNAVAILABLE = 'Service Unavailable'
-export const GATEWAY_TIMEOUT = 'Gateway Timeout'
-export const HTTP_VERSION_NOT_SUPPORTED = 'HTTP Version Not Supported'
-export const VARIANT_ALSO_NEGOTIATES = 'Variant Also Negotiates'
-export const INSUFFICIENT_STORAGE = 'Insufficient Storage'
-export const LOOP_DETECTED = 'Loop Detected'
-export const NOT_EXTENDED = 'Not Extended'
-export const NETWORK_AUTHENTICATION_REQUIRED = 'Network Authentication Required'
-export const NETWORK_CONNECT_TIMEOUT_ERROR = 'Network Connect Timeout Error'
+export const CONTINUE = 'Continue';
+export const SWITCHING_PROTOCOLS = 'Switching Protocols';
+export const PROCESSING = 'Processing';
+export const OK = 'OK';
+export const CREATED = 'Created';
+export const ACCEPTED = 'Accepted';
+export const NON_AUTHORITATIVE_INFORMATION = 'Non-Authoritative Information';
+export const NO_CONTENT = 'No Content';
+export const RESET_CONTENT = 'Reset Content';
+export const PARTIAL_CONTENT = 'Partial Content';
+export const MULTI_STATUS = 'Multi-Status';
+export const ALREADY_REPORTED = 'Already Reported';
+export const IM_USED = 'IM Used';
+export const MULTIPLE_CHOICES = 'Multiple Choices';
+export const MOVED_PERMANENTLY = 'Moved Permanently';
+export const MOVED_TEMPORARILY = 'Moved Temporarily';
+export const SEE_OTHER = 'See Other';
+export const NOT_MODIFIED = 'Not Modified';
+export const USE_PROXY = 'Use Proxy';
+export const SWITCH_PROXY = 'Switch Proxy';
+export const TEMPORARY_REDIRECT = 'Temporary Redirect';
+export const BAD_REQUEST = 'Bad Request';
+export const UNAUTHORIZED = 'Unauthorized';
+export const PAYMENT_REQUIRED = 'Payment Required';
+export const FORBIDDEN = 'Forbidden';
+export const NOT_FOUND = 'Not Found';
+export const METHOD_NOT_ALLOWED = 'Method Not Allowed';
+export const NOT_ACCEPTABLE = 'Not Acceptable';
+export const PROXY_AUTHENTICATION_REQUIRED = 'Proxy Authentication Required';
+export const REQUEST_TIMEOUT = 'Request Timeout';
+export const CONFLICT = 'Conflict';
+export const GONE = 'Gone';
+export const LENGTH_REQUIRED = 'Length Required';
+export const PRECONDITION_FAILED = 'Precondition Failed';
+export const PAYLOAD_TOO_LARGE = 'Payload Too Large';
+export const REQUEST_URI_TOO_LONG = 'Request URI Too Long';
+export const UNSUPPORTED_MEDIA_TYPE = 'Unsupported Media Type';
+export const REQUESTED_RANGE_NOT_SATISFIABLE =
+  'Requested Range Not Satisfiable';
+export const EXPECTATION_FAILED = 'Expectation Failed';
+export const IM_A_TEAPOT = "I'm a teapot";
+export const METHOD_FAILURE = 'Method Failure';
+export const MISDIRECTED_REQUEST = 'Misdirected Request';
+export const UNPROCESSABLE_ENTITY = 'Unprocessable Entity';
+export const LOCKED = 'Locked';
+export const FAILED_DEPENDENCY = 'Failed Dependency';
+export const UPGRADE_REQUIRED = 'Upgrade Required';
+export const PRECONDITION_REQUIRED = 'Precondition Required';
+export const TOO_MANY_REQUESTS = 'Too Many Requests';
+export const REQUEST_HEADER_FIELDS_TOO_LARGE =
+  'Request Header Fields Too Large';
+export const UNAVAILABLE_FOR_LEGAL_REASONS = 'Unavailable For Legal Reasons';
+export const INTERNAL_SERVER_ERROR = 'Internal Server Error';
+export const NOT_IMPLEMENTED = 'Not Implemented';
+export const BAD_GATEWAY = 'Bad Gateway';
+export const SERVICE_UNAVAILABLE = 'Service Unavailable';
+export const GATEWAY_TIMEOUT = 'Gateway Timeout';
+export const HTTP_VERSION_NOT_SUPPORTED = 'HTTP Version Not Supported';
+export const VARIANT_ALSO_NEGOTIATES = 'Variant Also Negotiates';
+export const INSUFFICIENT_STORAGE = 'Insufficient Storage';
+export const LOOP_DETECTED = 'Loop Detected';
+export const NOT_EXTENDED = 'Not Extended';
+export const NETWORK_AUTHENTICATION_REQUIRED =
+  'Network Authentication Required';
+export const NETWORK_CONNECT_TIMEOUT_ERROR = 'Network Connect Timeout Error';
 
 export default {
   CONTINUE,
@@ -688,19 +691,19 @@ export default {
   NOT_EXTENDED,
   NETWORK_AUTHENTICATION_REQUIRED,
   NETWORK_CONNECT_TIMEOUT_ERROR,
-}
+};
 ```
 
 `path.constant.js`
 
 ```js
-export const LOGS_ALL = 'logs/all.log'
-export const LOGS_ERROR = 'logs/error.log'
+export const LOGS_ALL = 'logs/all.log';
+export const LOGS_ERROR = 'logs/error.log';
 
 export default {
   LOGS_ALL,
   LOGS_ERROR,
-}
+};
 ```
 
 and we'll add to other constants in the future.
@@ -747,64 +750,64 @@ new files will be created in the `src` directory, and we'll add the following co
 `db.config.js`
 
 ```js
-import { connect } from 'mongoose'
-import logger from '../utils/logger.util'
+import { connect } from 'mongoose';
+import logger from '../utils/logger.util';
 
 const connectDb = async (URL) => {
   const connectionParams = {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-  }
+  };
 
   try {
-    const connection = await connect(URL, connectionParams)
-    logger.info(`Mongo DB is connected to: ${connection.connection.host}`)
+    const connection = await connect(URL, connectionParams);
+    logger.info(`Mongo DB is connected to: ${connection.connection.host}`);
   } catch (err) {
-    logger.error(`An error ocurred\n\r\n\r${err}`)
+    logger.error(`An error ocurred\n\r\n\r${err}`);
   }
-}
+};
 
-export default connectDb
+export default connectDb;
 ```
 
 `variable.env.js`
 
 ```js
-import dotenv from 'dotenv'
+import dotenv from 'dotenv';
 
-dotenv.config()
+dotenv.config();
 
-export const { NODE_ENV } = process.env
-export const { PORT } = process.env
-export const { DATABASE_URL } = process.env
+export const { NODE_ENV } = process.env;
+export const { PORT } = process.env;
+export const { DATABASE_URL } = process.env;
 
 export default {
   NODE_ENV,
   PORT,
   DATABASE_URL,
-}
+};
 ```
 
 `index.js`
 
 ```js
-import express from 'express'
-import cors from 'cors'
+import express from 'express';
+import cors from 'cors';
 
-import { DATABASE_URL } from './env/variable.env'
-import connectDb from './config/db.config'
+import { DATABASE_URL } from './env/variable.env';
+import connectDb from './config/db.config';
 
 //http constant
-import ConstantHttpCode from './constants/http.code.constant'
-import ConstantHttpReason from './constants/http.reason.constant'
+import ConstantHttpCode from './constants/http.code.constant';
+import ConstantHttpReason from './constants/http.reason.constant';
 
-connectDb(DATABASE_URL)
+connectDb(DATABASE_URL);
 
-const app = express()
+const app = express();
 
-app.use(express.urlencoded({ extended: true }))
-app.use(express.json())
-app.use(cors())
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(cors());
 
 app.get('/', (req, res, next) => {
   try {
@@ -814,13 +817,13 @@ app.get('/', (req, res, next) => {
         msg: ConstantHttpReason.OK,
       },
       API: 'Work',
-    })
+    });
   } catch (err) {
-    next(err)
+    next(err);
   }
-})
+});
 
-export default app
+export default app;
 ```
 
 `bin/www.js`
@@ -828,76 +831,76 @@ export default app
 ```js
 #!/user/bin/env node
 
-import http from 'http'
-import app from '..'
+import http from 'http';
+import app from '..';
 
-import { PORT } from '../env/variable.env'
-import logger from '../utils/logger.util'
+import { PORT } from '../env/variable.env';
+import logger from '../utils/logger.util';
 
 /**
  * Normalize a port into a number, string, or false.
  */
 const normalizePort = (val) => {
-  const port = parseInt(val, 10)
+  const port = parseInt(val, 10);
 
   if (Number.isNaN(port)) {
     // named pipe
-    return val
+    return val;
   }
 
   if (port >= 0) {
     // port number
-    return port
+    return port;
   }
 
-  return false
-}
+  return false;
+};
 
-const port = normalizePort(PORT || '3000')
-app.set('port', port)
+const port = normalizePort(PORT || '3000');
+app.set('port', port);
 
 /**
  * Create HTTP server.
  */
-const server = http.createServer(app)
+const server = http.createServer(app);
 
 /**
  * Event listener for HTTP server "error" event.
  */
 const onError = (error) => {
   if (error.syscall !== 'listen') {
-    throw error
+    throw error;
   }
 
-  const bind = typeof port === 'string' ? `Pipe ${port}` : `Port ${port}`
+  const bind = typeof port === 'string' ? `Pipe ${port}` : `Port ${port}`;
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
     case 'EACCES':
-      logger.error(`${bind} requires elevated privileges`)
-      process.exit(1)
-      break
+      logger.error(`${bind} requires elevated privileges`);
+      process.exit(1);
+      break;
     case 'EADDRINUSE':
-      logger.error(`${bind} is already in use`)
-      process.exit(1)
-      break
+      logger.error(`${bind} is already in use`);
+      process.exit(1);
+      break;
     default:
-      throw error
+      throw error;
   }
-}
+};
 
 /**
  * Event listener for HTTP server "listening" event.
  */
 const onListening = () => {
-  const addr = server.address()
-  const bind = typeof addr === 'string' ? `pipe ${addr}` : `port ${addr.port}`
-  logger.info(`Listening on ${bind}`)
-}
+  const addr = server.address();
+  const bind = typeof addr === 'string' ? `pipe ${addr}` : `port ${addr.port}`;
+  logger.info(`Listening on ${bind}`);
+};
 
-server.listen(port)
-server.on('error', onError)
-server.on('listening', onListening)
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
 ```
 
 Now we add a new script to `package.json` so we can run the application:
@@ -959,31 +962,31 @@ yarn add regenerator-runtime
 we'll change the `index.js` file:
 
 ```js
-import express from 'express'
-import helmet from 'helmet'
-import cors from 'cors'
-import compression from 'compression'
-import cookieParser from 'cookie-parser'
+import express from 'express';
+import helmet from 'helmet';
+import cors from 'cors';
+import compression from 'compression';
+import cookieParser from 'cookie-parser';
 
-import { DATABASE_URL } from './env/variable.env'
-import connectDb from './config/db.config'
+import { DATABASE_URL } from './env/variable.env';
+import connectDb from './config/db.config';
 
 //http constant
-import ConstantHttpCode from './constants/http.code.constant'
-import ConstantHttpReason from './constants/http.reason.constant'
+import ConstantHttpCode from './constants/http.code.constant';
+import ConstantHttpReason from './constants/http.reason.constant';
 
-connectDb(DATABASE_URL)
+connectDb(DATABASE_URL);
 
-const app = express()
+const app = express();
 
 //helmet
-app.use(helmet())
+app.use(helmet());
 
-app.use(express.urlencoded({ extended: true }))
-app.use(express.json())
-app.use(compression())
-app.use(cors())
-app.use(cookieParser())
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(compression());
+app.use(cors());
+app.use(cookieParser());
 
 app.get('/', (req, res, next) => {
   try {
@@ -993,92 +996,92 @@ app.get('/', (req, res, next) => {
         msg: ConstantHttpReason.OK,
       },
       API: 'Work',
-    })
+    });
   } catch (err) {
-    next(err)
+    next(err);
   }
-})
+});
 
-export default app
+export default app;
 ```
 
 and we'll change the `bin/www.js` file:
 
 ```js
 #!/user/bin/env node
-import 'core-js/stable'
-import 'regenerator-runtime/runtime'
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
 
-import http from 'http'
-import app from '..'
+import http from 'http';
+import app from '..';
 
-import { PORT } from '../env/variable.env'
-import logger from '../utils/logger.util'
+import { PORT } from '../env/variable.env';
+import logger from '../utils/logger.util';
 
 /**
  * Normalize a port into a number, string, or false.
  */
 const normalizePort = (val) => {
-  const port = parseInt(val, 10)
+  const port = parseInt(val, 10);
 
   if (Number.isNaN(port)) {
     // named pipe
-    return val
+    return val;
   }
 
   if (port >= 0) {
     // port number
-    return port
+    return port;
   }
 
-  return false
-}
+  return false;
+};
 
-const port = normalizePort(PORT || '3000')
-app.set('port', port)
+const port = normalizePort(PORT || '3000');
+app.set('port', port);
 
 /**
  * Create HTTP server.
  */
-const server = http.createServer(app)
+const server = http.createServer(app);
 
 /**
  * Event listener for HTTP server "error" event.
  */
 const onError = (error) => {
   if (error.syscall !== 'listen') {
-    throw error
+    throw error;
   }
 
-  const bind = typeof port === 'string' ? `Pipe ${port}` : `Port ${port}`
+  const bind = typeof port === 'string' ? `Pipe ${port}` : `Port ${port}`;
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
     case 'EACCES':
-      logger.error(`${bind} requires elevated privileges`)
-      process.exit(1)
-      break
+      logger.error(`${bind} requires elevated privileges`);
+      process.exit(1);
+      break;
     case 'EADDRINUSE':
-      logger.error(`${bind} is already in use`)
-      process.exit(1)
-      break
+      logger.error(`${bind} is already in use`);
+      process.exit(1);
+      break;
     default:
-      throw error
+      throw error;
   }
-}
+};
 
 /**
  * Event listener for HTTP server "listening" event.
  */
 const onListening = () => {
-  const addr = server.address()
-  const bind = typeof addr === 'string' ? `pipe ${addr}` : `port ${addr.port}`
-  logger.info(`Listening on ${bind}`)
-}
+  const addr = server.address();
+  const bind = typeof addr === 'string' ? `pipe ${addr}` : `port ${addr.port}`;
+  logger.info(`Listening on ${bind}`);
+};
 
-server.listen(port)
-server.on('error', onError)
-server.on('listening', onListening)
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
 ```
 
 new we'll run the application with `yarn dev`:
@@ -1343,7 +1346,7 @@ module.exports = {
       ],
     ],
   },
-}
+};
 ```
 
 Afterward, use Husky to enable commitlint by using:
@@ -1466,24 +1469,24 @@ know we'll add the constants to:
 
 ```js
 // api
-export const API_AUTH = '/api/auth'
-export const API_USERS = '/api/users'
+export const API_AUTH = '/api/auth';
+export const API_USERS = '/api/users';
 
 // auth
-export const AUTH_REGISTER = '/register'
-export const AUTH_LOGIN = '/login'
+export const AUTH_REGISTER = '/register';
+export const AUTH_LOGIN = '/login';
 
 // users
-export const USER_UPDATE_USERNAME = '/update-username/:id'
-export const USER_UPDATE_NAME = '/update-name/:id'
-export const USER_UPDATE_EMAIL = '/update-email/:id'
-export const USER_UPDATE_PASSWORD = '/update-password/:id'
-export const USER_UPDATE_PHONE = '/update-phone/:id'
-export const USER_UPDATE_ADDRESS = '/update-address/:id'
-export const USER_DELETE = '/delete/:id'
-export const USER_GET = '/find/:id'
-export const USER_GET_ALL = '/'
-export const USER_GET_ALL_STATS = '/stats'
+export const USER_UPDATE_USERNAME = '/update-username/:id';
+export const USER_UPDATE_NAME = '/update-name/:id';
+export const USER_UPDATE_EMAIL = '/update-email/:id';
+export const USER_UPDATE_PASSWORD = '/update-password/:id';
+export const USER_UPDATE_PHONE = '/update-phone/:id';
+export const USER_UPDATE_ADDRESS = '/update-address/:id';
+export const USER_DELETE = '/delete/:id';
+export const USER_GET = '/find/:id';
+export const USER_GET_ALL = '/';
+export const USER_GET_ALL_STATS = '/stats';
 
 export default {
   // api
@@ -1505,49 +1508,49 @@ export default {
   USER_GET,
   USER_GET_ALL,
   USER_GET_ALL_STATS,
-}
+};
 ```
 
 `message.constant.js`
 
 ```js
 // token
-export const TOKEN_NOT_VALID = 'Token not valid'
-export const NOT_AUTHENTICATED = 'Not authenticated'
-export const NOT_ALLOWED = 'Not allowed'
+export const TOKEN_NOT_VALID = 'Token not valid';
+export const NOT_AUTHENTICATED = 'Not authenticated';
+export const NOT_ALLOWED = 'Not allowed';
 
 // auth
-export const USERNAME_NOT_VALID = 'username is not valid'
-export const NAME_NOT_VALID = 'name is not valid'
-export const EMAIL_NOT_VALID = 'email is not valid'
-export const PASSWORD_NOT_VALID = 'password is not valid'
-export const PHONE_NOT_VALID = 'phone is not valid'
-export const ADDRESS_NOT_VALID = 'address is not valid'
-export const USERNAME_EXIST = 'username is exist'
-export const EMAIL_EXIST = 'email is exist'
-export const PHONE_EXIST = 'phone is exist'
-export const USER_NOT_CREATE = 'user is not create, please try again'
-export const USER_CREATE_SUCCESS = 'user is create success, please login'
-export const USER_NOT_FOUND = 'user is not found'
-export const PASSWORD_NOT_MATCH = 'password is not match'
-export const USER_LOGIN_SUCCESS = 'user is login success'
+export const USERNAME_NOT_VALID = 'username is not valid';
+export const NAME_NOT_VALID = 'name is not valid';
+export const EMAIL_NOT_VALID = 'email is not valid';
+export const PASSWORD_NOT_VALID = 'password is not valid';
+export const PHONE_NOT_VALID = 'phone is not valid';
+export const ADDRESS_NOT_VALID = 'address is not valid';
+export const USERNAME_EXIST = 'username is exist';
+export const EMAIL_EXIST = 'email is exist';
+export const PHONE_EXIST = 'phone is exist';
+export const USER_NOT_CREATE = 'user is not create, please try again';
+export const USER_CREATE_SUCCESS = 'user is create success, please login';
+export const USER_NOT_FOUND = 'user is not found';
+export const PASSWORD_NOT_MATCH = 'password is not match';
+export const USER_LOGIN_SUCCESS = 'user is login success';
 
 // user
-export const USERNAME_NOT_CHANGE = 'username is not change'
-export const USERNAME_CHANGE_SUCCESS = 'username is change success'
-export const NAME_NOT_CHANGE = 'name is not change'
-export const NAME_CHANGE_SUCCESS = 'name is change success'
-export const EMAIL_NOT_CHANGE = 'email is not change'
-export const EMAIL_CHANGE_SUCCESS = 'email is change success'
-export const PASSWORD_NOT_CHANGE = 'password is not change'
-export const PASSWORD_CHANGE_SUCCESS = 'password is change success'
-export const PHONE_NOT_CHANGE = 'phone is not change'
-export const PHONE_CHANGE_SUCCESS = 'phone is change success'
-export const ADDRESS_NOT_CHANGE = 'address is not change'
-export const ADDRESS_CHANGE_SUCCESS = 'address is change success'
-export const USER_NOT_DELETE = 'user is not delete, please try again'
-export const USER_DELETE_SUCCESS = 'user is delete success'
-export const USER_FOUND = 'user is found'
+export const USERNAME_NOT_CHANGE = 'username is not change';
+export const USERNAME_CHANGE_SUCCESS = 'username is change success';
+export const NAME_NOT_CHANGE = 'name is not change';
+export const NAME_CHANGE_SUCCESS = 'name is change success';
+export const EMAIL_NOT_CHANGE = 'email is not change';
+export const EMAIL_CHANGE_SUCCESS = 'email is change success';
+export const PASSWORD_NOT_CHANGE = 'password is not change';
+export const PASSWORD_CHANGE_SUCCESS = 'password is change success';
+export const PHONE_NOT_CHANGE = 'phone is not change';
+export const PHONE_CHANGE_SUCCESS = 'phone is change success';
+export const ADDRESS_NOT_CHANGE = 'address is not change';
+export const ADDRESS_CHANGE_SUCCESS = 'address is change success';
+export const USER_NOT_DELETE = 'user is not delete, please try again';
+export const USER_DELETE_SUCCESS = 'user is delete success';
+export const USER_FOUND = 'user is found';
 
 export default {
   // token
@@ -1587,33 +1590,33 @@ export default {
   USER_NOT_DELETE,
   USER_DELETE_SUCCESS,
   USER_FOUND,
-}
+};
 ```
 
 `model.constant.js`
 
 ```js
-export const USER_MODEL = 'UserModel'
+export const USER_MODEL = 'UserModel';
 
 export default {
   USER_MODEL,
-}
+};
 ```
 
 `number.constant.js`
 
 ```js
 // user
-export const USERNAME_MIN_LENGTH = 3
-export const USERNAME_MAX_LENGTH = 20
-export const NAME_MIN_LENGTH = 3
-export const NAME_MAX_LENGTH = 80
-export const EMAIL_MAX_LENGTH = 50
-export const PASSWORD_MIN_LENGTH = 8
-export const PHONE_MIN_LENGTH = 10
-export const PHONE_MAX_LENGTH = 20
-export const ADDRESS_MIN_LENGTH = 10
-export const ADDRESS_MAX_LENGTH = 200
+export const USERNAME_MIN_LENGTH = 3;
+export const USERNAME_MAX_LENGTH = 20;
+export const NAME_MIN_LENGTH = 3;
+export const NAME_MAX_LENGTH = 80;
+export const EMAIL_MAX_LENGTH = 50;
+export const PASSWORD_MIN_LENGTH = 8;
+export const PHONE_MIN_LENGTH = 10;
+export const PHONE_MAX_LENGTH = 20;
+export const ADDRESS_MIN_LENGTH = 10;
+export const ADDRESS_MAX_LENGTH = 200;
 
 export default {
   USERNAME_MIN_LENGTH,
@@ -1626,21 +1629,21 @@ export default {
   PHONE_MAX_LENGTH,
   ADDRESS_MIN_LENGTH,
   ADDRESS_MAX_LENGTH,
-}
+};
 ```
 
 `regex.constant.js`
 
 ```js
-export const USERNAME = /^(?!.*\.\.)(?!.*\.$)[^\W][\w.]{3,32}$/
+export const USERNAME = /^(?!.*\.\.)(?!.*\.$)[^\W][\w.]{3,32}$/;
 export const EMAIL =
-  /^(([^<>()\\[\]\\.,;:\s@"]+(\.[^<>()\\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  /^(([^<>()\\[\]\\.,;:\s@"]+(\.[^<>()\\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 export const PASSWORD =
-  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
-export const NAME = /^[a-zA-Z ]{2,35}$/
+  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+export const NAME = /^[a-zA-Z ]{2,35}$/;
 export const PHONE =
-  /^\s*(?:\+?(\d{1,3}))?([-. (]*(\d{3})[-. )]*)?((\d{3})[-. ]*(\d{2,4})(?:[-.x ]*(\d+))?)\s*$/gm
-export const ADDRESS = /^[a-zA-Z0-9\s,'-]{10,200}$/
+  /^\s*(?:\+?(\d{1,3}))?([-. (]*(\d{3})[-. )]*)?((\d{3})[-. ]*(\d{2,4})(?:[-.x ]*(\d+))?)\s*$/gm;
+export const ADDRESS = /^[a-zA-Z0-9\s,'-]{10,200}$/;
 
 export default {
   USERNAME,
@@ -1649,7 +1652,7 @@ export default {
   NAME,
   PHONE,
   ADDRESS,
-}
+};
 ```
 
 ### Authentication Middleware
@@ -1657,23 +1660,23 @@ export default {
 `token.middleware.js`
 
 ```js
-import jwt from 'jsonwebtoken'
+import jwt from 'jsonwebtoken';
 
-import ConstantMessage from '../constants/message.constant'
-import { JWT_SECRET } from '../env/variable.env'
+import ConstantMessage from '../constants/message.constant';
+import { JWT_SECRET } from '../env/variable.env';
 
 // http constant
-import ConstantHttpCode from '../constants/http.code.constant'
-import ConstantHttpReason from '../constants/http.reason.constant'
+import ConstantHttpCode from '../constants/http.code.constant';
+import ConstantHttpReason from '../constants/http.reason.constant';
 
 // logger
-import logger from '../utils/logger.util'
+import logger from '../utils/logger.util';
 
 export const verifyToken = (req, res, next) => {
-  const authHeader = req.headers.token
-  logger.info(`authHeader: ${authHeader}`)
+  const authHeader = req.headers.token;
+  logger.info(`authHeader: ${authHeader}`);
   if (authHeader) {
-    const token = authHeader.split(' ')[1]
+    const token = authHeader.split(' ')[1];
     return jwt.verify(token, JWT_SECRET, (err, user) => {
       if (err) {
         res.status(ConstantHttpCode.FORBIDDEN).json({
@@ -1682,11 +1685,11 @@ export const verifyToken = (req, res, next) => {
             msg: ConstantHttpReason.FORBIDDEN,
           },
           msg: ConstantMessage.TOKEN_NOT_VALID,
-        })
+        });
       }
-      req.user = user
-      return next()
-    })
+      req.user = user;
+      return next();
+    });
   }
 
   return res.status(ConstantHttpCode.UNAUTHORIZED).json({
@@ -1695,13 +1698,13 @@ export const verifyToken = (req, res, next) => {
       msg: ConstantHttpReason.UNAUTHORIZED,
     },
     msg: ConstantMessage.NOT_AUTHENTICATED,
-  })
-}
+  });
+};
 
 export const verifyTokenAndAuthorization = (req, res, next) => {
   verifyToken(req, res, () => {
     if (req.user.id === req.params.id || req.user.isAdmin) {
-      return next()
+      return next();
     }
 
     return res.status(ConstantHttpCode.FORBIDDEN).json({
@@ -1710,14 +1713,14 @@ export const verifyTokenAndAuthorization = (req, res, next) => {
         msg: ConstantHttpReason.FORBIDDEN,
       },
       msg: ConstantMessage.NOT_ALLOWED,
-    })
-  })
-}
+    });
+  });
+};
 
 export const verifyTokenAndAdmin = (req, res, next) => {
   verifyToken(req, res, () => {
     if (req.user.isAdmin) {
-      return next()
+      return next();
     }
 
     return res.status(ConstantHttpCode.FORBIDDEN).json({
@@ -1726,15 +1729,15 @@ export const verifyTokenAndAdmin = (req, res, next) => {
         msg: ConstantHttpReason.FORBIDDEN,
       },
       msg: ConstantMessage.NOT_ALLOWED,
-    })
-  })
-}
+    });
+  });
+};
 
 export default {
   verifyToken,
   verifyTokenAndAuthorization,
   verifyTokenAndAdmin,
-}
+};
 ```
 
 ### Authentication Security
@@ -1742,34 +1745,36 @@ export default {
 `user.security.js`
 
 ```js
-import CryptoJS from 'crypto-js'
-import jwt from 'jsonwebtoken'
+import CryptoJS from 'crypto-js';
+import jwt from 'jsonwebtoken';
 
-import { JWT_SECRET, PASS_SECRET } from '../env/variable.env'
+import { JWT_SECRET, PASS_SECRET } from '../env/variable.env';
 
 export const encryptedPassword = (password) => {
-  return CryptoJS.AES.encrypt(password, PASS_SECRET).toString()
-}
+  return CryptoJS.AES.encrypt(password, PASS_SECRET).toString();
+};
 
 export const decryptedPassword = (password) => {
-  return CryptoJS.AES.decrypt(password, PASS_SECRET).toString(CryptoJS.enc.Utf8)
-}
+  return CryptoJS.AES.decrypt(password, PASS_SECRET).toString(
+    CryptoJS.enc.Utf8,
+  );
+};
 
 export const comparePassword = (password, dPassword) => {
-  const compare = decryptedPassword(dPassword) === password
-  return compare
-}
+  const compare = decryptedPassword(dPassword) === password;
+  return compare;
+};
 
 export const generateAccessToken = (id, isAdmin) => {
-  return jwt.sign({ id, isAdmin }, JWT_SECRET, { expiresIn: '3d' })
-}
+  return jwt.sign({ id, isAdmin }, JWT_SECRET, { expiresIn: '3d' });
+};
 
 export default {
   encryptedPassword,
   decryptedPassword,
   comparePassword,
   generateAccessToken,
-}
+};
 ```
 
 ### Authentication validations
@@ -1777,31 +1782,31 @@ export default {
 `user.validation.js`
 
 ```js
-import ConstantRegex from '../constants/regex.constant'
+import ConstantRegex from '../constants/regex.constant';
 
 export const validateUsername = async (username) => {
-  return ConstantRegex.USERNAME.test(username)
-}
+  return ConstantRegex.USERNAME.test(username);
+};
 
 export const validateName = async (name) => {
-  return ConstantRegex.NAME.test(name)
-}
+  return ConstantRegex.NAME.test(name);
+};
 
 export const validateEmail = async (email) => {
-  return ConstantRegex.EMAIL.test(email)
-}
+  return ConstantRegex.EMAIL.test(email);
+};
 
 export const validatePassword = async (password) => {
-  return ConstantRegex.PASSWORD.test(password)
-}
+  return ConstantRegex.PASSWORD.test(password);
+};
 
 export const validatePhone = async (phone) => {
-  return ConstantRegex.PHONE.test(phone)
-}
+  return ConstantRegex.PHONE.test(phone);
+};
 
 export const validateAddress = async (address) => {
-  return ConstantRegex.ADDRESS.test(address)
-}
+  return ConstantRegex.ADDRESS.test(address);
+};
 
 export default {
   validateUsername,
@@ -1810,7 +1815,7 @@ export default {
   validatePassword,
   validatePhone,
   validateAddress,
-}
+};
 ```
 
 ### Authentication schemas
@@ -1818,8 +1823,8 @@ export default {
 `user.schema.js`
 
 ```js
-import mongoose from 'mongoose'
-import ConstantNumber from '../constants/number.constant'
+import mongoose from 'mongoose';
+import ConstantNumber from '../constants/number.constant';
 
 const UserSchema = new mongoose.Schema(
   {
@@ -1869,9 +1874,9 @@ const UserSchema = new mongoose.Schema(
     versionKey: false,
     timestamps: true,
   },
-)
+);
 
-export default UserSchema
+export default UserSchema;
 ```
 
 ### Authentication Models
@@ -1879,14 +1884,14 @@ export default UserSchema
 `user.model.js`
 
 ```js
-import mongoose from 'mongoose'
-import UserSchema from '../schemas/user.schema'
+import mongoose from 'mongoose';
+import UserSchema from '../schemas/user.schema';
 
-import ConstantModel from '../constants/model.constant'
+import ConstantModel from '../constants/model.constant';
 
-const UserModel = mongoose.model(ConstantModel.USER_MODEL, UserSchema)
+const UserModel = mongoose.model(ConstantModel.USER_MODEL, UserSchema);
 
-export default UserModel
+export default UserModel;
 ```
 
 ### Authentication Repositories
@@ -1894,42 +1899,42 @@ export default UserModel
 `user.repository.js`
 
 ```js
-import User from '../models/user.model'
+import User from '../models/user.model';
 
 export const findAll = async () => {
-  const users = await User.find({}).select('-password')
-  return users
-}
+  const users = await User.find({}).select('-password');
+  return users;
+};
 
 export const findById = async (id) => {
-  const user = await User.findById(id).select('-password')
-  return user
-}
+  const user = await User.findById(id).select('-password');
+  return user;
+};
 
 export const findByIdWithPassword = async (id) => {
-  const user = await User.findById(id)
-  return user
-}
+  const user = await User.findById(id);
+  return user;
+};
 
 export const findByUser = async (username) => {
-  const user = await User.findOne({ username }).select('-password')
-  return user
-}
+  const user = await User.findOne({ username }).select('-password');
+  return user;
+};
 
 export const findByEmail = async (email) => {
-  const user = await User.findOne({ email }).select('-password')
-  return user
-}
+  const user = await User.findOne({ email }).select('-password');
+  return user;
+};
 
 export const findByEmailWithPassword = async (email) => {
-  const user = await User.findOne({ email })
-  return user
-}
+  const user = await User.findOne({ email });
+  return user;
+};
 
 export const findByPhone = async (phone) => {
-  const user = await User.findOne({ phone }).select('-password')
-  return user
-}
+  const user = await User.findOne({ phone }).select('-password');
+  return user;
+};
 
 export const createUser = async (user) => {
   const newUser = new User({
@@ -1940,67 +1945,67 @@ export const createUser = async (user) => {
     phone: user.phone,
     address: user.address,
     isAdmin: user.isAdmin,
-  })
-  const savedUser = await newUser.save()
-  return savedUser
-}
+  });
+  const savedUser = await newUser.save();
+  return savedUser;
+};
 
 export const updateUsername = async (id, username) => {
   const user = await User.findByIdAndUpdate(
     id,
     { username },
     { new: true },
-  ).select('-password')
-  return user
-}
+  ).select('-password');
+  return user;
+};
 
 export const updateName = async (id, name) => {
   const user = await User.findByIdAndUpdate(id, { name }, { new: true }).select(
     '-password',
-  )
-  return user
-}
+  );
+  return user;
+};
 
 export const updateEmail = async (id, email) => {
   const user = await User.findByIdAndUpdate(
     id,
     { email },
     { new: true },
-  ).select('-password')
-  return user
-}
+  ).select('-password');
+  return user;
+};
 
 export const updatePassword = async (id, password) => {
   const user = await User.findByIdAndUpdate(
     id,
     { password },
     { new: true },
-  ).select('-password')
-  return user
-}
+  ).select('-password');
+  return user;
+};
 
 export const updatePhone = async (id, phone) => {
   const user = await User.findByIdAndUpdate(
     id,
     { phone },
     { new: true },
-  ).select('-password')
-  return user
-}
+  ).select('-password');
+  return user;
+};
 
 export const updateAddress = async (id, address) => {
   const user = await User.findByIdAndUpdate(
     id,
     { address },
     { new: true },
-  ).select('-password')
-  return user
-}
+  ).select('-password');
+  return user;
+};
 
 export const deleteUser = async (id) => {
-  const user = await User.findByIdAndDelete(id)
-  return user
-}
+  const user = await User.findByIdAndDelete(id);
+  return user;
+};
 
 export const getUsersStats = async (lastYear) => {
   const users = await User.aggregate([
@@ -2016,9 +2021,9 @@ export const getUsersStats = async (lastYear) => {
         total: { $sum: 1 },
       },
     },
-  ])
-  return users
-}
+  ]);
+  return users;
+};
 
 export default {
   findAll,
@@ -2037,7 +2042,7 @@ export default {
   updateAddress,
   deleteUser,
   getUsersStats,
-}
+};
 ```
 
 ### Authentication Services
@@ -2045,55 +2050,55 @@ export default {
 `auth.service.js`
 
 ```js
-import UserRepository from '../repositories/user.repository'
-import UserSecurity from '../security/user.security'
-import UserValidation from '../validations/user.validation'
+import UserRepository from '../repositories/user.repository';
+import UserSecurity from '../security/user.security';
+import UserValidation from '../validations/user.validation';
 
 export const validateUsername = (username) => {
-  return UserValidation.validateUsername(username)
-}
+  return UserValidation.validateUsername(username);
+};
 
 export const validateName = (name) => {
-  return UserValidation.validateName(name)
-}
+  return UserValidation.validateName(name);
+};
 
 export const validateEmail = (email) => {
-  return UserValidation.validateEmail(email)
-}
+  return UserValidation.validateEmail(email);
+};
 
 export const validatePassword = (password) => {
-  return UserValidation.validatePassword(password)
-}
+  return UserValidation.validatePassword(password);
+};
 
 export const comparePassword = (password, encryptedPassword) => {
-  return UserSecurity.comparePassword(password, encryptedPassword)
-}
+  return UserSecurity.comparePassword(password, encryptedPassword);
+};
 
 export const validatePhone = (phone) => {
-  return UserValidation.validatePhone(phone)
-}
+  return UserValidation.validatePhone(phone);
+};
 
 export const validateAddress = (address) => {
-  return UserValidation.validateAddress(address)
-}
+  return UserValidation.validateAddress(address);
+};
 
 export const findByUser = async (username) => {
-  const user = await UserRepository.findByUser(username)
-  return user
-}
+  const user = await UserRepository.findByUser(username);
+  return user;
+};
 
 export const findByEmail = async (email) => {
-  const user = await UserRepository.findByEmailWithPassword(email)
-  return user
-}
+  const user = await UserRepository.findByEmailWithPassword(email);
+  return user;
+};
 
 export const findByPhone = async (phone) => {
-  const user = await UserRepository.findByPhone(phone)
-  return user
-}
+  const user = await UserRepository.findByPhone(phone);
+  return user;
+};
 
 export const createUser = async (user) => {
-  const encryptedPassword = UserSecurity.encryptedPassword(user.password)
+  const encryptedPassword = UserSecurity.encryptedPassword(user.password);
   const newUser = {
     username: user.username,
     name: user.name,
@@ -2102,14 +2107,14 @@ export const createUser = async (user) => {
     phone: user.phone,
     address: user.address,
     isAdmin: user.isAdmin,
-  }
-  const savedUser = await UserRepository.createUser(newUser)
-  return savedUser
-}
+  };
+  const savedUser = await UserRepository.createUser(newUser);
+  return savedUser;
+};
 
 export const generateAccessToken = async (user) => {
-  return `Bearer ${UserSecurity.generateAccessToken(user.id, user.isAdmin)}`
-}
+  return `Bearer ${UserSecurity.generateAccessToken(user.id, user.isAdmin)}`;
+};
 
 export default {
   validateUsername,
@@ -2124,114 +2129,114 @@ export default {
   findByPhone,
   createUser,
   generateAccessToken,
-}
+};
 ```
 
 `user.service.js`
 
 ```js
-import UserRepository from '../repositories/user.repository'
-import UserSecurity from '../security/user.security'
-import UserValidation from '../validations/user.validation'
+import UserRepository from '../repositories/user.repository';
+import UserSecurity from '../security/user.security';
+import UserValidation from '../validations/user.validation';
 
 export const validateUsername = (username) => {
-  return UserValidation.validateUsername(username)
-}
+  return UserValidation.validateUsername(username);
+};
 
 export const validateName = (name) => {
-  return UserValidation.validateName(name)
-}
+  return UserValidation.validateName(name);
+};
 
 export const validateEmail = (email) => {
-  return UserValidation.validateEmail(email)
-}
+  return UserValidation.validateEmail(email);
+};
 
 export const validatePassword = (name) => {
-  return UserValidation.validatePassword(name)
-}
+  return UserValidation.validatePassword(name);
+};
 
 export const comparePassword = (password, encryptedPassword) => {
-  return UserSecurity.comparePassword(password, encryptedPassword)
-}
+  return UserSecurity.comparePassword(password, encryptedPassword);
+};
 
 export const validatePhone = (phone) => {
-  return UserValidation.validatePhone(phone)
-}
+  return UserValidation.validatePhone(phone);
+};
 
 export const validateAddress = (address) => {
-  return UserValidation.validateAddress(address)
-}
+  return UserValidation.validateAddress(address);
+};
 
 export const findAll = async () => {
-  const users = await UserRepository.findAll()
-  return users
-}
+  const users = await UserRepository.findAll();
+  return users;
+};
 
 export const findById = async (id) => {
-  const user = await UserRepository.findByIdWithPassword(id)
-  return user
-}
+  const user = await UserRepository.findByIdWithPassword(id);
+  return user;
+};
 
 export const findByIdWithOutPassword = async (id) => {
-  const user = await UserRepository.findById(id)
-  return user
-}
+  const user = await UserRepository.findById(id);
+  return user;
+};
 
 export const findByEmail = async (email) => {
-  const user = await UserRepository.findByEmail(email)
-  return user
-}
+  const user = await UserRepository.findByEmail(email);
+  return user;
+};
 
 export const findByPhone = async (phone) => {
-  const user = await UserRepository.findByPhone(phone)
-  return user
-}
+  const user = await UserRepository.findByPhone(phone);
+  return user;
+};
 
 export const findByUser = async (username) => {
-  const user = await UserRepository.findByUser(username)
-  return user
-}
+  const user = await UserRepository.findByUser(username);
+  return user;
+};
 
 export const updateUsername = async (id, username) => {
-  const user = await UserRepository.updateUsername(id, username)
-  return user
-}
+  const user = await UserRepository.updateUsername(id, username);
+  return user;
+};
 
 export const updateName = async (id, name) => {
-  const user = await UserRepository.updateName(id, name)
-  return user
-}
+  const user = await UserRepository.updateName(id, name);
+  return user;
+};
 
 export const updateEmail = async (id, email) => {
-  const user = await UserRepository.updateEmail(id, email)
-  return user
-}
+  const user = await UserRepository.updateEmail(id, email);
+  return user;
+};
 
 export const updatePassword = async (id, password) => {
-  const encryptedPassword = UserSecurity.encryptedPassword(password)
-  const user = await UserRepository.updatePassword(id, encryptedPassword)
-  return user
-}
+  const encryptedPassword = UserSecurity.encryptedPassword(password);
+  const user = await UserRepository.updatePassword(id, encryptedPassword);
+  return user;
+};
 
 export const updatePhone = async (id, phone) => {
-  const user = await UserRepository.updatePhone(id, phone)
-  return user
-}
+  const user = await UserRepository.updatePhone(id, phone);
+  return user;
+};
 
 export const updateAddress = async (id, address) => {
-  const user = await UserRepository.updateAddress(id, address)
-  return user
-}
+  const user = await UserRepository.updateAddress(id, address);
+  return user;
+};
 
 export const deleteUser = async (id) => {
-  const user = await UserRepository.deleteUser(id)
-  return user
-}
+  const user = await UserRepository.deleteUser(id);
+  return user;
+};
 
 export const getUsersStats = async () => {
-  const users = await UserRepository.getUsersStats()
-  return users
-}
+  const users = await UserRepository.getUsersStats();
+  return users;
+};
 
 export default {
   validateUsername,
@@ -2255,7 +2260,7 @@ export default {
   updateAddress,
   deleteUser,
   getUsersStats,
-}
+};
 ```
 
 ### Authentication Controllers
@@ -2263,21 +2268,21 @@ export default {
 `auth.controller.js`
 
 ```js
-import ConstantMessage from '../constants/message.constant'
-import AuthServices from '../services/auth.service'
+import ConstantMessage from '../constants/message.constant';
+import AuthServices from '../services/auth.service';
 
 // http constant
-import ConstantHttpCode from '../constants/http.code.constant'
-import ConstantHttpReason from '../constants/http.reason.constant'
+import ConstantHttpCode from '../constants/http.code.constant';
+import ConstantHttpReason from '../constants/http.reason.constant';
 
 // logger
-import logger from '../utils/logger.util'
+import logger from '../utils/logger.util';
 
 export const register = async (req, res, next) => {
   try {
-    const { username, name, email, password, phone, address } = req.body
+    const { username, name, email, password, phone, address } = req.body;
 
-    const usernameValidated = AuthServices.validateUsername(username)
+    const usernameValidated = AuthServices.validateUsername(username);
     if (!usernameValidated) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
         status: {
@@ -2285,11 +2290,11 @@ export const register = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.USERNAME_NOT_VALID,
-      })
+      });
     }
-    logger.info(`username ${username} is valid`)
+    logger.info(`username ${username} is valid`);
 
-    const nameValidated = AuthServices.validateName(name)
+    const nameValidated = AuthServices.validateName(name);
     if (!nameValidated) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
         status: {
@@ -2297,11 +2302,11 @@ export const register = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.NAME_NOT_VALID,
-      })
+      });
     }
-    logger.info(`name ${name} is valid`)
+    logger.info(`name ${name} is valid`);
 
-    const emailValidated = AuthServices.validateEmail(email)
+    const emailValidated = AuthServices.validateEmail(email);
     if (!emailValidated) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
         status: {
@@ -2309,11 +2314,11 @@ export const register = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.EMAIL_NOT_VALID,
-      })
+      });
     }
-    logger.info(`email ${email} is valid`)
+    logger.info(`email ${email} is valid`);
 
-    const passwordValidated = AuthServices.validatePassword(password)
+    const passwordValidated = AuthServices.validatePassword(password);
     if (!passwordValidated) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
         status: {
@@ -2321,10 +2326,10 @@ export const register = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.PASSWORD_NOT_VALID,
-      })
+      });
     }
 
-    const phoneValidated = AuthServices.validatePhone(phone)
+    const phoneValidated = AuthServices.validatePhone(phone);
     if (!phoneValidated) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
         status: {
@@ -2332,10 +2337,10 @@ export const register = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.PHONE_NOT_VALID,
-      })
+      });
     }
 
-    const addressValidated = AuthServices.validateAddress(address)
+    const addressValidated = AuthServices.validateAddress(address);
     if (!addressValidated) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
         status: {
@@ -2343,10 +2348,10 @@ export const register = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.ADDRESS_NOT_VALID,
-      })
+      });
     }
 
-    const usernameCheck = await AuthServices.findByUser(username)
+    const usernameCheck = await AuthServices.findByUser(username);
     if (usernameCheck) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
         status: {
@@ -2354,10 +2359,10 @@ export const register = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.USERNAME_EXIST,
-      })
+      });
     }
 
-    const emailCheck = await AuthServices.findByEmail(email)
+    const emailCheck = await AuthServices.findByEmail(email);
     if (emailCheck) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
         status: {
@@ -2365,10 +2370,10 @@ export const register = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.EMAIL_EXIST,
-      })
+      });
     }
 
-    const phoneCheck = await AuthServices.findByPhone(phone)
+    const phoneCheck = await AuthServices.findByPhone(phone);
     if (phoneCheck) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
         status: {
@@ -2376,7 +2381,7 @@ export const register = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.PHONE_EXIST,
-      })
+      });
     }
 
     const newUserData = {
@@ -2386,9 +2391,9 @@ export const register = async (req, res, next) => {
       password,
       phone,
       address,
-    }
+    };
 
-    const user = await AuthServices.createUser(newUserData)
+    const user = await AuthServices.createUser(newUserData);
     if (!user) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
         status: {
@@ -2396,16 +2401,16 @@ export const register = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.USER_NOT_CREATE,
-      })
+      });
     }
 
-    const newUser = { ...user }._doc
+    const newUser = { ...user }._doc;
 
-    logger.info({ newUserpassword: newUser.password })
+    logger.info({ newUserpassword: newUser.password });
 
-    delete newUser.password
+    delete newUser.password;
 
-    logger.info({ newUserpassword: newUser.password })
+    logger.info({ newUserpassword: newUser.password });
 
     return res.status(ConstantHttpCode.CREATED).json({
       status: {
@@ -2414,17 +2419,17 @@ export const register = async (req, res, next) => {
       },
       msg: ConstantMessage.USER_CREATE_SUCCESS,
       data: user,
-    })
+    });
   } catch (err) {
-    return next(err)
+    return next(err);
   }
-}
+};
 
 export const login = async (req, res, next) => {
   try {
-    const { email, password } = req.body
+    const { email, password } = req.body;
 
-    const emailValidated = AuthServices.validateEmail(email)
+    const emailValidated = AuthServices.validateEmail(email);
     if (!emailValidated) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
         status: {
@@ -2432,10 +2437,10 @@ export const login = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.EMAIL_NOT_VALID,
-      })
+      });
     }
 
-    const passwordValidated = AuthServices.validatePassword(password)
+    const passwordValidated = AuthServices.validatePassword(password);
     if (!passwordValidated) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
         status: {
@@ -2443,10 +2448,10 @@ export const login = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.PASSWORD_NOT_VALID,
-      })
+      });
     }
 
-    const user = await AuthServices.findByEmail(email)
+    const user = await AuthServices.findByEmail(email);
     if (!user) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
         status: {
@@ -2454,10 +2459,10 @@ export const login = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.USER_NOT_FOUND,
-      })
+      });
     }
 
-    const isMatch = AuthServices.comparePassword(password, user.password)
+    const isMatch = AuthServices.comparePassword(password, user.password);
     if (!isMatch) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
         status: {
@@ -2465,19 +2470,19 @@ export const login = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.PASSWORD_NOT_MATCH,
-      })
+      });
     }
 
-    const accessToken = await AuthServices.generateAccessToken(user)
-    logger.info(`accessToken: ${accessToken}`)
+    const accessToken = await AuthServices.generateAccessToken(user);
+    logger.info(`accessToken: ${accessToken}`);
 
-    const newUser = { ...user }._doc
+    const newUser = { ...user }._doc;
 
-    logger.info({ newUserpassword: newUser.password })
+    logger.info({ newUserpassword: newUser.password });
 
-    delete newUser.password
+    delete newUser.password;
 
-    logger.info({ newUserpassword: newUser.password })
+    logger.info({ newUserpassword: newUser.password });
 
     return res.status(ConstantHttpCode.OK).json({
       status: {
@@ -2489,37 +2494,37 @@ export const login = async (req, res, next) => {
         user,
         accessToken,
       },
-    })
+    });
   } catch (err) {
-    return next(err)
+    return next(err);
   }
-}
+};
 
 export default {
   register,
   login,
-}
+};
 ```
 
 `user.controller.js`
 
 ```js
-import ConstantMessage from '../constants/message.constant'
-import UserService from '../services/user.service'
+import ConstantMessage from '../constants/message.constant';
+import UserService from '../services/user.service';
 
 // http constant
-import ConstantHttpCode from '../constants/http.code.constant'
-import ConstantHttpReason from '../constants/http.reason.constant'
+import ConstantHttpCode from '../constants/http.code.constant';
+import ConstantHttpReason from '../constants/http.reason.constant';
 
 // logger
-import logger from '../utils/logger.util'
+import logger from '../utils/logger.util';
 
 export const updateUsername = async (req, res, next) => {
   try {
-    const { username, password } = req.body
-    const { id } = req.params
+    const { username, password } = req.body;
+    const { id } = req.params;
 
-    const user = await UserService.findById(id)
+    const user = await UserService.findById(id);
     if (!user) {
       return res.status(ConstantHttpCode.NOT_FOUND).json({
         status: {
@@ -2527,11 +2532,11 @@ export const updateUsername = async (req, res, next) => {
           msg: ConstantHttpReason.NOT_FOUND,
         },
         msg: ConstantMessage.USER_NOT_FOUND,
-      })
+      });
     }
-    logger.info(`user ${user.username} found`)
+    logger.info(`user ${user.username} found`);
 
-    const usernameValidated = UserService.validateUsername(username)
+    const usernameValidated = UserService.validateUsername(username);
     if (!usernameValidated) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
         status: {
@@ -2539,11 +2544,11 @@ export const updateUsername = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.USERNAME_NOT_VALID,
-      })
+      });
     }
-    logger.info(`username ${username} is valid`)
+    logger.info(`username ${username} is valid`);
 
-    const passwordValidated = UserService.validatePassword(password)
+    const passwordValidated = UserService.validatePassword(password);
     if (!passwordValidated) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
         status: {
@@ -2551,11 +2556,11 @@ export const updateUsername = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.PASSWORD_NOT_VALID,
-      })
+      });
     }
-    logger.info(`password ${password} is valid`)
+    logger.info(`password ${password} is valid`);
 
-    const isMatch = UserService.comparePassword(password, user.password)
+    const isMatch = UserService.comparePassword(password, user.password);
     if (!isMatch) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
         status: {
@@ -2563,10 +2568,10 @@ export const updateUsername = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.PASSWORD_NOT_MATCH,
-      })
+      });
     }
 
-    const usernameCheck = await UserService.findByUser(username)
+    const usernameCheck = await UserService.findByUser(username);
     if (usernameCheck) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
         status: {
@@ -2574,7 +2579,7 @@ export const updateUsername = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.USERNAME_EXIST,
-      })
+      });
     }
 
     if (user.username === username) {
@@ -2584,10 +2589,10 @@ export const updateUsername = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.USERNAME_NOT_CHANGE,
-      })
+      });
     }
 
-    const updatedUser = await UserService.updateUsername(id, username)
+    const updatedUser = await UserService.updateUsername(id, username);
     if (!updatedUser) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
         status: {
@@ -2595,9 +2600,9 @@ export const updateUsername = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.USERNAME_NOT_CHANGE,
-      })
+      });
     }
-    logger.info(`user ${user.username} updated`)
+    logger.info(`user ${user.username} updated`);
 
     return res.status(ConstantHttpCode.OK).json({
       status: {
@@ -2608,18 +2613,18 @@ export const updateUsername = async (req, res, next) => {
       data: {
         user: updatedUser,
       },
-    })
+    });
   } catch (err) {
-    return next(err)
+    return next(err);
   }
-}
+};
 
 export const updateName = async (req, res, next) => {
   try {
-    const { name, password } = req.body
-    const { id } = req.params
+    const { name, password } = req.body;
+    const { id } = req.params;
 
-    const user = await UserService.findById(id)
+    const user = await UserService.findById(id);
     if (!user) {
       return res.status(ConstantHttpCode.NOT_FOUND).json({
         status: {
@@ -2627,11 +2632,11 @@ export const updateName = async (req, res, next) => {
           msg: ConstantHttpReason.NOT_FOUND,
         },
         msg: ConstantMessage.USER_NOT_FOUND,
-      })
+      });
     }
-    logger.info(`user ${user.username} found`)
+    logger.info(`user ${user.username} found`);
 
-    const nameValidated = UserService.validateName(name)
+    const nameValidated = UserService.validateName(name);
     if (!nameValidated) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
         status: {
@@ -2639,10 +2644,10 @@ export const updateName = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.NAME_NOT_VALID,
-      })
+      });
     }
 
-    const passwordValidated = UserService.validatePassword(password)
+    const passwordValidated = UserService.validatePassword(password);
     if (!passwordValidated) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
         status: {
@@ -2650,10 +2655,10 @@ export const updateName = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.PASSWORD_NOT_VALID,
-      })
+      });
     }
 
-    const isMatch = UserService.comparePassword(password, user.password)
+    const isMatch = UserService.comparePassword(password, user.password);
     if (!isMatch) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
         status: {
@@ -2661,9 +2666,9 @@ export const updateName = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.PASSWORD_NOT_MATCH,
-      })
+      });
     }
-    logger.info(`password ${password} is valid`)
+    logger.info(`password ${password} is valid`);
 
     if (user.name === name) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
@@ -2672,11 +2677,11 @@ export const updateName = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.NAME_NOT_CHANGE,
-      })
+      });
     }
-    logger.info(`name ${name} is valid`)
+    logger.info(`name ${name} is valid`);
 
-    const updatedUser = await UserService.updateName(id, name)
+    const updatedUser = await UserService.updateName(id, name);
     if (!updatedUser) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
         status: {
@@ -2684,9 +2689,9 @@ export const updateName = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.NAME_NOT_CHANGE,
-      })
+      });
     }
-    logger.info(`user ${user.username} updated`)
+    logger.info(`user ${user.username} updated`);
 
     return res.status(ConstantHttpCode.OK).json({
       status: {
@@ -2697,18 +2702,18 @@ export const updateName = async (req, res, next) => {
       data: {
         user: updatedUser,
       },
-    })
+    });
   } catch (err) {
-    return next(err)
+    return next(err);
   }
-}
+};
 
 export const updateEmail = async (req, res, next) => {
   try {
-    const { email, password } = req.body
-    const { id } = req.params
+    const { email, password } = req.body;
+    const { id } = req.params;
 
-    const user = await UserService.findById(id)
+    const user = await UserService.findById(id);
     if (!user) {
       return res.status(ConstantHttpCode.NOT_FOUND).json({
         status: {
@@ -2716,11 +2721,11 @@ export const updateEmail = async (req, res, next) => {
           msg: ConstantHttpReason.NOT_FOUND,
         },
         msg: ConstantMessage.USER_NOT_FOUND,
-      })
+      });
     }
-    logger.info(`user ${user.username} found`)
+    logger.info(`user ${user.username} found`);
 
-    const emailValidated = UserService.validateEmail(email)
+    const emailValidated = UserService.validateEmail(email);
     if (!emailValidated) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
         status: {
@@ -2728,11 +2733,11 @@ export const updateEmail = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.EMAIL_NOT_VALID,
-      })
+      });
     }
-    logger.info(`email ${email} is valid`)
+    logger.info(`email ${email} is valid`);
 
-    const passwordValidated = UserService.validatePassword(password)
+    const passwordValidated = UserService.validatePassword(password);
     if (!passwordValidated) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
         status: {
@@ -2740,11 +2745,11 @@ export const updateEmail = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.PASSWORD_NOT_VALID,
-      })
+      });
     }
-    logger.info(`password ${password} is valid`)
+    logger.info(`password ${password} is valid`);
 
-    const isMatch = UserService.comparePassword(password, user.password)
+    const isMatch = UserService.comparePassword(password, user.password);
     if (!isMatch) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
         status: {
@@ -2752,9 +2757,9 @@ export const updateEmail = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.PASSWORD_NOT_MATCH,
-      })
+      });
     }
-    logger.info(`password ${password} is valid`)
+    logger.info(`password ${password} is valid`);
 
     if (user.email === email) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
@@ -2763,11 +2768,11 @@ export const updateEmail = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.EMAIL_NOT_CHANGE,
-      })
+      });
     }
-    logger.info(`email ${email} is valid`)
+    logger.info(`email ${email} is valid`);
 
-    const emailCheck = await UserService.findByEmail(email)
+    const emailCheck = await UserService.findByEmail(email);
     if (emailCheck) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
         status: {
@@ -2775,10 +2780,10 @@ export const updateEmail = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.EMAIL_EXIST,
-      })
+      });
     }
 
-    const updatedUser = await UserService.updateEmail(id, email)
+    const updatedUser = await UserService.updateEmail(id, email);
     if (!updatedUser) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
         status: {
@@ -2786,9 +2791,9 @@ export const updateEmail = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.EMAIL_NOT_CHANGE,
-      })
+      });
     }
-    logger.info(`user ${user.username} updated`)
+    logger.info(`user ${user.username} updated`);
 
     return res.status(ConstantHttpCode.OK).json({
       status: {
@@ -2799,16 +2804,16 @@ export const updateEmail = async (req, res, next) => {
       data: {
         user: updatedUser,
       },
-    })
+    });
   } catch (err) {
-    return next(err)
+    return next(err);
   }
-}
+};
 
 export const updatePassword = async (req, res, next) => {
   try {
-    const { oldPassword, newPassword, confirmPassword } = req.body
-    const { id } = req.params
+    const { oldPassword, newPassword, confirmPassword } = req.body;
+    const { id } = req.params;
 
     if (newPassword !== confirmPassword) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
@@ -2817,10 +2822,10 @@ export const updatePassword = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.PASSWORD_NOT_MATCH,
-      })
+      });
     }
 
-    const user = await UserService.findById(id)
+    const user = await UserService.findById(id);
     if (!user) {
       return res.status(ConstantHttpCode.NOT_FOUND).json({
         status: {
@@ -2828,11 +2833,11 @@ export const updatePassword = async (req, res, next) => {
           msg: ConstantHttpReason.NOT_FOUND,
         },
         msg: ConstantMessage.USER_NOT_FOUND,
-      })
+      });
     }
-    logger.info(`user ${user.username} found`)
+    logger.info(`user ${user.username} found`);
 
-    const oldPasswordValidated = UserService.validatePassword(oldPassword)
+    const oldPasswordValidated = UserService.validatePassword(oldPassword);
     if (!oldPasswordValidated) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
         status: {
@@ -2840,11 +2845,11 @@ export const updatePassword = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.PASSWORD_NOT_VALID,
-      })
+      });
     }
-    logger.info(`password ${oldPassword} is valid`)
+    logger.info(`password ${oldPassword} is valid`);
 
-    const newPasswordValidated = UserService.validatePassword(newPassword)
+    const newPasswordValidated = UserService.validatePassword(newPassword);
     if (!newPasswordValidated) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
         status: {
@@ -2852,12 +2857,12 @@ export const updatePassword = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.PASSWORD_NOT_VALID,
-      })
+      });
     }
-    logger.info(`password ${newPassword} is valid`)
+    logger.info(`password ${newPassword} is valid`);
 
     const confirmPasswordValidated =
-      UserService.validatePassword(confirmPassword)
+      UserService.validatePassword(confirmPassword);
     if (!confirmPasswordValidated) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
         status: {
@@ -2865,9 +2870,9 @@ export const updatePassword = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.PASSWORD_NOT_VALID,
-      })
+      });
     }
-    logger.info(`password ${confirmPassword} is valid`)
+    logger.info(`password ${confirmPassword} is valid`);
 
     if (oldPassword === newPassword) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
@@ -2876,10 +2881,10 @@ export const updatePassword = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.PASSWORD_NOT_CHANGE,
-      })
+      });
     }
 
-    const isMatch = UserService.comparePassword(oldPassword, user.password)
+    const isMatch = UserService.comparePassword(oldPassword, user.password);
     if (!isMatch) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
         status: {
@@ -2887,10 +2892,10 @@ export const updatePassword = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.PASSWORD_NOT_MATCH,
-      })
+      });
     }
 
-    const updatedUser = await UserService.updatePassword(id, newPassword)
+    const updatedUser = await UserService.updatePassword(id, newPassword);
     if (!updatedUser) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
         status: {
@@ -2898,9 +2903,9 @@ export const updatePassword = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.PASSWORD_NOT_CHANGE,
-      })
+      });
     }
-    logger.info(`user ${user.username} updated`)
+    logger.info(`user ${user.username} updated`);
 
     return res.status(ConstantHttpCode.OK).json({
       status: {
@@ -2911,18 +2916,18 @@ export const updatePassword = async (req, res, next) => {
       data: {
         user: updatedUser,
       },
-    })
+    });
   } catch (err) {
-    return next(err)
+    return next(err);
   }
-}
+};
 
 export const updatePhone = async (req, res, next) => {
   try {
-    const { phone, password } = req.body
-    const { id } = req.params
+    const { phone, password } = req.body;
+    const { id } = req.params;
 
-    const user = await UserService.findById(id)
+    const user = await UserService.findById(id);
     if (!user) {
       return res.status(ConstantHttpCode.NOT_FOUND).json({
         status: {
@@ -2930,11 +2935,11 @@ export const updatePhone = async (req, res, next) => {
           msg: ConstantHttpReason.NOT_FOUND,
         },
         msg: ConstantMessage.USER_NOT_FOUND,
-      })
+      });
     }
-    logger.info(`user ${user.username} found`)
+    logger.info(`user ${user.username} found`);
 
-    const phoneValidated = UserService.validatePhone(phone)
+    const phoneValidated = UserService.validatePhone(phone);
     if (!phoneValidated) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
         status: {
@@ -2942,10 +2947,10 @@ export const updatePhone = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.PHONE_NOT_VALID,
-      })
+      });
     }
 
-    const passwordValidated = UserService.validatePassword(password)
+    const passwordValidated = UserService.validatePassword(password);
     if (!passwordValidated) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
         status: {
@@ -2953,11 +2958,11 @@ export const updatePhone = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.PASSWORD_NOT_VALID,
-      })
+      });
     }
-    logger.info(`password ${password} is valid`)
+    logger.info(`password ${password} is valid`);
 
-    const isMatch = UserService.comparePassword(password, user.password)
+    const isMatch = UserService.comparePassword(password, user.password);
     if (!isMatch) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
         status: {
@@ -2965,9 +2970,9 @@ export const updatePhone = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.PASSWORD_NOT_MATCH,
-      })
+      });
     }
-    logger.info(`password ${password} is valid`)
+    logger.info(`password ${password} is valid`);
 
     if (user.phone === phone) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
@@ -2976,10 +2981,10 @@ export const updatePhone = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.PHONE_NOT_CHANGE,
-      })
+      });
     }
 
-    const phoneCheck = await UserService.findByPhone(phone)
+    const phoneCheck = await UserService.findByPhone(phone);
     if (phoneCheck) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
         status: {
@@ -2987,10 +2992,10 @@ export const updatePhone = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.PHONE_EXIST,
-      })
+      });
     }
 
-    const updatedUser = await UserService.updatePhone(id, phone)
+    const updatedUser = await UserService.updatePhone(id, phone);
     if (!updatedUser) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
         status: {
@@ -2998,9 +3003,9 @@ export const updatePhone = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.PHONE_NOT_CHANGE,
-      })
+      });
     }
-    logger.info(`user ${user.username} updated`)
+    logger.info(`user ${user.username} updated`);
 
     return res.status(ConstantHttpCode.OK).json({
       status: {
@@ -3011,18 +3016,18 @@ export const updatePhone = async (req, res, next) => {
       data: {
         user: updatedUser,
       },
-    })
+    });
   } catch (err) {
-    return next(err)
+    return next(err);
   }
-}
+};
 
 export const updateAddress = async (req, res, next) => {
   try {
-    const { address, password } = req.body
-    const { id } = req.params
+    const { address, password } = req.body;
+    const { id } = req.params;
 
-    const user = await UserService.findById(id)
+    const user = await UserService.findById(id);
     if (!user) {
       return res.status(ConstantHttpCode.NOT_FOUND).json({
         status: {
@@ -3030,11 +3035,11 @@ export const updateAddress = async (req, res, next) => {
           msg: ConstantHttpReason.NOT_FOUND,
         },
         msg: ConstantMessage.USER_NOT_FOUND,
-      })
+      });
     }
-    logger.info(`user ${user.username} found`)
+    logger.info(`user ${user.username} found`);
 
-    const addressValidated = UserService.validateAddress(address)
+    const addressValidated = UserService.validateAddress(address);
     if (!addressValidated) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
         status: {
@@ -3042,10 +3047,10 @@ export const updateAddress = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.ADDRESS_NOT_VALID,
-      })
+      });
     }
 
-    const isMatch = UserService.comparePassword(password, user.password)
+    const isMatch = UserService.comparePassword(password, user.password);
     if (!isMatch) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
         status: {
@@ -3053,9 +3058,9 @@ export const updateAddress = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.PASSWORD_NOT_MATCH,
-      })
+      });
     }
-    logger.info(`password ${password} is valid`)
+    logger.info(`password ${password} is valid`);
 
     if (user.address === address) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
@@ -3064,10 +3069,10 @@ export const updateAddress = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.ADDRESS_NOT_CHANGE,
-      })
+      });
     }
 
-    const updatedUser = await UserService.updateAddress(id, address)
+    const updatedUser = await UserService.updateAddress(id, address);
     if (!updatedUser) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
         status: {
@@ -3075,9 +3080,9 @@ export const updateAddress = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.ADDRESS_NOT_CHANGE,
-      })
+      });
     }
-    logger.info(`user ${user.username} updated`)
+    logger.info(`user ${user.username} updated`);
 
     return res.status(ConstantHttpCode.OK).json({
       status: {
@@ -3088,17 +3093,17 @@ export const updateAddress = async (req, res, next) => {
       data: {
         user: updatedUser,
       },
-    })
+    });
   } catch (err) {
-    return next(err)
+    return next(err);
   }
-}
+};
 
 export const deleteUser = async (req, res, next) => {
   try {
-    const { id } = req.params
+    const { id } = req.params;
 
-    const user = await UserService.findById(id)
+    const user = await UserService.findById(id);
     if (!user) {
       return res.status(ConstantHttpCode.NOT_FOUND).json({
         status: {
@@ -3106,11 +3111,11 @@ export const deleteUser = async (req, res, next) => {
           msg: ConstantHttpReason.NOT_FOUND,
         },
         msg: ConstantMessage.USER_NOT_FOUND,
-      })
+      });
     }
-    logger.info(`user ${user.username} found`)
+    logger.info(`user ${user.username} found`);
 
-    const deletedUser = await UserService.deleteUser(id)
+    const deletedUser = await UserService.deleteUser(id);
     if (!deletedUser) {
       return res.status(ConstantHttpCode.BAD_REQUEST).json({
         status: {
@@ -3118,9 +3123,9 @@ export const deleteUser = async (req, res, next) => {
           msg: ConstantHttpReason.BAD_REQUEST,
         },
         msg: ConstantMessage.USER_NOT_DELETE,
-      })
+      });
     }
-    logger.info(`user ${user.username} deleted`)
+    logger.info(`user ${user.username} deleted`);
 
     return res.status(ConstantHttpCode.OK).json({
       status: {
@@ -3128,19 +3133,19 @@ export const deleteUser = async (req, res, next) => {
         msg: ConstantHttpReason.OK,
       },
       msg: ConstantMessage.USER_DELETE_SUCCESS,
-    })
+    });
   } catch (err) {
-    return next(err)
+    return next(err);
   }
-}
+};
 
 export const getUser = async (req, res, next) => {
   try {
-    const { id } = req.params
-    logger.info(`user ${id} found`)
+    const { id } = req.params;
+    logger.info(`user ${id} found`);
 
-    const user = await UserService.findByIdWithOutPassword(id)
-    logger.info(`user ${user} found`)
+    const user = await UserService.findByIdWithOutPassword(id);
+    logger.info(`user ${user} found`);
     if (!user) {
       return res.status(ConstantHttpCode.NOT_FOUND).json({
         status: {
@@ -3148,9 +3153,9 @@ export const getUser = async (req, res, next) => {
           msg: ConstantHttpReason.NOT_FOUND,
         },
         msg: ConstantMessage.USER_NOT_FOUND,
-      })
+      });
     }
-    logger.info(`user ${user.username} found`)
+    logger.info(`user ${user.username} found`);
 
     return res.status(ConstantHttpCode.OK).json({
       status: {
@@ -3161,15 +3166,15 @@ export const getUser = async (req, res, next) => {
       data: {
         user,
       },
-    })
+    });
   } catch (err) {
-    return next(err)
+    return next(err);
   }
-}
+};
 
 export const getUsers = async (req, res, next) => {
   try {
-    const users = await UserService.findAll()
+    const users = await UserService.findAll();
     if (!users) {
       return res.status(ConstantHttpCode.NOT_FOUND).json({
         status: {
@@ -3177,9 +3182,9 @@ export const getUsers = async (req, res, next) => {
           msg: ConstantHttpReason.NOT_FOUND,
         },
         msg: ConstantMessage.USER_NOT_FOUND,
-      })
+      });
     }
-    logger.info(`users found`)
+    logger.info(`users found`);
 
     return res.status(ConstantHttpCode.OK).json({
       status: {
@@ -3190,15 +3195,15 @@ export const getUsers = async (req, res, next) => {
       data: {
         users,
       },
-    })
+    });
   } catch (err) {
-    return next(err)
+    return next(err);
   }
-}
+};
 
 export const getUsersStats = async (req, res, next) => {
   try {
-    const usersStats = await UserService.getUsersStats()
+    const usersStats = await UserService.getUsersStats();
     if (!usersStats) {
       return res.status(ConstantHttpCode.NOT_FOUND).json({
         status: {
@@ -3206,9 +3211,9 @@ export const getUsersStats = async (req, res, next) => {
           msg: ConstantHttpReason.NOT_FOUND,
         },
         msg: ConstantMessage.USER_NOT_FOUND,
-      })
+      });
     }
-    logger.info(`users stats found`)
+    logger.info(`users stats found`);
 
     return res.status(ConstantHttpCode.OK).json({
       status: {
@@ -3219,11 +3224,11 @@ export const getUsersStats = async (req, res, next) => {
       data: {
         users: usersStats,
       },
-    })
+    });
   } catch (err) {
-    return next(err)
+    return next(err);
   }
-}
+};
 
 export default {
   updateUsername,
@@ -3236,7 +3241,7 @@ export default {
   getUser,
   getUsers,
   getUsersStats,
-}
+};
 ```
 
 ### Authentication Routes
@@ -3244,119 +3249,119 @@ export default {
 `auth.router.js`
 
 ```js
-import express from 'express'
+import express from 'express';
 
-import ConstantAPI from '../constants/api.constant'
-import AuthController from '../controllers/auth.controller'
+import ConstantAPI from '../constants/api.constant';
+import AuthController from '../controllers/auth.controller';
 
-const router = express.Router()
+const router = express.Router();
 
-router.post(ConstantAPI.AUTH_REGISTER, AuthController.register)
-router.post(ConstantAPI.AUTH_LOGIN, AuthController.login)
+router.post(ConstantAPI.AUTH_REGISTER, AuthController.register);
+router.post(ConstantAPI.AUTH_LOGIN, AuthController.login);
 
-export default router
+export default router;
 ```
 
 `user.router.js`
 
 ```js
-import express from 'express'
+import express from 'express';
 
-import ConstantAPI from '../constants/api.constant'
-import UserController from '../controllers/user.controller'
-import TokenMiddleware from '../middlewares/token.middleware'
+import ConstantAPI from '../constants/api.constant';
+import UserController from '../controllers/user.controller';
+import TokenMiddleware from '../middlewares/token.middleware';
 
-const router = express.Router()
+const router = express.Router();
 
 router.post(
   ConstantAPI.USER_UPDATE_USERNAME,
   TokenMiddleware.verifyTokenAndAuthorization,
   UserController.updateUsername,
-)
+);
 router.post(
   ConstantAPI.USER_UPDATE_NAME,
   TokenMiddleware.verifyTokenAndAuthorization,
   UserController.updateName,
-)
+);
 router.post(
   ConstantAPI.USER_UPDATE_EMAIL,
   TokenMiddleware.verifyTokenAndAuthorization,
   UserController.updateEmail,
-)
+);
 router.post(
   ConstantAPI.USER_UPDATE_PASSWORD,
   TokenMiddleware.verifyTokenAndAuthorization,
   UserController.updatePassword,
-)
+);
 router.post(
   ConstantAPI.USER_UPDATE_PHONE,
   TokenMiddleware.verifyTokenAndAuthorization,
   UserController.updatePhone,
-)
+);
 router.post(
   ConstantAPI.USER_UPDATE_ADDRESS,
   TokenMiddleware.verifyTokenAndAuthorization,
   UserController.updateAddress,
-)
+);
 router.post(
   ConstantAPI.USER_DELETE,
   TokenMiddleware.verifyTokenAndAuthorization,
   UserController.deleteUser,
-)
+);
 router.get(
   ConstantAPI.USER_GET,
   TokenMiddleware.verifyTokenAndAuthorization,
   UserController.getUser,
-)
+);
 router.get(
   ConstantAPI.USER_GET_ALL,
   TokenMiddleware.verifyTokenAndAdmin,
   UserController.getUsers,
-)
+);
 router.get(
   ConstantAPI.USER_GET_ALL_STATS,
   TokenMiddleware.verifyTokenAndAdmin,
   UserController.getUsersStats,
-)
+);
 
-export default router
+export default router;
 ```
 
 edit `index.js`
 
 ```js
-import compression from 'compression'
-import cookieParser from 'cookie-parser'
-import cors from 'cors'
-import express from 'express'
-import helmet from 'helmet'
+import compression from 'compression';
+import cookieParser from 'cookie-parser';
+import cors from 'cors';
+import express from 'express';
+import helmet from 'helmet';
 
-import connectDb from './config/db.config'
-import { DATABASE_URL } from './env/variable.env'
+import connectDb from './config/db.config';
+import { DATABASE_URL } from './env/variable.env';
 
 // http constant
-import ConstantHttpCode from './constants/http.code.constant'
-import ConstantHttpReason from './constants/http.reason.constant'
+import ConstantHttpCode from './constants/http.code.constant';
+import ConstantHttpReason from './constants/http.reason.constant';
 
 // api constant
-import ConstantAPI from './constants/api.constant'
+import ConstantAPI from './constants/api.constant';
 
 // routers
-import AuthRouter from './routers/auth.router'
-import UserRouter from './routers/user.router'
+import AuthRouter from './routers/auth.router';
+import UserRouter from './routers/user.router';
 
-connectDb(DATABASE_URL)
+connectDb(DATABASE_URL);
 
-const app = express()
+const app = express();
 
 // helmet
-app.use(helmet())
+app.use(helmet());
 
-app.use(express.urlencoded({ extended: true }))
-app.use(express.json())
-app.use(compression())
-app.use(cors())
-app.use(cookieParser())
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(compression());
+app.use(cors());
+app.use(cookieParser());
 
 app.get('/', (req, res, next) => {
   try {
@@ -3366,16 +3371,16 @@ app.get('/', (req, res, next) => {
         msg: ConstantHttpReason.OK,
       },
       API: 'Work',
-    })
+    });
   } catch (err) {
-    return next(err)
+    return next(err);
   }
-})
+});
 
-app.use(ConstantAPI.API_AUTH, AuthRouter)
-app.use(ConstantAPI.API_USERS, UserRouter)
+app.use(ConstantAPI.API_AUTH, AuthRouter);
+app.use(ConstantAPI.API_USERS, UserRouter);
 
-export default app
+export default app;
 ```
 
 ## Summary

@@ -4,7 +4,7 @@ slug: customization-windows-terminal-with-starship
 tags: ['Windows', 'Terminal', 'CLI', 'PowerShell', 'Starship']
 categories: ['Windows']
 date: 2022-10-21T00:00:00.000Z
-image: /assets/img/blog/customization-windows-terminal-with-starship/customization-windows-terminal-with-starship.jpg
+image: /assets/img/blog/0009-customization-windows-terminal-with-starship/customization-windows-terminal-with-starship.jpg
 author: MKAbuMattar
 description: 'Customization Windows Terminal With Starship, Windows Terminal is a new, modern, fast, efficient, powerful, and productive terminal application for users of command-line tools and shells like Command Prompt, PowerShell, and WSL.'
 prev: vim-cheat-sheet
@@ -471,7 +471,7 @@ To configure PowerShell on Windows Terminal, you can follow the steps below:
 9. Go to Profiles >> Defaults >> Appearance >> Color scheme choose `Dracula`.
 10. Go to Profiles >> Defaults >> Appearance >> Font face choose `Caskaydia Cove Nerd Font`.
 
-![Settings](/assets/img/blog/customization-windows-terminal-with-starship/2022-10-21-183905.png)
+![Settings](/assets/img/blog/0009-customization-windows-terminal-with-starship/2022-10-21-183905.png)
 
 #### Extra Configuration
 
@@ -529,7 +529,7 @@ Set-PSReadLineKeyHandler -Key Ctrl+Shift+b `
 Set-Content -Path $PROFILE -Value $CONFIG_PROFILE
 ```
 
-![Settings](/assets/img/blog/customization-windows-terminal-with-starship/2022-10-21-184138.png)
+![Settings](/assets/img/blog/0009-customization-windows-terminal-with-starship/2022-10-21-184138.png)
 
 ## References
 
