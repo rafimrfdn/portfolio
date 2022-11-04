@@ -13,6 +13,7 @@ const { DOMAIN_NAME } = process.env;
 // https://astro.build/config
 export default defineConfig({
   site: `${DOMAIN_NAME}`,
+  sitemap: true,
   // https://astro.build/config/plugins
   experimental: {
     integrations: true,
