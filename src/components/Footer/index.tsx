@@ -93,6 +93,12 @@ const index: FC = () => {
                 linktr.ee
               </Link>
             </div>
+            <span className={'footer__divider'}>|</span>
+            <div className="">
+              <Link href="/rss.xml" className="footer__link" title={'RSS Feed'}>
+                RSS Feed
+              </Link>
+            </div>
           </div>
         </Container>
 
