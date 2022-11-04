@@ -71,7 +71,7 @@ const index = ({ domain }: any) => {
       ) : (
         <div className={'card'}>
           <header>
-            <h3>Daily Quote</h3>
+            <h3>{quote.title}</h3>
           </header>
           <div className={'card__content'}>
             <div className={'card__content-quote'}>
