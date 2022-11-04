@@ -88,9 +88,9 @@ const index: FC = () => {
               <Link
                 href="/linktr.ee"
                 className="footer__link"
-                title={'Link tree'}
+                title={'linktr.ee'}
               >
-                Link tree
+                linktr.ee
               </Link>
             </div>
           </div>
