@@ -1,0 +1,42 @@
+[
+  {
+    "href": "/",
+    "title": "Home"
+  },
+  {
+    "href": "/#about",
+    "title": "About"
+  },
+  {
+    "href": "/#skills",
+    "title": "Skills"
+  },
+  {
+    "href": "/#work",
+    "title": "Portfolio"
+  },
+  {
+    "href": "/#contact",
+    "title": "Contact Me"
+  },
+  {
+    "href": "/blog",
+    "title": "Blog"
+  },
+  {
+    "href": "/cheatsheets",
+    "title": "CheatSheets"
+  },
+  {
+    "href": "/daily-quote",
+    "title": "Daily Quote"
+  },
+  {
+    "href": "/linktr.ee",
+    "title": "linktr.ee"
+  },
+  {
+    "href": "/rss.xml",
+    "title": "RSS Feed"
+  }
+]

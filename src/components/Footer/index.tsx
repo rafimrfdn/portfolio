@@ -1,9 +1,14 @@
-import { FC } from 'react';
+import { FC, Fragment } from 'react';
 
 type Social = {
   icon: string;
   title: string;
   url: string;
+};
+
+type Links = {
+  href: string;
+  title: string;
 };
 
 // style
@@ -21,6 +26,7 @@ import getYear from '@/utils/getYear.util';
 
 // data
 import footerData from '@/data/footer-social.json';
+import footerLinks from '@/data/footer-links.json';
 
 const index: FC = () => {
   return (
@@ -30,75 +36,21 @@ const index: FC = () => {
           <h1 className="footer__title">Mohammad Abu Mattar</h1>
 
           <div className="footer__list">
-            <div className="">
-              <Link href="/#about" className="footer__link" title={'About'}>
-                About
-              </Link>
-            </div>
             <span className={'footer__divider'}>|</span>
-            <div className="">
-              <Link href="/#skills" className="footer__link" title={'Skills'}>
-                Skills
-              </Link>
-            </div>
-            <span className={'footer__divider'}>|</span>
-            <div className="">
-              <Link href="/#work" className="footer__link" title={'Portfolio'}>
-                Portfolio
-              </Link>
-            </div>
-            <span className={'footer__divider'}>|</span>
-            <div className="">
-              <Link
-                href="/#contact"
-                className="footer__link"
-                title={'Contact Me'}
-              >
-                Contact Me
-              </Link>
-            </div>
-            <span className={'footer__divider'}>|</span>
-            <div className="">
-              <Link href="/blog" className="footer__link" title={'Blog'}>
-                Blog
-              </Link>
-            </div>
-            <span className={'footer__divider'}>|</span>
-            <div className="">
-              <Link
-                href="/cheatsheets"
-                className="footer__link"
-                title={'CheatSheets'}
-              >
-                CheatSheets
-              </Link>
-            </div>
-            <span className={'footer__divider'}>|</span>
-            <div className="">
-              <Link
-                href="/daily-quote"
-                className="footer__link"
-                title={'Daily Quote'}
-              >
-                Daily Quote
-              </Link>
-            </div>
-            <span className={'footer__divider'}>|</span>
-            <div className="">
-              <Link
-                href="/linktr.ee"
-                className="footer__link"
-                title={'linktr.ee'}
-              >
-                linktr.ee
-              </Link>
-            </div>
-            <span className={'footer__divider'}>|</span>
-            <div className="">
-              <Link href="/rss.xml" className="footer__link" title={'RSS Feed'}>
-                RSS Feed
-              </Link>
-            </div>
+            {footerLinks.map((link: Links, index: number) => (
+              <Fragment key={index}>
+                <div className="">
+                  <Link
+                    href={link.href}
+                    className="footer__link"
+                    title={link.title}
+                  >
+                    {link.title}
+                  </Link>
+                </div>
+                <span className={'footer__divider'}>|</span>
+              </Fragment>
+            ))}
           </div>
         </Container>
 
@@ -121,7 +73,7 @@ const index: FC = () => {
         <span className="footer__copy">
           All Copyrights Reserved &#169;{' '}
           {getYear() >= '2019' ? `2019 - ${getYear()}` : getYear()}, Made With ❤
-          By Mohammad Khaled Abu Mattar
+          By Mohammad Abu Mattar
         </span>
 
         <span className="footer__Build">
