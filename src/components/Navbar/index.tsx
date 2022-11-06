@@ -52,7 +52,6 @@ const index: FC<Props> = (props) => {
     }
 
     localStorage.setItem('selected-theme', getCurrentTheme());
-    window.location.reload(false);
   };
 
   const scrollHeader = () => {
