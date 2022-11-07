@@ -9,7 +9,7 @@ author: MKAbuMattar
 description: 'In this tutorial, we will learn how to install Apache web server on Amazon Linux 2. We will also learn how to configure Apache web server to run simple HTML web page.'
 prev: how-to-install-and-setup-firewall-on-amazon-linux-2
 next: how-to-install-php-and-mariadb-on-amazon-linux-2
-featured: true
+featured: false
 ---
 
 ## Table of Contents
