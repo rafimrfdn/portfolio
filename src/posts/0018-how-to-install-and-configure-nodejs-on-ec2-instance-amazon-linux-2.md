@@ -8,7 +8,7 @@ image: /assets/img/blog/0018-how-to-install-and-configure-nodejs-on-ec2-instance
 author: MKAbuMattar
 description: 'Node.js does not exist in the default Amazon Linux 2 repository. So, we need to add the Node.js repository to the system. In this post, we will learn how to install and configure Node.js on EC2 Instance Amazon Linux 2.'
 prev: how-to-create-a-aws-rds-mysql-database-and-connect-to-it-using-mysql-workbench
-next: undefined
+next: how-to-connect-to-aws-rds-mysql-database-to-ec2-instance-with-php-by-using-pdo
 featured: true
 ---
 
