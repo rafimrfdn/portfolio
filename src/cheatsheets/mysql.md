@@ -42,10 +42,11 @@ icon: 'MySQLIcon'
   - [MySQL Joins](#mysql-joins)
   - [MySQL Indexes](#mysql-indexes)
   - [MySQL Views](#mysql-views)
-  - [MySQL Triggers](#mysql-triggers)
   - [MySQL Stored Procedures](#mysql-stored-procedures)
+  - [MySQL Triggers](#mysql-triggers)
   - [MySQL Events](#mysql-events)
   - [MySQL Partitions](#mysql-partitions)
+  - [MySQL Transactions](#mysql-transactions)
 
 </details>
 
@@ -288,9 +289,9 @@ ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password
 #### Bitwise Operators
 
 | Operator | Description          |
-| -------- | -------------------- | ----------- |
+| -------- | -------------------- |
 | `&`      | Bitwise AND.         |
-| `        | `                    | Bitwise OR. |
+| ` \|`    | Bitwise OR.          |
 | `^`      | Bitwise XOR.         |
 | `~`      | Bitwise NOT.         |
 | `<<`     | Bitwise left shift.  |
@@ -536,96 +537,496 @@ mysqldump -u root -p database_name | gzip > database_name.sql.gz
 
 ### MySQL Managing tables
 
-Set a `PRIMARY KEY` on a table:
+#### Create a new table with three columns
 
 ```sql
 CREATE TABLE table_name (
-  id INT NOT NULL AUTO_INCREMENT,
-  column_name VARCHAR(255) NOT NULL
+  column_name1 INT,
+  column_name2 VARCHAR(255),
+  column_name3 VARCHAR(255)
 );
-
-ALTER TABLE table_name ADD PRIMARY KEY (id);
 ```
 
-Set a `UNIQUE` constraint on a table:
+#### Add a new column to the table
 
 ```sql
-CREATE TABLE table_name (
-  id INT NOT NULL AUTO_INCREMENT,
-  column_name VARCHAR(255) NOT NULL
-);
+ALTER TABLE table_name ADD column_name VARCHAR(255);
+```
 
+#### Change the data type of a column
+
+```sql
+ALTER TABLE table_name MODIFY column_name VARCHAR(255);
+```
+
+#### Change the name of a column
+
+```sql
+ALTER TABLE table_name CHANGE column_name1 column_name2 VARCHAR(255);
+```
+
+#### Delete a column from the table
+
+```sql
+ALTER TABLE table_name DROP column_name;
+```
+
+#### Delete a table
+
+```sql
+DROP TABLE table_name;
+```
+
+#### Rename a table
+
+```sql
+RENAME TABLE table_name1 TO table_name2;
+```
+
+#### Truncate a table
+
+```sql
+TRUNCATE TABLE table_name;
+```
+
+</div>
+
+<div class="cheat__container-content">
+
+### MySQL Constraints
+
+#### Add a primary key to a table
+
+```sql
+ALTER TABLE table_name ADD PRIMARY KEY (column_name);
+```
+
+#### Add a unique key to a table
+
+```sql
 ALTER TABLE table_name ADD UNIQUE (column_name);
 ```
 
-Set a composite `PRIMARY KEY` on a table:
+#### Add a foreign key to a table
+
+```sql
+ALTER TABLE table_name ADD FOREIGN KEY (column_name) REFERENCES table_name(column_name);
+```
+
+#### Add a check constraint to a table
+
+```sql
+ALTER TABLE table_name ADD CHECK (column_name > 0);
+```
+
+#### Add a default value to a table
+
+```sql
+ALTER TABLE table_name ALTER column_name SET DEFAULT 'a';
+```
+
+#### Remove a default value from a table
+
+```sql
+ALTER TABLE table_name ALTER column_name DROP DEFAULT;
+```
+
+</div>
+
+<div class="cheat__container-content">
+
+### MySQL Joins
+
+#### Inner join
+
+```sql
+SELECT column_name1, column_name2
+FROM table_name1
+INNER JOIN table_name2
+ON table_name1.column_name = table_name2.column_name;
+```
+
+Explanation:
+
+The INNER JOIN keyword selects records that have matching values in both tables.
+
+#### Left join
+
+```sql
+SELECT column_name1, column_name2
+FROM table_name1
+LEFT JOIN table_name2
+ON table_name1.column_name = table_name2.column_name;
+```
+
+Explanation:
+
+The LEFT JOIN keyword returns all records from the left table (table_name1), and the matched records from the right table (table_name2). The result is NULL from the right side, if there is no match.
+
+#### Right join
+
+```sql
+SELECT column_name1, column_name2
+FROM table_name1
+RIGHT JOIN table_name2
+ON table_name1.column_name = table_name2.column_name;
+```
+
+Explanation:
+
+The RIGHT JOIN keyword returns all records from the right table (table_name2), and the matched records from the left table (table_name1). The result is NULL from the left side, when there is no match.
+
+#### Full join
+
+```sql
+SELECT column_name1, column_name2
+FROM table_name1
+FULL JOIN table_name2
+ON table_name1.column_name = table_name2.column_name;
+```
+
+Explanation:
+
+The FULL JOIN keyword returns all records when there is a match in either left (table_name1) or right (table_name2) table records.
+
+#### Self join
+
+```sql
+SELECT column_name1, column_name2
+FROM table_name1 T1, table_name1 T2
+WHERE T1.column_name = T2.column_name;
+```
+
+Explanation:
+
+A self join is a regular join, but the table is joined with itself.
+
+#### Cross join
+
+```sql
+SELECT column_name1, column_name2
+FROM table_name1
+CROSS JOIN table_name2;
+```
+
+Explanation:
+
+The CROSS JOIN keyword returns the Cartesian product of the sets of records from the two tables.
+
+</div>
+
+<div class="cheat__container-content">
+
+### MySQL Indexes
+
+#### Create an index
+
+```sql
+CREATE INDEX index_name ON table_name (column_name);
+```
+
+#### Create a unique index
+
+```sql
+CREATE UNIQUE INDEX index_name ON table_name (column_name);
+```
+
+#### Create a primary key
+
+```sql
+ALTER TABLE table_name ADD PRIMARY KEY (column_name);
+```
+
+#### Create a unique key
+
+```sql
+ALTER TABLE table_name ADD UNIQUE (column_name);
+```
+
+#### Create a foreign key
+
+```sql
+ALTER TABLE table_name ADD FOREIGN KEY (column_name) REFERENCES table_name(column_name);
+```
+
+#### Drop an index
+
+```sql
+DROP INDEX index_name ON table_name;
+```
+
+#### Drop a primary key
+
+```sql
+ALTER TABLE table_name DROP PRIMARY KEY;
+```
+
+#### Drop a unique key
+
+```sql
+ALTER TABLE table_name DROP INDEX column_name;
+```
+
+#### Drop a foreign key
+
+```sql
+ALTER TABLE table_name DROP FOREIGN KEY column_name;
+```
+
+</div>
+
+<div class="cheat__container-content">
+
+### MySQL Views
+
+#### Create a view
+
+```sql
+CREATE VIEW view_name AS
+SELECT column_name1, column_name2
+FROM table_name
+WHERE condition;
+```
+
+Explanation:
+
+A view contains rows and columns, just like a real table. The fields in a view are fields from one or more real tables in the database.
+
+#### Update a view
+
+```sql
+CREATE OR REPLACE VIEW view_name AS
+SELECT column_name1, column_name2
+FROM table_name
+WHERE condition;
+```
+
+Explanation:
+
+The CREATE OR REPLACE VIEW statement is used to modify an existing view.
+
+#### Delete a view
+
+```sql
+DROP VIEW view_name;
+```
+
+</div>
+
+<div class="cheat__container-content">
+
+### MySQL Stored Procedures
+
+#### Create a stored procedure
+
+```sql
+DELIMITER $$
+CREATE PROCEDURE procedure_name()
+BEGIN
+SELECT column_name1, column_name2
+FROM table_name
+WHERE condition;
+END$$
+DELIMITER ;
+```
+
+Explanation:
+
+A stored procedure is a prepared SQL code that you can save, so the code can be reused over and over again.
+
+#### Update a stored procedure
+
+```sql
+DELIMITER $$
+CREATE OR REPLACE PROCEDURE procedure_name()
+BEGIN
+SELECT column_name1, column_name2
+FROM table_name
+WHERE condition;
+END$$
+DELIMITER ;
+```
+
+Explanation:
+
+The CREATE OR REPLACE PROCEDURE statement is used to modify an existing stored procedure.
+
+#### Delete a stored procedure
+
+```sql
+DROP PROCEDURE procedure_name;
+```
+
+</div>
+
+<div class="cheat__container-content">
+
+### MySQL Triggers
+
+#### Create a trigger
+
+```sql
+DELIMITER $$
+CREATE TRIGGER trigger_name
+BEFORE INSERT ON table_name
+FOR EACH ROW
+BEGIN
+SET NEW.column_name = 'a';
+END$$
+DELIMITER ;
+```
+
+Explanation:
+
+A trigger is a special type of stored procedure that is automatically executed when an event occurs in a database.
+
+#### Update a trigger
+
+```sql
+DELIMITER $$
+CREATE OR REPLACE TRIGGER trigger_name
+BEFORE INSERT ON table_name
+FOR EACH ROW
+BEGIN
+SET NEW.column_name = 'a';
+END$$
+DELIMITER ;
+```
+
+Explanation:
+
+The CREATE OR REPLACE TRIGGER statement is used to modify an existing trigger.
+
+#### Delete a trigger
+
+```sql
+DROP TRIGGER trigger_name;
+```
+
+</div>
+
+<div class="cheat__container-content">
+
+### MySQL Partitions
+
+#### Create a partition
 
 ```sql
 CREATE TABLE table_name (
-  id INT NOT NULL AUTO_INCREMENT,
-  column_name1 VARCHAR(255) NOT NULL,
-  column_name2 VARCHAR(255) NOT NULL
+  column_name1 datatype,
+  column_name2 datatype,
+  column_name3 datatype,
+  ...
+)
+PARTITION BY RANGE (column_name) (
+  PARTITION partition_name1 VALUES LESS THAN (value1),
+  PARTITION partition_name2 VALUES LESS THAN (value2),
+  PARTITION partition_name3 VALUES LESS THAN (value3),
+  ...
 );
-
-ALTER TABLE table_name ADD PRIMARY KEY (column_name1, column_name2);
 ```
 
-Set a composite `UNIQUE` constraint on a table:
+Explanation:
+
+A partition is a logical division of a table. Each partition is physically stored as a separate table.
+
+#### Update a partition
 
 ```sql
-CREATE TABLE table_name (
-  id INT NOT NULL AUTO_INCREMENT,
-  column_name1 VARCHAR(255) NOT NULL,
-  column_name2 VARCHAR(255) NOT NULL
+ALTER TABLE table_name REORGANIZE PARTITION partition_name INTO (
+  PARTITION partition_name1 VALUES LESS THAN (value1),
+  PARTITION partition_name2 VALUES LESS THAN (value2),
+  PARTITION partition_name3 VALUES LESS THAN (value3),
+  ...
 );
-
-ALTER TABLE table_name ADD UNIQUE (column_name1, column_name2);
 ```
 
-Set a `FOREIGN KEY` constraint on a table:
+Explanation:
+
+The REORGANIZE PARTITION statement is used to modify an existing partition.
+
+#### Delete a partition
 
 ```sql
-CREATE TABLE table_name (
-    column_name INT
-);
-
-CREATE TABLE table_name2 (
-    column_name INT
-);
-
-ALTER TABLE table_name ADD FOREIGN KEY (column_name) REFERENCES table_name2(column_name);
+ALTER TABLE table_name DROP PARTITION partition_name;
 ```
 
-Set a composite `FOREIGN KEY` constraint on a table:
+</div>
+
+<div class="cheat__container-content">
+
+### MySQL Events
+
+#### Create an event
 
 ```sql
-CREATE TABLE table_name1 (
-    column_name1 INT,
-    column_name2 INT
-);
-
-CREATE TABLE table_name1 (
-    column_name1 INT,
-    column_name2 INT
-);
-
-ALTER TABLE table_name1
-ADD FOREIGN KEY (column_name1, column_name2)
-REFERENCES table_name2(column_name1, column_name2);
+CREATE EVENT event_name
+ON SCHEDULE EVERY 1 DAY
+STARTS '2018-01-01 00:00:00'
+DO
+UPDATE table_name
+SET column_name = 'a';
 ```
 
-Ensure a `column_name1 > 0` and the values in `column_name1 >= column_name2`
+Explanation:
+
+An event is a scheduled task that is executed automatically at a specified date and time.
+
+#### Update an event
 
 ```sql
-CREATE TABLE table_name (
-  column_name1 INT NOT NULL,
-  column_name2 INT NOT NULL
-);
-
-ALTER TABLE table_name
-  ADD CONSTRAINT table_name_column_name1_check CHECK (column_name1 > 0),
-  ADD CONSTRAINT table_name_column_name2_check CHECK (column_name2 > 0),
-  ADD CONSTRAINT table_name_column_name1_column_name2_check CHECK (column_name1 >= column_name2);
+ALTER EVENT event_name
+ON SCHEDULE EVERY 1 DAY
+STARTS '2018-01-01 00:00:00'
+DO
+UPDATE table_name
+SET column_name = 'a';
 ```
+
+Explanation:
+
+The ALTER EVENT statement is used to modify an existing event.
+
+#### Delete an event
+
+```sql
+DROP EVENT event_name;
+```
+
+</div>
+
+<div class="cheat__container-content">
+
+### MySQL Transactions
+
+#### Start a transaction
+
+```sql
+START TRANSACTION;
+```
+
+Explanation:
+
+A transaction is a set of SQL statements that are executed as a single unit.
+
+#### Commit a transaction
+
+```sql
+COMMIT;
+```
+
+Explanation:
+
+The COMMIT statement is used to permanently save all changes made by the transaction.
+
+#### Rollback a transaction
+
+```sql
+ROLLBACK;
+```
+
+Explanation:
+
+The ROLLBACK statement is used to cancel all changes made by the transaction.
 
 </div>
