@@ -9,7 +9,7 @@ author: MKAbuMattar
 description: 'We will learn how to install WordPress on Amazon Linux 2 in this tutorial. We will also discover how to set up WordPress so that it functions with the Apache web server. We will also discover how to set up WordPress so that it functions with PHP and MariaDB.'
 prev: how-to-install-php-and-mariadb-on-amazon-linux-2
 next: how-to-create-an-aws-ec2-instance-using-aws-cli
-featured: true
+featured: false
 ---
 
 ## Table of Contents
