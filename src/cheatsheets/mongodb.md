@@ -7,4 +7,5 @@ author: MKAbuMattar
 description: 'MongoDB is a cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with optional schemas.'
 color: '#47A248'
 icon: 'MongoDBIcon'
+draft: true
 ---

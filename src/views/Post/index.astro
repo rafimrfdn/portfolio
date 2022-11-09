@@ -1,30 +1,30 @@
 ---
-import Auther from '@/components/Author/index.astro'
-import Categories from '@/components/Categories'
+import Auther from '@/components/Author/index.astro';
+import Categories from '@/components/Categories';
 // import FeaturedPost from '@/components/FeaturedPost'
-import GetIcon from '@/components/GetIcon'
-import RecentPosts from '@/components/RecentPosts'
+import GetIcon from '@/components/GetIcon';
+import RecentPosts from '@/components/RecentPosts';
 // import authorsData from '@/data/authors.json'
-import Container from '@/ui/Container'
-import Grid from '@/ui/Grid'
-import Image from '@/ui/Image'
-import Link from '@/ui/Link'
-import Section from '@/ui/Section'
-import formatDate from '@/utils/formatDate.util'
-import AdjacentPostCard from '@/views/Post/components/AdjacentPostCard/index.astro'
-import Comments from '@/views/Post/components/Comments/index'
-import './style.scss'
+import Container from '@/ui/Container';
+import Grid from '@/ui/Grid';
+import Image from '@/ui/Image';
+import Link from '@/ui/Link';
+import Section from '@/ui/Section';
+import formatDate from '@/utils/formatDate.util';
+import AdjacentPostCard from '@/views/Post/components/AdjacentPostCard/index.astro';
+import Comments from '@/views/Post/components/Comments/index';
+import './style.scss';
 
 export type Props = {
-  allPosts: any
-  post: any
-  author: any
-  prevPost: any
-  nextPost: any
-  featuredPost: any
-  categories: any
-  recentPosts: any
-}
+  allPosts: any;
+  post: any;
+  author: any;
+  prevPost: any;
+  nextPost: any;
+  featuredPost: any;
+  categories: any;
+  recentPosts: any;
+};
 
 const {
   allPosts,
@@ -35,7 +35,7 @@ const {
   featuredPost,
   categories,
   recentPosts,
-} = Astro.props as Props
+} = Astro.props as Props;
 ---
 
 <main class={'blog__container'}>

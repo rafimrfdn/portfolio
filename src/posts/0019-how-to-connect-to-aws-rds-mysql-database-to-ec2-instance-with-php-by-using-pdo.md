@@ -10,6 +10,7 @@ description: 'In this post, we will learn how to connect to AWS RDS MySQL Databa
 prev: how-to-install-and-configure-nodejs-on-ec2-instance-amazon-linux-2
 next: setup-nextjs-tailwind-css-styled-components-with-typescript
 featured: true
+draft: false
 ---
 
 ## Introduction

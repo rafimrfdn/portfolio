@@ -10,6 +10,7 @@ description: 'RDS is a managed service that makes it easy to set up, operate, an
 prev: how-to-run-an-apache-web-server-using-docker-on-an-aws-ec2-instance
 next: how-to-install-and-configure-nodejs-on-ec2-instance-amazon-linux-2
 featured: true
+draft: false
 ---
 
 ## Introduction

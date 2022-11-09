@@ -7,6 +7,7 @@ author: MKAbuMattar
 description: 'Bash is a Unix shell and command language written by Brian Fox for the GNU Project as a free software replacement for the Bourne shell. First released in 1989, it has been used widely as the default login shell for most Linux distributions.'
 color: '#293138'
 icon: 'BashIcon'
+draft: false
 ---
 
 ## Table of Contents

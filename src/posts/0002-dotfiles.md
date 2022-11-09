@@ -10,6 +10,7 @@ description: 'The easiest approach to keep your dotfiles safe is to keep them on
 prev: git-ssh-keys-for-github-gitlab-and-bitbucket-on-linux
 next: setting-up-node-js-express-mongodb-prettier-eslint-and-husky-application-with-babel-and-authentication-as-an-example
 featured: false
+draft: false
 ---
 
 The easiest approach to keep your dotfiles safe is to keep them on your computer: A bare Git repository is a good place to start.

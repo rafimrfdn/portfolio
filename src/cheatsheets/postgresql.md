@@ -7,4 +7,5 @@ author: MKAbuMattar
 description: 'PostgreSQL is a powerful, open source object-relational database system.'
 color: '#336791'
 icon: 'PostgreSQLIcon'
+draft: true
 ---

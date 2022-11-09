@@ -10,6 +10,7 @@ description: 'In this tutorial, we will learn how to install Apache web server o
 prev: how-to-install-and-setup-firewall-on-amazon-linux-2
 next: how-to-install-php-and-mariadb-on-amazon-linux-2
 featured: false
+draft: false
 ---
 
 ## Table of Contents

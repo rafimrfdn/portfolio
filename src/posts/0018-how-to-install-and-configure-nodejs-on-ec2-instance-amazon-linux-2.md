@@ -10,6 +10,7 @@ description: 'Node.js does not exist in the default Amazon Linux 2 repository. S
 prev: how-to-create-a-aws-rds-mysql-database-and-connect-to-it-using-mysql-workbench
 next: how-to-connect-to-aws-rds-mysql-database-to-ec2-instance-with-php-by-using-pdo
 featured: true
+draft: false
 ---
 
 ## Introduction

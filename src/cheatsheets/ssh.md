@@ -7,4 +7,5 @@ author: MKAbuMattar
 description: 'SSH is a network protocol that allows data exchange through a secure channel between two network devices.'
 color: '#231F20'
 icon: 'SSHIcon'
+draft: true
 ---

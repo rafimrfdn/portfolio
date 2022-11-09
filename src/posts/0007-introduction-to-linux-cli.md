@@ -10,6 +10,7 @@ description: 'Introduction to Linux command-line interface CLI, Linux is a Unix-
 prev: how-to-create-a-custom-vpc-using-aws-cli
 next: vim-cheat-sheet
 featured: false
+draft: false
 ---
 
 ## Table of Contents

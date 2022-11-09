@@ -7,4 +7,5 @@ author: MKAbuMattar
 description: 'Sass is a preprocessor scripting language that is interpreted or compiled into Cascading Style Sheets (CSS).'
 color: '#CB6699'
 icon: 'SASSIcon'
+draft: true
 ---
