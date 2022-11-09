@@ -35,7 +35,6 @@ draft: false
   - [Emphasis](#emphasis)
   - [Strikethrough](#strikethrough)
   - [Backslash escapes](#backslash-escapes)
-- [References](#references)
 
 </details>
 
