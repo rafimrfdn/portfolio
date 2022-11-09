@@ -8,7 +8,7 @@ image: /assets/img/blog/0020-setup-nextjs-tailwind-css-styled-components-with-ty
 author: MKAbuMattar
 description: 'Setup Nextjs Tailwind CSS Styled Components with TypeScript'
 prev: how-to-connect-to-aws-rds-mysql-database-to-ec2-instance-with-php-by-using-pdo
-next: undefined
+next: what-is-a-ci-cd
 featured: true
 draft: false
 ---
