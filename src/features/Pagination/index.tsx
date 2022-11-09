@@ -1,40 +1,40 @@
-import React from 'react'
+import React from 'react';
 
 // type
-import Props from '@/features/Pagination/types/pagination'
+import Props from '@/features/Pagination/types/pagination';
 
 // style
-import './style.scss'
+import './style.scss';
 
 // ui
-import Link from '@/ui/Link'
+import Link from '@/ui/Link';
 
 // component
-import GetIcon from '@/components/GetIcon'
+import GetIcon from '@/components/GetIcon';
 
 // hook
-import { DOTS, usePagination } from '@/features/Pagination/hooks/usePagination'
+import { DOTS, usePagination } from '@/features/Pagination/hooks/usePagination';
 
 const index: React.FC<Props> = (props) => {
-  const { page, url } = props
+  const { page, url } = props;
 
-  const currentPage = page.currentPage
-  const totalCount = page?.total
-  const siblingCount = 1
-  const pageSize = page.size
+  const currentPage = page.currentPage;
+  const totalCount = page?.total;
+  const siblingCount = 1;
+  const pageSize = page.size;
 
   const paginationRange = usePagination({
     currentPage,
     totalCount,
     siblingCount,
     pageSize,
-  })
+  });
 
   if (currentPage === 0 || paginationRange.length < 2) {
-    return null
+    return null;
   }
 
-  let lastPage = paginationRange[paginationRange.length - 1]
+  let lastPage = paginationRange[paginationRange.length - 1];
 
   return (
     <nav className="pagination__container">
@@ -47,7 +47,7 @@ const index: React.FC<Props> = (props) => {
             paginationRange[0] === currentPage - 1 ||
             paginationRange[0] === currentPage
               ? ''
-              : paginationRange[0]
+              : currentPage - 1
           }`}
         >
           <div
@@ -67,7 +67,7 @@ const index: React.FC<Props> = (props) => {
               >
                 &#8230;
               </div>
-            )
+            );
           }
 
           return (
@@ -86,7 +86,7 @@ const index: React.FC<Props> = (props) => {
                 {pageNumber}
               </div>
             </Link>
-          )
+          );
         })}
         <Link
           className={`pagination__container-content--link ${
@@ -104,7 +104,7 @@ const index: React.FC<Props> = (props) => {
         </Link>
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default index
+export default index;
