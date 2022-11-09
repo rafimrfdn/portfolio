@@ -2,3 +2,5 @@
 dist
 node_modules
 public
+
+src/cheatsheets/markdown.md
