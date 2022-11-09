@@ -10,6 +10,7 @@ description: 'Customization Windows Terminal With Starship, Windows Terminal is 
 prev: vim-cheat-sheet
 next: git-ssh-keys-for-github-gitlab-and-bitbucket-on-windows
 featured: false
+draft: false
 ---
 
 ## Table of Contents

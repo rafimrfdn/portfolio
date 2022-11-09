@@ -7,6 +7,7 @@ author: MKAbuMattar
 description: 'MySQL is an open-source relational database management system (RDBMS).'
 color: '#4479A1'
 icon: 'MySQLIcon'
+draft: false
 ---
 
 ## Table of Contents
@@ -291,7 +292,7 @@ ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password
 | Operator | Description          |
 | -------- | -------------------- |
 | `&`      | Bitwise AND.         |
-| ` \|`    | Bitwise OR.          |
+| `\|`     | Bitwise OR.          |
 | `^`      | Bitwise XOR.         |
 | `~`      | Bitwise NOT.         |
 | `<<`     | Bitwise left shift.  |

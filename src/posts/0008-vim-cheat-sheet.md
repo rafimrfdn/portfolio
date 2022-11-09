@@ -10,6 +10,7 @@ description: 'VIM is a text editor that is available on most Linux distributions
 prev: introduction-to-linux-cli
 next: customization-windows-terminal-with-starship
 featured: false
+draft: false
 ---
 
 ## Table of Contents

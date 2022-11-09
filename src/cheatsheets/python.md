@@ -7,4 +7,5 @@ author: MKAbuMattar
 description: 'Python is an interpreted, high-level, general-purpose programming language.'
 color: '#386f9f'
 icon: 'PythonIcon'
+draft: true
 ---

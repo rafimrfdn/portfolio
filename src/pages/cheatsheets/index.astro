@@ -3,24 +3,25 @@ import Layout from '@/layouts/cheatsheets.layout.astro';
 import CheatSheets from '@/views/CheatSheets/index.astro';
 
 const allPosts = await Astro.glob('../../cheatsheets/*.md');
+const nonDraftPosts = allPosts.filter((post) => !post.frontmatter.draft);
 
-const programmingPosts = allPosts.filter(
+const programmingPosts = nonDraftPosts.filter(
   (post) => post.frontmatter.category === 'Programming',
 );
 
-const markupPosts = allPosts.filter(
+const markupPosts = nonDraftPosts.filter(
   (post) => post.frontmatter.category === 'Markup',
 );
 
-const databasePosts = allPosts.filter(
+const databasePosts = nonDraftPosts.filter(
   (post) => post.frontmatter.category === 'Database',
 );
 
-const devOpsPosts = allPosts.filter(
+const devOpsPosts = nonDraftPosts.filter(
   (post) => post.frontmatter.category === 'DevOps',
 );
 
-const toolkitPosts = allPosts.filter(
+const toolkitPosts = nonDraftPosts.filter(
   (post) => post.frontmatter.category === 'Toolkit',
 );
 ---

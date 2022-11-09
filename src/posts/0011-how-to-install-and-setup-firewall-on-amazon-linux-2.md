@@ -10,6 +10,7 @@ description: 'We will learn how to install and setup FireWall on Amazon Linux 2 
 prev: git-ssh-keys-for-github-gitlab-and-bitbucket-on-windows
 next: how-to-install-apache-web-server-on-amazon-linux-2
 featured: false
+draft: false
 ---
 
 ## Table of Contents

@@ -21,6 +21,7 @@ description: 'Setting up JWT Authentication in Typescript with Express, MongoDB,
 prev: setting-up-node-js-express-prettier-eslint-and-husky-application-with-babel-and-typescript-part-1
 next: how-to-create-a-custom-vpc-using-aws-cli
 featured: false
+draft: false
 ---
 
 ## Table of Contents

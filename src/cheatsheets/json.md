@@ -7,6 +7,7 @@ author: MKAbuMattar
 description: 'JSON is a lightweight data-interchange format. It is easy for humans to read and write. It is easy for machines to parse and generate.'
 color: '#505050'
 icon: 'JSONIcon'
+draft: false
 ---
 
 ## Table of Contents

@@ -7,4 +7,5 @@ author: MKAbuMattar
 description: 'Vim is a highly configurable text editor built to enable efficient text editing. It is an improved version of the vi editor distributed with most UNIX systems.'
 color: '#179A33'
 icon: 'VimIcon'
+draft: true
 ---

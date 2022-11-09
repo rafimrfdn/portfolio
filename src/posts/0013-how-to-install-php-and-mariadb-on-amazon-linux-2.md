@@ -10,6 +10,7 @@ description: 'We will learn how to set up PHP and MariaDB on Amazon Linux 2 in t
 prev: how-to-install-apache-web-server-on-amazon-linux-2
 next: how-to-install-wordpress-on-amazon-linux-2
 featured: false
+draft: false
 ---
 
 ## Table of Contents

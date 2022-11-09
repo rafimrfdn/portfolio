@@ -7,4 +7,5 @@ author: MKAbuMattar
 description: 'Visual Studio Code is a source code editor developed by Microsoft for Windows, Linux and macOS.'
 color: '#007ACC'
 icon: 'VSCodeIcon'
+draft: true
 ---

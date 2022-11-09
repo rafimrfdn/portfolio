@@ -11,6 +11,7 @@ description: 'Setting up Node JS, Express,  Prettier, ESLint and Husky Applicati
 prev: setting-up-node-js-express-mongodb-prettier-eslint-and-husky-application-with-babel-and-authentication-as-an-example
 next: setting-up-jwt-authentication-in-typescript-with-express-mongodb-babel-prettier-eslint-and-husky-part-2
 featured: false
+draft: false
 ---
 
 ## Table of Contents

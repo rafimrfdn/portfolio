@@ -10,6 +10,7 @@ description: Git connects to remotes by default via HTTPS, which requires you to
 prev: customization-windows-terminal-with-starship
 next: how-to-install-apache-web-server-on-amazon-linux-2
 featured: false
+draft: false
 ---
 
 ## Introduction

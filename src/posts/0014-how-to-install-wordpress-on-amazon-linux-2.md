@@ -10,6 +10,7 @@ description: 'We will learn how to install WordPress on Amazon Linux 2 in this t
 prev: how-to-install-php-and-mariadb-on-amazon-linux-2
 next: how-to-create-an-aws-ec2-instance-using-aws-cli
 featured: false
+draft: false
 ---
 
 ## Table of Contents

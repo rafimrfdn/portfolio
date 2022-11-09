@@ -10,6 +10,7 @@ description: 'In the sample that follows, an IPv4 CIDR block, a public subnet, a
 prev: setting-up-jwt-authentication-in-typescript-with-express-mongodb-babel-prettier-eslint-and-husky-part-2
 next: introduction-to-linux-cli
 featured: false
+draft: false
 ---
 
 ## Table of Contents

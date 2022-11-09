@@ -20,6 +20,7 @@ description: Setting up Node JS, Express, MongoDB, Prettier, ESLint and Husky Ap
 prev: dotfiles
 next: setting-up-node-js-express-prettier-eslint-and-husky-application-with-babel-and-typescript-part-1
 featured: false
+draft: false
 ---
 
 ## Table of Contents
