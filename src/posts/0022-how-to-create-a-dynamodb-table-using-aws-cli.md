@@ -10,7 +10,48 @@ description: 'In this article, we will learn how to create a DynamoDB table usin
 prev: what-is-a-ci-cd
 next: undefined
 featured: true
-draft: true
+draft: false
+---
+
+## Table of Contents
+
+<details>
+
+<summary>Click to expand table of contents</summary>
+
+- [Introduction](#introduction)
+- [Prerequisites](#prerequisites)
+- [Create a DynamoDB Table](#create-a-dynamodb-table)
+  - [Step 1: Create a DynamoDB Table](#step-1-create-a-dynamodb-table)
+    - [Step 2: List the Tables](#step-2-list-the-tables)
+    - [Step 3: Insert Items to the Table](#step-3-insert-items-to-the-table)
+    - [Step 3.1: Insert an Item Using AWS CLI](#step-31-insert-an-item-using-aws-cli)
+    - [Step 3.2: Insert Multiple Items Using AWS CLI](#step-32-insert-multiple-items-using-aws-cli)
+    - [Step 3.3: Insert Items From a JSON File Using AWS CLI](#step-33-insert-items-from-a-json-file-using-aws-cli)
+  - [Step 4: Query the Table](#step-4-query-the-table)
+    - [Step 4.1: Query the Table Using AWS CLI](#step-41-query-the-table-using-aws-cli)
+    - [Step 4.2: Query the Table Using AWS CLI and Output to a JSON File](#step-42-query-the-table-using-aws-cli-and-output-to-a-json-file)
+  - [Step 5: Create a Global Secondary Index](#step-5-create-a-global-secondary-index)
+    - [Step 5.1: Create a Global Secondary Index Using AWS CLI](#step-51-create-a-global-secondary-index-using-aws-cli)
+  - [Step 6: Remove the Global Secondary Index](#step-6-remove-the-global-secondary-index)
+    - [Step 6.1: Remove the Global Secondary Index Using AWS CLI](#step-61-remove-the-global-secondary-index-using-aws-cli)
+  - [Step 7: Create Two DynamoDB Tables With Relationships](#step-7-create-two-dynamodb-tables-with-relationships)
+    - [Step 7.1: Create the First Table](#step-71-create-the-first-table)
+    - [Step 7.2: Create the Second Table](#step-72-create-the-second-table)
+    - [Step 7.3: Add Items to the First Table](#step-73-add-items-to-the-first-table)
+    - [Step 7.4: Add Items to the Second Table](#step-74-add-items-to-the-second-table)
+    - [Step 7.5: Query the Second Table Using AWS CLI](#step-75-query-the-second-table-using-aws-cli)
+  - [Step 8: Create a DynamoDB Table With a Local Secondary Index](#step-8-create-a-dynamodb-table-with-a-local-secondary-index)
+    - [Step 8.1: Create the Table](#step-81-create-the-table)
+    - [Step 8.2: Add Items to the Table](#step-82-add-items-to-the-table)
+    - [Step 8.3: Query the Table Using AWS CLI](#step-83-query-the-table-using-aws-cli)
+  - [Step 9: Describe a DynamoDB Table Using AWS CLI](#step-9-describe-a-dynamodb-table-using-aws-cli)
+  - [Step 10: Delete a DynamoDB Table Using AWS CLI](#step-10-delete-a-dynamodb-table-using-aws-cli)
+- [Conclusion](#conclusion)
+- [References](#references)
+
+</details>
+
 ---
 
 ## Introduction
