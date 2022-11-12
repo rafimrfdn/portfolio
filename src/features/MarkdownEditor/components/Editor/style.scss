@@ -2,3 +2,12 @@
   height: 90vh;
   overflow: auto;
 }
+
+@media screen and (max-width: 500px) {
+  .editor {
+    height: 45vh;
+
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+}
