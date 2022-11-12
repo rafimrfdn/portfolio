@@ -13,3 +13,10 @@
 .markdown-body h6 {
   color: #abb2bf !important;
 }
+
+@media screen and (max-width: 500px) {
+  .preview {
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+}
