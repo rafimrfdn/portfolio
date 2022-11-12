@@ -3,7 +3,8 @@ import React from 'react';
 import remarkGfm from 'remark-gfm';
 import ReactMarkdown from 'react-markdown';
 
-import SyntaxHighlighter from '@/ui/SyntaxHighlighter';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { darcula } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 import './github-markdown.css';
 
@@ -26,9 +27,14 @@ const Preview: React.FC<Props> = (props) => {
           code({ node, inline, className, children, ...props }) {
             const match = /language-(\w+)/.exec(className || '');
             return !inline && match ? (
-              <SyntaxHighlighter language={match[1].toString()}>
-                {String(children).replace(/\n$/, '')}
-              </SyntaxHighlighter>
+              <SyntaxHighlighter
+                children={String(children).replace(/\n$/, '')}
+                style={darcula as any}
+                language={match[1]}
+                showLineNumbers={true}
+                PreTag="div"
+                {...props}
+              />
             ) : (
               <code className={className} {...props}>
                 {children}
