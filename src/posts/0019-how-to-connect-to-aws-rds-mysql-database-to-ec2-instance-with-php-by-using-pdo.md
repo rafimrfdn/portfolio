@@ -9,7 +9,7 @@ author: MKAbuMattar
 description: 'In this post, we will learn how to connect to AWS RDS MySQL Database to EC2 Instance With PHP By Using PDO.'
 prev: how-to-install-and-configure-nodejs-on-ec2-instance-amazon-linux-2
 next: setup-nextjs-tailwind-css-styled-components-with-typescript
-featured: true
+featured: false
 draft: false
 ---
 

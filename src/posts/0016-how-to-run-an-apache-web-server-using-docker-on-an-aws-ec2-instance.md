@@ -9,7 +9,7 @@ author: MKAbuMattar
 description: 'In this post, we will learn how to run an Apache web server using Docker on an AWS EC2 instance.'
 prev: how-to-create-an-aws-ec2-instance-using-aws-cli
 next: how-to-create-a-aws-rds-mysql-database-and-connect-to-it-using-mysql-workbench
-featured: true
+featured: false
 draft: false
 ---
 
