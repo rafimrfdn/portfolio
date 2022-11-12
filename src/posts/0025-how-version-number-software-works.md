@@ -71,8 +71,6 @@ The versioning examples are a set of version numbers that demonstrate how versio
 
 The versioning tools are a set of tools that can be used to manage version numbers. For example, the semantic versioning tools are npm, Composer, and Maven.
 
-The versioning resources are a set of resources that can be used to learn more about versioning. For example, the semantic versioning resources are the official specification, the official website, and the official blog.
-
 ## Conclusion
 
 In this article, we have learned about versioning. We have learned about the versioning order, the versioning format, the versioning rules, the versioning scheme, the versioning types, the versioning examples, and the versioning tools.
