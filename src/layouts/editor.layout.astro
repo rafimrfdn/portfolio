@@ -29,7 +29,7 @@ const { lang, title, description } = Astro.props as Props;
   </head>
   <body>
     <Main>
-      <Navbar client:idle />
+      <Navbar isDailyQuote={true} client:idle />
       <slot />
       <Footer />
     </Main>
