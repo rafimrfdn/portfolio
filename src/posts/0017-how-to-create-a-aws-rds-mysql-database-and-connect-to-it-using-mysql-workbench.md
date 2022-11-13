@@ -9,7 +9,7 @@ author: MKAbuMattar
 description: 'RDS is a managed service that makes it easy to set up, operate, and scale a relational database in the cloud. It provides cost-efficient and resizable capacity while automating time-consuming administration tasks such as hardware provisioning, database setup, patching and backups. It frees you to focus on your applications so you can give them the fast performance, high availability, security, and compatibility they need.'
 prev: how-to-run-an-apache-web-server-using-docker-on-an-aws-ec2-instance
 next: how-to-install-and-configure-nodejs-on-ec2-instance-amazon-linux-2
-featured: true
+featured: false
 draft: false
 ---
 

@@ -36,7 +36,7 @@ const index: FC = () => {
           <h1 className="footer__title">Mohammad Abu Mattar</h1>
 
           <div className="footer__list">
-            <span className={'footer__divider'}>|</span>
+            {/* <span className={'footer__divider'}>|</span> */}
             {footerLinks.map((link: Links, index: number) => (
               <Fragment key={index}>
                 <div className="">
@@ -48,7 +48,7 @@ const index: FC = () => {
                     {link.title}
                   </Link>
                 </div>
-                <span className={'footer__divider'}>|</span>
+                {/* <span className={'footer__divider'}>|</span> */}
               </Fragment>
             ))}
           </div>

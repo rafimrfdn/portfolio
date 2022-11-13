@@ -8,9 +8,9 @@ image: /assets/img/blog/0024-how-to-connect-a-two-ec2-instances-data-transfer-us
 author: MKAbuMattar
 description: 'In this post, I will show you how to connect a two EC2 instances data transfer using AWS CLI without AWS EFS.'
 prev: how-to-create-a-aws-s3-bucket-using-aws-cli
-next: undefined
+next: how-version-number-software-works
 featured: true
-draft: true
+draft: false
 ---
 
 ## Introduction
