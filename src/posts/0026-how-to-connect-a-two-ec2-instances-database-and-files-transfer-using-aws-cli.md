@@ -4,7 +4,7 @@ slug: how-to-connect-a-two-ec2-instances-database-and-files-transfer-using-aws-c
 tags: ['AWS', 'AWS CLI', 'VPC', 'EC2', 'EBS', 'EFS', 'Linux']
 categories: ['AWS']
 date: 2022-11-13T18:06:00.000Z
-image: /assets/img/blog/0025-how-to-connect-a-two-ec2-instances-database-and-files-transfer-using-aws-cli/how-to-connect-a-two-ec2-instances-database-and-files-transfer-using-aws-cli.png
+image: /assets/img/blog/0026-how-to-connect-a-two-ec2-instances-database-and-files-transfer-using-aws-cli/how-to-connect-a-two-ec2-instances-database-and-files-transfer-using-aws-cli.png
 author: MKAbuMattar
 description: 'In this post, I will show you how to connect a two EC2 instances database and files transfer using AWS CLI. I will use AWS CLI to create a VPC, EC2 instances, EBS, EFS, and security groups. I will use the EC2 instances to connect to the database and files transfer.'
 prev: undefined
@@ -603,7 +603,20 @@ aws ec2 create-tags \
 --tags Key=Name,Value=ec2-instance-2
 ```
 
-The command creates two EC2 instances and adds a tag to each instance.
+Explanation:
+
+- `AWS_EC2_INSTANCE_1` and `AWS_EC2_INSTANCE_2` are variables that store the instance IDs of the two EC2 instances.
+- The `aws ec2 run-instances` command creates two EC2 instances.
+- The `--image-id` option specifies the AMI ID.
+- The `--instance-type` option specifies the instance type.
+- The `--key-name` option specifies the key pair name.
+- The `--monitoring` option specifies whether detailed monitoring is enabled.
+- The `--security-group-ids` option specifies the security group ID.
+- The `--subnet-id` option specifies the subnet ID.
+- The `--user-data` option specifies the user data script.
+- The `--query` option specifies the query to retrieve the instance ID.
+- The `--output` option specifies the output format.
+- The `aws ec2 create-tags` command adds a tag to the instances.
 
 ## Create an EBS Volume
 
@@ -631,7 +644,20 @@ aws ec2 create-tags \
 --tags Key=Name,Value=ebs-volume
 ```
 
-The command creates an EBS volume with all availability zones and adds a tag to the EBS volume.
+Explanation:
+
+- `AWS_AVAILABILITY_ZONE` is a variable that stores the availability zone.
+- The `aws ec2 describe-availability-zones` command retrieves the availability zone.
+- The `--query` option specifies the query to retrieve the availability zone.
+- The `--output` option specifies the output format.
+- The `aws ec2 create-volume` command creates an EBS volume.
+- The `--availability-zone` option specifies the availability zone.
+- The `--size` option specifies the size of the volume, in GiB.
+- The `--volume-type` option specifies the volume type.
+- The `--iops` option specifies the number of I/O operations per second (IOPS) that the volume supports.
+- The `--query` option specifies the query to retrieve the volume ID.
+- The `--output` option specifies the output format.
+- The `aws ec2 create-tags` command adds a tag to the EBS volume.
 
 ### Step 2: Attach the EBS Volume to the First EC2 Instance
 
@@ -645,7 +671,12 @@ aws ec2 attach-volume \
 --volume-id $AWS_EBS_VOLUME
 ```
 
-The command attaches the EBS volume to the first EC2 instance.
+Explanation:
+
+- The `aws ec2 attach-volume` command attaches the EBS volume to the first EC2 instance.
+- The `--device` option specifies the device name.
+- The `--instance-id` option specifies the instance ID.
+- The `--volume-id` option specifies the volume ID.
 
 ### Step 3: Create a File System and Mount the EBS Volume
 
@@ -671,7 +702,14 @@ sudo echo "/dev/xvdf /data ext4 defaults 0 0" >> /etc/fstab
 exit
 ```
 
-The command creates a file system and mounts the EBS volume.
+Explanation:
+
+- The `ssh` command connects to the first EC2 instance.
+- The `sudo mkfs -t ext4 /dev/xvdf` command creates a file system.
+- The `sudo mkdir /data` command creates a directory.
+- The `sudo mount /dev/xvdf /data` command mounts the EBS volume.
+- The `sudo echo "/dev/xvdf /data ext4 defaults 0 0" >> /etc/fstab` command adds the EBS volume to the fstab file.
+- The `exit` command exits the first EC2 instance.
 
 ### Step 4: Attach the EBS Volume to the Second EC2 Instance
 
@@ -685,7 +723,12 @@ aws ec2 attach-volume \
 --volume-id $AWS_EBS_VOLUME
 ```
 
-The command attaches the EBS volume to the second EC2 instance.
+Explanation:
+
+- The `aws ec2 attach-volume` command attaches the EBS volume to the second EC2 instance.
+- The `--device` option specifies the device name.
+- The `--instance-id` option specifies the instance ID.
+- The `--volume-id` option specifies the volume ID.
 
 ### Step 5: Create a File System and Mount the EBS Volume
 
@@ -711,7 +754,14 @@ sudo echo "/dev/xvdf /data ext4 defaults 0 0" >> /etc/fstab
 exit
 ```
 
-The command creates a file system and mounts the EBS volume.
+Explanation:
+
+- The `ssh` command connects to the second EC2 instance.
+- The `sudo mkfs -t ext4 /dev/xvdf` command creates a file system.
+- The `sudo mkdir /data` command creates a directory.
+- The `sudo mount /dev/xvdf /data` command mounts the EBS volume.
+- The `sudo echo "/dev/xvdf /data ext4 defaults 0 0" >> /etc/fstab` command adds the EBS volume to the fstab file.
+- The `exit` command exits the second EC2 instance.
 
 ## Create an EFS File System
 
@@ -733,7 +783,14 @@ aws efs create-tags \
 --tags Key=Name,Value=efs-file-system
 ```
 
-The command creates an EFS file system and adds a tag to the EFS file system.
+Explanation:
+
+- The `aws efs create-file-system` command creates an EFS file system.
+- The `--performance-mode` option specifies the performance mode.
+- The `--throughput-mode` option specifies the throughput mode.
+- The `--query` option specifies the query to retrieve the file system ID.
+- The `--output` option specifies the output format.
+- The `aws efs create-tags` command adds a tag to the EFS file system.
 
 ### Step 2: Create an EFS Mount Target
 
@@ -749,7 +806,14 @@ AWS_EFS_MOUNT_TARGET=$(aws efs create-mount-target \
 --output text)
 ```
 
-The command creates an EFS mount target.
+Explanation:
+
+- The `aws efs create-mount-target` command creates an EFS mount target.
+- The `--file-system-id` option specifies the file system ID.
+- The `--subnet-id` option specifies the subnet ID.
+- The `--security-groups` option specifies the security group ID.
+- The `--query` option specifies the query to retrieve the mount target ID.
+- The `--output` option specifies the output format.
 
 ### Step 3: Mount the EFS File System to Two EC2 Instances
 
@@ -781,7 +845,16 @@ sudo echo "$AWS_EFS_FILE_SYSTEM.efs.$AWS_REGION.amazonaws.com:/ /var/www/html nf
 exit
 ```
 
-The command mounts the EFS file system to two EC2 instances.
+Explanation:
+
+- The `ssh` command connects to the first EC2 instance.
+- The `sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 $AWS_EFS_FILE_SYSTEM.efs.$AWS_REGION.amazonaws.com:/ /var/www/html` command mounts the EFS file system.
+- The `sudo echo "$AWS_EFS_FILE_SYSTEM.efs.$AWS_REGION.amazonaws.com:/ /var/www/html nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 0 0" >> /etc/fstab` command adds the EFS file system to the fstab file.
+- The `exit` command exits the first EC2 instance.
+- The `ssh` command connects to the second EC2 instance.
+- The `sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 $AWS_EFS_FILE_SYSTEM.efs.$AWS_REGION.amazonaws.com:/ /var/www/html` command mounts the EFS file system.
+- The `sudo echo "$AWS_EFS_FILE_SYSTEM.efs.$AWS_REGION.amazonaws.com:/ /var/www/html nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 0 0" >> /etc/fstab` command adds the EFS file system to the fstab file.
+- The `exit` command exits the second EC2 instance.
 
 ## Create a Database Replication on EBS
 
@@ -809,6 +882,13 @@ sudo mysql -u root -p$ROOT_DB_PASSWORD -e "FLUSH PRIVILEGES;"
 sudo mysql -u root -p$ROOT_DB_PASSWORD -e "SHOW MASTER STATUS;"
 ```
 
+Explanation:
+
+- The `sudo mysql -u root -p$ROOT_DB_PASSWORD -e "CREATE USER 'replication'@'%' IDENTIFIED BY '121612';"` command creates a database replication.
+- The `sudo mysql -u root -p$ROOT_DB_PASSWORD -e "GRANT REPLICATION SLAVE ON *.* TO 'replication'@'%';"` command grants replication slave on all databases to the replication user.
+- The `sudo mysql -u root -p$ROOT_DB_PASSWORD -e "FLUSH PRIVILEGES;"` command flushes the privileges.
+- The `sudo mysql -u root -p$ROOT_DB_PASSWORD -e "SHOW MASTER STATUS;"` command shows the master status.
+
 - Connect to the second EC2 instance.
 
 ```bash
@@ -829,7 +909,11 @@ sudo mysql -u root -p$ROOT_DB_PASSWORD -e "START SLAVE;"
 sudo mysql -u root -p$ROOT_DB_PASSWORD -e "SHOW SLAVE STATUS\G;"
 ```
 
-The command creates a database replication on EBS.
+Explanation:
+
+- The `sudo mysql -u root -p$ROOT_DB_PASSWORD -e "CHANGE MASTER TO MASTER_HOST='$AWS_EC2_INSTANCE_1_PRIVATE_IP', MASTER_USER='replication', MASTER_PASSWORD='password', MASTER_LOG_FILE='mysql-bin.000001', MASTER_LOG_POS=0;"` command changes the master to the first EC2 instance.
+- The `sudo mysql -u root -p$ROOT_DB_PASSWORD -e "START SLAVE;"` command starts the slave.
+- The `sudo mysql -u root -p$ROOT_DB_PASSWORD -e "SHOW SLAVE STATUS\G;"` command shows the slave status.
 
 ## Test the Replication
 
@@ -862,6 +946,13 @@ sudo mysql -u root -p$ROOT_DB_PASSWORD -e "USE MKLLC; INSERT INTO users (FIRST_N
 # Select all records from the table users
 sudo mysql -u root -p$ROOT_DB_PASSWORD -e "USE MKLLC; SELECT * FROM users;"
 ```
+
+Explanation:
+
+- The `sudo mysql -u root -p$ROOT_DB_PASSWORD -e "CREATE DATABASE MKLLC;"` command creates a database MK LLC.
+- The `sudo mysql -u root -p$ROOT_DB_PASSWORD -e "USE MKLLC; CREATE TABLE users (id INT NOT NULL AUTO_INCREMENT, FIRST_NAME VARCHAR(255) NOT NULL, LAST_NAME VARCHAR(255) NOT NULL, PRIMARY KEY (id));"` command creates a table users.
+- The `sudo mysql -u root -p$ROOT_DB_PASSWORD -e "USE MKLLC; INSERT INTO users (FIRST_NAME, LAST_NAME) VALUES ('FIRST_NAME', 'FIRST_NAME');"` command inserts a record to the table users.
+- The `sudo mysql -u root -p$ROOT_DB_PASSWORD -e "USE MKLLC; SELECT * FROM users;"` command selects all records from the table users.
 
 - Connect to the second EC2 instance.
 
