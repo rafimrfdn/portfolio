@@ -905,7 +905,7 @@ The replication is important.
 
 ## Conclusion
 
-In this tutorial, you learned how to create a database replication on EBS and EFS.
+In this article, you learned how to create a database replication on EBS and EFS. You also learned why the replication is important.
 
 ## Resources
 
