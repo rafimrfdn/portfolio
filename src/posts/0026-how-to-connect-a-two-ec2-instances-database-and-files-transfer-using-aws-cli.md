@@ -7,7 +7,7 @@ date: 2022-11-13T18:06:00.000Z
 image: /assets/img/blog/0026-how-to-connect-a-two-ec2-instances-database-and-files-transfer-using-aws-cli/how-to-connect-a-two-ec2-instances-database-and-files-transfer-using-aws-cli.png
 author: MKAbuMattar
 description: 'In this post, I will show you how to connect a two EC2 instances database and files transfer using AWS CLI. I will use AWS CLI to create a VPC, EC2 instances, EBS, EFS, and security groups. I will use the EC2 instances to connect to the database and files transfer.'
-prev: undefined
+prev: how-version-number-software-works
 next: undefined
 featured: true
 draft: false
@@ -824,10 +824,10 @@ To mount the EFS file system to two EC2 instances, run the following command:
 ssh -i aws-key-pair.pem ec2-user@$AWS_EC2_INSTANCE_1_PUBLIC_IP
 
 # mount the EFS file system
-sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 $AWS_EFS_FILE_SYSTEM.efs.$AWS_REGION.amazonaws.com:/ /var/www/html
+sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 $AWS_EFS_FILE_SYSTEM.efs.$AVAILABILITY_ZONE.amazonaws.com:/ /var/www/html
 
 # add the EFS file system to the fstab file
-sudo echo "$AWS_EFS_FILE_SYSTEM.efs.$AWS_REGION.amazonaws.com:/ /var/www/html nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 0 0" >> /etc/fstab
+sudo echo "$AWS_EFS_FILE_SYSTEM.efs.$AVAILABILITY_ZONE.amazonaws.com:/ /var/www/html nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 0 0" >> /etc/fstab
 
 # exit the first EC2 instance
 exit
@@ -836,10 +836,10 @@ exit
 ssh -i aws-key-pair.pem ec2-user@$AWS_EC2_INSTANCE_2_PUBLIC_IP
 
 # mount the EFS file system
-sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 $AWS_EFS_FILE_SYSTEM.efs.$AWS_REGION.amazonaws.com:/ /var/www/html
+sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 $AWS_EFS_FILE_SYSTEM.efs.$AVAILABILITY_ZONE.amazonaws.com:/ /var/www/html
 
 # add the EFS file system to the fstab file
-sudo echo "$AWS_EFS_FILE_SYSTEM.efs.$AWS_REGION.amazonaws.com:/ /var/www/html nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 0 0" >> /etc/fstab
+sudo echo "$AWS_EFS_FILE_SYSTEM.efs.$AVAILABILITY_ZONE.amazonaws.com:/ /var/www/html nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 0 0" >> /etc/fstab
 
 # exit the second EC2 instance
 exit
@@ -848,12 +848,12 @@ exit
 Explanation:
 
 - The `ssh` command connects to the first EC2 instance.
-- The `sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 $AWS_EFS_FILE_SYSTEM.efs.$AWS_REGION.amazonaws.com:/ /var/www/html` command mounts the EFS file system.
-- The `sudo echo "$AWS_EFS_FILE_SYSTEM.efs.$AWS_REGION.amazonaws.com:/ /var/www/html nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 0 0" >> /etc/fstab` command adds the EFS file system to the fstab file.
+- The `sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 $AWS_EFS_FILE_SYSTEM.efs.$AVAILABILITY_ZONE.amazonaws.com:/ /var/www/html` command mounts the EFS file system.
+- The `sudo echo "$AWS_EFS_FILE_SYSTEM.efs.$AVAILABILITY_ZONE.amazonaws.com:/ /var/www/html nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 0 0" >> /etc/fstab` command adds the EFS file system to the fstab file.
 - The `exit` command exits the first EC2 instance.
 - The `ssh` command connects to the second EC2 instance.
-- The `sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 $AWS_EFS_FILE_SYSTEM.efs.$AWS_REGION.amazonaws.com:/ /var/www/html` command mounts the EFS file system.
-- The `sudo echo "$AWS_EFS_FILE_SYSTEM.efs.$AWS_REGION.amazonaws.com:/ /var/www/html nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 0 0" >> /etc/fstab` command adds the EFS file system to the fstab file.
+- The `sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 $AWS_EFS_FILE_SYSTEM.efs.$AVAILABILITY_ZONE.amazonaws.com:/ /var/www/html` command mounts the EFS file system.
+- The `sudo echo "$AWS_EFS_FILE_SYSTEM.efs.$AVAILABILITY_ZONE.amazonaws.com:/ /var/www/html nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 0 0" >> /etc/fstab` command adds the EFS file system to the fstab file.
 - The `exit` command exits the second EC2 instance.
 
 ## Create a Database Replication on EBS
