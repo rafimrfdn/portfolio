@@ -7,6 +7,7 @@ import './style.scss';
 
 // ui
 import Button from '@/ui/Button';
+import Loading from '@/ui/Loading';
 
 // components
 import GetIcon from '@/components/GetIcon';
@@ -67,7 +68,7 @@ const index = ({ domain }: any) => {
   return (
     <div>
       {loading ? (
-        <p>Loading...</p>
+        <Loading />
       ) : (
         <div className={'card'}>
           <header>
