@@ -732,22 +732,34 @@ CREATE INDEX index_name ON table_name (column_name);
 CREATE UNIQUE INDEX index_name ON table_name (column_name);
 ```
 
-#### Create a primary key
+#### Create a partial index
 
 ```sql
-ALTER TABLE table_name ADD PRIMARY KEY (column_name);
+CREATE INDEX index_name ON table_name (column_name(length));
 ```
 
-#### Create a unique key
+#### Create a functional index
 
 ```sql
-ALTER TABLE table_name ADD UNIQUE (column_name);
+CREATE INDEX index_name ON table_name (UPPER(column_name));
 ```
 
-#### Create a foreign key
+#### Create an index with a specific index method
 
 ```sql
-ALTER TABLE table_name ADD FOREIGN KEY (column_name) REFERENCES table_name(column_name);
+CREATE INDEX index_name ON table_name (column_name) USING index_method;
+```
+
+#### Create an index with a specific index operator class
+
+```sql
+CREATE INDEX index_name ON table_name (column_name) WITH (index_method, index_operator_class);
+```
+
+#### Create a composite index
+
+```sql
+CREATE INDEX index_name ON table_name (column_name1, column_name2);
 ```
 
 #### Drop an index
@@ -756,22 +768,34 @@ ALTER TABLE table_name ADD FOREIGN KEY (column_name) REFERENCES table_name(colum
 DROP INDEX index_name ON table_name;
 ```
 
-#### Drop a primary key
+#### Rename an index
 
 ```sql
-ALTER TABLE table_name DROP PRIMARY KEY;
+ALTER INDEX index_name RENAME TO new_index_name;
 ```
 
-#### Drop a unique key
+#### Rebuild an index
 
 ```sql
-ALTER TABLE table_name DROP INDEX column_name;
+ALTER INDEX index_name RENAME TO new_index_name;
 ```
 
-#### Drop a foreign key
+#### Reorganize an index
 
 ```sql
-ALTER TABLE table_name DROP FOREIGN KEY column_name;
+ALTER INDEX index_name REORGANIZE;
+```
+
+#### Disable an index
+
+```sql
+ALTER INDEX index_name DISABLE;
+```
+
+#### Enable an index
+
+```sql
+ALTER INDEX index_name ENABLE;
 ```
 
 </div>
