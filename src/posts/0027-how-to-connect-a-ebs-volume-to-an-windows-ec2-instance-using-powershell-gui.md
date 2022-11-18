@@ -10,7 +10,7 @@ description: 'In this post, we will learn how to connect a EBS volume to an Wind
 prev: how-to-connect-a-two-ec2-instances-database-and-files-transfer-using-aws-cli
 next: what-is-devops
 featured: true
-draft: true
+draft: false
 ---
 
 ## Introduction
