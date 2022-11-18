@@ -38,7 +38,6 @@ draft: false
   - [File Handling](#file-handling)
   - [Arithmetic Operators](#arithmetic-operators)
   - [Plus-Equals Operator](#plus-equals-operator)
-  - [`f-Strings`](#f-strings)
 - [Python Data Types](#python-data-types)
   - [Numbers](#numbers)
   - [Strings](#strings)
@@ -62,6 +61,7 @@ draft: false
   - [Slicing string](#slicing-string-1)
   - [Replace](#replace)
   - [Split](#split)
+  - [`f-Strings`](#f-strings)
 
 </details>
 
@@ -407,22 +407,6 @@ for line in file:
 | `%=`     | `x %= 3`  | `x = x % 3`  |
 | `**=`    | `x **= 3` | `x = x ** 3` |
 | `//=`    | `x //= 3` | `x = x // 3` |
-
-</div>
-
-<div class="cheat__container-content">
-
-### `f-Strings`
-
-An f-string is a string literal that is prefixed with `f` or `F`. It allows you to include the value of Python expressions inside a string by prefixing the expression with `f` or `F` and writing it within curly braces `{}`.
-
-> **Note:** `f-strings` are only supported in Python 3.6 and above.
-
-```python
-name = 'MKAbuMattar'
-
-print(f'Hello {name}')
-```
 
 </div>
 
@@ -899,6 +883,22 @@ print(name.split('A', 1)) # output: ['MK', 'buMattar']
 ```
 
 > **Note:** The `split()` method does not change the original string.
+
+</div>
+
+<div class="cheat__container-content">
+
+### `f-Strings`
+
+An f-string is a string literal that is prefixed with `f` or `F`. It allows you to include the value of Python expressions inside a string by prefixing the expression with `f` or `F` and writing it within curly braces `{}`.
+
+> **Note:** `f-strings` are only supported in Python 3.6 and above.
+
+```python
+name = 'MKAbuMattar'
+
+print(f'Hello {name}')
+```
 
 </div>
 
