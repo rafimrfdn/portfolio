@@ -21,8 +21,8 @@ const devOpsPosts = nonDraftPosts.filter(
   (post) => post.frontmatter.category === 'DevOps',
 );
 
-const toolkitPosts = nonDraftPosts.filter(
-  (post) => post.frontmatter.category === 'Toolkit',
+const toolkitsPosts = nonDraftPosts.filter(
+  (post) => post.frontmatter.category === 'Toolkits',
 );
 ---
 
@@ -36,6 +36,6 @@ const toolkitPosts = nonDraftPosts.filter(
     markupPosts={markupPosts}
     databasePosts={databasePosts}
     devOpsPosts={devOpsPosts}
-    toolkitPosts={toolkitPosts}
+    toolkitsPosts={toolkitsPosts}
   />
 </Layout>
