@@ -8,7 +8,7 @@ image: /assets/img/blog/0022-how-to-create-a-dynamodb-table-using-aws-cli/how-to
 author: MKAbuMattar
 description: 'In this article, we will learn how to create a DynamoDB table using AWS CLI. We will also learn how to add items to the table and how to query the table.'
 prev: what-is-a-ci-cd
-next: undefined
+next: how-to-create-a-aws-s3-bucket-using-aws-cli
 featured: true
 draft: false
 ---

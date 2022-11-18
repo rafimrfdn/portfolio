@@ -8,7 +8,7 @@ image: /assets/img/blog/0025-how-version-number-software-works/how-version-numbe
 author: MKAbuMattar
 description: 'Software versioning is a way to keep track of the changes made to a software product. It is a way to identify the different versions of a software product.'
 prev: how-to-connect-a-two-ec2-instances-data-transfer-using-aws-cli-without-aws-efs
-next: undefined
+next: how-to-connect-a-two-ec2-instances-database-and-files-transfer-using-aws-cli
 featured: true
 draft: false
 ---
