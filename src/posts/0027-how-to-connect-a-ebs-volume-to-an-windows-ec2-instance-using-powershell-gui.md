@@ -3,12 +3,12 @@ title: How To Connect A EBS Volume To An Windows EC2 Instance Using Powershell/G
 slug: how-to-connect-a-ebs-volume-to-an-windows-ec2-instance-using-powershell-gui
 tags: ['AWS', 'AWS CLI', 'VPC', 'EC2', 'EBS', 'Windows']
 categories: ['AWS']
-date: 2022-11-13T18:06:00.000Z
-image: /assets/img/blog/0026-how-to-connect-a-ebs-volume-to-an-windows-ec2-instance-using-powershell-gui/how-to-connect-a-ebs-volume-to-an-windows-ec2-instance-using-powershell-gui.png
+date: 2022-11-15T18:06:00.000Z
+image: /assets/img/blog/0027-how-to-connect-a-ebs-volume-to-an-windows-ec2-instance-using-powershell-gui/how-to-connect-a-ebs-volume-to-an-windows-ec2-instance-using-powershell-gui.png
 author: MKAbuMattar
 description: 'In this post, we will learn how to connect a EBS volume to an Windows EC2 instance using Powershell/GUI'
 prev: how-to-connect-a-two-ec2-instances-database-and-files-transfer-using-aws-cli
-next: undefined
+next: what-is-devops
 featured: true
 draft: true
 ---

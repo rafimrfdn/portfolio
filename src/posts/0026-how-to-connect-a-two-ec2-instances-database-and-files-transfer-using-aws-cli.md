@@ -8,7 +8,7 @@ image: /assets/img/blog/0026-how-to-connect-a-two-ec2-instances-database-and-fil
 author: MKAbuMattar
 description: 'In this post, I will show you how to connect a two EC2 instances database and files transfer using AWS CLI. I will use AWS CLI to create a VPC, EC2 instances, EBS, EFS, and security groups. I will use the EC2 instances to connect to the database and files transfer.'
 prev: how-version-number-software-works
-next: undefined
+next: how-to-connect-a-ebs-volume-to-an-windows-ec2-instance-using-powershell-gui
 featured: true
 draft: false
 ---

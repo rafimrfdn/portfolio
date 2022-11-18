@@ -76,7 +76,7 @@ const { SITE } = import.meta.env;
   prev={post.frontmatter.prev}
 >
   <Post
-    allPosts={allPosts}
+    allPosts={nonDraftPosts}
     post={post}
     author={authorsData[post.frontmatter.author]}
     prevPost={prevPost}

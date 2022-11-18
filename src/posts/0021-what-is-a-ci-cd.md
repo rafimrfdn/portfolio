@@ -9,7 +9,7 @@ author: MKAbuMattar
 description: 'Continuous Integration and Continuous Delivery are two of the most important concepts in DevOps. In this article, we will discuss what is a CI/CD and how it can help you to improve your software development process.'
 prev: setup-nextjs-tailwind-css-styled-components-with-typescript
 next: how-to-create-a-dynamodb-table-using-aws-cli
-featured: true
+featured: false
 draft: false
 ---
 

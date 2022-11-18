@@ -1,60 +1,62 @@
 ---
-import authorsData from '@/data/authors.json'
-import Layout from '@/layouts/post.layout.astro'
-import Post from '@/views/Post/index.astro'
+import authorsData from '@/data/authors.json';
+import Layout from '@/layouts/post.layout.astro';
+import Post from '@/views/Post/index.astro';
 
-const allPosts = await Astro.glob('../../posts/*.md')
+const allPosts = await Astro.glob('../../posts/*.md');
 allPosts.sort(
   (a, b) =>
     new Date(b.frontmatter.date).valueOf() -
     new Date(a.frontmatter.date).valueOf(),
-)
+);
+
+const nonDraftPosts = allPosts.filter((post) => !post.frontmatter.draft);
 
 export async function getStaticPaths({ paginate, rss }) {
-  const postImportResult = import.meta.globEager('../../posts/*.md')
-  const allPosts = Object.values(postImportResult)
+  const postImportResult = import.meta.globEager('../../posts/*.md');
+  const allPosts = Object.values(postImportResult);
 
   const paths = allPosts.map((post) => {
-    const slug = post.frontmatter.slug
+    const slug = post.frontmatter.slug;
     return {
       params: {
         slug,
       },
       props: { post },
-    }
-  })
-  return paths
+    };
+  });
+  return paths;
 }
-const { post } = Astro.props
+const { post } = Astro.props;
 
 const prevPost = allPosts.filter(
   (postFilter) =>
     post.frontmatter.prev !== undefined &&
     postFilter.frontmatter.slug === post.frontmatter.prev,
-)
+);
 
 const nextPost = allPosts.filter(
   (postFilter) =>
     post.frontmatter.next !== undefined &&
     postFilter.frontmatter.slug === post.frontmatter.next,
-)
+);
 
-const featuredPost = allPosts.filter((post) => post.frontmatter.featured)
+const featuredPost = allPosts.filter((post) => post.frontmatter.featured);
 
 const categories = allPosts.reduce((acc, post) => {
   if (post.frontmatter.categories) {
     post.frontmatter.categories.forEach((category) => {
       if (!acc.includes(category)) {
-        acc.push(category)
+        acc.push(category);
       }
-    })
+    });
   }
-  return acc
-}, [])
+  return acc;
+}, []);
 
-const recentPosts = allPosts.slice(0, 3)
+const recentPosts = allPosts.slice(0, 3);
 
-const { SITE } = import.meta.env
+const { SITE } = import.meta.env;
 ---
 
 <Layout
@@ -74,7 +76,7 @@ const { SITE } = import.meta.env
   prev={post.frontmatter.prev}
 >
   <Post
-    allPosts={allPosts}
+    allPosts={nonDraftPosts}
     post={post}
     author={authorsData[post.frontmatter.author]}
     prevPost={prevPost}
