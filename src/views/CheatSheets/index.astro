@@ -15,7 +15,7 @@ export type Props = {
   markupPosts: any;
   databasePosts: any;
   devOpsPosts: any;
-  toolkitPosts: any;
+  toolkitsPosts: any;
 };
 
 const {
@@ -23,7 +23,7 @@ const {
   markupPosts,
   databasePosts,
   devOpsPosts,
-  toolkitPosts,
+  toolkitsPosts,
 } = Astro.props as Props;
 ---
 
@@ -44,39 +44,69 @@ const {
   </section>
 
   <Container className={'cheat__container'}>
-    <section class={'cheat__container-content'}>
-      <h2 class={'cheat__container-content_title'}>Programming</h2>
-      <div class={'cheat__container-content_cards'}>
-        {programmingPosts.map((post: any) => <Card post={post} />)}
-      </div>
-    </section>
+    {
+      programmingPosts.length > 0 && (
+        <section class={'cheat__container-content'}>
+          <h2 class={'cheat__container-content_title'}>Programming</h2>
+          <div class={'cheat__container-content_cards'}>
+            {programmingPosts.map((post: any) => (
+              <Card post={post} />
+            ))}
+          </div>
+        </section>
+      )
+    }
 
-    <section class={'cheat__container-content'}>
-      <h2 class={'cheat__container-content_title'}>Markup</h2>
-      <div class={'cheat__container-content_cards'}>
-        {markupPosts.map((post: any) => <Card post={post} />)}
-      </div>
-    </section>
+    {
+      markupPosts.length > 0 && (
+        <section class={'cheat__container-content'}>
+          <h2 class={'cheat__container-content_title'}>Markup</h2>
+          <div class={'cheat__container-content_cards'}>
+            {markupPosts.map((post: any) => (
+              <Card post={post} />
+            ))}
+          </div>
+        </section>
+      )
+    }
 
-    <section class={'cheat__container-content'}>
-      <h2 class={'cheat__container-content_title'}>Databases</h2>
-      <div class={'cheat__container-content_cards'}>
-        {databasePosts.map((post: any) => <Card post={post} />)}
-      </div>
-    </section>
+    {
+      databasePosts.length > 0 && (
+        <section class={'cheat__container-content'}>
+          <h2 class={'cheat__container-content_title'}>Databases</h2>
+          <div class={'cheat__container-content_cards'}>
+            {databasePosts.map((post: any) => (
+              <Card post={post} />
+            ))}
+          </div>
+        </section>
+      )
+    }
 
-    <section class={'cheat__container-content'}>
-      <h2 class={'cheat__container-content_title'}>DevOps</h2>
-      <div class={'cheat__container-content_cards'}>
-        {devOpsPosts.map((post: any) => <Card post={post} />)}
-      </div>
-    </section>
+    {
+      devOpsPosts.length > 0 && (
+        <section class={'cheat__container-content'}>
+          <h2 class={'cheat__container-content_title'}>DevOps</h2>
+          <div class={'cheat__container-content_cards'}>
+            {devOpsPosts.map((post: any) => (
+              <Card post={post} />
+            ))}
+          </div>
+        </section>
+      )
+    }
 
-    <section class={'cheat__container-content'}>
-      <h2 class={'cheat__container-content_title'}>Toolkits</h2>
-      <div class={'cheat__container-content_cards'}>
-        {toolkitPosts.map((post: any) => <Card post={post} />)}
-      </div>
-    </section>
+    {
+      toolkitsPosts.length > 0 && (
+        <section class={'cheat__container-content'}>
+          <h2 class={'cheat__container-content_title'}>Toolkits</h2>
+          <div class={'cheat__container-content_cards'}>
+            {toolkitsPosts.map((post: any) => (
+              <Card post={post} />
+            ))}
+          </div>
+        </section>
+      )
+    }
   </Container>
 </section>

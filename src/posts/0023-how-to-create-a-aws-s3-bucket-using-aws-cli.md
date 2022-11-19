@@ -9,7 +9,7 @@ author: MKAbuMattar
 description: 'In this post, I will show you how to create a AWS S3 bucket using AWS CLI.'
 prev: how-to-create-a-dynamodb-table-using-aws-cli
 next: how-to-connect-a-two-ec2-instances-data-transfer-using-aws-cli-without-aws-efs
-featured: true
+featured: false
 draft: false
 ---
 
