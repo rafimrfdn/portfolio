@@ -1,29 +1,29 @@
-import React from 'react'
+import React from 'react';
 
 type Props = {
-  posts: any
-  authors: any
-}
+  posts: any;
+  authors: any;
+};
 
 // style
-import './style.scss'
+import './style.scss';
 
 // ui
-import Container from '@/ui/Container'
-import Grid from '@/ui/Grid'
-import Image from '@/ui/Image'
-import Link from '@/ui/Link'
-import Section from '@/ui/Section'
+import Container from '@/ui/Container';
+import Grid from '@/ui/Grid';
+import Image from '@/ui/Image';
+import Link from '@/ui/Link';
+import Section from '@/ui/Section';
 
 // component
-import GetIcon from '@/components/GetIcon'
-import Slider from '@/components/Slider'
+import GetIcon from '@/components/GetIcon';
+import Slider from '@/components/Slider';
 
 // util
-import formatDate from '@/utils/formatDate.util'
+import formatDate from '@/utils/formatDate.util';
 
 const index: React.FC<Props> = (props) => {
-  const { posts, authors } = props
+  const { posts, authors } = props;
 
   return (
     <Section className={'featuredpost'} id={'featuredpost'}>
@@ -83,7 +83,7 @@ const index: React.FC<Props> = (props) => {
         </Grid>
       </Container>
     </Section>
-  )
-}
+  );
+};
 
-export default index
+export default index;

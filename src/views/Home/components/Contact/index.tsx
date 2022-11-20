@@ -1,35 +1,35 @@
-import { FC } from 'react'
+import { FC } from 'react';
 
 // type
-import type ContactType from '@/views/Home/components/Contact/types/contact'
+import type ContactType from '@/views/Home/components/Contact/types/contact';
 
 type Props = {
-  serviceId: string
-  templateId: string
-  publicKey: string
-}
+  serviceId: string;
+  templateId: string;
+  publicKey: string;
+};
 
 // style
-import './style.scss'
+import './style.scss';
 
 // form
-import Contact from '@/form/Contact'
+import Contact from '@/form/Contact';
 
 // ui
-import Container from '@/ui/Container'
-import Grid from '@/ui/Grid'
-import Section from '@/ui/Section'
-import Subtitle from '@/ui/Subtitle'
-import Title from '@/ui/Title'
+import Container from '@/ui/Container';
+import Grid from '@/ui/Grid';
+import Section from '@/ui/Section';
+import Subtitle from '@/ui/Subtitle';
+import Title from '@/ui/Title';
 
 // component
-import Card from '@/views/Home/components/Contact/components/Card'
+import Card from '@/views/Home/components/Contact/components/Card';
 
 // data
-import contactData from '@/views/Home/components/Contact/data/contact.json'
+import contactData from '@/views/Home/components/Contact/data/contact.json';
 
 const index: FC<Props> = (props) => {
-  const { serviceId, templateId, publicKey } = props
+  const { serviceId, templateId, publicKey } = props;
   return (
     <>
       <Section className={'contact'} id={'contact'}>
@@ -65,7 +65,7 @@ const index: FC<Props> = (props) => {
         </Container>
       </Section>
     </>
-  )
-}
+  );
+};
 
-export default index
+export default index;

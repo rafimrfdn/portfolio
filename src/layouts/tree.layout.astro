@@ -1,26 +1,26 @@
 ---
 // styles
-import '@/styles/normalize.scss'
-import '@/styles/global.scss'
+import '@/styles/normalize.scss';
+import '@/styles/global.scss';
 
 //ui
-import Main from '@/ui/Main'
+import Main from '@/ui/Main';
 
 // components
-import Metadata from '@/components/Metadata/index.astro'
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
+import Metadata from '@/components/Metadata/index.astro';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 // script
-import Script from '@/script/index.script.astro'
+import Script from '@/script/index.script.astro';
 
 export type Props = {
-  lang: string
-  title: string
-  description: string
-}
+  lang: string;
+  title: string;
+  description: string;
+};
 
-const { lang, title, description } = Astro.props as Props
+const { lang, title, description } = Astro.props as Props;
 ---
 
 <html lang={lang || 'en'}>
@@ -29,10 +29,10 @@ const { lang, title, description } = Astro.props as Props
   </head>
   <body>
     <Main>
-      <Navbar isTree={true} client:idle/>
-      <slot></slot>
-      <Footer/>
+      <Navbar isTree={true} client:idle />
+      <slot />
+      <Footer />
     </Main>
-    <Script/>
+    <Script />
   </body>
 </html>

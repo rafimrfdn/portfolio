@@ -1,19 +1,19 @@
-import { FC } from 'react'
+import { FC } from 'react';
 
 // type
-import Skill from '@/views/Home/components/Skills/types/skill'
-import SkillCategory from '@/views/Home/components/Skills/types/skillCategory'
+import Skill from '@/views/Home/components/Skills/types/skill';
+import SkillCategory from '@/views/Home/components/Skills/types/skillCategory';
 
 type Props = {
-  skillsData: SkillCategory
-}
+  skillsData: SkillCategory;
+};
 
 // component
-import GetIcon from '@/components/GetIcon'
-import SkillGroup from '@/views/Home/components/Skills/components/SkillGroup'
+import GetIcon from '@/components/GetIcon';
+import SkillGroup from '@/views/Home/components/Skills/components/SkillGroup';
 
 const index: FC<Props> = (props) => {
-  const { skillsData } = props
+  const { skillsData } = props;
   return (
     <>
       <div className="skills__content">
@@ -28,7 +28,7 @@ const index: FC<Props> = (props) => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default index
+export default index;

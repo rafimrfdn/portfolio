@@ -1,21 +1,21 @@
 ---
 export type Props = {
-  title: string
-  description?: string
-  keywords?: string
-  canonical?: string
-  imageSecureUrl?: string
-  image?: string
-  imageUrl?: string
-  imageAlt?: string
-  imageWidth?: string | URL
-  imageHeight?: string | URL
-  imageType?: string
-  type?: string
-  next?: string
-  prev?: string
-  canonicalURL?: string | URL
-}
+  title: string;
+  description?: string;
+  keywords?: string;
+  canonical?: string;
+  imageSecureUrl?: string;
+  image?: string;
+  imageUrl?: string;
+  imageAlt?: string;
+  imageWidth?: string | URL;
+  imageHeight?: string | URL;
+  imageType?: string;
+  type?: string;
+  next?: string;
+  prev?: string;
+  canonicalURL?: string | URL;
+};
 
 const {
   title,
@@ -32,26 +32,26 @@ const {
   next,
   prev,
   canonicalURL,
-} = Astro.props as Props
+} = Astro.props as Props;
 ---
 
 <!-- google analytics -->
 <script is:inline>
   partytown = {
     forward: ['dataLayer.push'],
-  }
+  };
 </script>
 <script
   type="text/partytown"
   src="https://www.googletagmanager.com/gtag/js?id=G-RT1QXJGPDC"
 ></script>
 <script type="text/partytown">
-  window.dataLayer = window.dataLayer || []
+  window.dataLayer = window.dataLayer || [];
   function gtag() {
-    dataLayer.push(arguments)
+    dataLayer.push(arguments);
   }
-  gtag('js', new Date())
-  gtag('config', 'G-RT1QXJGPDC')
+  gtag('js', new Date());
+  gtag('config', 'G-RT1QXJGPDC');
 </script>
 
 <!-- common -->

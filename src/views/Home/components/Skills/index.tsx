@@ -1,23 +1,23 @@
-import { FC } from 'react'
+import { FC } from 'react';
 
 // type
-import type SkillCategory from '@/views/Home/components/Skills/types/skillCategory'
+import type SkillCategory from '@/views/Home/components/Skills/types/skillCategory';
 
 // style
-import './style.scss'
+import './style.scss';
 
 // ui
-import Container from '@/ui/Container'
-import Grid from '@/ui/Grid'
-import Section from '@/ui/Section'
-import Subtitle from '@/ui/Subtitle'
-import Title from '@/ui/Title'
+import Container from '@/ui/Container';
+import Grid from '@/ui/Grid';
+import Section from '@/ui/Section';
+import Subtitle from '@/ui/Subtitle';
+import Title from '@/ui/Title';
 
 // components
-import Card from '@/views/Home/components/Skills/components/Card'
+import Card from '@/views/Home/components/Skills/components/Card';
 
 // data
-import skillsData from '@/views/Home/components/Skills/data/skills.json'
+import skillsData from '@/views/Home/components/Skills/data/skills.json';
 
 const index: FC = () => {
   return (
@@ -32,7 +32,7 @@ const index: FC = () => {
         </Grid>
       </Container>
     </Section>
-  )
-}
+  );
+};
 
-export default index
+export default index;

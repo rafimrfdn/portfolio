@@ -1,21 +1,21 @@
-import { FC, ReactNode } from 'react'
+import { FC, ReactNode } from 'react';
 
 // style
-import './style.scss'
+import './style.scss';
 
 type Props = {
-  className?: string
-  children: ReactNode
-  [x: string]: any
-}
+  className?: string;
+  children: ReactNode;
+  [x: string]: any;
+};
 
 const index: FC<Props> = (props) => {
-  const { className = '', children, ...otherProps } = props
+  const { className = '', children, ...otherProps } = props;
   return (
     <h2 className={`section__title ${className}`} {...otherProps}>
       {children}
     </h2>
-  )
-}
+  );
+};
 
-export default index
+export default index;

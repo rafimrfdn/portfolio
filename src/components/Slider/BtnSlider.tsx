@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-import GetIcon from '../GetIcon'
+import GetIcon from '../GetIcon';
 
 const BtnSlider = ({ direction, moveSlide }) => {
   return (
@@ -16,7 +16,7 @@ const BtnSlider = ({ direction, moveSlide }) => {
         )}
       </button>
     </div>
-  )
-}
+  );
+};
 
-export default BtnSlider
+export default BtnSlider;

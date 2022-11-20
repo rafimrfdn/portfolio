@@ -289,17 +289,17 @@ Explanation:
 ### CSS in HTML
 
 ```html
-<-! Inline CSS -->
+<!-- Inline CSS -->
 <p style="color: red;">This is a paragraph.</p>
 
-<-! Internal CSS -->
+<!-- Internal CSS -->
 <style>
   p {
     color: red;
   }
 </style>
 
-<-! External CSS -->
+<!-- External CSS -->
 
 <!-- index.html -->
 <link rel="stylesheet" href="style.css" />

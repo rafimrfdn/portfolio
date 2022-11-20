@@ -1,7 +1,7 @@
-import { useEffect } from 'react'
+import { useEffect } from 'react';
 
 const useMixitup = () => {
-  let linkwork
+  let linkwork;
 
   useEffect(() => {
     let mixerPortfolio = mixitup('.work__container', {
@@ -11,17 +11,17 @@ const useMixitup = () => {
       animation: {
         duration: 300,
       },
-    })
+    });
 
     /* Link active work */
-    linkwork = document.querySelectorAll('.work__item')
-    linkwork.forEach((i) => i.addEventListener('click', activeWork))
-  }, [])
+    linkwork = document.querySelectorAll('.work__item');
+    linkwork.forEach((i) => i.addEventListener('click', activeWork));
+  }, []);
 
   function activeWork() {
-    linkwork.forEach((i) => i.classList.remove('active-work'))
-    this.classList.add('active-work')
+    linkwork.forEach((i) => i.classList.remove('active-work'));
+    this.classList.add('active-work');
   }
-}
+};
 
-export default useMixitup
+export default useMixitup;

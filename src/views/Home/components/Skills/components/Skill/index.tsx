@@ -1,17 +1,17 @@
-import { FC } from 'react'
+import { FC } from 'react';
 
 // type
-import type Skill from '@/views/Home/components/Skills/types/skill'
+import type Skill from '@/views/Home/components/Skills/types/skill';
 
 type Props = {
-  skill: Skill
-}
+  skill: Skill;
+};
 
 // component
-import GetIcon from '@/components/GetIcon'
+import GetIcon from '@/components/GetIcon';
 
 const index: FC<Props> = (props) => {
-  const { skill } = props
+  const { skill } = props;
   return (
     <>
       <div className="skills__data">
@@ -22,7 +22,7 @@ const index: FC<Props> = (props) => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default index
+export default index;

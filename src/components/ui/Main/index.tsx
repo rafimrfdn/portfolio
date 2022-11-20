@@ -1,20 +1,20 @@
-import { FC, ReactNode } from 'react'
+import { FC, ReactNode } from 'react';
 
-import './style.scss'
+import './style.scss';
 
 type Props = {
-  className?: string
-  children: ReactNode
-  [x: string]: any
-}
+  className?: string;
+  children: ReactNode;
+  [x: string]: any;
+};
 
 const index: FC<Props> = (props) => {
-  const { className = '', children, ...otherProps } = props
+  const { className = '', children, ...otherProps } = props;
   return (
     <main className={`main ${className}`} {...otherProps}>
       {children}
     </main>
-  )
-}
+  );
+};
 
-export default index
+export default index;

@@ -1,13 +1,13 @@
-import { FC } from 'react'
+import { FC } from 'react';
 
 type Props = {
-  name?: string
-  placeholder?: string
-  className?: string
-  cols?: number
-  rows?: number
-  [x: string]: any
-}
+  name?: string;
+  placeholder?: string;
+  className?: string;
+  cols?: number;
+  rows?: number;
+  [x: string]: any;
+};
 
 const index: FC<Props> = (props) => {
   const {
@@ -17,7 +17,7 @@ const index: FC<Props> = (props) => {
     cols = 30,
     rows = 10,
     ...otherProps
-  } = props
+  } = props;
 
   return (
     <textarea
@@ -29,7 +29,7 @@ const index: FC<Props> = (props) => {
       required
       {...otherProps}
     ></textarea>
-  )
-}
+  );
+};
 
-export default index
+export default index;

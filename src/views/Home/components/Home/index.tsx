@@ -1,23 +1,23 @@
-import { FC } from 'react'
+import { FC } from 'react';
 
 //style
-import './style.scss'
+import './style.scss';
 
 // ui
-import Grid from '@/components/ui/Grid'
-import ButtonLink from '@/ui/ButtonLink'
-import Container from '@/ui/Container'
-import Link from '@/ui/Link'
-import Picture from '@/ui/Picture'
-import Section from '@/ui/Section'
+import Grid from '@/components/ui/Grid';
+import ButtonLink from '@/ui/ButtonLink';
+import Container from '@/ui/Container';
+import Link from '@/ui/Link';
+import Picture from '@/ui/Picture';
+import Section from '@/ui/Section';
 
 //components
-import GetIcon from '@/components/GetIcon'
-import Social from './components/Social'
+import GetIcon from '@/components/GetIcon';
+import Social from './components/Social';
 
 //data
-import ButtonsData from '@/data/home-buttons.json'
-import SocialData from '@/data/home-social.json'
+import ButtonsData from '@/data/home-buttons.json';
+import SocialData from '@/data/home-social.json';
 
 const index: FC = () => {
   return (
@@ -79,7 +79,7 @@ const index: FC = () => {
         </Grid>
       </Container>
     </Section>
-  )
-}
+  );
+};
 
-export default index
+export default index;

@@ -1,22 +1,22 @@
-import { FC } from 'react'
+import { FC } from 'react';
 
 // style
-import './style.scss'
+import './style.scss';
 
 // ui
-import ButtonLink from '@/ui/ButtonLink'
-import Container from '@/ui/Container'
-import Grid from '@/ui/Grid'
-import Picture from '@/ui/Picture'
-import Section from '@/ui/Section'
-import Subtitle from '@/ui/Subtitle'
-import Title from '@/ui/Title'
+import ButtonLink from '@/ui/ButtonLink';
+import Container from '@/ui/Container';
+import Grid from '@/ui/Grid';
+import Picture from '@/ui/Picture';
+import Section from '@/ui/Section';
+import Subtitle from '@/ui/Subtitle';
+import Title from '@/ui/Title';
 
 // component
-import Card from '@/views/Home/components/About/components/Card'
+import Card from '@/views/Home/components/About/components/Card';
 
 // data
-import AboutInfoData from '@/data/about-info.json'
+import AboutInfoData from '@/data/about-info.json';
 
 const index: FC = () => {
   return (
@@ -55,7 +55,7 @@ const index: FC = () => {
         </Grid>
       </Container>
     </Section>
-  )
-}
+  );
+};
 
-export default index
+export default index;

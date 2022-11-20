@@ -1,28 +1,28 @@
-import { FC } from 'react'
+import { FC } from 'react';
 
 // type
-import type Portfolio from '@/views/Home/components/Work/types/portfolio'
+import type Portfolio from '@/views/Home/components/Work/types/portfolio';
 
 // style
-import './style.scss'
+import './style.scss';
 
 // ui
-import Container from '@/ui/Container'
-import Section from '@/ui/Section'
-import Subtitle from '@/ui/Subtitle'
-import Title from '@/ui/Title'
+import Container from '@/ui/Container';
+import Section from '@/ui/Section';
+import Subtitle from '@/ui/Subtitle';
+import Title from '@/ui/Title';
 
 // components
-import Card from '@/views/Home/components/Work/components/Card'
+import Card from '@/views/Home/components/Work/components/Card';
 
 // hook
-import useMixitup from '@/views/Home/components/Work/hooks/useMixitup'
+import useMixitup from '@/views/Home/components/Work/hooks/useMixitup';
 
 // data
-import portfolio from '@/views/Home/components/Work/data/portfolio.json'
+import portfolio from '@/views/Home/components/Work/data/portfolio.json';
 
 const index: FC = () => {
-  useMixitup()
+  useMixitup();
 
   return (
     <>
@@ -58,7 +58,7 @@ const index: FC = () => {
         </Container>
       </Section>
     </>
-  )
-}
+  );
+};
 
-export default index
+export default index;

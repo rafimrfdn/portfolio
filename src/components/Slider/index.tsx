@@ -1,35 +1,35 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-import './style.scss'
+import './style.scss';
 
-import BtnSlider from './BtnSlider'
-import Image from '../ui/Image'
-import Link from '../ui/Link'
-import GetIcon from '../GetIcon'
-import formatDate from '@/utils/formatDate.util'
+import BtnSlider from './BtnSlider';
+import Image from '../ui/Image';
+import Link from '../ui/Link';
+import GetIcon from '../GetIcon';
+import formatDate from '@/utils/formatDate.util';
 
 const Slider = ({ dataSlider, authors }) => {
-  const [slideIndex, setSlideIndex] = useState(1)
+  const [slideIndex, setSlideIndex] = useState(1);
 
   const nextSlide = () => {
     if (slideIndex !== dataSlider.length) {
-      setSlideIndex(slideIndex + 1)
+      setSlideIndex(slideIndex + 1);
     } else if (slideIndex === dataSlider.length) {
-      setSlideIndex(1)
+      setSlideIndex(1);
     }
-  }
+  };
 
   const prevSlide = () => {
     if (slideIndex !== 1) {
-      setSlideIndex(slideIndex - 1)
+      setSlideIndex(slideIndex - 1);
     } else if (slideIndex === 1) {
-      setSlideIndex(dataSlider.length)
+      setSlideIndex(dataSlider.length);
     }
-  }
+  };
 
   const moveDot = (index) => {
-    setSlideIndex(index)
-  }
+    setSlideIndex(index);
+  };
 
   return (
     <div className="container-slider">
@@ -80,7 +80,7 @@ const Slider = ({ dataSlider, authors }) => {
               </div>
             </div>
           </div>
-        )
+        );
       })}
       <BtnSlider moveSlide={nextSlide} direction={'next'} />
       <BtnSlider moveSlide={prevSlide} direction={'prev'} />
@@ -95,7 +95,7 @@ const Slider = ({ dataSlider, authors }) => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Slider
+export default Slider;

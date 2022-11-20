@@ -1,21 +1,21 @@
-import React from 'react'
+import React from 'react';
 
 type Props = {
-  recentPosts: any
-}
+  recentPosts: any;
+};
 
 // style
-import './style.scss'
+import './style.scss';
 
 // ui
-import Image from '@/ui/Image'
-import Link from '@/ui/Link'
+import Image from '@/ui/Image';
+import Link from '@/ui/Link';
 
 // util
-import formatDate from '@/utils/formatDate.util'
+import formatDate from '@/utils/formatDate.util';
 
 const index: React.FC<Props> = (props) => {
-  const { recentPosts } = props
+  const { recentPosts } = props;
 
   return (
     <section className="recentposts__container">
@@ -46,10 +46,10 @@ const index: React.FC<Props> = (props) => {
               </div>
             </Link>
           </div>
-        )
+        );
       })}
     </section>
-  )
-}
+  );
+};
 
-export default index
+export default index;

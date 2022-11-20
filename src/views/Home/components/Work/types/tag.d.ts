@@ -1,6 +1,6 @@
 type Tag = {
-  name: string
-  icon: string
-}
+  name: string;
+  icon: string;
+};
 
-export default Tag
+export default Tag;

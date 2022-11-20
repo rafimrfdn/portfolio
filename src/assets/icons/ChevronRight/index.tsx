@@ -1,10 +1,10 @@
-import { FC } from 'react'
+import { FC } from 'react';
 
 // type
-import type Props from '@/types/icon'
+import type Props from '@/types/icon';
 
 const index: FC<Props> = (props) => {
-  const { fill = 'currentColor', size = '24', ...otherProps } = props
+  const { fill = 'currentColor', size = '24', ...otherProps } = props;
 
   return (
     <svg
@@ -17,7 +17,7 @@ const index: FC<Props> = (props) => {
     >
       <path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path>
     </svg>
-  )
-}
+  );
+};
 
-export default index
+export default index;
