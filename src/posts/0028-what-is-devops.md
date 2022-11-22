@@ -8,7 +8,7 @@ image: /assets/img/blog/0028-what-is-devops/what-is-devops.jpg
 author: MKAbuMattar
 description: 'DevOps is a set of practices that combines software development (Dev) and information technology operations (Ops). It aims to shorten the systems development life cycle and provide continuous delivery with high software quality.'
 prev: how-to-connect-a-ebs-volume-to-an-windows-ec2-instance-using-powershell-gui
-next: how-to-stress-test-your-ec2-instance
+next: undefined
 featured: true
 draft: false
 ---
