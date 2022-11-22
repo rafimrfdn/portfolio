@@ -1,10 +1,10 @@
-import { FC } from 'react'
+import { FC } from 'react';
 
 // type
-import type Props from '@/types/icon'
+import type Props from '@/types/icon';
 
 const index: FC<Props> = (props) => {
-  const { fill = 'currentColor', size = '24', ...otherProps } = props
+  const { fill = 'currentColor', size = '24', ...otherProps } = props;
 
   return (
     <svg
@@ -20,7 +20,7 @@ const index: FC<Props> = (props) => {
         transform="matrix(.1 0 0 -.1 0 300)"
       />
     </svg>
-  )
-}
+  );
+};
 
-export default index
+export default index;

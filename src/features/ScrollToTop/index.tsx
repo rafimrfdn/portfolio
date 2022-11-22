@@ -1,19 +1,19 @@
-import { FC } from 'react'
+import { FC } from 'react';
 
 // type
-import type Props from '@/features/ScrollToTop/types/scrollToTop'
+import type Props from '@/features/ScrollToTop/types/scrollToTop';
 
 // style
-import './style.scss'
+import './style.scss';
 
 // component
-import GetIcon from '@/components/GetIcon'
+import GetIcon from '@/components/GetIcon';
 
 // hook
-import useScrollToTop from '@/features/ScrollToTop/hooks/useScrollToTop'
+import useScrollToTop from '@/features/ScrollToTop/hooks/useScrollToTop';
 
 // util
-import scrollToTop from '@/features/ScrollToTop/utils/scrollToTop.util'
+import scrollToTop from '@/features/ScrollToTop/utils/scrollToTop.util';
 
 const index: FC<Props> = (props) => {
   const {
@@ -23,9 +23,9 @@ const index: FC<Props> = (props) => {
     smooth,
     children,
     ...otherProps
-  } = props
+  } = props;
 
-  const { visible } = useScrollToTop(top)
+  const { visible } = useScrollToTop(top);
 
   return (
     <>
@@ -41,7 +41,7 @@ const index: FC<Props> = (props) => {
         </button>
       )}
     </>
-  )
-}
+  );
+};
 
-export default index
+export default index;

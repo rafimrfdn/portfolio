@@ -1,5 +1,5 @@
 const getYear = () => {
-  return new Date().getFullYear().toString()
-}
+  return new Date().getFullYear().toString();
+};
 
-export default getYear
+export default getYear;

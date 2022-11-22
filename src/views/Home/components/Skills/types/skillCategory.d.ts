@@ -1,9 +1,9 @@
-import type Skill from '@/views/Home/components/Skills/types/skill'
+import type Skill from '@/views/Home/components/Skills/types/skill';
 
 type SkillCategory = {
-  category: string
-  categoryIcon: string
-  skillGroup: Skill[][]
-}
+  category: string;
+  categoryIcon: string;
+  skillGroup: Skill[][];
+};
 
-export default SkillCategory
+export default SkillCategory;

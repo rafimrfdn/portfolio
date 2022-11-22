@@ -9,32 +9,33 @@
           "skillLevel": "Intermediate",
           "skillIcon": "ReactIcon"
         },
+
+        {
+          "skillName": "TypeScript",
+          "skillLevel": "Intermediate",
+          "skillIcon": "TypeScriptIcon"
+        },
+        {
+          "skillName": "CSS",
+          "skillLevel": "Advanced",
+          "skillIcon": "CSS3Icon"
+        }
+      ],
+      [
         {
           "skillName": "NextJS",
           "skillLevel": "Intermediate",
           "skillIcon": "NextJSIcon"
         },
         {
-          "skillName": "TypeScript",
-          "skillLevel": "Intermediate",
-          "skillIcon": "TypeScriptIcon"
-        }
-      ],
-      [
+          "skillName": "JavaScript",
+          "skillLevel": "Advanced",
+          "skillIcon": "JavaScriptIcon"
+        },
         {
           "skillName": "HTML5",
           "skillLevel": "Advanced",
           "skillIcon": "HTML5Icon"
-        },
-        {
-          "skillName": "CSS",
-          "skillLevel": "Advanced",
-          "skillIcon": "CSS3Icon"
-        },
-        {
-          "skillName": "JavaScript",
-          "skillLevel": "Intermediate",
-          "skillIcon": "JavaScriptIcon"
         }
       ]
     ]
@@ -63,7 +64,7 @@
         },
         {
           "skillName": "PHP",
-          "skillLevel": "Basic",
+          "skillLevel": "Intermediate",
           "skillIcon": "PHPIcon"
         }
       ]
@@ -88,7 +89,7 @@
       [
         {
           "skillName": "MySQL",
-          "skillLevel": "Basic",
+          "skillLevel": "Intermediate",
           "skillIcon": "MySQLIcon"
         }
       ]
@@ -101,23 +102,29 @@
       [
         {
           "skillName": "Linux",
-          "skillLevel": "I use Arch BTW",
-          "skillIcon": "ArchLinuxIcon"
+          "skillLevel": "Intermediate",
+          "skillIcon": "LinuxIcon"
         },
         {
           "skillName": "Git",
           "skillLevel": "Advanced",
           "skillIcon": "GitIcon"
-        }
-      ],
-      [
+        },
         {
           "skillName": "Intellij",
           "skillLevel": "Intermediate",
           "skillIcon": "IntellijIcon"
-        },
+        }
+      ],
+      [
         {
-          "skillName": "VS Code",
+          "skillName": "CLI",
+          "skillLevel": "Intermediate",
+          "skillIcon": "TerminalIcon"
+        },
+
+        {
+          "skillName": "VSCode",
           "skillLevel": "Intermediate",
           "skillIcon": "VSCodeIcon"
         }

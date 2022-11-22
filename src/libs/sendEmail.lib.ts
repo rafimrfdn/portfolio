@@ -1,7 +1,7 @@
-import emailjs from '@emailjs/browser'
+import emailjs from '@emailjs/browser';
 
 // util
-import validateForm from '@/utils/validateForm.util'
+import validateForm from '@/utils/validateForm.util';
 
 const sendEmail = async (
   values: { project: any; name: any; email: any; message: any },
@@ -11,29 +11,29 @@ const sendEmail = async (
   toastOptions,
   e: any,
 ) => {
-  e.preventDefault()
+  e.preventDefault();
 
-  const isValid = validateForm(values, toastOptions)
+  const isValid = validateForm(values, toastOptions);
 
   if (isValid === true) {
-    const { project, name, email, message } = values
+    const { project, name, email, message } = values;
 
     const templateParams = {
       project: project,
       name: name,
       email: email,
       message: message,
-    }
+    };
 
     const send = await emailjs.send(
       serviceId,
       templateId,
       templateParams,
       publicKey,
-    )
-    console.log(send)
-    e.target.reset()
+    );
+    console.log(send);
+    e.target.reset();
   }
-}
+};
 
-export default sendEmail
+export default sendEmail;

@@ -1,26 +1,26 @@
-import React from 'react'
+import React from 'react';
 
 type Props = {
-  post: any
-  author: any
-}
+  post: any;
+  author: any;
+};
 
 // style
-import './style.scss'
+import './style.scss';
 
 // ui
-import ButtonLink from '@/ui/ButtonLink'
-import Image from '@/ui/Image'
-import Link from '@/ui/Link'
+import ButtonLink from '@/ui/ButtonLink';
+import Image from '@/ui/Image';
+import Link from '@/ui/Link';
 
 // components
-import GetIcon from '@/components/GetIcon'
+import GetIcon from '@/components/GetIcon';
 
 // util
-import formatDate from '@/utils/formatDate.util'
+import formatDate from '@/utils/formatDate.util';
 
 const index: React.FC<Props> = (props) => {
-  const { post, author } = props
+  const { post, author } = props;
 
   return (
     <article className={'article__post'}>
@@ -83,7 +83,7 @@ const index: React.FC<Props> = (props) => {
                 >
                   {tag}
                 </Link>
-              )
+              );
             })}
           </div>
 
@@ -102,7 +102,7 @@ const index: React.FC<Props> = (props) => {
         </div>
       </div>
     </article>
-  )
-}
+  );
+};
 
-export default index
+export default index;

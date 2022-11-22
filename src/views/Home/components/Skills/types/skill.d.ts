@@ -1,7 +1,7 @@
 type Skill = {
-  skillName: string
-  skillLevel: string
-  skillIcon: string
-}
+  skillName: string;
+  skillLevel: string;
+  skillIcon: string;
+};
 
-export default Skill
+export default Skill;

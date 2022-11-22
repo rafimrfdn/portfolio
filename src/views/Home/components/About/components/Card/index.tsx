@@ -1,16 +1,16 @@
-import { FC } from 'react'
+import { FC } from 'react';
 
 type Props = {
-  icon?: string
-  title?: string
-  subtitle?: string
-}
+  icon?: string;
+  title?: string;
+  subtitle?: string;
+};
 
 // component
-import GetIcon from '@/components/GetIcon'
+import GetIcon from '@/components/GetIcon';
 
 const index: FC<Props> = (props) => {
-  const { icon, title, subtitle } = props
+  const { icon, title, subtitle } = props;
   return (
     <>
       <div className="about__box">
@@ -21,7 +21,7 @@ const index: FC<Props> = (props) => {
         <span className="about__subtitle">{subtitle}</span>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default index
+export default index;

@@ -1,20 +1,20 @@
-import { FC } from 'react'
+import { FC } from 'react';
 
 // type
-import type LinkType from '@/views/Home/components/Work/types/link'
+import type LinkType from '@/views/Home/components/Work/types/link';
 
 type Props = {
-  link: LinkType
-}
+  link: LinkType;
+};
 
 // ui
-import Link from '@/ui/Link'
+import Link from '@/ui/Link';
 
 // component
-import GetIcon from '@/components/GetIcon'
+import GetIcon from '@/components/GetIcon';
 
 const index: FC<Props> = (props) => {
-  const { link } = props
+  const { link } = props;
   return (
     <>
       <Link href={link?.url} className={'work__button'} target="__blank">
@@ -24,7 +24,7 @@ const index: FC<Props> = (props) => {
         </span>
       </Link>
     </>
-  )
-}
+  );
+};
 
-export default index
+export default index;

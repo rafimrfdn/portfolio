@@ -1,6 +1,6 @@
 export { default as AndroidIcon } from '@/icons/Android';
 export { default as AngularJSIcon } from '@/icons/AngularJS';
-export { default as ArchLinuxIcon } from '@/icons/ArchLinux';
+export { default as LinuxIcon } from '@/icons/Linux';
 export { default as AstroIcon } from '@/icons/Astro';
 export { default as AwardIcon } from '@/icons/Award';
 export { default as AWSIcon } from '@/icons/AWS';

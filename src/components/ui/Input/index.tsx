@@ -1,15 +1,15 @@
-import { FC } from 'react'
+import { FC } from 'react';
 
 type Props = {
-  name?: string
-  type?: string
-  placeholder?: string
-  className?: string
-  [x: string]: any
-}
+  name?: string;
+  type?: string;
+  placeholder?: string;
+  className?: string;
+  [x: string]: any;
+};
 
 const index: FC<Props> = (props) => {
-  const { name, type, placeholder, className, ...otherProps } = props
+  const { name, type, placeholder, className, ...otherProps } = props;
 
   return (
     <input
@@ -20,7 +20,7 @@ const index: FC<Props> = (props) => {
       required
       {...otherProps}
     />
-  )
-}
+  );
+};
 
-export default index
+export default index;

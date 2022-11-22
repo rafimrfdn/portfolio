@@ -1,12 +1,17 @@
 [
   {
     "title": "Experience",
-    "subtitle": "+1 Years Working",
+    "subtitle": "+2 Years Working",
     "icon": "AwardIcon"
   },
   {
     "title": "Completed",
     "subtitle": "+10 Projects",
     "icon": "BriefcaseIcon"
+  },
+  {
+    "title": "Awards",
+    "subtitle": "+5 Awards",
+    "icon": "CodeIcon"
   }
 ]

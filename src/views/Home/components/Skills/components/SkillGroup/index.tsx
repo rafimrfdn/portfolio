@@ -1,17 +1,17 @@
-import { FC } from 'react'
+import { FC } from 'react';
 
 // type
-import type SkillInterface from '@/views/Home/components/Skills/types/skill'
+import type SkillInterface from '@/views/Home/components/Skills/types/skill';
 
 type Props = {
-  skills: SkillInterface[]
-}
+  skills: SkillInterface[];
+};
 
 // component
-import Skill from '@/views/Home/components/Skills/components/Skill'
+import Skill from '@/views/Home/components/Skills/components/Skill';
 
 const index: FC<Props> = (props) => {
-  const { skills } = props
+  const { skills } = props;
   return (
     <>
       <div className="skills__group">
@@ -20,7 +20,7 @@ const index: FC<Props> = (props) => {
         ))}
       </div>
     </>
-  )
-}
+  );
+};
 
-export default index
+export default index;

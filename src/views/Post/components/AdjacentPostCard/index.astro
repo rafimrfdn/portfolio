@@ -1,15 +1,15 @@
 ---
-import GetIcon from '@/components/GetIcon'
-import Link from '@/ui/Link'
-import formatDate from '@/utils/formatDate.util'
-import './style.scss'
+import GetIcon from '@/components/GetIcon';
+import Link from '@/ui/Link';
+import formatDate from '@/utils/formatDate.util';
+import './style.scss';
 
 export type Props = {
-  post: any
-  position: string | 'LEFT' | 'RIGHT'
-}
+  post: any;
+  position: string | 'LEFT' | 'RIGHT';
+};
 
-const { post, position } = Astro.props as Props
+const { post, position } = Astro.props as Props;
 ---
 
 <div
@@ -32,15 +32,19 @@ const { post, position } = Astro.props as Props
     <span class={'adjacent__post-link'}></span>
   </Link>
 
-  {position === 'LEFT' && (
-    <div class={'adjacent__post-left--arrow'}>
-      <GetIcon icon={'ChevronLeftIcon'} size={'30'} />
-    </div>
-  )}
+  {
+    position === 'LEFT' && (
+      <div class={'adjacent__post-left--arrow'}>
+        <GetIcon icon={'ChevronLeftIcon'} size={'30'} />
+      </div>
+    )
+  }
 
-  {position === 'RIGHT' && (
-    <div class={'adjacent__post-right--arrow'}>
-      <GetIcon icon={'ChevronRightIcon'} size={'30'} />
-    </div>
-  )}
+  {
+    position === 'RIGHT' && (
+      <div class={'adjacent__post-right--arrow'}>
+        <GetIcon icon={'ChevronRightIcon'} size={'30'} />
+      </div>
+    )
+  }
 </div>

@@ -1,13 +1,13 @@
 ---
-import GetIcon from '@/components/GetIcon'
-import Container from '@/ui/Container'
-import Link from '@/ui/Link'
-import Picture from '@/ui/Picture'
-import Section from '@/ui/Section'
-import Subtitle from '@/ui/Subtitle'
-import Title from '@/ui/Title'
-import linkData from '@/views/LinkTree/data/link.json'
-import './style.scss'
+import GetIcon from '@/components/GetIcon';
+import Container from '@/ui/Container';
+import Link from '@/ui/Link';
+import Picture from '@/ui/Picture';
+import Section from '@/ui/Section';
+import Subtitle from '@/ui/Subtitle';
+import Title from '@/ui/Title';
+import linkData from '@/views/LinkTree/data/link.json';
+import './style.scss';
 ---
 
 <Section class={'linktree'} id={'linktree'}>
@@ -25,26 +25,28 @@ import './style.scss'
     <Title>Mohammad Abu Mattar</Title>
     <nav class={'linktree__container-nav'}>
       <div class={'linktree__container-box'}>
-        {linkData.map((link) => (
-          <Link
-            href={link?.href}
-            className={'linktree__container-box--link'}
-            title={link?.title}
-            target={'__blank'}
-          >
-            <span
-              class={'linktree__container-box--link-icon--box'}
-              style={`--color: ${link?.background}`}
+        {
+          linkData.map((link) => (
+            <Link
+              href={link?.href}
+              className={'linktree__container-box--link'}
+              title={link?.title}
+              target={'__blank'}
             >
-              <GetIcon icon={link.icon} fill={link?.fill} />
-            </span>
+              <span
+                class={'linktree__container-box--link-icon--box'}
+                style={`--color: ${link?.background}`}
+              >
+                <GetIcon icon={link.icon} fill={link?.fill} />
+              </span>
 
-            <div>
-              <h4>{link?.title}</h4>
-              <span>{link?.description}</span>
-            </div>
-          </Link>
-        ))}
+              <div>
+                <h4>{link?.title}</h4>
+                <span>{link?.description}</span>
+              </div>
+            </Link>
+          ))
+        }
       </div>
     </nav>
   </Container>

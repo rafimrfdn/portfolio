@@ -1,16 +1,16 @@
-import { FC } from 'react'
+import { FC } from 'react';
 
 // type
-import type Contact from '@/views/Home/components/Contact/types/contact'
+import type Contact from '@/views/Home/components/Contact/types/contact';
 
 // ui
-import Link from '@/ui/Link'
+import Link from '@/ui/Link';
 
 // component
-import GetIcon from '@/components/GetIcon'
+import GetIcon from '@/components/GetIcon';
 
 const index: FC<Contact> = (props) => {
-  const { name, value, icon, title, url } = props
+  const { name, value, icon, title, url } = props;
   return (
     <>
       <div className="contact__card">
@@ -33,7 +33,7 @@ const index: FC<Contact> = (props) => {
         </Link>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default index
+export default index;

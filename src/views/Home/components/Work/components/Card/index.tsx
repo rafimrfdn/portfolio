@@ -1,23 +1,23 @@
-import { FC } from 'react'
+import { FC } from 'react';
 
 // type
-import type LinkType from '@/views/Home/components/Work/types/link'
-import type Portfolio from '@/views/Home/components/Work/types/portfolio'
-import type TagType from '@/views/Home/components/Work/types/tag'
+import type LinkType from '@/views/Home/components/Work/types/link';
+import type Portfolio from '@/views/Home/components/Work/types/portfolio';
+import type TagType from '@/views/Home/components/Work/types/tag';
 
 type Props = {
-  portfolio: Portfolio
-}
+  portfolio: Portfolio;
+};
 
 // ui
-import Image from '@/ui/Image'
+import Image from '@/ui/Image';
 
 // component
-import Link from '@/views/Home/components/Work/components/Link'
-import Tag from '@/views/Home/components/Work/components/Tag'
+import Link from '@/views/Home/components/Work/components/Link';
+import Tag from '@/views/Home/components/Work/components/Tag';
 
 const index: FC<Props> = (props) => {
-  const { portfolio } = props
+  const { portfolio } = props;
 
   return (
     <>
@@ -43,7 +43,7 @@ const index: FC<Props> = (props) => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default index
+export default index;

@@ -1,17 +1,17 @@
-import { FC } from 'react'
+import { FC } from 'react';
 
 // type
-import type Tag from '@/views/Home/components/Work/types/tag'
+import type Tag from '@/views/Home/components/Work/types/tag';
 
 type Props = {
-  tag: Tag
-}
+  tag: Tag;
+};
 
 // component
-import GetIcon from '@/components/GetIcon'
+import GetIcon from '@/components/GetIcon';
 
 const index: FC<Props> = (props) => {
-  const { tag } = props
+  const { tag } = props;
   return (
     <>
       <div className="work__tag">
@@ -19,7 +19,7 @@ const index: FC<Props> = (props) => {
         {tag?.name}
       </div>
     </>
-  )
-}
+  );
+};
 
-export default index
+export default index;

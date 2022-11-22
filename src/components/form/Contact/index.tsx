@@ -1,55 +1,55 @@
-import { FC, useRef, useState } from 'react'
+import { FC, useRef, useState } from 'react';
 
-import type { ToastOptions } from 'react-toastify'
-import { ToastContainer } from 'react-toastify'
+import type { ToastOptions } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 
 // type
-import type ToastOptionsType from '@/types/toastOptions'
+import type ToastOptionsType from '@/types/toastOptions';
 
 type Values = {
-  name: string
-  value: string
-}
+  name: string;
+  value: string;
+};
 
 type Props = {
-  serviceId: string
-  templateId: string
-  publicKey: string
-}
+  serviceId: string;
+  templateId: string;
+  publicKey: string;
+};
 
 // style
-import 'react-toastify/dist/ReactToastify.css'
-import './style.scss'
+import 'react-toastify/dist/ReactToastify.css';
+import './style.scss';
 
 // ui
-import Button from '@/ui/Button'
-import Input from '@/ui/Input'
-import Label from '@/ui/Label'
-import Textarea from '@/ui/Textarea'
+import Button from '@/ui/Button';
+import Input from '@/ui/Input';
+import Label from '@/ui/Label';
+import Textarea from '@/ui/Textarea';
 
 // component
-import GetIcon from '@/components/GetIcon'
+import GetIcon from '@/components/GetIcon';
 
 // lib
-import sendEmail from '@/libs/sendEmail.lib'
+import sendEmail from '@/libs/sendEmail.lib';
 
 const index: FC<Props> = (props) => {
-  const { serviceId, templateId, publicKey } = props
+  const { serviceId, templateId, publicKey } = props;
 
-  const form = useRef()
+  const form = useRef();
 
   const [values, setValues] = useState({
     project: '',
     name: '',
     email: '',
     message: '',
-  })
+  });
 
   const handleChange = (e: { target: Values }) => {
-    console.log({ [e.target.name]: e.target.value })
+    console.log({ [e.target.name]: e.target.value });
 
-    setValues({ ...values, [e.target.name]: e.target.value })
-  }
+    setValues({ ...values, [e.target.name]: e.target.value });
+  };
 
   const toastOptions: ToastOptions<ToastOptionsType> = {
     position: 'bottom-right',
@@ -57,7 +57,7 @@ const index: FC<Props> = (props) => {
     pauseOnHover: true,
     draggable: true,
     theme: 'dark',
-  }
+  };
 
   return (
     <>
@@ -138,7 +138,7 @@ const index: FC<Props> = (props) => {
 
       <ToastContainer />
     </>
-  )
-}
+  );
+};
 
-export default index
+export default index;

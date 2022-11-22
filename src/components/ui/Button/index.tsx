@@ -1,13 +1,13 @@
-import { FC, ReactNode } from 'react'
+import { FC, ReactNode } from 'react';
 
-import './style.scss'
+import './style.scss';
 
 type Props = {
-  button_type?: string | 'primary' | 'outline'
-  className?: string
-  children?: ReactNode
-  [x: string]: any
-}
+  button_type?: string | 'primary' | 'outline';
+  className?: string;
+  children?: ReactNode;
+  [x: string]: any;
+};
 
 const index: FC<Props> = (props) => {
   const {
@@ -15,7 +15,7 @@ const index: FC<Props> = (props) => {
     className = '',
     children,
     ...otherProps
-  } = props
+  } = props;
 
   return (
     <button
@@ -26,7 +26,7 @@ const index: FC<Props> = (props) => {
     >
       {children}
     </button>
-  )
-}
+  );
+};
 
-export default index
+export default index;

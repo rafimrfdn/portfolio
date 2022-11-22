@@ -1,17 +1,17 @@
-import { FC } from 'react'
+import { FC } from 'react';
 
 type Props = {
-  src: string
-  avif?: string
-  webp?: string
-  png?: string
-  jpeg?: string
-  className?: string
-  [x: string]: any
-}
+  src: string;
+  avif?: string;
+  webp?: string;
+  png?: string;
+  jpeg?: string;
+  className?: string;
+  [x: string]: any;
+};
 
 const index: FC<Props> = (props) => {
-  const { src, avif, webp, png, jpeg, className = '', ...otherProps } = props
+  const { src, avif, webp, png, jpeg, className = '', ...otherProps } = props;
 
   return (
     <picture>
@@ -22,7 +22,7 @@ const index: FC<Props> = (props) => {
 
       <img src={src} className={className} {...otherProps} loading={'lazy'} />
     </picture>
-  )
-}
+  );
+};
 
-export default index
+export default index;

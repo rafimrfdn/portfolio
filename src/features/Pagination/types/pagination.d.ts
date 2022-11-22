@@ -1,6 +1,6 @@
 type Pagination = {
-  page: any
-  url: any
-}
+  page: any;
+  url: any;
+};
 
-export default Pagination
+export default Pagination;
